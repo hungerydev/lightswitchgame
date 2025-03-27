@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=17 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
+[ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
 [ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_hitbox.gd" id="2_8bn17"]
 [ext_resource type="Script" uid="uid://dnv0w1b86nhup" path="res://light.gd" id="3_1ftms"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
@@ -54,6 +55,7 @@ adjustment_enabled = true
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
 transform = Transform3D(0.485252, 0.234006, -0.842479, 0.867692, -0.00998566, 0.497001, 0.107888, -0.972184, -0.207891, 0.337757, 0.438782, 2.9471)
 visible = false
+script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_002" index="0"]
 bones/1/position = Vector3(0.10962, 0.457232, -1.04952)

@@ -14,3 +14,5 @@ func _input(event: InputEvent) -> void:
 		if menu_active == true:
 			get_node("main_menu").queue_free()
 			menu_active = false
+			var event_controller = preload("res://event_controller.tscn").instantiate()
+			add_child(event_controller)
