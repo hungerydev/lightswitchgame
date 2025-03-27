@@ -7,6 +7,7 @@ func _ready() -> void:
 		on = true
 	else:
 		on = false
+	SignalBus._event_1_1.connect(_lights_off)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
@@ -16,3 +17,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			visible = true
 			on = true
+
+func _lights_off() -> void:
+	visible = false
+	on = false

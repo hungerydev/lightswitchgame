@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=18 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
 [ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_hitbox.gd" id="2_8bn17"]
 [ext_resource type="Script" uid="uid://dnv0w1b86nhup" path="res://light.gd" id="3_1ftms"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
+[ext_resource type="Script" uid="uid://y5boe51uyij1" path="res://visibility_component.gd" id="4_1ftms"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
@@ -94,6 +95,9 @@ script = ExtResource("2_8bn17")
 transform = Transform3D(1, 0, -4.60073e-07, 4.47035e-08, 1, -1.19209e-07, 1.78814e-07, 0, 1, -5.96046e-08, 1.61774, 0.074707)
 shape = SubResource("BoxShape3D_km5ld")
 
+[node name="visibilityComponent" type="Node" parent="monsterthing"]
+script = ExtResource("4_1ftms")
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162359, 0.469935, 0.0769624)
 visible = false
@@ -111,7 +115,6 @@ material = SubResource("StandardMaterial3D_vonw3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, 2.04068)
-visible = false
 light_intensity_lumens = 146.45
 light_color = Color(0.453699, 0.384035, 0.149262, 1)
 light_energy = 3.052
