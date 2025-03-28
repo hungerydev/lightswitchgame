@@ -1,6 +1,6 @@
 extends Node
 
-@onready var parent: Entity = self.get_parent()
+@onready var parent: Node3D = self.get_parent()
 
 func _ready() -> void:
 	add_to_group("Component")
