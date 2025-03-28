@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=19 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
 [ext_resource type="Script" uid="uid://y5boe51uyij1" path="res://visibility_component.gd" id="4_1ftms"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
+[ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://position_component.tscn" id="5_0lhry"]
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
 
@@ -54,8 +55,7 @@ adjustment_enabled = true
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
-transform = Transform3D(0.485252, 0.234006, -0.842479, 0.867692, -0.00998566, 0.497001, 0.107888, -0.972184, -0.207891, 0.337757, 0.438782, 2.9471)
-visible = false
+transform = Transform3D(0.469752, -0.511496, -1.11021, 0.944028, -0.0106336, 0.722735, -0.268019, -0.933945, 0.599802, -1.94657, 2.61226, 2.5265)
 script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_002" index="0"]
@@ -97,6 +97,8 @@ shape = SubResource("BoxShape3D_km5ld")
 
 [node name="visibilityComponent" type="Node" parent="monsterthing"]
 script = ExtResource("4_1ftms")
+
+[node name="positionComponent" parent="monsterthing" instance=ExtResource("5_0lhry")]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162359, 0.469935, 0.0769624)
