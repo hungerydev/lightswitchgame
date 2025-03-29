@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _event_1_1() -> void:
 	vcom._set_visibility_on()
-	pcom._set_position(Vector3(-1.94657, 2.61226, 2.5265),Vector3(-0.807752, -1.07546, 1.58206),Vector3(1.08798, 1.06489, 1.45419))
+	pcom._set_position(Vector3(-2.5995, 0.932312, 2.9471),Vector3(-0.418134, -1.17297, 0.318906),Vector3(0.999999, 1, 1))
 
 func _reset() -> void:
 	vcom._set_visibility_off()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=20 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -8,11 +8,12 @@
 [ext_resource type="Script" uid="uid://y5boe51uyij1" path="res://visibility_component.gd" id="4_1ftms"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://position_component.tscn" id="5_0lhry"]
+[ext_resource type="Script" uid="uid://dvml1rxodr3gm" path="res://hitbox_position_size.gd" id="5_4ofsq"]
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
-size = Vector3(1, 1.98868, 1.54615)
+size = Vector3(0.72, 2.259, 0.846)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xgho"]
 albedo_color = Color(0, 0, 0, 1)
@@ -55,7 +56,7 @@ adjustment_enabled = true
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
-transform = Transform3D(0.485251, 0.234004, -0.84248, 0.867692, -0.00998205, 0.497001, 0.10789, -0.972184, -0.207887, 0.337757, 0.438782, 2.9471)
+transform = Transform3D(0.485251, 0.234004, -0.84248, 0.286517, 0.867771, 0.406056, 0.826098, -0.438424, 0.354042, -2.5995, 0.932312, 2.9471)
 script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_002" index="0"]
@@ -89,7 +90,7 @@ bones/23/rotation = Quaternion(-0.0684545, 0.0681259, 0.278443, 0.955585)
 cast_shadow = 3
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
-transform = Transform3D(-0.0598465, 0.202378, -0.977477, 0.992359, 0.117902, -0.0363473, 0.10789, -0.972184, -0.207887, 0.608086, 0.251468, 2.9471)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -3.03967, -0.380207, 1.81116)
 top_level = true
 script = ExtResource("2_8bn17")
 
@@ -98,6 +99,7 @@ transform = Transform3D(1, -4.04563e-06, -1.48544e-05, 4.04562e-06, 1, -6.25893e
 shape = SubResource("BoxShape3D_km5ld")
 
 [node name="positionComponent" parent="monsterthing/monsterHitbox" instance=ExtResource("5_0lhry")]
+script = ExtResource("5_4ofsq")
 
 [node name="visibilityComponent" type="Node" parent="monsterthing"]
 script = ExtResource("4_1ftms")
@@ -121,6 +123,7 @@ material = SubResource("StandardMaterial3D_vonw3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, 2.04068)
+visible = false
 light_intensity_lumens = 146.45
 light_color = Color(0.453699, 0.384035, 0.149262, 1)
 light_energy = 3.052

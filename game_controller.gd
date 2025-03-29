@@ -8,6 +8,7 @@ func _ready() -> void:
 	var menu = preload("res://main_menu.tscn").instantiate()
 	add_child(menu)
 	menu_active = true
+	SignalBus._event_finished.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
