@@ -1,6 +1,8 @@
 extends Node
 
-signal _lightswitch_pressed
+signal _light_on
+
+signal _light_off
 
 signal _monster_clicked
 
