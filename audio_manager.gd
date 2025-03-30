@@ -5,6 +5,8 @@ signal finished
 var amb1: AudioStreamPlayer
 var amb2: AudioStreamPlayer
 
+var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
+
 func _ready() -> void:
 	_start_ambience()
 
@@ -42,8 +44,10 @@ func _play_footsteps() -> Signal:
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()
 	add_child(stream)
-	stream.stream = load("res://audio/Footsteps/fs1.ogg")
-	stream.volume_db = -10
+	var file = "res://audio/Footsteps/" + footstep_fx.pick_random()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -20
 	stream.play()
 	stream.name += str(random_id)
 	await stream.finished
