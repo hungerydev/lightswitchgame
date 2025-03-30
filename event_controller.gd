@@ -13,8 +13,8 @@ func _monster_clicked() -> void:
 func _start_event() -> void:
 	for child in get_children():
 		if child.name == GlobalVariables.current_hour:
-			for event in child.get_children():
-				event._trigger_event_start()
+			var event = child.get_children().pick_random()
+			event._trigger_event_start()
 
 func _event_finished() -> void:
 	await get_tree().create_timer(1).timeout

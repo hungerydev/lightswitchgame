@@ -10,8 +10,9 @@ var mouse_active = false
 @onready var cshape = $CollisionShape3D
 
 func _ready() -> void:
-	SignalBus._event_1_1.connect(_event_1_1)
-	SignalBus._event_finished.connect(_reset)
+	pass
+	#SignalBus._event_1_1.connect(_event_1_1)
+	#SignalBus._event_finished.connect(_reset)
 
 func _on_mouse_entered() -> void:
 	print("Mouse entered")
@@ -27,8 +28,8 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 		print("you clicked on the monster")
 		SignalBus._monster_clicked.emit()
 
-func _event_1_1() -> void:
-	pcom._set_position(Vector3(-3.03967, -0.380207, 1.81116),Vector3(0, 0, 0),Vector3(0.72, 2.259, 0.846))
-	
-func _reset() -> void:
-	pcom._set_position(Vector3(0.608086, 0.251468, 2.9471),Vector3(0.0363553, -1.78035, 1.45254),Vector3(1, 1.98868, 1.54615))
+#func _event_1_1() -> void:
+	#pcom._set_position(Vector3(-3.03967, -0.380207, 1.81116),Vector3(0, 0, 0),Vector3(0.72, 2.259, 0.846))
+	#
+#func _reset() -> void:
+	#pcom._set_position(Vector3(0.608086, 0.251468, 2.9471),Vector3(0.0363553, -1.78035, 1.45254),Vector3(1, 1.98868, 1.54615))

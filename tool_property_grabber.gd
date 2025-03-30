@@ -6,13 +6,18 @@ func _run() -> void:
 	var eds = EditorInterface.get_selection().get_selected_nodes()
 	print(eds)
 	for node in eds:
-		if node is not Entity:
-			var box_size = var_to_str(node.get_child(0).shape.size)
+		print(node.name)
+		if node.name == "monsterthing":
 			var position = var_to_str(node.global_position)
 			var rotation = var_to_str(node.global_rotation)
-			var string = r"pcom._set_position(" + position + "," + rotation + "," + box_size + ")"
-			DisplayServer.clipboard_set(string)
-			print(string)
+			var scale = var_to_str(node.scale)
+			var string1 = r"pcom._set_position(" + position + "," + rotation + "," + scale + ")"
+			var box_size = var_to_str(node.get_child(2).get_child(0).shape.size)
+			var box_position = var_to_str(node.get_child(2).global_position)
+			var box_rotation = var_to_str(node.get_child(2).global_rotation)
+			var string2 = r"hitbox_pcom._set_position(" + box_position + "," + box_rotation + "," + box_size + ")"
+			DisplayServer.clipboard_set(string1 + string2)
+			print(string1 + string2)
 		else:
 			var position = var_to_str(node.global_position)
 			var rotation = var_to_str(node.global_rotation)

@@ -8,6 +8,7 @@ func _ready() -> void:
 	else:
 		on = false
 	SignalBus._event_1_1.connect(_lights_off)
+	SignalBus._event_1_2.connect(_lights_off)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
