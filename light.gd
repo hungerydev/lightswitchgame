@@ -15,9 +15,11 @@ func _input(event: InputEvent) -> void:
 		if on:
 			visible = false
 			on = false
+			AudioManager._switch_ambience_light_off()
 		else:
 			visible = true
 			on = true
+			AudioManager._switch_ambience_light_on()
 
 func _lights_off() -> void:
 	visible = false

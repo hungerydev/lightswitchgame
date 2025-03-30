@@ -4,7 +4,6 @@ var mouse_active = false
 
 @export var restpos = [Vector3(0.608086, 0.251468, 2.9471),Vector3(0.0363553, -1.78035, 1.45254),Vector3(1, 1.98868, 1.54615)]
 
-
 @onready var pcom = $positionComponent
 
 @onready var cshape = $CollisionShape3D
