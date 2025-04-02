@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://byo2h200jhu1h"]
+[gd_scene load_steps=5 format=3 uid="uid://byo2h200jhu1h"]
 
 [ext_resource type="PackedScene" uid="uid://cug7yrq8rmweg" path="res://MainRoom.glb" id="1_o8n0w"]
 [ext_resource type="Script" uid="uid://c3p4yd7qqmhpn" path="res://lightbulbarmature.gd" id="2_cwaam"]
+[ext_resource type="PackedScene" uid="uid://de3ih2lytaco6" path="res://MainRoomNewItems.glb" id="2_hvrlo"]
 [ext_resource type="Script" uid="uid://b2q2qaxq23204" path="res://springbone.gd" id="2_offxe"]
 
 [node name="mainroom" instance=ExtResource("1_o8n0w")]
 
-[node name="FAB converted model" parent="." index="2"]
+[node name="MainRoomNewStuff" parent="." index="0" instance=ExtResource("2_hvrlo")]
+
+[node name="FAB converted model" parent="." index="3"]
 transform = Transform3D(0.0734259, 0, 0, 0, -2.62591e-08, -0.0734258, 0, 0.0734258, -2.62591e-08, -0.129195, 2.53306, 0)
 
-[node name="Armature" parent="." index="3"]
+[node name="Armature" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81482, 2.07401)
 script = ExtResource("2_cwaam")
 
@@ -44,3 +47,6 @@ settings/0/gravity/direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 script = ExtResource("2_offxe")
+
+[node name="Cube" parent="." index="5"]
+visible = false

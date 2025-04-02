@@ -14,7 +14,7 @@ func _start_event() -> void:
 	for child in get_children():
 		if child.name == GlobalVariables.current_hour:
 			#var event = child.get_children().pick_random()
-			var event = child.get_child(0)
+			var event = child.get_child(2)
 			event._trigger_event_start()
 
 func _event_finished() -> void:

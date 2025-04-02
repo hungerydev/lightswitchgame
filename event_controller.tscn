@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvku403rcrta0"]
+[gd_scene load_steps=5 format=3 uid="uid://dvku403rcrta0"]
 
 [ext_resource type="Script" uid="uid://qlq2updibmng" path="res://event_controller.gd" id="1_1ea4a"]
 [ext_resource type="Script" uid="uid://bet1di2qsoc0t" path="res://event_1_1.gd" id="2_jto1k"]
 [ext_resource type="Script" uid="uid://dxnee120sd4ha" path="res://event_1_2.gd" id="3_81h3k"]
+[ext_resource type="Script" uid="uid://cu01eapcl4jwv" path="res://event_1_3.gd" id="4_rofh6"]
 
 [node name="event_controller" type="Node"]
 script = ExtResource("1_1ea4a")
@@ -14,3 +15,6 @@ script = ExtResource("2_jto1k")
 
 [node name="event1_2" type="Node" parent="hour1"]
 script = ExtResource("3_81h3k")
+
+[node name="event1_3" type="Node" parent="hour1"]
+script = ExtResource("4_rofh6")
