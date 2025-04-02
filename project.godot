@@ -21,6 +21,13 @@ SignalBus="*res://signal_bus.gd"
 GlobalVariables="*res://global_variables.gd"
 AudioManager="*res://audio_manager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/size/resizable=false
+
 [input]
 
 right_click={
@@ -47,4 +54,7 @@ DEBUG_play_footsteps={
 [rendering]
 
 lights_and_shadows/use_physical_light_units=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+lights_and_shadows/positional_shadow/atlas_size=16384
