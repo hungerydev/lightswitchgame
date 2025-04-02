@@ -12,12 +12,14 @@ func _run() -> void:
 			var rotation = var_to_str(node.global_rotation)
 			var scale = var_to_str(node.scale)
 			var string1 = r"pcom._set_position(" + position + "," + rotation + "," + scale + ")"
+			var anim = var_to_str(node.get_child(1).assigned_animation)
+			var string2 = r"anim_player.play(" + anim + ")"
 			var box_size = var_to_str(node.get_child(2).get_child(0).shape.size)
 			var box_position = var_to_str(node.get_child(2).global_position)
 			var box_rotation = var_to_str(node.get_child(2).global_rotation)
-			var string2 = r"hitbox_pcom._set_position(" + box_position + "," + box_rotation + "," + box_size + ")"
-			DisplayServer.clipboard_set(string1 + string2)
-			print(string1 + string2)
+			var string3 = r"hitbox_pcom._set_position(" + box_position + "," + box_rotation + "," + box_size + ")"
+			DisplayServer.clipboard_set(string1 + string2 + string3)
+			print(string1 + string2 + string3)
 		else:
 			var position = var_to_str(node.global_position)
 			var rotation = var_to_str(node.global_rotation)
