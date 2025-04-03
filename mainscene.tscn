@@ -184,15 +184,21 @@ environment = SubResource("Environment_0b4ue")
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.162265, 0.341187, -0.925884, -0.00854906, 0.937798, 0.347076, 0.98671, 0.0642337, -0.149255, -10.1186, 5.59173, 1.80089)
+transform = Transform3D(-0.227499, 0.255087, -0.939774, -0.361218, 0.87412, 0.324709, 0.904304, 0.413334, -0.106719, -13.1568, 6.90512, 2.42372)
 visible = false
+light_color = Color(0.631373, 0.968627, 0.901961, 1)
+light_energy = 0.312
+light_indirect_energy = 2.29
+light_volumetric_fog_energy = 40.0
+light_specular = 0.0
 shadow_enabled = true
-shadow_blur = 0.948
-spot_range = 23.8741
-spot_angle = 17.6004
+spot_range = 24.7419
+spot_angle = 15.3565
 
 [connection signal="input_event" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_input_event"]
 [connection signal="mouse_entered" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_mouse_exited"]
 
 [editable path="monsterthing"]
+[editable path="mainroom"]
+[editable path="mainroom/MainRoomNewStuff"]

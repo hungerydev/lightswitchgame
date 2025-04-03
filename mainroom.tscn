@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c3p4yd7qqmhpn" path="res://lightbulbarmature.gd" id="2_cwaam"]
 [ext_resource type="PackedScene" uid="uid://de3ih2lytaco6" path="res://MainRoomNewItems.glb" id="2_hvrlo"]
 [ext_resource type="Script" uid="uid://b2q2qaxq23204" path="res://springbone.gd" id="2_offxe"]
-[ext_resource type="PackedScene" uid="uid://bol7rfyilfwqy" path="res://MainRoomCubeUpdate.glb" id="3_48k3w"]
+[ext_resource type="PackedScene" uid="uid://bpqpkeinanakg" path="res://MainRoomEvenMore.glb" id="3_48k3w"]
 
 [node name="mainroom" instance=ExtResource("1_o8n0w")]
 
@@ -13,7 +13,7 @@
 [node name="Cube" parent="MainRoomNewStuff" index="0"]
 visible = false
 
-[node name="MainRoomCubeUpdate" parent="." index="1" instance=ExtResource("3_48k3w")]
+[node name="MainRoomMoreStuff" parent="." index="1" instance=ExtResource("3_48k3w")]
 
 [node name="FAB converted model" parent="." index="4"]
 transform = Transform3D(0.0734259, 0, 0, 0, -2.62591e-08, -0.0734258, 0, 0.0734258, -2.62591e-08, -0.129195, 2.53306, 0)
