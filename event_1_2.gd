@@ -1,9 +1,9 @@
 extends Node
 
 func _trigger_event_start():
-	SignalBus._event_start.emit(GlobalVariables.EVENT_1_2)
+	sb._event_start.emit(gb.EVENT_1_2)
 	if randi_range(1, 5) == 1:
-		AudioManager._play_bassy()
+		am._play_bassy()
 	if randi_range(1, 5) == 1:
-		AudioManager._play_scrapes()
-	await AudioManager._play_footsteps()
+		am._play_scrapes()
+	await am._play_footsteps()

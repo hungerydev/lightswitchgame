@@ -7,23 +7,23 @@ func _ready() -> void:
 		on = true
 	else:
 		on = false
-	SignalBus._event_start.connect(_lights_off)
-	#SignalBus._event_1_1.connect(_lights_off)
-	#SignalBus._event_1_2.connect(_lights_off)
-	#SignalBus._event_1_3.connect(_lights_off)
+	sb._event_start.connect(_lights_off)
+	#sb._event_1_1.connect(_lights_off)
+	#sb._event_1_2.connect(_lights_off)
+	#sb._event_1_3.connect(_lights_off)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if on:
 			visible = false
 			on = false
-			AudioManager._switch_ambience_light_off()
-			SignalBus._light_off.emit()
+			am._switch_ambience_light_off()
+			sb._light_off.emit()
 		else:
 			visible = true
 			on = true
-			AudioManager._switch_ambience_light_on()
-			SignalBus._light_on.emit()
+			am._switch_ambience_light_on()
+			sb._light_on.emit()
 
 func _lights_off(event) -> void:
 	match event:

@@ -10,8 +10,8 @@ var mouse_active = false
 
 func _ready() -> void:
 	pass
-	#SignalBus._event_1_1.connect(_event_1_1)
-	#SignalBus._event_finished.connect(_reset)
+	#sb._event_1_1.connect(_event_1_1)
+	#sb._event_finished.connect(_reset)
 
 func _on_mouse_entered() -> void:
 	print("Mouse entered")
@@ -25,7 +25,7 @@ func _on_mouse_exited() -> void:
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_pressed("left_click"):
 		print("you clicked on the monster")
-		SignalBus._monster_clicked.emit()
+		sb._monster_clicked.emit()
 
 #func _event_1_1() -> void:
 	#pcom._set_position(Vector3(-3.03967, -0.380207, 1.81116),Vector3(0, 0, 0),Vector3(0.72, 2.259, 0.846))
