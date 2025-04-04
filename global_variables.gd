@@ -1,6 +1,6 @@
 extends Node
 
-var current_hour: String = "hour1"
+var current_hour = hour1
 
-enum {EVENT_1_1, EVENT_1_2, EVENT_1_3, EVENT_1_4, EVENT_1_5, EVENT_1_6, EVENT_1_7,
-EVENT_1_8, EVENT_1_9, EVENT_1_10}
+enum hour1 {EVENT_1, EVENT_2, EVENT_3, EVENT_4, EVENT_5, EVENT_6, EVENT_7,
+EVENT_8, EVENT_9, EVENT_10}

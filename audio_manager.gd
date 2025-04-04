@@ -12,6 +12,7 @@ var stinger_fx: Array = ResourceLoader.list_directory("res://audio/Stingers/")
 
 func _ready() -> void:
 	_start_ambience()
+	sb._event_start.connect(_event_start)
 
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
@@ -42,7 +43,12 @@ func _play_sound(sound: String) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DEBUG_play_footsteps"):
 		_play_sound("uid://mcoulh5ae16j")
-		
+
+func _event_start(event) -> void:
+	match event:
+		_:
+			_play_footsteps()
+
 func _play_footsteps() -> Signal:
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()

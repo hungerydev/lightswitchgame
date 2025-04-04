@@ -11,11 +11,15 @@ func _monster_clicked() -> void:
 	sb._event_finished.emit()
 
 func _start_event() -> void:
-	for child in get_children():
-		if child.name == gb.current_hour:
-			#var event = child.get_children().pick_random()
-			var event = child.get_child(3)
-			event._trigger_event_start()
+	var new_event = gb.current_hour.values().pick_random()
+	print(new_event)
+	sb._event_start.emit(new_event)
+		
+	#for child in get_children():
+		#if child.name == gb.current_hour:
+			##var event = child.get_children().pick_random()
+			#var event = child.get_child(3)
+			#event._trigger_event_start()
 
 func _event_finished() -> void:
 	await get_tree().create_timer(1).timeout

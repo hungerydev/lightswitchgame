@@ -8,30 +8,27 @@ extends Entity
 
 func _ready() -> void:
 	sb._event_start.connect(_event_start)
-	#sb._event_1_1.connect(_event_1_1)
-	#sb._event_1_2.connect(_event_1_2)
-	#sb._event_1_3.connect(_event_1_3)
 	sb._event_finished.connect(_reset)
 	
 func _event_start(event) -> void:
 	match event:
-		gb.EVENT_1_1:
+		gb.hour1.EVENT_1:
 			vcom._set_visibility_on()
 			pcom._set_position(Vector3(-0.151145, 0.431627, 5.0939),Vector3(-0.108582, 1.95281, 0.137062),Vector3(1, 1, 1))
 			anim_player.play("strutting forward")
 			hitbox_pcom._set_position(Vector3(0.0699137, 0.0470754, 3.99988),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
-		gb.EVENT_1_2:
+		gb.hour1.EVENT_2:
 			vcom._set_visibility_on()
 			pcom._set_position(Vector3(-1.25024, 0.431627, 4.18886),Vector3(-0.108582, 0.000953448, 0.137062),Vector3(1, 1, 1))
 			anim_player.play("jawagape")
 			hitbox_pcom._set_position(Vector3(-1.8196, -0.11218, 3.99988),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
-		gb.EVENT_1_3:
+		gb.hour1.EVENT_3:
 			vcom._set_visibility_on()
 			pcom._set_position(Vector3(-2.83174, 0.907496, 0.565283),Vector3(-0.108582, 0.2845, 0.137062),Vector3(1, 1, 1))
 			anim_player.play("turned")
 			hitbox_pcom._set_position(Vector3(-2.91414, -0.11218, -1.36708),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
 		_:
-			print("No position logged for event")
+			print("No position logged for " + str(event))
 	
 
 	#hitbox_pcom._set_position(Vector3(-2.91414, -0.11218, -1.36708),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
