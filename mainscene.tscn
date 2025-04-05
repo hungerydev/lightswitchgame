@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=21 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
 [ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_hitbox.gd" id="2_8bn17"]
 [ext_resource type="Script" uid="uid://dnv0w1b86nhup" path="res://light.gd" id="3_1ftms"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
-[ext_resource type="Script" uid="uid://y5boe51uyij1" path="res://visibility_component.gd" id="4_1ftms"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://position_component.tscn" id="5_0lhry"]
 [ext_resource type="Script" uid="uid://dvml1rxodr3gm" path="res://hitbox_position_size.gd" id="5_4ofsq"]
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
+[ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://visibility_component.tscn" id="6_4p23x"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
+[ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://toy_bunny.gd" id="12_4ofsq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
 size = Vector3(1.25137, 2.33363, 1.38325)
@@ -101,8 +102,7 @@ shape = SubResource("BoxShape3D_km5ld")
 [node name="positionComponent" parent="monsterthing/monsterHitbox" instance=ExtResource("5_0lhry")]
 script = ExtResource("5_4ofsq")
 
-[node name="visibilityComponent" type="Node" parent="monsterthing"]
-script = ExtResource("4_1ftms")
+[node name="visibilityComponent" parent="monsterthing" instance=ExtResource("6_4p23x")]
 
 [node name="positionComponent" parent="monsterthing" instance=ExtResource("5_0lhry")]
 
@@ -209,6 +209,21 @@ script = ExtResource("6_4ofsq")
 environment = SubResource("Environment_0b4ue")
 
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
+
+[node name="SM_ToyBunny" parent="mainroom" index="9"]
+transform = Transform3D(0.126467, 0, -3.45434, 0, 3.45666, 0, 3.45434, 0, 0.126467, 1.86621, 1.31729, -5.93348)
+script = ExtResource("12_4ofsq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyBunny" index="0"]
+transform = Transform3D(-0.0014171, -0.144552, -0.25059, 0.00529218, 0.250539, -0.144552, 0.289245, -0.00529218, 0.00141708, -0.332943, -0.73338, 0.570541)
+light_intensity_lumens = 286.36
+light_color = Color(0.973803, 0, 0.159782, 1)
+light_energy = 0.368
+light_volumetric_fog_energy = 0.0
+
+[node name="positionComponent" parent="mainroom/SM_ToyBunny" index="1" instance=ExtResource("5_0lhry")]
+
+[node name="visibilityComponent" parent="mainroom/SM_ToyBunny" index="2" instance=ExtResource("6_4p23x")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.227499, 0.255087, -0.939774, -0.361218, 0.87412, 0.324709, 0.904304, 0.413334, -0.106719, -13.1568, 6.90512, 2.42372)

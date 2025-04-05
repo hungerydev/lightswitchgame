@@ -48,6 +48,7 @@ func _input(event: InputEvent) -> void:
 		_play_sound("uid://mcoulh5ae16j")
 
 func _event_start(event) -> void:
+	await sb._light_off
 	match event:
 		_:
 			_play_footsteps()

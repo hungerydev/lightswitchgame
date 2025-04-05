@@ -8,9 +8,8 @@ func _ready() -> void:
 	else:
 		on = false
 	sb._event_start.connect(_lights_off)
-	#sb._event_1_1.connect(_lights_off)
-	#sb._event_1_2.connect(_lights_off)
-	#sb._event_1_3.connect(_lights_off)
+	sb._event_finished.connect(_reset)
+
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
@@ -27,6 +26,17 @@ func _input(event: InputEvent) -> void:
 
 func _lights_off(event) -> void:
 	match event:
+		gb.hour1.EVENT_3:
+			visible = false
+			on = false
+			light_color = Color(0.974, 0.0, 0.16)
+			await get_tree().create_timer(0.25).timeout
+			sb._light_off.emit(event)
 		_:
 			visible = false
 			on = false
+			await get_tree().create_timer(0.25).timeout
+			sb._light_off.emit(event)
+
+func _reset() -> void:
+	light_color = Color(0.454, 0.384, 0.149)

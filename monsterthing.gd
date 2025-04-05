@@ -11,6 +11,7 @@ func _ready() -> void:
 	sb._event_finished.connect(_reset)
 	
 func _event_start(event) -> void:
+	await sb._light_off
 	match event:
 		gb.hour1.EVENT_0, gb.hour1.EVENT_9:
 			vcom._set_visibility_on()
