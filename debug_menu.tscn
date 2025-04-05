@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc2e27n8iojo6"]
+
+[ext_resource type="Script" uid="uid://djg6mok3ykndu" path="res://debug_menu.gd" id="1_u3ugm"]
+
+[node name="debug_menu" type="Control"]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_u3ugm")

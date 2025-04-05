@@ -3,6 +3,7 @@ extends Node
 func _ready() -> void:
 	sb._monster_clicked.connect(_monster_clicked)
 	sb._event_finished.connect(_event_finished)
+	sb._manual_event_start.connect(_start_event)
 	await get_tree().create_timer(1).timeout
 	_start_event()
 
@@ -11,9 +12,15 @@ func _monster_clicked() -> void:
 	sb._event_finished.emit()
 
 func _start_event() -> void:
-	var new_event = gb.current_hour.values().pick_random()
-	print(new_event)
-	sb._event_start.emit(new_event)
+	if gb.override_event_target == null:
+		var new_event = gb.current_hour.values().pick_random()
+		print(new_event)
+		sb._event_start.emit(new_event)
+	else:
+		var new_event = gb.current_hour.values().find(gb.override_event_target)
+		print(new_event)
+		print("New event is from an active override")
+		sb._event_start.emit(new_event)
 		
 	#for child in get_children():
 		#if child.name == gb.current_hour:
