@@ -21,7 +21,7 @@ func _on_mouse_exited() -> void:
 	print("Mouse exited")
 	mouse_active = false
 	
-
+@warning_ignore("unused_parameter")
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_pressed("left_click"):
 		print("you clicked on the monster")

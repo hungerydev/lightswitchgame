@@ -1,5 +1,6 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
 signal _light_on
 
 signal _light_off

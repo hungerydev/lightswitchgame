@@ -13,6 +13,7 @@ var stinger_fx: Array = ResourceLoader.list_directory("res://audio/Stingers/")
 func _ready() -> void:
 	_start_ambience()
 	sb._event_start.connect(_event_start)
+	sb._event_finished.connect(_event_end)
 
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
@@ -23,6 +24,8 @@ func _start_ambience() -> void:
 	amb2.stream = load("res://audio/Room Tone and Ambience/rta2.ogg")
 	amb1.volume_db = -100
 	amb2.volume_db = -5
+	amb1.add_to_group("Ambience")
+	amb2.add_to_group("Ambience")
 	amb1.play()
 	amb2.play()
 
@@ -48,6 +51,15 @@ func _event_start(event) -> void:
 	match event:
 		_:
 			_play_footsteps()
+			if randi_range(1,10) == 1:
+				_play_bassy()
+			if randi_range(1,10) == 1:
+				_play_scrapes()
+
+func _event_end() -> void:
+	for child in get_children():
+		if child.is_in_group("SFX"):
+			child.queue_free()
 
 func _play_footsteps() -> Signal:
 	var random_id = randi_range(1,1000000)
@@ -59,6 +71,8 @@ func _play_footsteps() -> Signal:
 	stream.volume_db = -25
 	stream.play()
 	stream.name += str(random_id)
+	stream.add_to_group("Footsteps")
+	stream.add_to_group("SFX")
 	await stream.finished
 	remove_child(stream)
 	return finished
@@ -74,6 +88,8 @@ func _play_bassy() -> void:
 	stream.pitch_scale = 0.5
 	stream.play()
 	stream.name += str(random_id)
+	stream.add_to_group("Bassy")
+	stream.add_to_group("SFX")
 	await stream.finished
 	remove_child(stream)
 
@@ -87,6 +103,8 @@ func _play_scrapes() -> void:
 	stream.volume_db = 5
 	stream.play()
 	stream.name += str(random_id)
+	stream.add_to_group("Scrapes")
+	stream.add_to_group("SFX")
 	await stream.finished
 	remove_child(stream)
 	
@@ -100,5 +118,7 @@ func _play_stingers() -> void:
 	stream.volume_db = -10
 	stream.play()
 	stream.name += str(random_id)
+	stream.add_to_group("Stingers")
+	stream.add_to_group("SFX")
 	await stream.finished
 	remove_child(stream)
