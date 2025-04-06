@@ -5,6 +5,10 @@ signal _light_on
 
 signal _light_off
 
+signal _remote_light_on
+
+signal _remote_light_off
+
 signal _monster_clicked
 
 signal _event_start(event)

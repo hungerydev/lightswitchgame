@@ -19,7 +19,6 @@ func _run() -> void:
 			node.global_position = vec_array[0]
 			node.global_rotation = vec_array[1]
 			node.scale = vec_array[2]
-			node.get_child(1).assigned_animation = 
 		else:
 			var position = var_to_str(node.global_position)
 			var rotation = var_to_str(node.global_rotation)

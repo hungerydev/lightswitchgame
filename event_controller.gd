@@ -7,19 +7,32 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	_start_event()
 
+var tutorial_int: int = 0
 	
 func _monster_clicked() -> void:
 	sb._event_finished.emit()
 
 func _start_event() -> void:
 	if gb.override_event_target == null:
-		var new_event = gb.current_hour.values().pick_random()
-		print(new_event)
-		sb._event_start.emit(new_event)
+		match gb.current_hour:
+			gb.tutorial:
+				if gb.current_hour == gb.tutorial:
+					if len(gb.tutorial.values()) > tutorial_int:
+						var new_event = gb.current_hour.values()[tutorial_int]
+						print(new_event)
+						sb._event_start.emit(new_event)
+						tutorial_int += 1
+					else:
+						gb.current_hour = "hour1"
+						_start_event()
+			gb.hour1:
+				var new_event = gb.event_dict[gb.current_hour].pick_random()
+				print(new_event)
+				sb._event_start.emit(new_event)
 	else:
-		var new_event = gb.current_hour.values().find(gb.override_event_target)
+		var new_event = gb.override_event_target
 		print(new_event)
-		print("New event is from an active override")
+		print(str(new_event) + " is from an active override")
 		sb._event_start.emit(new_event)
 		
 	#for child in get_children():

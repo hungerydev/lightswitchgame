@@ -14,6 +14,8 @@ func _ready() -> void:
 	_start_ambience()
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_event_end)
+	sb._light_on.connect(_switch_ambience_light_on)
+	sb._light_off.connect(_switch_ambience_light_off)
 
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
@@ -50,6 +52,11 @@ func _input(event: InputEvent) -> void:
 func _event_start(event) -> void:
 	await sb._light_off
 	match event:
+		gb.events.EVENT_0_0, gb.events.EVENT_0_1, gb.events.EVENT_0_2, gb.events.EVENT_0_4, gb.events.EVENT_0_5:
+			pass
+		gb.events.EVENT_0_3:
+			await _play_footsteps()
+			sb._event_finished.emit()
 		_:
 			_play_footsteps()
 			if randi_range(1,10) == 1:

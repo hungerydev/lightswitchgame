@@ -7,36 +7,41 @@ func _ready() -> void:
 		on = true
 	else:
 		on = false
-	sb._event_start.connect(_lights_off)
+	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
+	sb._remote_light_on.connect(_lights_on)
+	sb._remote_light_off.connect(_lights_off)
 
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if on:
-			visible = false
-			on = false
-			am._switch_ambience_light_off()
-			sb._light_off.emit()
+			_lights_off()
 		else:
-			visible = true
-			on = true
-			am._switch_ambience_light_on()
-			sb._light_on.emit()
+			_lights_on()
 
-func _lights_off(event) -> void:
+func _event_start(event) -> void:
 	match event:
-		gb.hour1.EVENT_3:
-			visible = false
-			on = false
+		gb.events.EVENT_0_0, gb.events.EVENT_0_1:
+			_lights_on()
+			await sb._event_finished
+			_lights_off()
+		gb.events.EVENT_1_3:
+			_lights_off()
 			light_color = Color(0.974, 0.0, 0.16)
-			await get_tree().create_timer(0.25).timeout
-			sb._light_off.emit(event)
 		_:
-			visible = false
-			on = false
-			await get_tree().create_timer(0.25).timeout
-			sb._light_off.emit(event)
+			_lights_off()
+
+func _lights_on() -> void:
+	visible = true
+	on = true
+	sb._light_on.emit()
+	
+func _lights_off() -> void:
+	visible = false
+	on = false
+	await get_tree().create_timer(0.25).timeout
+	sb._light_off.emit()
 
 func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)

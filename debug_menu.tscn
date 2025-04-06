@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc2e27n8iojo6"]
+[gd_scene load_steps=3 format=3 uid="uid://bc2e27n8iojo6"]
 
 [ext_resource type="Script" uid="uid://djg6mok3ykndu" path="res://debug_menu.gd" id="1_u3ugm"]
+[ext_resource type="PackedScene" uid="uid://di6dstqrfiyvn" path="res://text.glb" id="2_43eqn"]
 
 [node name="debug_menu" type="Control"]
 layout_direction = 2
@@ -13,3 +14,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_u3ugm")
+
+[node name="text_second_try" parent="." instance=ExtResource("2_43eqn")]

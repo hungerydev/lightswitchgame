@@ -36,10 +36,10 @@ func _leave_debug_menu() -> void:
 	$"debug_menu".queue_free()
 	get_tree().paused = false
 
-func _override(hour_section, event, hours) -> void:
+func _override(hour_section, event, hour) -> void:
 	if override_active:
 		override_active = false
 		gb.override_event_target = null
 	if not override_active:
 		override_active = true
-		gb._new_override_target(hour_section, event, hours)
+		gb._new_override_target(hour_section, event, hour)

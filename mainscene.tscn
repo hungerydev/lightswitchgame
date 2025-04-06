@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=49 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -12,6 +12,31 @@
 [ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://visibility_component.tscn" id="6_4p23x"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
 [ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://toy_bunny.gd" id="12_4ofsq"]
+[ext_resource type="Texture2D" uid="uid://ddesgb5e6v01v" path="res://text_sequences/0001.png" id="13_xs15d"]
+[ext_resource type="Texture2D" uid="uid://cdsivg0vhi8u" path="res://text_sequences/0002.png" id="14_4olqe"]
+[ext_resource type="Texture2D" uid="uid://disirohm83orw" path="res://text_sequences/0003.png" id="15_03120"]
+[ext_resource type="Texture2D" uid="uid://du7fjd2pbmixe" path="res://text_sequences/0004.png" id="16_56ibc"]
+[ext_resource type="Texture2D" uid="uid://drj1df7qe4kgg" path="res://text_sequences/0005.png" id="17_pgq4v"]
+[ext_resource type="Texture2D" uid="uid://c26yffgb0nhc6" path="res://text_sequences/0006.png" id="18_iwoyl"]
+[ext_resource type="Texture2D" uid="uid://ddt0y2oto2xuw" path="res://text_sequences/0007.png" id="19_ocswj"]
+[ext_resource type="Texture2D" uid="uid://b1fpemram5gti" path="res://text_sequences/0008.png" id="20_j64eu"]
+[ext_resource type="Texture2D" uid="uid://dqt33p1vjpx5n" path="res://text_sequences/0009.png" id="21_hev8t"]
+[ext_resource type="Texture2D" uid="uid://c0tar0enorqni" path="res://text_sequences/0010.png" id="22_1g5l6"]
+[ext_resource type="Texture2D" uid="uid://buwr008h1fhvw" path="res://text_sequences/0011.png" id="23_x351s"]
+[ext_resource type="Texture2D" uid="uid://bc6qf8nevcnke" path="res://text_sequences/0012.png" id="24_hv5bq"]
+[ext_resource type="Texture2D" uid="uid://b4kx7x2aq85mf" path="res://text_sequences/ill_hide/0001.png" id="25_jbpqh"]
+[ext_resource type="Texture2D" uid="uid://bgwg00x3drbt" path="res://text_sequences/ill_hide/0002.png" id="26_ewkxy"]
+[ext_resource type="Texture2D" uid="uid://dv4tsrquwae7q" path="res://text_sequences/ill_hide/0003.png" id="27_5au1j"]
+[ext_resource type="Texture2D" uid="uid://ctudllb7h2b42" path="res://text_sequences/ill_hide/0004.png" id="28_xkysf"]
+[ext_resource type="Texture2D" uid="uid://mmev7ugm2eel" path="res://text_sequences/no_peeking/0000.png" id="29_dgcol"]
+[ext_resource type="Texture2D" uid="uid://cxovowkf3d3nr" path="res://text_sequences/no_peeking/0001.png" id="30_5of3b"]
+[ext_resource type="Texture2D" uid="uid://c6a004cn1h34k" path="res://text_sequences/no_peeking/0002.png" id="31_7b6ne"]
+[ext_resource type="Texture2D" uid="uid://ds5utklhaivec" path="res://text_sequences/no_peeking/0003.png" id="32_iwfn6"]
+[ext_resource type="Texture2D" uid="uid://cvs4abbl2he82" path="res://text_sequences/okay_ready/0000.png" id="33_8s8ki"]
+[ext_resource type="Texture2D" uid="uid://bhpdqjcaur05" path="res://text_sequences/okay_ready/0001.png" id="34_e2pok"]
+[ext_resource type="Texture2D" uid="uid://c6k4nvnyr16cb" path="res://text_sequences/okay_ready/0002.png" id="35_sya50"]
+[ext_resource type="Texture2D" uid="uid://opmh7eimsxbf" path="res://text_sequences/okay_ready/0003.png" id="36_5gj1e"]
+[ext_resource type="Script" uid="uid://dchvokwxo8rg3" path="res://drawing_sequences.gd" id="44_4olqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
 size = Vector3(1.25137, 2.33363, 1.38325)
@@ -53,6 +78,113 @@ volumetric_fog_anisotropy = -0.15
 volumetric_fog_length = 6.71
 volumetric_fog_detail_spread = 2.19613
 adjustment_enabled = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d76yy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xs15d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4olqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_03120")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_56ibc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pgq4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iwoyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ocswj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_j64eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hev8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1g5l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_x351s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hv5bq")
+}],
+"loop": true,
+"name": &"i_want_to_play",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_jbpqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ewkxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5au1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_xkysf")
+}],
+"loop": true,
+"name": &"ill_hide_you_find",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_dgcol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_5of3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_7b6ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_iwfn6")
+}],
+"loop": true,
+"name": &"no_peeking",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_8s8ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_e2pok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_sya50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5gj1e")
+}],
+"loop": true,
+"name": &"okay_ready",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_312mw"]
+offsets = PackedFloat32Array(0, 0.188755, 0.951807)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qvxvv"]
+gradient = SubResource("Gradient_312mw")
+width = 609
+height = 456
+fill = 2
+fill_from = Vector2(0.493191, 0.717949)
+fill_to = Vector2(0.465812, 0.320513)
 
 [node name="mainscene" type="Node3D"]
 
@@ -212,6 +344,7 @@ environment = SubResource("Environment_0b4ue")
 
 [node name="SM_ToyBunny" parent="mainroom" index="9"]
 transform = Transform3D(0.126467, 0, -3.45434, 0, 3.45666, 0, 3.45434, 0, 0.126467, 1.86621, 1.31729, -5.93348)
+visible = false
 script = ExtResource("12_4ofsq")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyBunny" index="0"]
@@ -236,6 +369,21 @@ light_specular = 0.0
 shadow_enabled = true
 spot_range = 24.7419
 spot_angle = 15.3565
+
+[node name="drawing_sequences" type="AnimatedSprite2D" parent="."]
+position = Vector2(923, 501)
+scale = Vector2(0.55, 0.522222)
+sprite_frames = SubResource("SpriteFrames_d76yy")
+animation = &"okay_ready"
+script = ExtResource("44_4olqe")
+
+[node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
+visibility_layer = 0
+position = Vector2(0.909164, 49.7873)
+scale = Vector2(5.95904, 4.81951)
+color = Color(1, 1, 0.521569, 1)
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_qvxvv")
 
 [connection signal="input_event" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_input_event"]
 [connection signal="mouse_entered" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_mouse_entered"]
