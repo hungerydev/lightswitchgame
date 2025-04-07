@@ -5,6 +5,7 @@ extends Entity
 func _ready() -> void:
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
+	_reset()
 	
 
 func _event_start(event) -> void:
@@ -19,4 +20,5 @@ func _event_start(event) -> void:
 
 func _reset() -> void:
 	pcom._set_position(Vector3(0.355602, 0.69315, 4.76788),Vector3(0, -2.42655, 0),Vector3(3.45666, 3.45666, 3.45666))
+	visible = true
 	light.visible = false

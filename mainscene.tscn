@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=53 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -28,9 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://bgwg00x3drbt" path="res://text_sequences/ill_hide/0002.png" id="26_ewkxy"]
 [ext_resource type="Texture2D" uid="uid://dv4tsrquwae7q" path="res://text_sequences/ill_hide/0003.png" id="27_5au1j"]
 [ext_resource type="Texture2D" uid="uid://ctudllb7h2b42" path="res://text_sequences/ill_hide/0004.png" id="28_xkysf"]
+[ext_resource type="Texture2D" uid="uid://csoqb0rohc03j" path="res://text_sequences/lets_play/0000.png" id="29_8jhwh"]
 [ext_resource type="Texture2D" uid="uid://mmev7ugm2eel" path="res://text_sequences/no_peeking/0000.png" id="29_dgcol"]
+[ext_resource type="Texture2D" uid="uid://dtlu8grde4vb6" path="res://text_sequences/lets_play/0001.png" id="30_1cnxy"]
 [ext_resource type="Texture2D" uid="uid://cxovowkf3d3nr" path="res://text_sequences/no_peeking/0001.png" id="30_5of3b"]
 [ext_resource type="Texture2D" uid="uid://c6a004cn1h34k" path="res://text_sequences/no_peeking/0002.png" id="31_7b6ne"]
+[ext_resource type="Texture2D" uid="uid://bue4sh83jihwe" path="res://text_sequences/lets_play/0002.png" id="31_xs15d"]
+[ext_resource type="Texture2D" uid="uid://cm3hcfyvgtsa0" path="res://text_sequences/lets_play/0003.png" id="32_4olqe"]
 [ext_resource type="Texture2D" uid="uid://ds5utklhaivec" path="res://text_sequences/no_peeking/0003.png" id="32_iwfn6"]
 [ext_resource type="Texture2D" uid="uid://cvs4abbl2he82" path="res://text_sequences/okay_ready/0000.png" id="33_8s8ki"]
 [ext_resource type="Texture2D" uid="uid://bhpdqjcaur05" path="res://text_sequences/okay_ready/0001.png" id="34_e2pok"]
@@ -138,6 +142,23 @@ animations = [{
 "loop": true,
 "name": &"ill_hide_you_find",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_8jhwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_1cnxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xs15d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4olqe")
+}],
+"loop": true,
+"name": &"lets_play",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -374,7 +395,7 @@ spot_angle = 15.3565
 position = Vector2(923, 501)
 scale = Vector2(0.55, 0.522222)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"okay_ready"
+animation = &"lets_play"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]

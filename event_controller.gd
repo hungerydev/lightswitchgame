@@ -23,10 +23,10 @@ func _start_event() -> void:
 						sb._event_start.emit(new_event)
 						tutorial_int += 1
 					else:
-						gb.current_hour = "hour1"
+						gb.current_hour = gb.hour1
 						_start_event()
 			gb.hour1:
-				var new_event = gb.event_dict[gb.current_hour].pick_random()
+				var new_event = gb.current_hour.values().pick_random()
 				print(new_event)
 				sb._event_start.emit(new_event)
 	else:

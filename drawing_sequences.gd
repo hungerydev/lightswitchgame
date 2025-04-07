@@ -29,3 +29,9 @@ func _event_start(event) -> void:
 			visible = true
 			await sb._light_on
 			visible = false
+		gb.events.EVENT_0_5:
+			play("lets_play")
+			visible = true
+			await get_tree().create_timer(4).timeout
+			visible = false
+			sb._event_finished.emit()
