@@ -22,13 +22,15 @@ func _input(event: InputEvent) -> void:
 
 func _event_start(event) -> void:
 	match event:
-		gb.events.EVENT_0_0, gb.events.EVENT_0_1:
+		gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1:
 			_lights_on()
 			await sb._event_finished
 			_lights_off()
-		gb.events.EVENT_1_3:
+		gb.hour1.EVENT_1_4:
 			_lights_off()
-			light_color = Color(0.974, 0.0, 0.16)
+			var result = await sb._rc_result
+			if result:
+				light_color = Color(0.974, 0.0, 0.16)
 		_:
 			_lights_off()
 

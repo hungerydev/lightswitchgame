@@ -11,7 +11,6 @@ func _ready() -> void:
 		hour_section.text = hour
 		for event in gb.event_dict[hour]:
 			hour_section.get_popup().add_item(event)
-			print(event)
 		hour_section.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 		container.add_child(hour_section)
 		hour_section.get_popup().id_pressed.connect(_enable_event_override.bind(hour_section, hour))
@@ -23,6 +22,21 @@ func _ready() -> void:
 	manual_event.text = "Start next event manually"
 	manual_event.pressed.connect(_start_event)
 	container.add_child(manual_event)
+	var perf_chance = Button.new()
+	perf_chance.text = "Enable 100% chance on all RNG"
+	perf_chance.pressed.connect(_enable_perf_chance)
+	container.add_child(perf_chance)
+	var perf_chance_dis = Button.new()
+	perf_chance_dis.text = "Disable 100% chance on all RNG"
+	perf_chance_dis.pressed.connect(_disable_perf_chance)
+	container.add_child(perf_chance_dis)
+	var enable_visual_effect = MenuButton.new()
+	enable_visual_effect.text = "Enable/Disable Visual Effects"
+	for child in gb.vis_effects:
+		enable_visual_effect.get_popup().add_item(child.name)
+	enable_visual_effect.get_popup().id_pressed.connect(_enable_visual_effect.bind(enable_visual_effect))
+	container.add_child(enable_visual_effect)
+		
 
 func _enable_event_override(index, hour_section, hour) -> void:
 	var new_event = hour_section.get_popup().get_item_text(index)
@@ -34,3 +48,12 @@ func _disable_override() -> void:
 
 func _start_event() -> void:
 	sb._manual_event_start.emit()
+	
+func _enable_perf_chance() -> void:
+	gf.perf_chance = true
+
+func _disable_perf_chance() -> void:
+	gf.perf_chance = false
+	
+func _enable_visual_effect(id, node) -> void:
+	gb.vis_effects.get(id).visible = not gb.vis_effects.get(id).visible

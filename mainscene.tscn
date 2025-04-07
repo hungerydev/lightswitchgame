@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=62 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -11,10 +11,16 @@
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
 [ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://visibility_component.tscn" id="6_4p23x"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
+[ext_resource type="Script" uid="uid://3j2wmiq7lm7w" path="res://camera_3d.gd" id="8_1cnxy"]
+[ext_resource type="Script" uid="uid://crntlxukx8fpk" path="res://visual_effects.gd" id="10_56ibc"]
+[ext_resource type="Shader" uid="uid://bo8plruv0mrxt" path="res://crt.gdshader" id="11_xs15d"]
 [ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://toy_bunny.gd" id="12_4ofsq"]
+[ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://crt.gd" id="12_4olqe"]
+[ext_resource type="Shader" uid="uid://dpaqayp4xj731" path="res://glitch.gdshader" id="13_03120"]
 [ext_resource type="Texture2D" uid="uid://ddesgb5e6v01v" path="res://text_sequences/0001.png" id="13_xs15d"]
 [ext_resource type="Texture2D" uid="uid://cdsivg0vhi8u" path="res://text_sequences/0002.png" id="14_4olqe"]
 [ext_resource type="Texture2D" uid="uid://disirohm83orw" path="res://text_sequences/0003.png" id="15_03120"]
+[ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://vignette.gdshader" id="15_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://du7fjd2pbmixe" path="res://text_sequences/0004.png" id="16_56ibc"]
 [ext_resource type="Texture2D" uid="uid://drj1df7qe4kgg" path="res://text_sequences/0005.png" id="17_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://c26yffgb0nhc6" path="res://text_sequences/0006.png" id="18_iwoyl"]
@@ -72,6 +78,44 @@ shader_parameter/edge_softness = 0.482
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ainy"]
 shader = ExtResource("5_0ibrq")
 shader_parameter/noise_intensity = 0.026
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4olqe"]
+shader = ExtResource("11_xs15d")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.265
+shader_parameter/grille_opacity = 0.337
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.024
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.338
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56ibc"]
+shader = ExtResource("13_03120")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwoyl"]
+shader = ExtResource("15_pgq4v")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.605
 
 [sub_resource type="Environment" id="Environment_0b4ue"]
 fog_light_color = Color(0, 0, 0, 1)
@@ -306,9 +350,10 @@ omni_attenuation = 0.619
 script = ExtResource("3_1ftms")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.97963, -6.63983)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.97963, -6.63983)
 fov = 37.8493
 far = 13.82
+script = ExtResource("8_1cnxy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.34651e-07, 0.0173228, -1.54022)
@@ -317,7 +362,9 @@ mesh = SubResource("QuadMesh_1ainy")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_n6hdu")
 
-[node name="Control" type="Control" parent="."]
+[node name="positionComponent" parent="Camera3D" instance=ExtResource("5_0lhry")]
+
+[node name="VisualEffects" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -328,8 +375,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
+script = ExtResource("10_56ibc")
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="noise" type="ColorRect" parent="VisualEffects"]
 material = SubResource("ShaderMaterial_1ainy")
 layout_mode = 1
 anchors_preset = 15
@@ -340,7 +388,46 @@ grow_vertical = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="Control"]
+[node name="CRT" type="ColorRect" parent="VisualEffects"]
+visible = false
+material = SubResource("ShaderMaterial_4olqe")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("12_4olqe")
+
+[node name="glitch" type="ColorRect" parent="VisualEffects"]
+visible = false
+material = SubResource("ShaderMaterial_56ibc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("12_4olqe")
+
+[node name="vignette" type="ColorRect" parent="VisualEffects"]
+visible = false
+material = SubResource("ShaderMaterial_iwoyl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("12_4olqe")
+
+[node name="BoxContainer" type="BoxContainer" parent="VisualEffects"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -349,7 +436,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control/BoxContainer"]
+[node name="Button" type="Button" parent="VisualEffects/BoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3

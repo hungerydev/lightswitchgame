@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 sb="*res://signal_bus.gd"
 gb="*res://global_variables.gd"
 am="*res://audio_manager.gd"
+gf="*res://global_functions.gd"
 
 [display]
 
