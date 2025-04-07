@@ -25,6 +25,7 @@ func _start_event() -> void:
 					else:
 						gb.current_hour = gb.hour1
 						_start_event()
+						tutorial_int = 0
 			gb.hour1:
 				var new_event = gb.current_hour.values().pick_random()
 				print(new_event)

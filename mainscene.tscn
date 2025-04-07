@@ -125,6 +125,7 @@ volumetric_fog_emission_energy = 0.0
 volumetric_fog_anisotropy = -0.15
 volumetric_fog_length = 6.71
 volumetric_fog_detail_spread = 2.19613
+volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d76yy"]
@@ -417,6 +418,19 @@ script = ExtResource("12_4olqe")
 [node name="vignette" type="ColorRect" parent="VisualEffects"]
 visible = false
 material = SubResource("ShaderMaterial_iwoyl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("12_4olqe")
+
+[node name="vignette2" type="ColorRect" parent="VisualEffects"]
+visible = false
+texture_repeat = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
