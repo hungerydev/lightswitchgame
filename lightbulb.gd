@@ -11,6 +11,7 @@ func _ready() -> void:
 	sb._event_finished.connect(_reset)
 	sb._remote_light_on.connect(_lights_on)
 	sb._remote_light_off.connect(_lights_off)
+	sb._hour_changed.connect(_hour_changed)
 
 	
 func _input(event: InputEvent) -> void:
@@ -19,6 +20,15 @@ func _input(event: InputEvent) -> void:
 			_lights_off()
 		else:
 			_lights_on()
+
+func _hour_changed(hour) -> void:
+	match hour:
+		gb.tutorial:
+			set_process_input(true)
+		gb.hour1:
+			set_process_input(true)
+		gb.hour2:
+			set_process_input(false)
 
 func _event_start(event) -> void:
 	match event:
@@ -32,7 +42,10 @@ func _event_start(event) -> void:
 			if result:
 				light_color = Color(0.974, 0.0, 0.16)
 		_:
-			_lights_off()
+			if event in gb.hour1.values():
+				_lights_off()
+			elif event in gb.hour2.values():
+				pass
 
 func _lights_on() -> void:
 	visible = true

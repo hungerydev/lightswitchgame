@@ -14,6 +14,7 @@ func _ready() -> void:
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if menu_active == true:
@@ -26,6 +27,8 @@ func _input(event: InputEvent) -> void:
 			_leave_debug_menu()
 		else:
 			_instantiate_debug_menu()
+
+
 
 func _instantiate_debug_menu() -> void:
 	get_tree().paused = true

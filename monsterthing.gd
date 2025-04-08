@@ -48,6 +48,11 @@ func _event_start(event) -> void:
 			pcom._set_position(Vector3(2.72262, -0.138755, -0.594696),Vector3(0.0190843, 0.815865, 0.129425),Vector3(1, 1, 1))
 			anim_player.play("turned")
 			hitbox_pcom._set_position(Vector3(2.72956, -0.963291, -1.36708),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+		gb.hour2.EVENT_2_1:
+			vcom._set_visibility_on()
+			pcom._set_position(Vector3(3.85314, 0.726065, 0.727899),Vector3(-0.280792, -0.0970432, 0.318312),Vector3(1.20673, 1.34781, 1.06431))
+			anim_player.play("turned")
+			hitbox_pcom._set_position(Vector3(2.42698, 0.771861, -0.587452),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
 		_:
 			print("No position logged for " + str(event))
 

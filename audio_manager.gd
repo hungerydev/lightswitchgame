@@ -52,9 +52,9 @@ func _input(event: InputEvent) -> void:
 func _event_start(event) -> void:
 	await sb._light_off
 	match event:
-		gb.events.EVENT_0_0, gb.events.EVENT_0_1, gb.events.EVENT_0_2, gb.events.EVENT_0_4, gb.events.EVENT_0_5:
+		gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1, gb.tutorial.EVENT_0_2, gb.tutorial.EVENT_0_4, gb.tutorial.EVENT_0_5:
 			pass
-		gb.events.EVENT_0_3:
+		gb.tutorial.EVENT_0_3:
 			await _play_footsteps()
 			sb._event_finished.emit()
 		_:

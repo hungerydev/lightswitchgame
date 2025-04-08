@@ -66,7 +66,7 @@ func _enable_perf_chance() -> void:
 func _disable_perf_chance() -> void:
 	gf.perf_chance = false
 	
-func _enable_visual_effect(id, node) -> void:
+func _enable_visual_effect(id, _node) -> void:
 	gb.vis_effects.get(id).visible = not gb.vis_effects.get(id).visible
 
 func _hour_start(id, hour_start) -> void:

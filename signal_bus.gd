@@ -20,3 +20,5 @@ signal _event_override(event)
 signal _manual_event_start
 
 signal _rc_result(bool)
+
+signal _hour_changed(hour)

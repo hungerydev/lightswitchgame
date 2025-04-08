@@ -1,9 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=64 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
 [ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_hitbox.gd" id="2_8bn17"]
-[ext_resource type="Script" uid="uid://dnv0w1b86nhup" path="res://light.gd" id="3_1ftms"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://position_component.tscn" id="5_0lhry"]
@@ -11,17 +10,20 @@
 [ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
 [ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://visibility_component.tscn" id="6_4p23x"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
+[ext_resource type="Script" uid="uid://3rsp3dvs2g7l" path="res://flashlight.gd" id="7_j64eu"]
 [ext_resource type="Script" uid="uid://3j2wmiq7lm7w" path="res://camera_3d.gd" id="8_1cnxy"]
 [ext_resource type="Script" uid="uid://crntlxukx8fpk" path="res://visual_effects.gd" id="10_56ibc"]
 [ext_resource type="Shader" uid="uid://bo8plruv0mrxt" path="res://crt.gdshader" id="11_xs15d"]
 [ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://toy_bunny.gd" id="12_4ofsq"]
-[ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://crt.gd" id="12_4olqe"]
+[ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://random_vis_fx.gd" id="12_4olqe"]
 [ext_resource type="Shader" uid="uid://dpaqayp4xj731" path="res://glitch.gdshader" id="13_03120"]
 [ext_resource type="Texture2D" uid="uid://ddesgb5e6v01v" path="res://text_sequences/0001.png" id="13_xs15d"]
 [ext_resource type="Texture2D" uid="uid://cdsivg0vhi8u" path="res://text_sequences/0002.png" id="14_4olqe"]
 [ext_resource type="Texture2D" uid="uid://disirohm83orw" path="res://text_sequences/0003.png" id="15_03120"]
-[ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://vignette.gdshader" id="15_pgq4v"]
+[ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://vignette_black.gdshader" id="15_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://du7fjd2pbmixe" path="res://text_sequences/0004.png" id="16_56ibc"]
+[ext_resource type="Script" uid="uid://vqlrt3t7rurw" path="res://vignette_white.gd" id="16_iwoyl"]
+[ext_resource type="Shader" uid="uid://bs3vn27f5n721" path="res://vignette_white.gdshader" id="16_ocswj"]
 [ext_resource type="Texture2D" uid="uid://drj1df7qe4kgg" path="res://text_sequences/0005.png" id="17_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://c26yffgb0nhc6" path="res://text_sequences/0006.png" id="18_iwoyl"]
 [ext_resource type="Texture2D" uid="uid://ddt0y2oto2xuw" path="res://text_sequences/0007.png" id="19_ocswj"]
@@ -47,15 +49,10 @@
 [ext_resource type="Texture2D" uid="uid://c6k4nvnyr16cb" path="res://text_sequences/okay_ready/0002.png" id="35_sya50"]
 [ext_resource type="Texture2D" uid="uid://opmh7eimsxbf" path="res://text_sequences/okay_ready/0003.png" id="36_5gj1e"]
 [ext_resource type="Script" uid="uid://dchvokwxo8rg3" path="res://drawing_sequences.gd" id="44_4olqe"]
+[ext_resource type="PackedScene" uid="uid://y820bfjiv4cb" path="res://lightbulb_lights.tscn" id="50_j64eu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
 size = Vector3(1.25137, 2.33363, 1.38325)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xgho"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
-albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -113,9 +110,15 @@ shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iwoyl"]
 shader = ExtResource("15_pgq4v")
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.605
+shader_parameter/alpha = 0.83
+shader_parameter/inner_radius = 0.41
+shader_parameter/outer_radius = 2.26
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j64eu"]
+shader = ExtResource("16_ocswj")
+shader_parameter/alpha = 0.83
+shader_parameter/inner_radius = 0.08
+shader_parameter/outer_radius = 4.325
 
 [sub_resource type="Environment" id="Environment_0b4ue"]
 fog_light_color = Color(0, 0, 0, 1)
@@ -255,7 +258,7 @@ fill_to = Vector2(0.465812, 0.320513)
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
-transform = Transform3D(0.946645, -0.161272, 0.279025, 0.135829, 0.984788, 0.108369, -0.292257, -0.0646872, 0.95415, -2.83174, 0.907496, 0.565283)
+transform = Transform3D(1.13765, -0.431421, -0.0995647, 0.402418, 1.22123, 0.277117, 0.00171393, -0.372891, 1.02276, 3.85314, 0.726065, 0.727899)
 script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_003" index="0"]
@@ -289,7 +292,7 @@ bones/23/rotation = Quaternion(-0.0684545, 0.0681259, 0.278443, 0.955585)
 cast_shadow = 3
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -2.55667, -0.30804, 4.11227)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 2.42698, 0.771861, -0.587452)
 top_level = true
 script = ExtResource("2_8bn17")
 
@@ -304,51 +307,17 @@ script = ExtResource("5_4ofsq")
 
 [node name="positionComponent" parent="monsterthing" instance=ExtResource("5_0lhry")]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162359, 0.469935, 0.0769624)
-visible = false
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170181, 0, 0)
-size = Vector3(3.17, 2.04, 3.02)
-material = SubResource("StandardMaterial3D_5xgho")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0695724)
-operation = 2
-size = Vector3(2.67805, 1.73987, 3.15184)
-material = SubResource("StandardMaterial3D_vonw3")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, 2.34242)
-light_intensity_lumens = 412.89
-light_temperature = 6720.0
+[node name="flashlight" type="SpotLight3D" parent="."]
+process_mode = 1
+transform = Transform3D(-0.729064, -0.342831, -0.592395, -0.216744, 0.93661, -0.275287, 0.649221, -0.0723035, -0.757156, 0, 1.05635, -3.771)
+light_intensity_lumens = 233.57
 light_color = Color(0.453699, 0.384035, 0.149262, 1)
-light_energy = 0.814
-light_indirect_energy = 7.683
-light_volumetric_fog_energy = 47.29
-light_specular = 0.015
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.705
 shadow_enabled = true
-shadow_bias = 0.115
-shadow_normal_bias = 0.0
-shadow_transmittance_bias = -13.369
-shadow_blur = 0.484
-distance_fade_enabled = true
-distance_fade_shadow = 94.04
-omni_range = 4.98485
-omni_attenuation = 0.619
-script = ExtResource("3_1ftms")
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.82689, -0.912153)
-light_color = Color(0.893171, 0.78932, 0.4549, 1)
-light_energy = 10.282
-light_volumetric_fog_energy = 0.0
-light_cull_mask = 4294967294
-shadow_enabled = true
-omni_range = 5.23452
-omni_attenuation = 0.619
-script = ExtResource("3_1ftms")
+spot_range = 10.9077
+spot_angle = 11.2417
+script = ExtResource("7_j64eu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.97963, -6.63983)
@@ -415,7 +384,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("12_4olqe")
 
-[node name="vignette" type="ColorRect" parent="VisualEffects"]
+[node name="vignette_black" type="ColorRect" parent="VisualEffects"]
 visible = false
 material = SubResource("ShaderMaterial_iwoyl")
 layout_mode = 1
@@ -428,9 +397,9 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("12_4olqe")
 
-[node name="vignette2" type="ColorRect" parent="VisualEffects"]
+[node name="vignette_white" type="ColorRect" parent="VisualEffects"]
 visible = false
-texture_repeat = 3
+material = SubResource("ShaderMaterial_j64eu")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -439,7 +408,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-script = ExtResource("12_4olqe")
+script = ExtResource("16_iwoyl")
 
 [node name="BoxContainer" type="BoxContainer" parent="VisualEffects"]
 visible = false
@@ -507,6 +476,8 @@ color = Color(1, 1, 0.521569, 1)
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_qvxvv")
 
+[node name="LightbulbLights" parent="." instance=ExtResource("50_j64eu")]
+
 [connection signal="input_event" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_input_event"]
 [connection signal="mouse_entered" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="monsterthing/monsterHitbox" to="monsterthing/monsterHitbox" method="_on_mouse_exited"]
@@ -514,3 +485,4 @@ texture = SubResource("GradientTexture2D_qvxvv")
 [editable path="monsterthing"]
 [editable path="mainroom"]
 [editable path="mainroom/MainRoomNewStuff"]
+[editable path="LightbulbLights"]
