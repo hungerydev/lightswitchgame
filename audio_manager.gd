@@ -51,18 +51,26 @@ func _input(event: InputEvent) -> void:
 
 func _event_start(event) -> void:
 	await sb._light_off
-	match event:
-		gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1, gb.tutorial.EVENT_0_2, gb.tutorial.EVENT_0_4, gb.tutorial.EVENT_0_5:
-			pass
-		gb.tutorial.EVENT_0_3:
-			await _play_footsteps()
-			sb._event_finished.emit()
-		_:
-			_play_footsteps()
-			if randi_range(1,10) == 1:
-				_play_bassy()
-			if randi_range(1,10) == 1:
-				_play_scrapes()
+	match gb.current_hour:
+		gb.tutorial:
+			match event:
+				gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1, gb.tutorial.EVENT_0_2, gb.tutorial.EVENT_0_4, gb.tutorial.EVENT_0_5:
+					pass
+				gb.tutorial.EVENT_0_3:
+					await _play_footsteps()
+					sb._event_finished.emit()
+		gb.hour1, gb.hour2:
+			match event:
+				_:
+					_play_footsteps()
+					if randi_range(1,10) == 1:
+						_play_bassy()
+					if randi_range(1,10) == 1:
+						_play_scrapes()
+		gb.hour3:
+			match event:
+				_:
+					pass
 
 func _event_end() -> void:
 	for child in get_children():

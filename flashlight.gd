@@ -28,6 +28,8 @@ func _hour_changed(hour) -> void:
 			set_process_input(false)
 		gb.hour2:
 			set_process_input(true)
+		gb.hour3:
+			set_process_input(false)
 
 func _process(_delta: float) -> void:
 	var m_pos = get_viewport().get_mouse_position()

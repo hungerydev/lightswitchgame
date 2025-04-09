@@ -3,10 +3,7 @@ extends OmniLight3D
 var on: bool = true
 
 func _ready() -> void:
-	if visible:
-		on = true
-	else:
-		on = false
+	on = visible
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
 	sb._remote_light_on.connect(_lights_on)
@@ -28,6 +25,8 @@ func _hour_changed(hour) -> void:
 		gb.hour1:
 			set_process_input(true)
 		gb.hour2:
+			set_process_input(false)
+		gb.hour3:
 			set_process_input(false)
 
 func _event_start(event) -> void:

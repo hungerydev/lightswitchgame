@@ -1,5 +1,7 @@
 extends Node
 
+var difficulty: float = 1.0
+
 var current_hour = tutorial:
 	get:
 		return current_hour
@@ -17,10 +19,15 @@ enum hour2 {EVENT_2_1 = 201,
 EVENT_2_2, EVENT_2_3, EVENT_2_4, EVENT_2_5, EVENT_2_6, EVENT_2_7, EVENT_2_8, EVENT_2_9,
 EVENT_2_10}
 
+enum hour3 {EVENT_3_1 = 301, 
+EVENT_3_2, EVENT_3_3, EVENT_3_4, EVENT_3_5, EVENT_3_6, EVENT_3_7, EVENT_3_8, EVENT_3_9, 
+EVENT_3_10}
+
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
-	"hour2": hour2
+	"hour2": hour2,
+	"hour3": hour3
 }
 
 
