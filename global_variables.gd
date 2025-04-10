@@ -9,6 +9,13 @@ var current_hour = tutorial:
 		current_hour = new_hour
 		sb._hour_changed.emit(current_hour)
 
+var fail: bool = false:
+	get:
+		return fail
+	set(new_value):
+		fail = new_value
+		sb._fail.emit()
+
 enum tutorial {EVENT_0_0 = 0, EVENT_0_1, EVENT_0_2, EVENT_0_3, EVENT_0_4, EVENT_0_5} 
 
 enum hour1 {EVENT_1_1 = 101,

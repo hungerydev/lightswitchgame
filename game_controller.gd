@@ -6,6 +6,7 @@ var override_active: bool = false
 
 func _ready() -> void:
 	var mainscene = preload("res://mainscene.tscn").instantiate()
+	mainscene.add_to_group("Main Scene")
 	add_child(mainscene)
 	var menu = preload("res://main_menu.tscn").instantiate()
 	add_child(menu)
@@ -13,6 +14,7 @@ func _ready() -> void:
 	sb._event_finished.emit()
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
+	sb._fail.connect(_fail)
 
 
 func _input(event: InputEvent) -> void:
@@ -28,7 +30,11 @@ func _input(event: InputEvent) -> void:
 		else:
 			_instantiate_debug_menu()
 
-
+func _fail() -> void:
+	await sb._jumpscare_finished
+	for child in get_children():
+		if child.is_in_group("Main Scene"):
+			child.queue_free()
 
 func _instantiate_debug_menu() -> void:
 	get_tree().paused = true

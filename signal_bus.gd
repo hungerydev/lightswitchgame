@@ -24,3 +24,11 @@ signal _rc_result(bool)
 signal _hour_changed(hour)
 
 signal _lightning_strike
+
+signal _fail
+
+signal _time_fail
+
+signal _jumpscare_finished
+
+signal _monster_inactive

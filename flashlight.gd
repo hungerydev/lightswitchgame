@@ -6,6 +6,7 @@ var on: bool = false
 
 func _ready() -> void:
 	on = visible
+	set_process_input(false)
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
 	sb._remote_light_on.connect(_lights_on)

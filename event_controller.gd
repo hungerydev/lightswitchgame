@@ -22,10 +22,12 @@ func _start_event() -> void:
 						print(new_event)
 						sb._event_start.emit(new_event)
 						tutorial_int += 1
+						gb.difficulty = 10.0
 					else:
 						gb.current_hour = gb.hour1
 						_start_event()
 						tutorial_int = 0
+						gb.difficulty = 1.0
 			gb.hour1:
 				var new_event = gb.current_hour.values().pick_random()
 				print(new_event)

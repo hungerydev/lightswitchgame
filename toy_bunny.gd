@@ -17,7 +17,7 @@ func _event_start(event) -> void:
 				pcom._set_position(Vector3(1.86621, 1.31729, -5.93348),Vector3(0, -1.5342, 0),Vector3(3.45666, 3.45666, 3.45666))
 				await sb._light_on
 				light.visible = true
-				am._play_stingers()
+				am._play_stingers("none")
 			else:
 				sb._rc_result.emit(false)
 			
