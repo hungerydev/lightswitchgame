@@ -56,7 +56,7 @@ func _event_start(event) -> void:
 			if event in gb.hour1.values():
 				_lights_off()
 			elif event in gb.hour2.values():
-				pass
+				_lights_off()
 			if event in gb.hour3.values():
 				_lights_off()
 

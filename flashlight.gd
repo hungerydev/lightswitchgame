@@ -6,6 +6,8 @@ var on: bool = false
 
 var control: bool = false
 
+var flicker: bool = false
+
 func _ready() -> void:
 	on = visible
 	set_process_input(false)
@@ -14,6 +16,7 @@ func _ready() -> void:
 	sb._remote_light_on.connect(_lights_on)
 	sb._remote_light_off.connect(_lights_off)
 	sb._hour_changed.connect(_hour_changed)
+	sb._time_fail.connect(_time_fail)
 
 
 
@@ -39,6 +42,8 @@ func _process(_delta: float) -> void:
 				_lights_off()
 			else:
 				_lights_on()
+	if flicker:
+		light_energy = randf_range(0,1.5)
 
 func _event_start(_event) -> void:
 	match gb.current_hour:
@@ -50,9 +55,16 @@ func _event_start(_event) -> void:
 			_lights_off()
 
 func _lights_on() -> void:
-	visible = true
-	on = true
-	sb._light_on.emit()
+	if not am.monster_active:
+		visible = true
+		on = true
+		sb._light_on.emit()
+	elif not gb.death:
+		visible = true
+		on = true
+		sb._light_on.emit()
+	else:
+		sb._fail.emit()
 	
 func _lights_off() -> void:
 	visible = false
@@ -62,3 +74,18 @@ func _lights_off() -> void:
 
 func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)
+	
+func _time_fail() -> void:
+	if gb.death:
+		if not on:
+			await sb._light_on
+			flicker = true
+			sb._fail.emit()
+		else:
+			_flicker()
+
+func _flicker() -> void:
+	control = false
+	flicker = true
+	await get_tree().create_timer(.1).timeout
+	sb._fail.emit()
