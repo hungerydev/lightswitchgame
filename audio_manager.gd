@@ -60,7 +60,6 @@ func _input(event: InputEvent) -> void:
 		_play_sound("uid://mcoulh5ae16j")
 
 func _event_start(event) -> void:
-	await sb._light_off
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
@@ -72,6 +71,7 @@ func _event_start(event) -> void:
 		gb.hour1, gb.hour2:
 			match event:
 				_:
+					await sb._light_off
 					monster_active = true
 					if randi_range(1,10) == 1:
 						_play_bassy("none")

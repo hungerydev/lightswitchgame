@@ -11,7 +11,7 @@ func _ready() -> void:
 	sb._remote_light_off.connect(_lights_off)
 	#sb._hour_changed.connect(_hour_changed)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if visible:
 		light_energy = randf_range(0,1.5)
 	

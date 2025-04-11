@@ -4,6 +4,8 @@ var on: bool = true
 
 var flicker: bool = false
 
+var control: bool = true
+
 func _ready() -> void:
 	on = visible
 	sb._event_start.connect(_event_start)
@@ -14,27 +16,28 @@ func _ready() -> void:
 	sb._time_fail.connect(_time_fail)
 
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right_click"):
-		if on:
-			_lights_off()
-		else:
-			_lights_on()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if flicker:
 		light_energy = randf_range(0,1.5)
+	if control:
+		if Input.is_action_just_pressed("right_click"):
+			if on:
+				_lights_off()
+			else:
+				_lights_on()
+			
 
 func _hour_changed(hour) -> void:
 	match hour:
 		gb.tutorial:
-			set_process_input(true)
+			control = true
 		gb.hour1:
-			set_process_input(true)
+			control = true
 		gb.hour2:
-			set_process_input(false)
+			control = false
 		gb.hour3:
-			set_process_input(false)
+			control = false
 
 func _event_start(event) -> void:
 	match event:
@@ -78,7 +81,7 @@ func _time_fail() -> void:
 		_flicker()
 
 func _flicker() -> void:
-	set_process_input(false)
+	control = false
 	flicker = true
 	await get_tree().create_timer(.1).timeout
 	sb._fail.emit()

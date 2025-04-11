@@ -4,6 +4,8 @@ var on: bool = false
 
 @onready var cam = $"../Camera3D"
 
+var control: bool = false
+
 func _ready() -> void:
 	on = visible
 	set_process_input(false)
@@ -13,32 +15,32 @@ func _ready() -> void:
 	sb._remote_light_off.connect(_lights_off)
 	sb._hour_changed.connect(_hour_changed)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right_click"):
-		if on:
-			_lights_off()
-		else:
-			_lights_on()
 
 
 func _hour_changed(hour) -> void:
 	match hour:
 		gb.tutorial:
-			set_process_input(false)
+			control = false
 		gb.hour1:
-			set_process_input(false)
+			control = false
 		gb.hour2:
-			set_process_input(true)
+			control = true
 		gb.hour3:
-			set_process_input(false)
+			control = false
 
 func _process(_delta: float) -> void:
 	var m_pos = get_viewport().get_mouse_position()
 	var ray_start = cam.project_ray_origin(m_pos)
 	var ray_end = ray_start + cam.project_ray_normal(m_pos) * 10
 	look_at(ray_end)
+	if control:
+		if Input.is_action_just_pressed("right_click"):
+			if on:
+				_lights_off()
+			else:
+				_lights_on()
 
-func _event_start(event) -> void:
+func _event_start(_event) -> void:
 	match gb.current_hour:
 		gb.tutorial:
 			pass
