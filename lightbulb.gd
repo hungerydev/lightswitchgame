@@ -57,6 +57,8 @@ func _event_start(event) -> void:
 				_lights_off()
 			elif event in gb.hour2.values():
 				pass
+			if event in gb.hour3.values():
+				_lights_off()
 
 func _lights_on() -> void:
 	if not am.monster_active:
@@ -73,12 +75,13 @@ func _lights_off() -> void:
 	sb._light_off.emit()
 	
 func _time_fail() -> void:
-	if not on:
-		await sb._light_on
-		flicker = true
-		sb._fail.emit()
-	else:
-		_flicker()
+	if gb.death:
+		if not on:
+			await sb._light_on
+			flicker = true
+			sb._fail.emit()
+		else:
+			_flicker()
 
 func _flicker() -> void:
 	control = false

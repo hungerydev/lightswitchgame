@@ -28,7 +28,7 @@ func _start_event() -> void:
 						_start_event()
 						tutorial_int = 0
 						gb.difficulty = 1.0
-			gb.hour1:
+			gb.hour1, gb.hour2, gb.hour3:
 				var new_event = gb.current_hour.values().pick_random()
 				print(new_event)
 				sb._event_start.emit(new_event)

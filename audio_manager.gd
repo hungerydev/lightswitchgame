@@ -179,11 +179,12 @@ func _play_jumpscare(string) -> void:
 	remove_child(stream)
 
 func _fail() -> void:
-	for child in get_children():
-		child.queue_free()
-	_play_jumpscare("js2.ogg")
-	_play_stingers("stinger4.ogg")
-	_play_bassy("bass2.ogg")
+	if gb.death:
+		for child in get_children():
+			child.queue_free()
+		_play_jumpscare("js2.ogg")
+		_play_stingers("stinger4.ogg")
+		_play_bassy("bass2.ogg")
 	
 func _time_fail() -> void:
 	pass

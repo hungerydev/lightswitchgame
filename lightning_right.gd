@@ -35,11 +35,12 @@ func _event_start(event) -> void:
 	match gb.current_hour:
 		gb.hour3:
 			match event:
-				gb.hour3.EVENT_3_1:
+				gb.hour3.EVENT_3_1, gb.hour3.EVENT_3_2, gb.hour3.EVENT_3_3, gb.hour3.EVENT_3_4, gb.hour3.EVENT_3_5:
 					_lights_off()
 					await get_tree().create_timer(randf_range(1, 5)*gb.difficulty).timeout
 					_lights_on()
-
+				
+				
 func _lights_on() -> void:
 	visible = true
 	on = true

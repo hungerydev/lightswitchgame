@@ -2,6 +2,8 @@ extends Node
 
 var difficulty: float = 1.0
 
+var death: bool = true
+
 var current_hour = tutorial:
 	get:
 		return current_hour

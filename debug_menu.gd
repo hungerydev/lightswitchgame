@@ -5,6 +5,7 @@ var event_indeces: Array = []
 func _ready() -> void:
 	var container = BoxContainer.new()
 	container.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	container.vertical = true
 	add_child(container)
 	for hour in gb.event_dict:
 		var hour_section = MenuButton.new()
@@ -48,6 +49,16 @@ func _ready() -> void:
 		hour_start.get_popup().add_item(key)
 	hour_start.get_popup().id_pressed.connect(_hour_start.bind(hour_start))
 	container.add_child(hour_start)
+	
+	var disable_death = Button.new()
+	disable_death.text = "Disable death timers and jumpscares"
+	disable_death.pressed.connect(_disable_death)
+	container.add_child(disable_death)
+	
+	var enable_death = Button.new()
+	enable_death.text = "Enable death timers and jumpscares"
+	enable_death.pressed.connect(_enable_death)
+	container.add_child(enable_death)
 
 func _enable_event_override(index, hour_section, hour) -> void:
 	var new_event = hour_section.get_popup().get_item_text(index)
@@ -72,3 +83,9 @@ func _enable_visual_effect(id, _node) -> void:
 func _hour_start(id, hour_start) -> void:
 	var new_hour = hour_start.get_popup().get_item_text(id)
 	gb.current_hour = gb.event_dict[new_hour]
+
+func _disable_death() -> void:
+	gb.death = false
+
+func _enable_death() -> void:
+	gb.death = true
