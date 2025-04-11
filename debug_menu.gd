@@ -3,10 +3,18 @@ extends Control
 var event_indeces: Array = []
 
 func _ready() -> void:
+	var colo_rect = ColorRect.new()
+	colo_rect.color = Color.BLACK
+	colo_rect.PRESET_FULL_RECT
+	colo_rect.size = Vector2(10000, 10000)
+	colo_rect.color.a = 1
+	add_child(colo_rect)
+	
 	var container = BoxContainer.new()
 	container.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	container.vertical = true
 	add_child(container)
+	
 	for hour in gb.event_dict:
 		var hour_section = MenuButton.new()
 		hour_section.text = hour

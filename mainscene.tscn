@@ -1751,7 +1751,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
-size = Vector3(1.67187, 1.47157, 1.98996)
+size = Vector3(1.38965, 2.34234, 1.98996)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -1933,35 +1933,35 @@ fill_to = Vector2(0.465812, 0.320513)
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
-transform = Transform3D(0.681301, -0.0746573, 0.728186, 0.12904, 0.991456, -0.0190831, -0.720539, 0.106967, 0.685114, 2.72262, -0.138755, -0.594696)
+transform = Transform3D(1.17442, -0.309792, 1.06931e-08, 0, -5.89142e-08, -1.0643, 0.277367, 1.31171, -4.52764e-08, -4.29352, 5.79745, -0.142764)
 script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_003" index="0"]
 bones/1/position = Vector3(0.10962, 0.457232, -1.04952)
 bones/1/rotation = Quaternion(-0.698737, 2.80837e-07, -0.0330951, 0.714613)
-bones/2/rotation = Quaternion(0.450124, 0.0313325, -0.113227, 0.885204)
-bones/3/rotation = Quaternion(0.249755, 0.0475078, -0.0696274, 0.964633)
+bones/2/rotation = Quaternion(0.164199, -0.00403435, -0.117413, 0.979406)
+bones/3/rotation = Quaternion(0.0818138, -0.00233166, -0.0586355, 0.994919)
 bones/4/rotation = Quaternion(-0.0180208, -0.123989, 0.904326, 0.408039)
 bones/5/rotation = Quaternion(0.101598, 0.0883157, 0.0200463, 0.990695)
-bones/6/rotation = Quaternion(-0.188128, 0.062, 0.000876786, 0.980185)
+bones/6/rotation = Quaternion(0.133689, 0.124829, 0.199382, 0.9627)
 bones/7/rotation = Quaternion(-0.0402996, 0.135286, 0.26115, 0.954921)
-bones/8/rotation = Quaternion(-0.257308, -0.368085, 0.379655, 0.808807)
-bones/9/rotation = Quaternion(0.00792983, 6.22331e-05, 0.00768782, 0.999939)
-bones/10/position = Vector3(-0.00170003, 0.0825788, 0.340693)
+bones/8/rotation = Quaternion(6.31405e-08, 4.40201e-10, 5.72536e-09, 1)
+bones/9/rotation = Quaternion(0.00792985, 6.22463e-05, 0.00768782, 0.999939)
+bones/10/position = Vector3(-0.00169989, 0.0825785, 0.340693)
 bones/10/rotation = Quaternion(0.91247, 0.042215, 0.037542, 0.405225)
-bones/11/position = Vector3(0.0164609, 0.274231, 0.277297)
-bones/11/rotation = Quaternion(0.658246, 0.00465679, 0.0896371, 0.747433)
-bones/12/rotation = Quaternion(-0.00683432, -0.0948732, 0.94787, -0.304131)
-bones/13/rotation = Quaternion(0.119798, -0.0275812, 0.0330823, 0.991863)
+bones/11/position = Vector3(0.016461, 0.274231, 0.277297)
+bones/11/rotation = Quaternion(0.658246, 0.00465677, 0.089637, 0.747433)
+bones/12/rotation = Quaternion(-0.00683433, -0.0948732, 0.94787, -0.304131)
+bones/13/rotation = Quaternion(0.119798, -0.0275812, 0.0330824, 0.991864)
 bones/14/rotation = Quaternion(0.146144, -0.0346327, -0.0643804, 0.986558)
 bones/15/rotation = Quaternion(0.236061, -0.133542, -0.181136, 0.945321)
 bones/16/rotation = Quaternion(0.5959, -0.384204, -0.587909, -0.389427)
-bones/17/rotation = Quaternion(-0.444147, -0.0668719, 0.0769891, 0.890132)
-bones/18/rotation = Quaternion(-0.157331, 0.0228397, 0.446844, 0.880372)
-bones/19/rotation = Quaternion(0.06723, 0.0484396, -0.511297, 0.8554)
+bones/17/rotation = Quaternion(-0.450543, -0.238915, -0.135322, 0.849482)
+bones/18/rotation = Quaternion(-0.105831, -0.00926561, 0.128916, 0.985949)
+bones/19/rotation = Quaternion(-0.00572017, 0.0424696, -0.181692, 0.982421)
 bones/20/rotation = Quaternion(0.653565, 0.282042, 0.639015, -0.291488)
-bones/21/rotation = Quaternion(-0.310088, -0.222767, -0.28236, 0.880053)
-bones/22/rotation = Quaternion(-0.0345373, -0.00464753, 0.0923717, 0.995115)
+bones/21/rotation = Quaternion(-0.312467, -0.162847, -0.175127, 0.919334)
+bones/22/rotation = Quaternion(-0.069009, -0.0424475, -0.129729, 0.988234)
 bones/23/rotation = Quaternion(-0.0684545, 0.0681259, 0.278443, 0.955585)
 
 [node name="Plane_003" parent="monsterthing/Armature_003/Skeleton3D" index="0"]
@@ -1976,12 +1976,12 @@ libraries = {
 script = ExtResource("4_x351s")
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 3.99044, -0.785651, -0.860082)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 2.88824, 3.1691, 1.46083)
 top_level = true
 script = ExtResource("2_8bn17")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="monsterthing/monsterHitbox"]
-transform = Transform3D(1, -4.04598e-06, -1.48551e-05, 4.0452e-06, 0.999945, -6.25893e-07, 1.48536e-05, 6.25833e-07, 0.999945, 0, 2.055, 0)
+transform = Transform3D(1, -4.04615e-06, -1.48554e-05, 4.0452e-06, 0.999945, -6.25893e-07, 1.48536e-05, 6.25833e-07, 0.999945, 0, 0, 0)
 shape = SubResource("BoxShape3D_km5ld")
 
 [node name="positionComponent" parent="monsterthing/monsterHitbox" instance=ExtResource("5_0lhry")]
@@ -1990,19 +1990,6 @@ script = ExtResource("5_4ofsq")
 [node name="visibilityComponent" parent="monsterthing" instance=ExtResource("6_4p23x")]
 
 [node name="positionComponent" parent="monsterthing" instance=ExtResource("5_0lhry")]
-
-[node name="flashlight" type="SpotLight3D" parent="."]
-process_mode = 1
-transform = Transform3D(-0.895961, -0.282378, -0.342807, -0.200672, 0.94596, -0.254734, 0.396214, -0.15944, -0.904209, 0, 1.05635, -3.771)
-visible = false
-light_intensity_lumens = 233.57
-light_color = Color(0.453699, 0.384035, 0.149262, 1)
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 1.705
-shadow_enabled = true
-spot_range = 10.9077
-spot_angle = 11.2417
-script = ExtResource("7_j64eu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97963, -6.63983)
@@ -2165,11 +2152,23 @@ color = Color(1, 1, 0.521569, 1)
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_qvxvv")
 
+[node name="flashlight" type="SpotLight3D" parent="."]
+process_mode = 1
+transform = Transform3D(-0.923103, -0.283258, -0.260086, -0.305161, 0.951129, 0.0472146, 0.234002, 0.122952, -0.96443, 0, 1.05635, -3.771)
+visible = false
+light_intensity_lumens = 233.57
+light_color = Color(0.453699, 0.384035, 0.149262, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.705
+shadow_enabled = true
+spot_range = 10.9077
+spot_angle = 11.2417
+script = ExtResource("7_j64eu")
+
 [node name="lightning" type="Node3D" parent="."]
 
 [node name="lightning_right" type="SpotLight3D" parent="lightning"]
 transform = Transform3D(-0.271013, 0.234777, -0.933505, -0.361218, 0.87412, 0.324709, 0.892229, 0.425199, -0.152092, -9.78532, 6.36164, 1.70265)
-visible = false
 light_color = Color(0.631373, 0.968627, 0.901961, 1)
 light_energy = 0.655
 light_indirect_energy = 2.29

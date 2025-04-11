@@ -65,6 +65,10 @@ func _lights_on() -> void:
 		visible = true
 		on = true
 		sb._light_on.emit()
+	elif not gb.death:
+		visible = true
+		on = true
+		sb._light_on.emit()
 	else:
 		sb._fail.emit()
 	

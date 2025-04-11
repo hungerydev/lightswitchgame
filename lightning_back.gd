@@ -39,6 +39,10 @@ func _event_start(event) -> void:
 					_lights_off()
 					await get_tree().create_timer(randf_range(1, 5)*gb.difficulty).timeout
 					_lights_on()
+					var timer = get_tree().create_timer(3*gb.difficulty)
+					timer.timeout.connect(_too_slow)
+					await sb._event_finished
+					timer.timeout.disconnect(_too_slow)
 				
 				
 func _lights_on() -> void:
@@ -56,3 +60,6 @@ func _reset() -> void:
 	light_color = Color(0.631, 0.969, 0.902)
 	visible = false
 	on = false
+
+func _too_slow() -> void:
+	sb._fail.emit()

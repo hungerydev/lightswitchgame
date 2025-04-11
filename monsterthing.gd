@@ -33,27 +33,27 @@ func _event_start(event) -> void:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.46206, 0.12998, 5.39719),Vector3(0.0543694, 0.0259284, 0.054893),Vector3(1, 1, 1))
 					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(-1.91541, 0.175568, 3.55438),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(-1.78429, 2.12603, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour1.EVENT_1_2, gb.hour1.EVENT_1_9:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(1.96137, -0.782574, 5.39719),Vector3(0.0543694, -2.8717, 0.054893),Vector3(1, 1, 1))
 					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(1.46314, -0.854867, 3.55438),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(1.7496, 1.3409, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour1.EVENT_1_3, gb.hour1.EVENT_1_8:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-1.25024, 0.431627, 4.18886),Vector3(-0.108582, 0.000953447, 0.137062),Vector3(1, 1, 1))
+					pcom._set_position(Vector3(-1.25024, 0.431627, 4.18886),Vector3(-0.108582, 0.000953448, 0.137062),Vector3(1, 1, 1))
 					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(-1.45538, 0.383135, 3.55438),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(-1.18833, 2.45734, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour1.EVENT_1_4, gb.hour1.EVENT_1_7:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.83174, 0.907496, 0.565283),Vector3(-0.108582, 0.2845, 0.137062),Vector3(1, 1, 1))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-3.31932, 0.163758, -0.532875),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(-3.24107, 2.62502, 0.017158),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour1.EVENT_1_5, gb.hour1.EVENT_1_6:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(2.72262, -0.138755, -0.594696),Vector3(0.0190843, 0.815865, 0.129425),Vector3(1, 1, 1))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(3.99044, -0.785651, -0.860082),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(3.00584, 1.36251, -1.39476),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				_:
 					print("No position logged for " + str(event))
 		gb.hour2:
@@ -61,34 +61,54 @@ func _event_start(event) -> void:
 			match event:
 				gb.hour2.EVENT_2_1:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(3.85314, 0.726065, 0.727899),Vector3(-0.280792, -0.0970432, 0.318312),Vector3(1.20673, 1.34781, 1.06431))
+					pcom._set_position(Vector3(3.5321, -0.938226, 0.727899),Vector3(-0.299391, -0.632667, 0.286887),Vector3(1.20673, 1.34781, 1.06431))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(2.42698, 0.771861, -0.587452),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(3.00584, 1.36251, -1.39476),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour2.EVENT_2_2:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(3.52824, -0.916729, 4.71607),Vector3(-0.148684, -2.8865, -0.308914),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(3.52824, -0.916729, 4.71607),Vector3(-0.158323, -2.8865, -0.278312),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(1.54638, -0.770717, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(1.93549, 1.36251, 1.73979),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour2.EVENT_2_3:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-2.76125, 0.381078, 2.14632),Vector3(0.195412, 2.40732, 0.327799),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(-2.76125, 0.381078, 2.14632),Vector3(0.208156, 2.40732, 0.295556),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-2.05321, -0.475597, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(-1.6496, 2.18451, 1.73979),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour2.EVENT_2_4:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(0.139594, -1.35031, 4.75368),Vector3(-0.633671, 2.35135, -0.151512),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(0.139594, -1.35031, 4.75368),Vector3(-0.681784, 2.35135, -0.135859),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-0.566985, -1.64717, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(-0.452622, 1.25903, 1.73979),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour2.EVENT_2_5:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(2.38162, -1.35031, 4.75368),Vector3(-0.249564, -1.25306, 0.223801),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(2.38162, -1.35031, 4.75368),Vector3(-0.265988, -1.25306, 0.201037),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(1.50784, -1.64717, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(1.91034, 0.847017, 3.38751),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				gb.hour2.EVENT_2_6:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(2.60341, 0.603668, 2.39189),Vector3(-0.465622, 1.93446, 0.412564),Vector3(1.20673, 1.3478, 1.0643))
-					anim_player.play("strutting forward")
-					hitbox_pcom._set_position(Vector3(1.98867, 0.384552, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					pcom._set_position(Vector3(2.60341, 0.603668, 2.39189),Vector3(-0.498203, 1.93446, 0.37348),Vector3(1.20673, 1.3478, 1.0643))
+					anim_player.play("strutting forward_001")
+					hitbox_pcom._set_position(Vector3(2.24106, 2.11535, 3.38751),Vector3(0, 0, 0),Vector3(1.67187, 3.01508, 1.98996))
+				gb.hour2.EVENT_2_7:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(2.23405, 0.0422845, 1.0919),Vector3(-0.103843, -1.74652, 0.0154818),Vector3(1.20673, 1.3478, 1.0643))
+					anim_player.play("crawling")
+					hitbox_pcom._set_position(Vector3(1.36946, 1.03501, -0.593419),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
+				gb.hour2.EVENT_2_8:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(-1.84599, 0.0422845, 1.0919),Vector3(-0.103843, 2.11062, 0.0154818),Vector3(1.20673, 1.3478, 1.0643))
+					anim_player.play("crawling")
+					hitbox_pcom._set_position(Vector3(-1.19958, 1.03501, -0.593419),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
+				gb.hour2.EVENT_2_9:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(1.5478, 3.23513, 1.0919),Vector3(0.559021, -1.58942, -3.13301),Vector3(1.20673, 1.3478, 1.0643))
+					anim_player.play("crawling")
+					hitbox_pcom._set_position(Vector3(0.99221, 2.52814, -0.593419),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
+				gb.hour2.EVENT_2_10:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(2.3268, 0.167658, 3.71259),Vector3(0, -1.8009, 0),Vector3(1.20673, 1.3478, 1.0643))
+					anim_player.play("crawling")
+					hitbox_pcom._set_position(Vector3(1.11811, 1.21637, 0.719154),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				_:
 					print("No position logged for " + str(event))
 		gb.hour3:
@@ -96,54 +116,54 @@ func _event_start(event) -> void:
 			match event:
 				gb.hour3.EVENT_3_1:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-4.29352, 6.55345, -0.142764),Vector3(1.28919, 3.0948, -2.97816),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(-4.29352, 5.79745, -0.142764),Vector3(1.5708, -0.257908, 0),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("strutting forward_001")
-					hitbox_pcom._set_position(Vector3(2.47235, 4.3159, 4.97582),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(2.88824, 3.1691, 1.46083),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 				gb.hour3.EVENT_3_2:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-1.54559, 2.19837, 2.73382),Vector3(0, 0.236283, 0),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(3.47799, 0.24285, 3.55438),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(2.86525, 2.58358, 2.01853),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				gb.hour3.EVENT_3_3:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-2.43651, 1.00368, 4.51364),Vector3(-0.180622, -1.95504, -0.357666),Vector3(1.20673, 1.34781, 1.0643))
-					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(2.70199, -0.468749, 2.3053),Vector3(0, 0, 0),Vector3(1.90318, 1.85188, 1.38325))
+					pcom._set_position(Vector3(0, 0, 4.55732),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))
+					anim_player.play("turned")
+					hitbox_pcom._set_position(Vector3(1.06007, 1.56784, 2.01853),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				gb.hour3.EVENT_3_4:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-1.87131, 0.7724, 1.27787),Vector3(0.565478, 0.57366, -0.198744),Vector3(1.20673, 1.34781, 1.0643))
+					pcom._set_position(Vector3(-1.87131, 2.54531, -0.500194),Vector3(0.606838, 0.342439, -0.178404),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(4.26683, -1.34139, 0.395485),Vector3(0, 0, 0),Vector3(1.90318, 1.85188, 1.38325))
+					hitbox_pcom._set_position(Vector3(2.74307, 1.94799, -1.3113),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				gb.hour3.EVENT_3_5:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-2.32695, 0.339514, 4.14985),Vector3(0.841833, -0.18121, -1.20172),Vector3(1.20673, 1.34781, 1.0643))
+					pcom._set_position(Vector3(-0.566313, 0.352535, 3.3811),Vector3(-0.0128204, -2.1457, 0.598539),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(1.54034, -0.344809, 4.99121),Vector3(0, 0, 0),Vector3(2.60543, 1.85188, 1.38325))
+					hitbox_pcom._set_position(Vector3(1.35802, 1.09177, 0.21617),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				gb.hour3.EVENT_3_6:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.77382, 1.62209, 0.0352373),Vector3(0, 2.31068, 0),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-2.85321, 1.62016, 4.99121),Vector3(0, 0, 0),Vector3(2.42869, 2.83205, 1.38325))
+					hitbox_pcom._set_position(Vector3(-1.69002, 2.32963, 2.64118),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				gb.hour3.EVENT_3_7:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(2.34129, 0.702987, 2.45709),Vector3(0, -0.813568, 0),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(2.23948, 1.62016, 4.99121),Vector3(0, 0, 0),Vector3(2.42869, 2.83205, 1.38325))
+					hitbox_pcom._set_position(Vector3(1.72674, 1.61277, 2.64118),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 				gb.hour3.EVENT_3_8:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(2.34129, 0.702987, -5.63811),Vector3(0, -0.813568, 0),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(2.93533, 1.62016, -1.14399),Vector3(0, 0, 0),Vector3(2.42869, 2.83205, 1.38325))
+					hitbox_pcom._set_position(Vector3(2.00915, 1.00517, -1.8377),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 				gb.hour3.EVENT_3_9:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.18167, 0.0833982, -3.95353),Vector3(0, 0.827496, 0),Vector3(1.20673, 1.34781, 1.0643))
 					anim_player.play("jawagape")
-					hitbox_pcom._set_position(Vector3(-2.5451, 1.50648, -1.14399),Vector3(0, 0, 0),Vector3(2.42869, 2.83205, 1.98996))
+					hitbox_pcom._set_position(Vector3(-1.6745, 1.00517, -1.8377),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 				gb.hour3.EVENT_3_10:
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(0.284616, 5.53097, 1.82778),Vector3(1.27486, -1.77204, 3.0406),Vector3(1.20673, 1.3478, 1.0643))
+					pcom._set_position(Vector3(0.284616, 4.65632, 1.82778),Vector3(1.5708, 1.48319, 0),Vector3(1.20673, 1.3478, 1.0643))
 					anim_player.play("strutting forward_001")
-					hitbox_pcom._set_position(Vector3(2.47235, 4.3159, 4.97582),Vector3(0, 0, 0),Vector3(2.42869, 1.47157, 1.98996))
+					hitbox_pcom._set_position(Vector3(2.88824, 3.82361, 4.62252),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 				_:
 					print("No position logged for " + str(event))
 
