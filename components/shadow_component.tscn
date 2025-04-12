@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d67euee4epxc"]
+
+[ext_resource type="Script" uid="uid://dqa8rmqlti1ar" path="res://components/shadow_cast_component.gd" id="1_egiyi"]
+
+[node name="shadow_component" type="Node"]
+script = ExtResource("1_egiyi")

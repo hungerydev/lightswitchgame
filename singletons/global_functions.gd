@@ -58,6 +58,8 @@ func _set_death_timer_dur(event) -> void:
 			death_timer = 7.0
 		gb.hour3:
 			death_timer = 2.0
+		gb.hour4:
+			death_timer = 10.0
 
 func _death_timer() -> void:
 	var timer = get_tree().create_timer(death_timer * gb.difficulty)

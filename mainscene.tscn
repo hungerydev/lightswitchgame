@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=89 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -21,20 +21,27 @@
 [ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://shaders/vignette_black.gdshader" id="15_pgq4v"]
 [ext_resource type="Script" uid="uid://vqlrt3t7rurw" path="res://misc_scripts/vignette_white.gd" id="16_iwoyl"]
 [ext_resource type="Shader" uid="uid://bs3vn27f5n721" path="res://shaders/vignette_white.gdshader" id="16_ocswj"]
+[ext_resource type="Script" uid="uid://d13vnoqxv7edc" path="res://entity_scripts/door_and_frame.gd" id="19_4tqfu"]
 [ext_resource type="Script" uid="uid://bsoywgdjxnvyu" path="res://entity_scripts/door.gd" id="21_pgq4v"]
+[ext_resource type="Script" uid="uid://yl1a5jel83uj" path="res://entity_scripts/drawing_left.gd" id="21_utbtm"]
 [ext_resource type="Script" uid="uid://b2rshldu4bgfd" path="res://entity_scripts/toy_bunny_shelf.gd" id="21_x351s"]
 [ext_resource type="Script" uid="uid://dibbaksisyun0" path="res://entity_scripts/right_drawing.gd" id="22_hv5bq"]
 [ext_resource type="Script" uid="uid://ca24l4sjskdxd" path="res://entity_scripts/crib.gd" id="22_ocswj"]
+[ext_resource type="PackedScene" uid="uid://d67euee4epxc" path="res://components/shadow_component.tscn" id="23_4tqfu"]
 [ext_resource type="Texture2D" uid="uid://bgj5cjrcalcwm" path="res://text_sequences/i_want_to_play/0020.png" id="23_03120"]
 [ext_resource type="Script" uid="uid://xft8ubg7mpao" path="res://entity_scripts/dresser.gd" id="23_j64eu"]
 [ext_resource type="Script" uid="uid://cfjvo5k7od3t7" path="res://entity_scripts/sm_ball.gd" id="24_1g5l6"]
 [ext_resource type="Texture2D" uid="uid://c3tn41bnkwaen" path="res://text_sequences/i_want_to_play/0021.png" id="24_56ibc"]
 [ext_resource type="Script" uid="uid://dx6koqwq0dqk6" path="res://entity_scripts/sm_toy_train.gd" id="24_j64eu"]
 [ext_resource type="Texture2D" uid="uid://71847pemoa7w" path="res://text_sequences/i_want_to_play/0022.png" id="25_pgq4v"]
+[ext_resource type="Script" uid="uid://oxsxyv6og28" path="res://entity_scripts/toy_robot_shelf.gd" id="25_wqh86"]
 [ext_resource type="Script" uid="uid://dvg62yauyete0" path="res://entity_scripts/sm_toy_boat.gd" id="25_x351s"]
 [ext_resource type="Texture2D" uid="uid://ciwj8d802id1t" path="res://text_sequences/i_want_to_play/0023.png" id="26_iwoyl"]
+[ext_resource type="Script" uid="uid://cnwlxdtdmwxxx" path="res://entity_scripts/toy_robot_dresser.gd" id="26_m5ygy"]
 [ext_resource type="Texture2D" uid="uid://cis5knyp4qc5h" path="res://text_sequences/ill_hide/0030.png" id="27_03120"]
+[ext_resource type="Script" uid="uid://ba5tjlm2fwpxn" path="res://entity_scripts/toy_cube_floor.gd" id="27_e0jif"]
 [ext_resource type="Texture2D" uid="uid://cvytiu8lkk200" path="res://text_sequences/ill_hide/0031.png" id="28_56ibc"]
+[ext_resource type="Script" uid="uid://dl4hpbh3swjov" path="res://entity_scripts/toy_cube_dresser.gd" id="28_ohyyk"]
 [ext_resource type="Script" uid="uid://dpv57dsfty1eb" path="res://entity_scripts/toy_robot_front.gd" id="28_x351s"]
 [ext_resource type="Texture2D" uid="uid://btuuuwwm4hw2g" path="res://text_sequences/ill_hide/0032.png" id="29_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://bcjmxpmcnvjhc" path="res://text_sequences/ill_hide/0033.png" id="30_iwoyl"]
@@ -1759,7 +1766,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_km5ld"]
-size = Vector3(1.38965, 2.34234, 1.98996)
+size = Vector3(0.413929, 0.440365, 0.324705)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -1947,6 +1954,34 @@ fill_to = Vector2(0.465812, 0.320513)
 transform = Transform3D(1.17442, -0.309792, 1.06931e-08, 0, -5.89142e-08, -1.0643, 0.277367, 1.31171, -4.52764e-08, -4.29352, 5.79745, -0.142764)
 script = ExtResource("2_1ftms")
 
+[node name="Skeleton3D" parent="monsterthing/Armature_003" index="0"]
+bones/1/position = Vector3(0.10962, 0.457232, -1.04952)
+bones/1/rotation = Quaternion(-0.698737, 2.83696e-07, -0.0330951, 0.714613)
+bones/2/rotation = Quaternion(0.00838391, 2.72873e-08, -0.00590973, 0.999947)
+bones/3/rotation = Quaternion(-0.00838394, 8.46023e-08, 0.00590974, 0.999947)
+bones/4/rotation = Quaternion(-0.0180208, -0.123989, 0.904326, 0.408039)
+bones/5/rotation = Quaternion(0.0726318, 0.0391252, -0.170289, 0.981935)
+bones/6/rotation = Quaternion(0.128444, 0.0234466, -5.73451e-05, 0.99144)
+bones/7/rotation = Quaternion(-0.0543265, -0.0169831, 0.0128279, 0.998296)
+bones/8/rotation = Quaternion(6.59345e-08, 4.40201e-10, 1.37422e-10, 1)
+bones/9/rotation = Quaternion(0.00792984, 6.22443e-05, 0.00768781, 0.999939)
+bones/10/position = Vector3(-0.00170001, 0.0825788, 0.340693)
+bones/10/rotation = Quaternion(0.84112, 0.0419243, 0.080878, 0.533121)
+bones/11/position = Vector3(0.0164609, 0.274231, 0.277297)
+bones/11/rotation = Quaternion(0.699554, 0.00942297, 0.0734274, 0.710734)
+bones/12/rotation = Quaternion(0.0180201, -0.12399, 0.904327, -0.408038)
+bones/13/rotation = Quaternion(0.0726316, -0.0391257, 0.170289, 0.981935)
+bones/14/rotation = Quaternion(0.128444, -0.0234466, 5.72792e-05, 0.99144)
+bones/15/rotation = Quaternion(-0.0543265, 0.0169832, -0.0128279, 0.998296)
+bones/16/rotation = Quaternion(0.5959, -0.384204, -0.587909, -0.389427)
+bones/17/rotation = Quaternion(-0.301854, -0.0188413, -0.0169559, 0.953017)
+bones/18/rotation = Quaternion(-0.0622948, -1.77312e-07, 0.0260816, 0.997717)
+bones/19/rotation = Quaternion(-0.0878633, -6.40988e-08, 0.000962932, 0.996132)
+bones/20/rotation = Quaternion(0.595901, 0.384203, 0.587909, -0.389426)
+bones/21/rotation = Quaternion(-0.301853, 0.0188411, 0.0169559, 0.953017)
+bones/22/rotation = Quaternion(-0.0622948, 1.15399e-07, -0.0260816, 0.997717)
+bones/23/rotation = Quaternion(-0.0878633, -5.35361e-08, -0.000962914, 0.996132)
+
 [node name="Plane_003" parent="monsterthing/Armature_003/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_x351s")
@@ -1959,12 +1994,12 @@ libraries = {
 script = ExtResource("4_x351s")
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 2.88824, 3.1691, 1.46083)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 1.74549, 2.4057, -3.16164)
 top_level = true
 script = ExtResource("2_8bn17")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="monsterthing/monsterHitbox"]
-transform = Transform3D(1, -4.04615e-06, -1.48554e-05, 4.0452e-06, 0.999945, -6.25893e-07, 1.48536e-05, 6.25833e-07, 0.999945, 0, 0, 0)
+transform = Transform3D(1, -4.04676e-06, -1.48566e-05, 4.0452e-06, 0.999945, -6.25893e-07, 1.48536e-05, 6.25833e-07, 0.999945, 0, 0, 0)
 shape = SubResource("BoxShape3D_km5ld")
 
 [node name="positionComponent" parent="monsterthing/monsterHitbox" instance=ExtResource("5_0lhry")]
@@ -2066,6 +2101,9 @@ environment = SubResource("Environment_0b4ue")
 
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
 
+[node name="Sketchfab_model_002" parent="mainroom/MainRoomNewStuff" index="1"]
+script = ExtResource("19_4tqfu")
+
 [node name="Door" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001" index="0"]
 transform = Transform3D(1, -3.85841e-06, -5.981e-08, 3.85841e-06, 1, 3.63161e-06, 5.96046e-08, -3.61999e-06, 1.00321, 0.0350223, -0.507947, -0.115825)
 script = ExtResource("21_pgq4v")
@@ -2079,11 +2117,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243225, -0.160645, -0.1922
 size = Vector3(0.51355, 0.678711, 1.81714)
 material = SubResource("StandardMaterial3D_iwoyl")
 
+[node name="Plane" parent="mainroom/MainRoomMoreStuff" index="2"]
+script = ExtResource("21_utbtm")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane" index="0" instance=ExtResource("23_4tqfu")]
+
 [node name="SM_ToyBunny_001" parent="mainroom/MainRoomMoreStuff" index="4"]
 script = ExtResource("21_x351s")
 
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyBunny_001" index="0" instance=ExtResource("23_4tqfu")]
+
 [node name="Plane_001" parent="mainroom/MainRoomMoreStuff" index="5"]
 script = ExtResource("22_hv5bq")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane_001" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyRobot_002" parent="mainroom/MainRoomMoreStuff" index="6"]
+script = ExtResource("25_wqh86")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot_002" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyRobot" parent="mainroom/MainRoomMoreStuff" index="7"]
+script = ExtResource("26_m5ygy")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a_002" parent="mainroom/MainRoomMoreStuff" index="8"]
+script = ExtResource("27_e0jif")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_002" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a_003" parent="mainroom/MainRoomMoreStuff" index="9"]
+script = ExtResource("28_ohyyk")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_003" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a_004" parent="mainroom/MainRoomMoreStuff" index="10"]
+script = ExtResource("28_ohyyk")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_004" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a_005" parent="mainroom/MainRoomMoreStuff" index="11"]
+script = ExtResource("28_ohyyk")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_005" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_02a_001" parent="mainroom/MainRoomMoreStuff" index="12"]
+script = ExtResource("27_e0jif")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_001" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_02a_002" parent="mainroom/MainRoomMoreStuff" index="13"]
+script = ExtResource("28_ohyyk")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_002" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_02a_003" parent="mainroom/MainRoomMoreStuff" index="14"]
+script = ExtResource("28_ohyyk")
+
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_003" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="Sketchfab_model" parent="mainroom" index="2"]
 transform = Transform3D(-7.54192e-06, 2.08341, 9.10687e-08, 0, -9.10687e-08, 2.08341, 2.08341, 7.54192e-06, 3.29668e-13, -2.58153, 0.147893, 1.80571)
@@ -2092,23 +2184,41 @@ script = ExtResource("22_ocswj")
 [node name="Sketchfab_model_001" parent="mainroom" index="3"]
 script = ExtResource("23_j64eu")
 
+[node name="shadow_component" parent="mainroom/Sketchfab_model_001" index="1" instance=ExtResource("23_4tqfu")]
+
 [node name="SM_Ball" parent="mainroom" index="7"]
 script = ExtResource("24_1g5l6")
+
+[node name="shadow_component" parent="mainroom/SM_Ball" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyBoat" parent="mainroom" index="8"]
 script = ExtResource("25_x351s")
 
+[node name="shadow_component" parent="mainroom/SM_ToyBoat" index="0" instance=ExtResource("23_4tqfu")]
+
 [node name="SM_ToyBunny" parent="mainroom" index="9"]
-transform = Transform3D(0.126467, 0, -3.45434, 0, 3.45666, 0, 3.45434, 0, 0.126467, 1.86621, 1.31729, -5.93348)
-visible = false
+transform = Transform3D(-2.61, 0, -2.26636, 0, 3.45666, 0, 2.26636, 0, -2.61, 0.355602, 0.69315, 4.76788)
 script = ExtResource("12_4ofsq")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyBunny" index="0"]
 transform = Transform3D(-0.0014171, -0.144552, -0.25059, 0.00529218, 0.250539, -0.144552, 0.289245, -0.00529218, 0.00141708, -0.332943, -0.73338, 0.570541)
+visible = false
 light_intensity_lumens = 286.36
 light_color = Color(0.973803, 0, 0.159782, 1)
 light_energy = 0.368
 light_volumetric_fog_energy = 0.0
+
+[node name="shadow_component" parent="mainroom/SM_ToyBunny" index="1" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a" parent="mainroom" index="10"]
+script = ExtResource("27_e0jif")
+
+[node name="shadow_component" parent="mainroom/SM_ToyCube_01a" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_02a" parent="mainroom" index="11"]
+script = ExtResource("27_e0jif")
+
+[node name="shadow_component" parent="mainroom/SM_ToyCube_02a" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyTrain" parent="mainroom" index="13"]
 script = ExtResource("24_j64eu")
@@ -2129,8 +2239,17 @@ visible = false
 light_color = Color(0.516319, 0.516318, 3.85046e-07, 1)
 omni_range = 0.771326
 
+[node name="shadow_component" parent="mainroom/SM_ToyTrain" index="2" instance=ExtResource("23_4tqfu")]
+
 [node name="SM_ToyRobot_001" parent="mainroom" index="15"]
 script = ExtResource("28_x351s")
+
+[node name="shadow_component" parent="mainroom/SM_ToyRobot_001" index="0" instance=ExtResource("23_4tqfu")]
+
+[node name="SM_ToyCube_01a_001" parent="mainroom" index="16"]
+script = ExtResource("27_e0jif")
+
+[node name="shadow_component" parent="mainroom/SM_ToyCube_01a_001" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="mainroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012207, 0.691483, -6.57139)

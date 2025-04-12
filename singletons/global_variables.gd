@@ -38,7 +38,7 @@ EVENT_3_10}
 
 enum hour4 {EVENT_4_1 = 401, 
 EVENT_4_2, EVENT_4_3, EVENT_4_4, EVENT_4_5, EVENT_4_6, EVENT_4_7, EVENT_4_8, EVENT_4_9,
-EVENT_4_10}
+EVENT_4_10, EVENT_4_11, EVENT_4_12, EVENT_4_13, EVENT_4_14, EVENT_4_15}
 
 var event_dict: Dictionary = {
 	"tutorial": tutorial,

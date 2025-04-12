@@ -30,6 +30,8 @@ func _hour_changed(hour) -> void:
 			control = true
 		gb.hour3:
 			control = false
+		gb.hour4:
+			control = false
 
 func _process(_delta: float) -> void:
 	var m_pos = get_viewport().get_mouse_position()

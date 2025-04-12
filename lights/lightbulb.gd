@@ -38,6 +38,8 @@ func _hour_changed(hour) -> void:
 			control = false
 		gb.hour3:
 			control = false
+		gb.hour4:
+			control = true
 
 func _event_start(event) -> void:
 	match event:
@@ -58,6 +60,8 @@ func _event_start(event) -> void:
 			elif event in gb.hour2.values():
 				_lights_off()
 			if event in gb.hour3.values():
+				_lights_off()
+			if event in gb.hour4.values():
 				_lights_off()
 
 func _lights_on() -> void:

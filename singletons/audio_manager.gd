@@ -84,6 +84,17 @@ func _event_start(event) -> void:
 			match event:
 				_:
 					pass
+		gb.hour4:
+			match event:
+				_:
+					await sb._light_off
+					monster_active = true
+					if randi_range(1,10) == 1:
+						_play_bassy("none")
+					if randi_range(1,10) == 1:
+						_play_scrapes("none")
+					await _play_footsteps()
+					monster_active = false
 
 func _event_end() -> void:
 	for child in get_children():
