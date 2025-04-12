@@ -152,6 +152,7 @@ func _play_stingers(string: String) -> void:
 	print(file)
 	stream.stream = load(file)
 	stream.volume_db = -10
+	stream.bus = "Jumpscares"
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Stingers")
@@ -171,6 +172,7 @@ func _play_jumpscare(string) -> void:
 	print(file)
 	stream.stream = load(file)
 	stream.volume_db = -3
+	stream.bus = "Jumpscares"
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Jumpscares")

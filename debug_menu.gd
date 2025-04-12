@@ -58,13 +58,8 @@ func _ready() -> void:
 	hour_start.get_popup().id_pressed.connect(_hour_start.bind(hour_start))
 	container.add_child(hour_start)
 	
-	var disable_death = Button.new()
-	disable_death.text = "Disable death timers and jumpscares"
-	disable_death.pressed.connect(_disable_death)
-	container.add_child(disable_death)
-	
 	var enable_death = Button.new()
-	enable_death.text = "Enable death timers and jumpscares"
+	enable_death.text = "Enable/Disable death timers and jumpscares"
 	enable_death.pressed.connect(_enable_death)
 	container.add_child(enable_death)
 
@@ -92,8 +87,6 @@ func _hour_start(id, hour_start) -> void:
 	var new_hour = hour_start.get_popup().get_item_text(id)
 	gb.current_hour = gb.event_dict[new_hour]
 
-func _disable_death() -> void:
-	gb.death = false
-
 func _enable_death() -> void:
-	gb.death = true
+	gb.death = not gb.death
+	

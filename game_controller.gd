@@ -52,3 +52,6 @@ func _override(hour_section, event, hour) -> void:
 	if not override_active:
 		override_active = true
 		gb._new_override_target(hour_section, event, hour)
+
+func _quit_game() -> void:
+	get_tree().quit()

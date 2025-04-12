@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://q28ueobsmonp"]
+
+[ext_resource type="Script" uid="uid://cpon8mvn3rsnv" path="res://master_volume_slider.gd" id="1_lbr8e"]
+[ext_resource type="Script" uid="uid://x0uuemlxuek5" path="res://options_menu.gd" id="1_ogda5"]
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui_theme.tres" id="1_t1lix"]
+[ext_resource type="Script" uid="uid://dj2lk7fjxg82j" path="res://jumpscare_volume_slider.gd" id="3_4gmlt"]
+
+[node name="options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ogda5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 115
+
+[node name="flow_container" type="VFlowContainer" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_t1lix")
+theme_override_constants/h_separation = 715
+theme_override_constants/v_separation = 25
+
+[node name="master_volume_text" type="RichTextLabel" parent="MarginContainer/flow_container"]
+layout_mode = 2
+tooltip_text = "Change the overvall volume of all sounds"
+text = "Master Volume"
+fit_content = true
+
+[node name="master_volume" type="HSlider" parent="MarginContainer/flow_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = -80.0
+max_value = 10.0
+script = ExtResource("1_lbr8e")
+
+[node name="jumpscare_volume_text" type="RichTextLabel" parent="MarginContainer/flow_container"]
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Change the volume of just the jumpscare audio"
+text = "Jumpscare Volume"
+fit_content = true
+
+[node name="jumpscare_volume" type="HSlider" parent="MarginContainer/flow_container"]
+layout_mode = 2
+min_value = -80.0
+max_value = 10.0
+script = ExtResource("3_4gmlt")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -337.0
+offset_top = -179.0
+offset_right = -151.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+theme = ExtResource("1_t1lix")
+alignment = 2
+vertical = true
+
+[node name="go_back" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Go Back"
