@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwej31ruiny7c"]
-
-[ext_resource type="Script" uid="uid://y5boe51uyij1" path="res://visibility_component.gd" id="1_3kuou"]
-
-[node name="visibilityComponent" type="Node"]
-script = ExtResource("1_3kuou")

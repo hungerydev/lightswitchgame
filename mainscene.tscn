@@ -1,34 +1,41 @@
-[gd_scene load_steps=75 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=82 format=4 uid="uid://c2os4xibt88g5"]
 
-[ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
-[ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
-[ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_hitbox.gd" id="2_8bn17"]
-[ext_resource type="Script" uid="uid://rqmoc0mfpv14" path="res://monster_mesh.gd" id="3_1g5l6"]
-[ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://scanlines.gdshader" id="4_0lhry"]
-[ext_resource type="Script" uid="uid://my0wyhc8d417" path="res://animation_player.gd" id="4_x351s"]
-[ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://noise.gdshader" id="5_0ibrq"]
-[ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://position_component.tscn" id="5_0lhry"]
-[ext_resource type="Script" uid="uid://dvml1rxodr3gm" path="res://hitbox_position_size.gd" id="5_4ofsq"]
-[ext_resource type="Script" uid="uid://sdctfnj1phqs" path="res://lightswitchbutton.gd" id="6_4ofsq"]
-[ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://visibility_component.tscn" id="6_4p23x"]
-[ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://mainroom.tscn" id="7_4p23x"]
-[ext_resource type="Script" uid="uid://3rsp3dvs2g7l" path="res://flashlight.gd" id="7_j64eu"]
-[ext_resource type="Script" uid="uid://3j2wmiq7lm7w" path="res://camera_3d.gd" id="8_1cnxy"]
-[ext_resource type="Script" uid="uid://crntlxukx8fpk" path="res://visual_effects.gd" id="10_56ibc"]
-[ext_resource type="Shader" uid="uid://bo8plruv0mrxt" path="res://crt.gdshader" id="11_xs15d"]
-[ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://toy_bunny.gd" id="12_4ofsq"]
-[ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://random_vis_fx.gd" id="12_4olqe"]
-[ext_resource type="Shader" uid="uid://dpaqayp4xj731" path="res://glitch.gdshader" id="13_03120"]
-[ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://vignette_black.gdshader" id="15_pgq4v"]
-[ext_resource type="Script" uid="uid://vqlrt3t7rurw" path="res://vignette_white.gd" id="16_iwoyl"]
-[ext_resource type="Shader" uid="uid://bs3vn27f5n721" path="res://vignette_white.gdshader" id="16_ocswj"]
-[ext_resource type="Script" uid="uid://bsoywgdjxnvyu" path="res://door.gd" id="21_pgq4v"]
+[ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
+[ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
+[ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_stuff/monster_hitbox.gd" id="2_8bn17"]
+[ext_resource type="Script" uid="uid://rqmoc0mfpv14" path="res://monster_stuff/monster_mesh.gd" id="3_1g5l6"]
+[ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://shaders/scanlines.gdshader" id="4_0lhry"]
+[ext_resource type="Script" uid="uid://my0wyhc8d417" path="res://misc_scripts/animation_player.gd" id="4_x351s"]
+[ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://shaders/noise.gdshader" id="5_0ibrq"]
+[ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://components/position_component.tscn" id="5_0lhry"]
+[ext_resource type="Script" uid="uid://dvml1rxodr3gm" path="res://monster_stuff/hitbox_position_size.gd" id="5_4ofsq"]
+[ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://components/visibility_component.tscn" id="6_4p23x"]
+[ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://main_room_scenes_and_glbs/mainroom.tscn" id="7_4p23x"]
+[ext_resource type="Script" uid="uid://3rsp3dvs2g7l" path="res://lights/flashlight.gd" id="7_j64eu"]
+[ext_resource type="Script" uid="uid://3j2wmiq7lm7w" path="res://misc_scripts/camera_3d.gd" id="8_1cnxy"]
+[ext_resource type="Script" uid="uid://crntlxukx8fpk" path="res://misc_scripts/visual_effects.gd" id="10_56ibc"]
+[ext_resource type="Shader" uid="uid://bo8plruv0mrxt" path="res://shaders/crt.gdshader" id="11_xs15d"]
+[ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://entity_scripts/toy_bunny.gd" id="12_4ofsq"]
+[ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://misc_scripts/random_vis_fx.gd" id="12_4olqe"]
+[ext_resource type="Shader" uid="uid://dpaqayp4xj731" path="res://shaders/glitch.gdshader" id="13_03120"]
+[ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://shaders/vignette_black.gdshader" id="15_pgq4v"]
+[ext_resource type="Script" uid="uid://vqlrt3t7rurw" path="res://misc_scripts/vignette_white.gd" id="16_iwoyl"]
+[ext_resource type="Shader" uid="uid://bs3vn27f5n721" path="res://shaders/vignette_white.gdshader" id="16_ocswj"]
+[ext_resource type="Script" uid="uid://bsoywgdjxnvyu" path="res://entity_scripts/door.gd" id="21_pgq4v"]
+[ext_resource type="Script" uid="uid://b2rshldu4bgfd" path="res://entity_scripts/toy_bunny_shelf.gd" id="21_x351s"]
+[ext_resource type="Script" uid="uid://dibbaksisyun0" path="res://entity_scripts/right_drawing.gd" id="22_hv5bq"]
+[ext_resource type="Script" uid="uid://ca24l4sjskdxd" path="res://entity_scripts/crib.gd" id="22_ocswj"]
 [ext_resource type="Texture2D" uid="uid://bgj5cjrcalcwm" path="res://text_sequences/i_want_to_play/0020.png" id="23_03120"]
+[ext_resource type="Script" uid="uid://xft8ubg7mpao" path="res://entity_scripts/dresser.gd" id="23_j64eu"]
+[ext_resource type="Script" uid="uid://cfjvo5k7od3t7" path="res://entity_scripts/sm_ball.gd" id="24_1g5l6"]
 [ext_resource type="Texture2D" uid="uid://c3tn41bnkwaen" path="res://text_sequences/i_want_to_play/0021.png" id="24_56ibc"]
+[ext_resource type="Script" uid="uid://dx6koqwq0dqk6" path="res://entity_scripts/sm_toy_train.gd" id="24_j64eu"]
 [ext_resource type="Texture2D" uid="uid://71847pemoa7w" path="res://text_sequences/i_want_to_play/0022.png" id="25_pgq4v"]
+[ext_resource type="Script" uid="uid://dvg62yauyete0" path="res://entity_scripts/sm_toy_boat.gd" id="25_x351s"]
 [ext_resource type="Texture2D" uid="uid://ciwj8d802id1t" path="res://text_sequences/i_want_to_play/0023.png" id="26_iwoyl"]
 [ext_resource type="Texture2D" uid="uid://cis5knyp4qc5h" path="res://text_sequences/ill_hide/0030.png" id="27_03120"]
 [ext_resource type="Texture2D" uid="uid://cvytiu8lkk200" path="res://text_sequences/ill_hide/0031.png" id="28_56ibc"]
+[ext_resource type="Script" uid="uid://dpv57dsfty1eb" path="res://entity_scripts/toy_robot_front.gd" id="28_x351s"]
 [ext_resource type="Texture2D" uid="uid://btuuuwwm4hw2g" path="res://text_sequences/ill_hide/0032.png" id="29_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://bcjmxpmcnvjhc" path="res://text_sequences/ill_hide/0033.png" id="30_iwoyl"]
 [ext_resource type="Texture2D" uid="uid://bfq31meo3lcew" path="res://text_sequences/lets_play/0050.png" id="31_03120"]
@@ -40,13 +47,13 @@
 [ext_resource type="Texture2D" uid="uid://b4yhbke6mrbap" path="res://text_sequences/okay_ready/0042.png" id="41_hev8t"]
 [ext_resource type="Texture2D" uid="uid://2ytmj37lmfe2" path="res://text_sequences/okay_ready/0043.png" id="42_1g5l6"]
 [ext_resource type="Texture2D" uid="uid://bsakpb6j120p5" path="res://text_sequences/no_peeking/0010.png" id="43_x351s"]
-[ext_resource type="Script" uid="uid://dchvokwxo8rg3" path="res://drawing_sequences.gd" id="44_4olqe"]
+[ext_resource type="Script" uid="uid://dchvokwxo8rg3" path="res://text_sequences/drawing_sequences.gd" id="44_4olqe"]
 [ext_resource type="Texture2D" uid="uid://cunfavqysiwvb" path="res://text_sequences/no_peeking/0011.png" id="44_hv5bq"]
-[ext_resource type="Script" uid="uid://cuowlps0sqevy" path="res://lightning_back.gd" id="45_56ibc"]
+[ext_resource type="Script" uid="uid://cuowlps0sqevy" path="res://lights/lightning_back.gd" id="45_56ibc"]
 [ext_resource type="Texture2D" uid="uid://uydtiwjjvahk" path="res://text_sequences/no_peeking/0012.png" id="45_lmcfg"]
 [ext_resource type="Texture2D" uid="uid://d0pon66s50uwo" path="res://text_sequences/no_peeking/0013.png" id="46_4yxo5"]
-[ext_resource type="Script" uid="uid://bmpil61yf3yj0" path="res://lightning_right.gd" id="50_hev8t"]
-[ext_resource type="PackedScene" uid="uid://y820bfjiv4cb" path="res://lightbulb_lights.tscn" id="50_j64eu"]
+[ext_resource type="Script" uid="uid://bmpil61yf3yj0" path="res://lights/lightning_right.gd" id="50_hev8t"]
+[ext_resource type="PackedScene" uid="uid://y820bfjiv4cb" path="res://lights/lightbulb_lights.tscn" id="50_j64eu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hev8t"]
 vertex_color_use_as_albedo = true
@@ -1940,34 +1947,6 @@ fill_to = Vector2(0.465812, 0.320513)
 transform = Transform3D(1.17442, -0.309792, 1.06931e-08, 0, -5.89142e-08, -1.0643, 0.277367, 1.31171, -4.52764e-08, -4.29352, 5.79745, -0.142764)
 script = ExtResource("2_1ftms")
 
-[node name="Skeleton3D" parent="monsterthing/Armature_003" index="0"]
-bones/1/position = Vector3(0.10962, 0.457232, -1.04952)
-bones/1/rotation = Quaternion(-0.698737, 2.80837e-07, -0.0330951, 0.714613)
-bones/2/rotation = Quaternion(0.164199, -0.00403435, -0.117413, 0.979406)
-bones/3/rotation = Quaternion(0.0818138, -0.00233166, -0.0586355, 0.994919)
-bones/4/rotation = Quaternion(-0.0180208, -0.123989, 0.904326, 0.408039)
-bones/5/rotation = Quaternion(0.101598, 0.0883157, 0.0200463, 0.990695)
-bones/6/rotation = Quaternion(0.133689, 0.124829, 0.199382, 0.9627)
-bones/7/rotation = Quaternion(-0.0402996, 0.135286, 0.26115, 0.954921)
-bones/8/rotation = Quaternion(6.31405e-08, 4.40201e-10, 5.72536e-09, 1)
-bones/9/rotation = Quaternion(0.00792985, 6.22463e-05, 0.00768782, 0.999939)
-bones/10/position = Vector3(-0.00169989, 0.0825785, 0.340693)
-bones/10/rotation = Quaternion(0.91247, 0.042215, 0.037542, 0.405225)
-bones/11/position = Vector3(0.016461, 0.274231, 0.277297)
-bones/11/rotation = Quaternion(0.658246, 0.00465677, 0.089637, 0.747433)
-bones/12/rotation = Quaternion(-0.00683433, -0.0948732, 0.94787, -0.304131)
-bones/13/rotation = Quaternion(0.119798, -0.0275812, 0.0330824, 0.991864)
-bones/14/rotation = Quaternion(0.146144, -0.0346327, -0.0643804, 0.986558)
-bones/15/rotation = Quaternion(0.236061, -0.133542, -0.181136, 0.945321)
-bones/16/rotation = Quaternion(0.5959, -0.384204, -0.587909, -0.389427)
-bones/17/rotation = Quaternion(-0.450543, -0.238915, -0.135322, 0.849482)
-bones/18/rotation = Quaternion(-0.105831, -0.00926561, 0.128916, 0.985949)
-bones/19/rotation = Quaternion(-0.00572017, 0.0424696, -0.181692, 0.982421)
-bones/20/rotation = Quaternion(0.653565, 0.282042, 0.639015, -0.291488)
-bones/21/rotation = Quaternion(-0.312467, -0.162847, -0.175127, 0.919334)
-bones/22/rotation = Quaternion(-0.069009, -0.0424475, -0.129729, 0.988234)
-bones/23/rotation = Quaternion(-0.0684545, 0.0681259, 0.278443, 0.955585)
-
 [node name="Plane_003" parent="monsterthing/Armature_003/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_x351s")
@@ -1990,10 +1969,6 @@ shape = SubResource("BoxShape3D_km5ld")
 
 [node name="positionComponent" parent="monsterthing/monsterHitbox" instance=ExtResource("5_0lhry")]
 script = ExtResource("5_4ofsq")
-
-[node name="visibilityComponent" parent="monsterthing" instance=ExtResource("6_4p23x")]
-
-[node name="positionComponent" parent="monsterthing" instance=ExtResource("5_0lhry")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97963, -6.63983)
@@ -2086,31 +2061,13 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("16_iwoyl")
 
-[node name="BoxContainer" type="BoxContainer" parent="VisualEffects"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="VisualEffects/BoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-button_mask = 2
-flat = true
-script = ExtResource("6_4ofsq")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0b4ue")
 
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
 
 [node name="Door" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001" index="0"]
-transform = Transform3D(0.494428, 0.869219, -3.02313e-08, -0.869219, 0.494428, -5.1976e-08, -3.01345e-08, 5.18095e-08, 1.00321, 0.0350246, -0.507948, -0.115826)
+transform = Transform3D(1, -3.85841e-06, -5.981e-08, 3.85841e-06, 1, 3.63161e-06, 5.96046e-08, -3.61999e-06, 1.00321, 0.0350223, -0.507947, -0.115825)
 script = ExtResource("21_pgq4v")
 
 [node name="visibilityComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="0" instance=ExtResource("6_4p23x")]
@@ -2121,6 +2078,25 @@ script = ExtResource("21_pgq4v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243225, -0.160645, -0.192262)
 size = Vector3(0.51355, 0.678711, 1.81714)
 material = SubResource("StandardMaterial3D_iwoyl")
+
+[node name="SM_ToyBunny_001" parent="mainroom/MainRoomMoreStuff" index="4"]
+script = ExtResource("21_x351s")
+
+[node name="Plane_001" parent="mainroom/MainRoomMoreStuff" index="5"]
+script = ExtResource("22_hv5bq")
+
+[node name="Sketchfab_model" parent="mainroom" index="2"]
+transform = Transform3D(-7.54192e-06, 2.08341, 9.10687e-08, 0, -9.10687e-08, 2.08341, 2.08341, 7.54192e-06, 3.29668e-13, -2.58153, 0.147893, 1.80571)
+script = ExtResource("22_ocswj")
+
+[node name="Sketchfab_model_001" parent="mainroom" index="3"]
+script = ExtResource("23_j64eu")
+
+[node name="SM_Ball" parent="mainroom" index="7"]
+script = ExtResource("24_1g5l6")
+
+[node name="SM_ToyBoat" parent="mainroom" index="8"]
+script = ExtResource("25_x351s")
 
 [node name="SM_ToyBunny" parent="mainroom" index="9"]
 transform = Transform3D(0.126467, 0, -3.45434, 0, 3.45666, 0, 3.45434, 0, 0.126467, 1.86621, 1.31729, -5.93348)
@@ -2134,9 +2110,27 @@ light_color = Color(0.973803, 0, 0.159782, 1)
 light_energy = 0.368
 light_volumetric_fog_energy = 0.0
 
-[node name="positionComponent" parent="mainroom/SM_ToyBunny" index="1" instance=ExtResource("5_0lhry")]
+[node name="SM_ToyTrain" parent="mainroom" index="13"]
+script = ExtResource("24_j64eu")
 
-[node name="visibilityComponent" parent="mainroom/SM_ToyBunny" index="2" instance=ExtResource("6_4p23x")]
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyTrain" index="0"]
+transform = Transform3D(-0.0140544, 0.0147994, 0.112507, 0.0069332, 0.113267, -0.0140333, -0.113264, 0.00509697, -0.0148194, 0.00874141, 0.0165713, -0.551109)
+visible = false
+light_color = Color(0.516319, 0.516318, 3.85046e-07, 1)
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+shadow_caster_mask = 4294967294
+spot_range = 8.86465
+spot_angle = 19.6153
+
+[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyTrain" index="1"]
+transform = Transform3D(0.114343, 0, -3.72529e-09, 0, 0.114343, 0, 3.72529e-09, 0, 0.114343, -0.0905323, 0.066001, -0.526129)
+visible = false
+light_color = Color(0.516319, 0.516318, 3.85046e-07, 1)
+omni_range = 0.771326
+
+[node name="SM_ToyRobot_001" parent="mainroom" index="15"]
+script = ExtResource("28_x351s")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="mainroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012207, 0.691483, -6.57139)
@@ -2244,4 +2238,5 @@ omni_attenuation = 0.619
 [editable path="monsterthing"]
 [editable path="mainroom"]
 [editable path="mainroom/MainRoomNewStuff"]
+[editable path="mainroom/MainRoomMoreStuff"]
 [editable path="LightbulbLights"]

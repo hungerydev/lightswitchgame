@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://y820bfjiv4cb"]
+
+[ext_resource type="Script" uid="uid://dnv0w1b86nhup" path="res://lights/lightbulb.gd" id="1_e7jts"]
+
+[node name="LightbulbLights" type="Node3D"]
+
+[node name="lightbulb1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, 2.34242)
+visible = false
+light_intensity_lumens = 412.89
+light_temperature = 6720.0
+light_color = Color(0.453699, 0.384035, 0.149262, 1)
+light_energy = 0.814
+light_indirect_energy = 7.683
+light_volumetric_fog_energy = 47.29
+light_specular = 0.015
+shadow_enabled = true
+shadow_bias = 0.115
+shadow_normal_bias = 0.0
+shadow_transmittance_bias = -13.369
+shadow_blur = 0.484
+distance_fade_enabled = true
+distance_fade_shadow = 94.04
+omni_range = 4.98485
+omni_attenuation = 0.619
+script = ExtResource("1_e7jts")
+
+[node name="lightbulb2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.82689, -0.912153)
+visible = false
+light_color = Color(0.893171, 0.78932, 0.4549, 1)
+light_energy = 10.282
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4294967294
+shadow_enabled = true
+omni_range = 5.23452
+omni_attenuation = 0.619
+script = ExtResource("1_e7jts")
