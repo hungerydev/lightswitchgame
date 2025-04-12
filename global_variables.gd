@@ -1,4 +1,5 @@
 extends Node
+class_name GlobalVariables
 
 var difficulty: float = 1.0
 

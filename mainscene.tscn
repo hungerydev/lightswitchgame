@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=75 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://monsterthing.gd" id="2_1ftms"]
@@ -22,6 +22,7 @@
 [ext_resource type="Shader" uid="uid://i8jpco4h1b3" path="res://vignette_black.gdshader" id="15_pgq4v"]
 [ext_resource type="Script" uid="uid://vqlrt3t7rurw" path="res://vignette_white.gd" id="16_iwoyl"]
 [ext_resource type="Shader" uid="uid://bs3vn27f5n721" path="res://vignette_white.gdshader" id="16_ocswj"]
+[ext_resource type="Script" uid="uid://bsoywgdjxnvyu" path="res://door.gd" id="21_pgq4v"]
 [ext_resource type="Texture2D" uid="uid://bgj5cjrcalcwm" path="res://text_sequences/i_want_to_play/0020.png" id="23_03120"]
 [ext_resource type="Texture2D" uid="uid://c3tn41bnkwaen" path="res://text_sequences/i_want_to_play/0021.png" id="24_56ibc"]
 [ext_resource type="Texture2D" uid="uid://71847pemoa7w" path="res://text_sequences/i_want_to_play/0022.png" id="25_pgq4v"]
@@ -1830,6 +1831,9 @@ volumetric_fog_detail_spread = 2.19613
 volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwoyl"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d76yy"]
 animations = [{
 "frames": [{
@@ -2104,6 +2108,19 @@ script = ExtResource("6_4ofsq")
 environment = SubResource("Environment_0b4ue")
 
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
+
+[node name="Door" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001" index="0"]
+transform = Transform3D(0.494428, 0.869219, -3.02313e-08, -0.869219, 0.494428, -5.1976e-08, -3.01345e-08, 5.18095e-08, 1.00321, 0.0350246, -0.507948, -0.115826)
+script = ExtResource("21_pgq4v")
+
+[node name="visibilityComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="0" instance=ExtResource("6_4p23x")]
+
+[node name="positionComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="1" instance=ExtResource("5_0lhry")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243225, -0.160645, -0.192262)
+size = Vector3(0.51355, 0.678711, 1.81714)
+material = SubResource("StandardMaterial3D_iwoyl")
 
 [node name="SM_ToyBunny" parent="mainroom" index="9"]
 transform = Transform3D(0.126467, 0, -3.45434, 0, 3.45666, 0, 3.45434, 0, 0.126467, 1.86621, 1.31729, -5.93348)

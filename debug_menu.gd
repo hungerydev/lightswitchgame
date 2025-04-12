@@ -5,7 +5,6 @@ var event_indeces: Array = []
 func _ready() -> void:
 	var colo_rect = ColorRect.new()
 	colo_rect.color = Color.BLACK
-	colo_rect.PRESET_FULL_RECT
 	colo_rect.size = Vector2(10000, 10000)
 	colo_rect.color.a = 1
 	add_child(colo_rect)

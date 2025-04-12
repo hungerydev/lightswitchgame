@@ -1,4 +1,5 @@
 extends Node
+class_name AudioManager
 
 signal finished
 
@@ -76,7 +77,7 @@ func _event_start(event) -> void:
 					if randi_range(1,10) == 1:
 						_play_bassy("none")
 					if randi_range(1,10) == 1:
-						_play_scrapes()
+						_play_scrapes("none")
 					await _play_footsteps()
 					monster_active = false
 		gb.hour3:
@@ -125,11 +126,15 @@ func _play_bassy(string) -> void:
 	await stream.finished
 	remove_child(stream)
 
-func _play_scrapes() -> void:
+func _play_scrapes(string) -> void:
+	var file
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()
 	add_child(stream)
-	var file = "res://audio/Scrapes/" + scrape_fx.pick_random()
+	if string == "none":
+		file = "res://audio/Scrapes/" + scrape_fx.pick_random()
+	else:
+		file = "res://audio/Scrapes/" + string
 	print(file)
 	stream.stream = load(file)
 	stream.volume_db = 5

@@ -1,4 +1,5 @@
 extends Node
+class_name GlobalFunctions
 
 var perf_chance: bool = false
 
