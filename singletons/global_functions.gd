@@ -35,7 +35,7 @@ func _rc_hard() -> bool: ## 1 in 50
 		return false
 
 func _rc_very_hard() -> bool: ## 1 in 100
-	if randi_range(1, 100 * chance_modifier) == 1:
+	if randf_range(1, 100 * chance_modifier) == 1:
 		chance_modifier = 1.0
 		return true
 	elif perf_chance:
@@ -45,7 +45,7 @@ func _rc_very_hard() -> bool: ## 1 in 100
 		return false
 		
 func _rc_impossible() -> bool: ## 1 in 1000
-	if randi_range(1, 1000 * chance_modifier) == 1:
+	if randf_range(1, 1000 * chance_modifier) == 1:
 		chance_modifier = 1.0
 		return true
 	elif perf_chance:

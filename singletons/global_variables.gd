@@ -52,10 +52,9 @@ var event_dict: Dictionary = {
 }
 
 func _hour5() -> int:
-	var hour5_pick: Array = [hour1, hour2, hour3, hour4]
-	var hour_selection = hour5_pick.pick_random()
-	current_hour = hour_selection
-	var event = current_hour.values().pick_random()
+	var hour5_pick = er._hour5_pick()
+	current_hour = hour5_pick
+	var event = er._choose_random_event()
 	return event
 
 var override_event_target

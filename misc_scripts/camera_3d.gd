@@ -10,10 +10,11 @@ func _event_start(event) -> void:
 	match event:
 		gb.hour1.EVENT_1_1, gb.hour1.EVENT_1_3, gb.hour1.EVENT_1_10:
 			if gf._rc_hard():
-				pcom._set_position(Vector3(0, 1.97963, -6.63983),Vector3(0, 3.14159, 2.51327),Vector3(1, 1, 1))
+				pcom._set_position(Vector3(0, 1.97963, -6.63983),Vector3(0, -3.14159, 2.51327),Vector3(1, 1, 1))
 	match gb.current_hour:
 		gb.hour1, gb.hour2, gb.hour3:
 			if gf._rc_very_hard():
+				await sb._light_on
 				var tween1 = get_tree().create_tween()
 				var tween2 = get_tree().create_tween()
 				tween2.tween_property(self, "fov", 60, 5)

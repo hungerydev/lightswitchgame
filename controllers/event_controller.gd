@@ -23,7 +23,7 @@ func _start_event() -> void:
 					gb.difficulty = 10.0
 			gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 				gb.difficulty = gb.difficulty_setting
-				var new_event = gb.current_hour.values().pick_random()
+				var new_event = er._choose_random_event()
 				print(new_event)
 				sb._event_start.emit(new_event)
 			gb.hour5:
