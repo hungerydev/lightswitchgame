@@ -2247,6 +2247,49 @@ script = ExtResource("28_x351s")
 
 [node name="shadow_component" parent="mainroom/SM_ToyRobot_001" index="0" instance=ExtResource("23_4tqfu")]
 
+[node name="lights" type="Node3D" parent="mainroom/SM_ToyRobot_001" index="1"]
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+transform = Transform3D(0.0141425, -0.0469276, 0.653287, -0.424948, 0.496581, 0.0448703, -0.498403, -0.424725, -0.0197197, -0.0756294, 0.228609, 0.292336)
+light_intensity_lumens = 5192.62
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.877
+light_volumetric_fog_energy = 0.768
+light_size = 0.036
+shadow_enabled = true
+spot_range = 6.663
+spot_attenuation = 2.57
+spot_angle = 6.26707
+spot_angle_attenuation = 2.14354
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+transform = Transform3D(0.189589, 0.0901105, 0.620582, -0.414559, 0.504456, 0.0533994, -0.470514, -0.408155, 0.203008, -0.03333, 0.210527, 0.249627)
+light_intensity_lumens = 5192.62
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.877
+light_indirect_energy = 1.767
+light_volumetric_fog_energy = 1.021
+light_size = 0.036
+shadow_enabled = true
+spot_range = 6.663
+spot_attenuation = 2.57
+spot_angle = 6.26707
+spot_angle_attenuation = 2.14354
+
+[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+transform = Transform3D(0.655123, -1.11759e-08, -2.98023e-08, 1.11759e-08, 0.655123, -1.11759e-08, 5.96046e-08, 1.11759e-08, 0.655123, -0.0188876, 0.209918, 0.261371)
+light_intensity_lumens = 965.76
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.233
+omni_range = 0.0293743
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+transform = Transform3D(0.655123, -7.45058e-09, -2.98023e-08, 1.11759e-08, 0.655123, -1.11759e-08, 5.96046e-08, 1.11759e-08, 0.655123, -0.0240275, 0.209546, 0.295061)
+light_intensity_lumens = 965.76
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.233
+omni_range = 0.0357303
+
 [node name="SM_ToyCube_01a_001" parent="mainroom" index="16"]
 script = ExtResource("27_e0jif")
 

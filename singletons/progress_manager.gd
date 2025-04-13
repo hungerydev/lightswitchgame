@@ -63,7 +63,6 @@ func _event_start(event) -> Signal:
 			else:
 				hour4i += 1
 		gb.hour5:
-			await sb._event_finished
 			if hour5i == hour5max:
 				## TODO: Change this!
 				gb.current_hour = gb.tutorial

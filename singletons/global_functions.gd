@@ -2,7 +2,7 @@ extends Node
 class_name GlobalFunctions
 
 var perf_chance: bool = false
-
+var chance_modifier: float = 1.0
 func _ready() -> void:
 	sb._monster_inactive.connect(_death_timer)
 	sb._event_start.connect(_set_death_timer_dur)
@@ -25,27 +25,33 @@ func _rc_medium() -> bool: ## 1 in 25
 		return false
 		
 func _rc_hard() -> bool: ## 1 in 50
-	if randi_range(1, 50) == 1:
+	if randf_range(1, 50 * chance_modifier) == 1:
+		chance_modifier = 1.0
 		return true
 	elif perf_chance:
 		return true
 	else:
+		chance_modifier -= .005
 		return false
 
 func _rc_very_hard() -> bool: ## 1 in 100
-	if randi_range(1, 100) == 1:
+	if randi_range(1, 100 * chance_modifier) == 1:
+		chance_modifier = 1.0
 		return true
 	elif perf_chance:
 		return true
 	else:
+		chance_modifier -= .005
 		return false
 		
 func _rc_impossible() -> bool: ## 1 in 1000
-	if randi_range(1, 1000) == 1:
+	if randi_range(1, 1000 * chance_modifier) == 1:
+		chance_modifier = 1.0
 		return true
 	elif perf_chance:
 		return true
 	else:
+		chance_modifier -= .005
 		return false
 
 var death_timer: float = 5.0
