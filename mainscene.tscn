@@ -1994,7 +1994,7 @@ libraries = {
 script = ExtResource("4_x351s")
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 1.74549, 2.4057, -3.16164)
+transform = Transform3D(1.25137, 0, 0, 0, 2.33363, 0, 0, 0, 1.38325, -2.49906, 2.31092, -1.36708)
 top_level = true
 script = ExtResource("2_8bn17")
 
@@ -2133,6 +2133,7 @@ script = ExtResource("22_hv5bq")
 [node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane_001" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyRobot_002" parent="mainroom/MainRoomMoreStuff" index="6"]
+transform = Transform3D(0.427158, -1.46437, -0.055973, 0.855027, 0.296398, -1.22925, 1.19015, 0.312643, 0.903211, 3.59732, 4.36791, 2.10568)
 script = ExtResource("25_wqh86")
 
 [node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot_002" index="0" instance=ExtResource("23_4tqfu")]

@@ -1,7 +1,9 @@
 extends Node
 class_name GlobalVariables
 
+var difficulty_setting: float = 1.0
 var difficulty: float = 1.0
+
 
 var death: bool = true
 
@@ -12,8 +14,6 @@ var current_hour = tutorial:
 	set(new_hour):
 		current_hour = new_hour
 		sb._hour_changed.emit(current_hour)
-
-
 
 var fail: bool = false:
 	get:
@@ -40,14 +40,23 @@ enum hour4 {EVENT_4_1 = 401,
 EVENT_4_2, EVENT_4_3, EVENT_4_4, EVENT_4_5, EVENT_4_6, EVENT_4_7, EVENT_4_8, EVENT_4_9,
 EVENT_4_10, EVENT_4_11, EVENT_4_12, EVENT_4_13, EVENT_4_14, EVENT_4_15}
 
+enum hour5 {}
+
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
 	"hour2": hour2,
 	"hour3": hour3,
-	"hour4": hour4
+	"hour4": hour4,
+	"hour5": hour5
 }
 
+func _hour5() -> int:
+	var hour5_pick: Array = [hour1, hour2, hour3, hour4]
+	var hour_selection = hour5_pick.pick_random()
+	current_hour = hour_selection
+	var event = current_hour.values().pick_random()
+	return event
 
 var override_event_target
 

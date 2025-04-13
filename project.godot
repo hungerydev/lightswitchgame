@@ -25,6 +25,7 @@ sb="*res://singletons/signal_bus.gd"
 gb="*res://singletons/global_variables.gd"
 am="*res://singletons/audio_manager.gd"
 gf="*res://singletons/global_functions.gd"
+pm="*res://singletons/progress_manager.gd"
 
 [debug]
 

@@ -23,6 +23,8 @@ signal _rc_result(bool)
 
 signal _hour_changed(hour)
 
+signal _progress_calculated
+
 signal _lightning_strike
 
 signal _fail

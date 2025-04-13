@@ -7,7 +7,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	_start_event()
 
-var tutorial_int: int = 0
+
 	
 func _monster_clicked() -> void:
 	sb._event_finished.emit()
@@ -17,21 +17,21 @@ func _start_event() -> void:
 		match gb.current_hour:
 			gb.tutorial:
 				if gb.current_hour == gb.tutorial:
-					if len(gb.tutorial.values()) > tutorial_int:
-						var new_event = gb.current_hour.values()[tutorial_int]
-						print(new_event)
-						sb._event_start.emit(new_event)
-						tutorial_int += 1
-						gb.difficulty = 10.0
-					else:
-						gb.current_hour = gb.hour1
-						_start_event()
-						tutorial_int = 0
-						gb.difficulty = 1.0
+					var new_event = gb.current_hour.values()[pm.tutoriali]
+					print(new_event)
+					sb._event_start.emit(new_event)
+					gb.difficulty = 10.0
 			gb.hour1, gb.hour2, gb.hour3, gb.hour4:
+				gb.difficulty = gb.difficulty_setting
 				var new_event = gb.current_hour.values().pick_random()
 				print(new_event)
 				sb._event_start.emit(new_event)
+			gb.hour5:
+				gb.difficulty = gb.difficulty_setting
+				var event = gb._hour5()
+				sb._event_start.emit(event)
+				await sb._event_finished
+				gb.current_hour = gb.hour5
 	else:
 		var new_event = gb.override_event_target
 		print(new_event)

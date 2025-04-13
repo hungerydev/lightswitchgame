@@ -55,6 +55,10 @@ func _event_start(_event) -> void:
 			pass
 		gb.hour2:
 			_lights_off()
+		gb.hour3:
+			_lights_off()
+		gb.hour4:
+			_lights_off()
 
 func _lights_on() -> void:
 	if not am.monster_active:

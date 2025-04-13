@@ -21,7 +21,7 @@ func _event_start(event) -> void:
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.83174, 0.907496, 0.565283),Vector3(-0.108582, 0.2845, 0.137062),Vector3(1, 1, 1))
 					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-2.91414, -0.11218, -1.36708),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
+					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
 		gb.hour1:
 			await sb._light_off
 			match event:

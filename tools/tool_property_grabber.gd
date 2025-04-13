@@ -22,7 +22,7 @@ func _run() -> void:
 			print(string1 + string2 + string3)
 		else:
 			var position = var_to_str(node.global_position)
-			var rotation = var_to_str(node.global_rotation)
+			var rotation = var_to_str(node.rotation)
 			var scale = var_to_str(node.scale)
 			var string = r"pcom._set_position(" + position + "," + rotation + "," + scale + ")"
 			DisplayServer.clipboard_set(string)
