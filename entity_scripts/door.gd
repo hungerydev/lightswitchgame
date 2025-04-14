@@ -5,7 +5,7 @@ func _event_start(event) -> void:
 	match gb.current_hour:
 		gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 			await sb._light_on
-			if gf._rc_medium():
+			if gf._rc_very_hard():
 				_open()
 		
 func _open() -> void:

@@ -17,8 +17,7 @@ func _ready() -> void:
 	for event in gb.hour4.values():
 		hour4dict.get_or_add(event, 1)
 	hour5dict = {gb.hour1: 1, gb.hour2: 1, gb.hour3: 1, gb.hour4: 1}
-	gb.current_hour = gb.hour1
-	_choose_random_event()
+
 	
 
 func _choose_random_event() -> int:
@@ -39,7 +38,8 @@ func _choose_and_manipulate(dict) -> int:
 		if events == event:
 			dict[events] -= 0.5
 		else:
-			dict[events] = 1
+			if dict[events] < 1:
+				dict[events] += 0.25
 	return event
 
 func _hour5_pick() -> Dictionary:
@@ -48,6 +48,7 @@ func _hour5_pick() -> Dictionary:
 		if hour == choice:
 			hour5dict[hour] -= 0.25
 		else:
-			hour5dict[hour] = 1
+			if hour5dict[hour] < 1:
+				hour5dict[hour] += 0.25
 	print(hour5dict)
 	return choice

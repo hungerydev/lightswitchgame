@@ -17,6 +17,7 @@ func _ready() -> void:
 	sb._remote_light_off.connect(_lights_off)
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
+	_hour_changed(gb.current_hour)
 
 
 

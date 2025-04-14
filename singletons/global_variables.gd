@@ -4,14 +4,18 @@ class_name GlobalVariables
 var difficulty_setting: float = 1.0
 var difficulty: float = 1.0
 
+var loading: bool = false
 
 var death: bool = true
 
+var last_hour_completed = null
 
 var current_hour = tutorial:
 	get:
 		return current_hour
 	set(new_hour):
+		if not loading:
+			last_hour_completed = current_hour
 		current_hour = new_hour
 		sb._hour_changed.emit(current_hour)
 
@@ -42,6 +46,8 @@ EVENT_4_10, EVENT_4_11, EVENT_4_12, EVENT_4_13, EVENT_4_14, EVENT_4_15}
 
 enum hour5 {}
 
+enum post_game {}
+
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
@@ -64,3 +70,41 @@ func _new_override_target(hour_section, event, hours) -> void:
 	override_event_target = event_dict[hour_section.text][event]
 
 var vis_effects
+
+func _save() -> Dictionary:
+	var save_dict = {
+		"last_hour_completed": last_hour_completed,
+		"difficulty_setting": difficulty_setting,
+		"string": "looks like it worked"
+	}
+	return save_dict
+
+func _load(data) -> void:
+	loading = true
+	var last_hour: Dictionary = data["last_hour_completed"]
+	match last_hour.values().get(0):
+		0.0:
+			last_hour_completed = tutorial
+			current_hour = tutorial
+			
+		101.0:
+			last_hour_completed = hour1
+			current_hour = hour2
+			
+		201.0:
+			last_hour_completed = hour2
+			current_hour = hour3
+			
+		301.0:
+			last_hour_completed = hour3
+			current_hour = hour4
+			
+		401.0:
+			last_hour_completed = hour4
+			current_hour = hour5
+			
+		501.0:
+			last_hour_completed = hour5
+			current_hour = post_game
+	difficulty_setting = data["difficulty_setting"]
+	loading = false

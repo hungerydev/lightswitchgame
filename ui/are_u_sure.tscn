@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://caekpt3ac7vsy"]
+
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_fhdwj"]
+[ext_resource type="Script" uid="uid://dnld4cyng8bdr" path="res://ui/are_u_sure.gd" id="1_mybyk"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fhdwj"]
+
+[node name="are_u_sure" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mybyk")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fhdwj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="are_u_sure_text" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(650, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "Are you sure you want to delete your save? [wave amp = 1000.0 freq=10.0 connected=1]This can't be undone![/wave]"
+custom_effects = [SubResource("RichTextEffect_fhdwj"), null, null, null, null]
+
+[node name="yes" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "yes"
+
+[node name="no" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "no"

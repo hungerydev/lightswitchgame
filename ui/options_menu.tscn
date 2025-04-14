@@ -79,3 +79,17 @@ vertical = true
 [node name="go_back" type="Button" parent="BoxContainer"]
 layout_mode = 2
 text = "Go Back"
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 1558.84
+offset_top = 138.755
+offset_right = 1796.84
+offset_bottom = 244.755
+theme = ExtResource("1_t1lix")
+alignment = 2
+
+[node name="delete_save" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "Delete Save Data
+"

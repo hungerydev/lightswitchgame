@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=92 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -1848,6 +1848,44 @@ adjustment_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwoyl"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_m5ygy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wqh86"]
+resource_name = "swing"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.574349, 1, 0.450625),
+"update": 0,
+"values": [Vector3(0, 0, 1.5708), Vector3(0, 0, -1.5708), Vector3(0, 0, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0jif"]
+_data = {
+&"RESET": SubResource("Animation_m5ygy"),
+&"swing": SubResource("Animation_wqh86")
+}
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d76yy"]
 animations = [{
 "frames": [{
@@ -2187,6 +2225,16 @@ script = ExtResource("23_j64eu")
 
 [node name="shadow_component" parent="mainroom/Sketchfab_model_001" index="1" instance=ExtResource("23_4tqfu")]
 
+[node name="SpringBoneSimulator3D" parent="mainroom/Armature/Skeleton3D" index="1"]
+settings/0/stiffness/value = 0.48
+settings/0/drag/value = 0.25
+settings/0/gravity/value = 0.44
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mainroom/Armature/Skeleton3D" index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_e0jif")
+}
+
 [node name="SM_Ball" parent="mainroom" index="7"]
 script = ExtResource("24_1g5l6")
 
@@ -2248,6 +2296,7 @@ script = ExtResource("28_x351s")
 [node name="shadow_component" parent="mainroom/SM_ToyRobot_001" index="0" instance=ExtResource("23_4tqfu")]
 
 [node name="lights" type="Node3D" parent="mainroom/SM_ToyRobot_001" index="1"]
+visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
 transform = Transform3D(0.0141425, -0.0469276, 0.653287, -0.424948, 0.496581, 0.0448703, -0.498403, -0.424725, -0.0197197, -0.0756294, 0.228609, 0.292336)
@@ -2330,12 +2379,12 @@ texture = SubResource("GradientTexture2D_qvxvv")
 process_mode = 1
 transform = Transform3D(-0.923103, -0.283258, -0.260086, -0.305161, 0.951129, 0.0472146, 0.234002, 0.122952, -0.96443, 0, 1.05635, -3.771)
 visible = false
-light_intensity_lumens = 233.57
+light_intensity_lumens = 284.13
 light_color = Color(0.453699, 0.384035, 0.149262, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 1.705
 shadow_enabled = true
-spot_range = 10.9077
+spot_range = 11.128
 spot_angle = 11.2417
 script = ExtResource("7_j64eu")
 
