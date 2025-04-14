@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="difficulty" load_steps=2 format=3 uid="uid://c2svuqm7wnf15"]
+
+[ext_resource type="Script" uid="uid://fwiqsb4qrigx" path="res://rich_text/diffculty.gd" id="1_7udhc"]
+
+[resource]
+script = ExtResource("1_7udhc")
