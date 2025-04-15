@@ -2,6 +2,7 @@ extends Node
 class_name GlobalVariables
 
 var difficulty_setting: float = 1.0
+var difficulty_default: float = 1.0
 var difficulty: float = 1.0
 
 var loading: bool = false
@@ -44,9 +45,13 @@ enum hour4 {EVENT_4_1 = 401,
 EVENT_4_2, EVENT_4_3, EVENT_4_4, EVENT_4_5, EVENT_4_6, EVENT_4_7, EVENT_4_8, EVENT_4_9,
 EVENT_4_10, EVENT_4_11, EVENT_4_12, EVENT_4_13, EVENT_4_14, EVENT_4_15}
 
-enum hour5 {}
+enum hour5 {HOUR_5 = 501}
 
-enum post_game {}
+enum post_game {POST_GAME = 601}
+
+enum custom_mode {CUSTOM_MODE = 701}
+
+enum endless_mode {ENDLESS_MODE = 801}
 
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
@@ -54,12 +59,21 @@ var event_dict: Dictionary = {
 	"hour2": hour2,
 	"hour3": hour3,
 	"hour4": hour4,
-	"hour5": hour5
+	"hour5": hour5,
+	"post_game": post_game,
+	"custom_mode": custom_mode, 
+	"endless_mode": endless_mode
 }
 
 func _hour5() -> int:
 	var hour5_pick = er._hour5_pick()
 	current_hour = hour5_pick
+	var event = er._choose_random_event()
+	return event
+
+func _custom_mode() -> int:
+	var custom_pick = er._custom_pick()
+	current_hour = custom_pick
 	var event = er._choose_random_event()
 	return event
 

@@ -5,6 +5,7 @@ var hour2dict: Dictionary
 var hour3dict: Dictionary
 var hour4dict: Dictionary
 var hour5dict: Dictionary
+var customdict: Dictionary
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -52,3 +53,30 @@ func _hour5_pick() -> Dictionary:
 				hour5dict[hour] += 0.25
 	print(hour5dict)
 	return choice
+
+func _create_custom_dict(selections) -> void:
+	var key_array: Array
+	for i in selections:
+		match i:
+			0:
+				key_array.append(gb.hour1)
+			1:
+				key_array.append(gb.hour2)
+			2:
+				key_array.append(gb.hour3)
+			3:
+				key_array.append(gb.hour4)
+	for hour in key_array:
+		customdict.get_or_add(hour, 1)
+
+func _custom_pick() -> Dictionary:
+	var choice = customdict.keys()[rng.rand_weighted(customdict.values())]
+	for hour in customdict.keys():
+		if hour == choice:
+			customdict[hour] -= 0.25
+		else:
+			if customdict[hour] < 1:
+				customdict[hour] += 0.25
+	print(customdict)
+	return choice
+				

@@ -21,7 +21,10 @@ var hour5i: int = 0
 var hour5max: int = 20
 
 var customi: int = 0
-var custommax: int = 0
+var custommax: int = 20
+
+var endlessi := 0
+var endlessmax := 999
 
 
 func _ready() -> void:
@@ -65,7 +68,22 @@ func _event_start(event) -> Signal:
 		gb.hour5:
 			if hour5i == hour5max:
 				## TODO: Change this!
-				gb.current_hour = gb.tutorial
+				gb.current_hour = gb.post_game
 			else:
 				hour5i += 1
+		gb.custom_mode:
+			if customi == custommax:
+				gb.current_hour = gb.post_game
+			else:
+				customi += 1
+		gb.endless_mode:
+			if endlessi == 25:
+				gb.difficulty = 0.7
+			elif endlessi == 50:
+				gb.difficulty = 0.5
+			elif endlessi == 75:
+				gb.difficulty = 0.3
+			elif endlessi == 100:
+				gb.difficulty = 0.1
+			endlessi += 1
 	return finished

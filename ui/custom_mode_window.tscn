@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmw8m4q7o0frt"]
+[gd_scene load_steps=6 format=3 uid="uid://cmw8m4q7o0frt"]
 
 [ext_resource type="Script" uid="uid://cfhbmr16n85rg" path="res://ui/custom_mode_window.gd" id="1_3bl6u"]
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_gkj1u"]
 [ext_resource type="Script" uid="uid://mxfy0lmoep8w" path="res://difficulty_label.gd" id="3_6uq7r"]
+[ext_resource type="Script" uid="uid://dm4i0h233j4e4" path="res://ui/rng_note.gd" id="4_3bl6u"]
 
 [sub_resource type="GDScript" id="GDScript_6uq7r"]
 script/source = "extends CenterContainer
@@ -28,7 +29,7 @@ theme_override_constants/separation = 130
 
 [node name="mechanic_chooser" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
-select_mode = 1
+select_mode = 2
 auto_height = true
 item_count = 4
 item_0/text = "Hide and Seek"
@@ -50,8 +51,34 @@ script = ExtResource("3_6uq7r")
 [node name="difficulty_slider" type="HSlider" parent="VBoxContainer/VBoxContainer2" groups=["difficulty_slider"]]
 layout_mode = 2
 min_value = -1.0
+max_value = 0.5
+step = 0.1
+value = -1.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Chance for random events"
+fit_content = true
+
+[node name="rng_slider" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+min_value = -1.0
 max_value = 0.0
 step = 0.1
+value = -1.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Note: high amounts of RNG may result in unwinnable situations. Play at your own risk"
+fit_content = true
+script = ExtResource("4_3bl6u")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh8v5pqicae2j"]
+
+[ext_resource type="Script" uid="uid://c8v1r5sq3lkt6" path="res://controllers/custom_mode_controller.gd" id="1_ttm3f"]
+
+[node name="custom_mode_controller" type="Node"]
+script = ExtResource("1_ttm3f")

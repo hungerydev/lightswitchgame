@@ -6,6 +6,7 @@ var menu_active: bool
 var override_active: bool = false
 
 func _ready() -> void:
+	add_to_group("gc")
 	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
 	mainscene.add_to_group("Main Scene")
 	add_child(mainscene)
@@ -20,16 +21,19 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
-		if menu_active == true:
-			get_node("main_menu").queue_free()
-			menu_active = false
-			var event_controller = preload("uid://dvku403rcrta0").instantiate()
-			add_child(event_controller)
+		_start_game()
 	if event.is_action_pressed("debug_menu"):
 		if get_tree().paused:
 			_leave_debug_menu()
 		else:
 			_instantiate_debug_menu()
+
+func _start_game() -> void:
+	if menu_active == true:
+		get_node("main_menu").queue_free()
+		menu_active = false
+		var event_controller = preload("uid://dvku403rcrta0").instantiate()
+		add_child(event_controller)
 
 func _fail() -> void:
 	await sb._jumpscare_finished

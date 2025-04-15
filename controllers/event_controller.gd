@@ -32,6 +32,17 @@ func _start_event() -> void:
 				sb._event_start.emit(event)
 				await sb._event_finished
 				gb.current_hour = gb.hour5
+			gb.custom_mode:
+				gb.difficulty = gb.difficulty_setting
+				var event = gb._custom_mode()
+				sb._event_start.emit(event)
+				await sb._event_finished
+				gb.current_hour = gb.custom_mode
+			gb.endless_mode:
+				var event = gb._hour5()
+				sb._event_start.emit(event)
+				await sb._event_finished
+				gb.current_hour = gb.endless_mode
 	else:
 		var new_event = gb.override_event_target
 		print(new_event)
@@ -45,5 +56,5 @@ func _start_event() -> void:
 			#event._trigger_event_start()
 
 func _event_finished() -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1 * gb.difficulty).timeout
 	_start_event()
