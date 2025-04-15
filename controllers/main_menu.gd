@@ -32,10 +32,10 @@ func _instantiate_custom_mode_menu() -> void:
 			child.queue_free()
 		if child.name == "post_game":
 			child.queue_free()
-		var custom_mode = preload("uid://cmw8m4q7o0frt").instantiate()
-		add_child(custom_mode)
-		var cmc = preload("uid://dh8v5pqicae2j").instantiate()
-		add_child(cmc)
+	var custom_mode = preload("uid://cmw8m4q7o0frt").instantiate()
+	add_child(custom_mode)
+	var cmc = preload("uid://dh8v5pqicae2j").instantiate()
+	add_child(cmc)
 
 func _instantiate_endless_mode_menu() -> void:
 	for child in get_children():
