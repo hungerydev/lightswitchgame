@@ -23,11 +23,11 @@ buses/default_bus_layout="res://resources/default_bus_layout.tres"
 
 sb="*res://singletons/signal_bus.gd"
 gb="*res://singletons/global_variables.gd"
-am="*res://singletons/audio_manager.gd"
 gf="*res://singletons/global_functions.gd"
 pm="*res://singletons/progress_manager.gd"
 er="*res://singletons/event_randomizer.gd"
 slm="*res://singletons/save_load_manager.gd"
+am="*res://singletons/audio_manager.tscn"
 
 [debug]
 

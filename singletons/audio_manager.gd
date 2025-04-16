@@ -1,6 +1,8 @@
 extends Node
 class_name AudioManager
 
+@onready var ar: AudioRandomizer = $audio_randomizer
+
 signal finished
 
 var monster_active: bool = false:
@@ -15,18 +17,32 @@ var amb1: AudioStreamPlayer
 var amb2: AudioStreamPlayer
 
 var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
+var fs_slow: Array = ResourceLoader.list_directory("res://audio/Footsteps/Slow/")
+var fs_medium: Array = ResourceLoader.list_directory("res://audio/Footsteps/Medium/")
+var fs_fast: Array = ResourceLoader.list_directory("res://audio/Footsteps/Fast/")
+
 var bassy_fx: Array = ResourceLoader.list_directory("res://audio/Bassy/")
+
 var scrape_fx: Array = ResourceLoader.list_directory("res://audio/Scrapes/")
+
 var stinger_fx: Array = ResourceLoader.list_directory("res://audio/Stingers/")
+
 var jumpscare_fx: Array = ResourceLoader.list_directory("res://audio/Jumpscares")
+
+var ls_fx_on: Array = ResourceLoader.list_directory("res://audio/Lightswitch/On/")
+var ls_fx_off: Array = ResourceLoader.list_directory("res://audio/Lightswitch/Off/")
+var use_lightbulb_fx: bool = true
+
+var thun_fx: Array = ResourceLoader.list_directory("res://audio/Thunder/")
+
+var rain_amb: Array = ResourceLoader.list_directory("res://audio/Rain/")
 
 func _ready() -> void:
 	_start_ambience()
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_event_end)
-	sb._light_on.connect(_switch_ambience_light_on)
-	sb._light_off.connect(_switch_ambience_light_off)
 	sb._fail.connect(_fail)
+	sb._hour_changed.connect(_hour_changed)
 
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
@@ -41,6 +57,45 @@ func _start_ambience() -> void:
 	amb2.add_to_group("Ambience")
 	amb1.play()
 	amb2.play()
+
+func _hour_changed(event) -> void:
+	if not gb.hour_5_active:
+		match gb.current_hour:
+			gb.hour1:
+				use_lightbulb_fx = true
+				_stop_rain()
+			gb.hour2:
+				use_lightbulb_fx = false
+				_start_rain()
+			gb.hour3:
+				use_lightbulb_fx = false
+				_start_rain()
+			gb.hour4:
+				use_lightbulb_fx = true
+				_stop_rain()
+
+func _start_rain() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/Rain/" + rain_amb.pick_random()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -80
+	var tween = get_tree().create_tween()
+	tween.tween_property(stream, "volume_db",-10,4)
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Rain")
+
+	
+
+func _stop_rain() -> void:
+	for child in get_children():
+		if child.is_in_group("Rain"):
+			var tween = get_tree().create_tween()
+			await tween.tween_property(child, "volume_db", -80, 2).finished
+			child.queue_free()
 
 func _switch_ambience_light_off() -> void:
 	amb1.volume_db = -5
@@ -67,7 +122,7 @@ func _event_start(event) -> void:
 				gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1, gb.tutorial.EVENT_0_2, gb.tutorial.EVENT_0_4, gb.tutorial.EVENT_0_5:
 					pass
 				gb.tutorial.EVENT_0_3:
-					await _play_footsteps()
+					await _play_footsteps("none")
 					sb._event_finished.emit()
 		gb.hour1, gb.hour2:
 			match event:
@@ -78,7 +133,7 @@ func _event_start(event) -> void:
 						_play_bassy("none")
 					if randi_range(1,10) == 1:
 						_play_scrapes("none")
-					await _play_footsteps()
+					await _play_footsteps("none")
 					monster_active = false
 		gb.hour3:
 			match event:
@@ -93,7 +148,7 @@ func _event_start(event) -> void:
 						_play_bassy("none")
 					if randi_range(1,10) == 1:
 						_play_scrapes("none")
-					await _play_footsteps()
+					await _play_footsteps("none")
 					monster_active = false
 
 func _event_end() -> void:
@@ -101,14 +156,49 @@ func _event_end() -> void:
 		if child.is_in_group("SFX"):
 			child.queue_free()
 
-func _play_footsteps() -> Signal:
+func _play_ls_off() -> void:
+	if use_lightbulb_fx:
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = ar._choose_ls_off()
+		print(file)
+		stream.stream = load(file)
+		stream.volume_db = -10
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Lightswitch")
+		stream.add_to_group("SFX")
+		await stream.finished
+		remove_child(stream)
+
+func _play_ls_on() -> void:
+	if use_lightbulb_fx:
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = ar._choose_ls_on()
+		print(file)
+		stream.stream = load(file)
+		stream.volume_db = -10
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Lightswitch")
+		stream.add_to_group("SFX")
+		await stream.finished
+		remove_child(stream)
+
+
+func _play_footsteps(string) -> Signal:
+	var file: String
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()
 	add_child(stream)
-	var file = "res://audio/Footsteps/" + footstep_fx.pick_random()
+	if string == "none":
+		file = ar._choose_footstep()
 	print(file)
 	stream.stream = load(file)
-	stream.volume_db = -25
+	stream.volume_db = -5
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Footsteps")
@@ -193,6 +283,20 @@ func _play_jumpscare(string) -> void:
 	stream.name += str(random_id)
 	stream.add_to_group("Jumpscares")
 	stream.add_to_group("SFX")
+	await stream.finished
+	remove_child(stream)
+	
+func _play_thun() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = ar._choose_thun()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Thunder")
 	await stream.finished
 	remove_child(stream)
 

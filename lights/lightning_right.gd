@@ -48,6 +48,7 @@ func _event_start(event) -> void:
 func _lights_on() -> void:
 	visible = true
 	on = true
+	am._play_thun()
 	sb._lightning_strike.emit()
 	
 func _lights_off() -> void:

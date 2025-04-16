@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcwyiaj1j55lk"]
+
+[ext_resource type="Script" uid="uid://djh4eix8eqtap" path="res://singletons/audio_manager.gd" id="1_dkrcq"]
+[ext_resource type="Script" uid="uid://ctjcdwpo4rbgp" path="res://singletons/audio_randomizer.gd" id="2_353op"]
+
+[node name="audio_manager" type="Node"]
+script = ExtResource("1_dkrcq")
+
+[node name="audio_randomizer" type="Node" parent="."]
+script = ExtResource("2_353op")

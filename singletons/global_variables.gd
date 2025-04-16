@@ -20,6 +20,8 @@ var current_hour = tutorial:
 		current_hour = new_hour
 		sb._hour_changed.emit(current_hour)
 
+var hour_5_active: bool = false
+
 var fail: bool = false:
 	get:
 		return fail
@@ -66,6 +68,7 @@ var event_dict: Dictionary = {
 }
 
 func _hour5() -> int:
+	hour_5_active = true
 	var hour5_pick = er._hour5_pick()
 	current_hour = hour5_pick
 	var event = er._choose_random_event()

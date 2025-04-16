@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=93 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://d0pon66s50uwo" path="res://text_sequences/no_peeking/0013.png" id="46_4yxo5"]
 [ext_resource type="Script" uid="uid://bmpil61yf3yj0" path="res://lights/lightning_right.gd" id="50_hev8t"]
 [ext_resource type="PackedScene" uid="uid://y820bfjiv4cb" path="res://lights/lightbulb_lights.tscn" id="50_j64eu"]
+[ext_resource type="Script" uid="uid://nsyhtw86yuwl" path="res://lightbulb_2.gd" id="62_wqh86"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hev8t"]
 vertex_color_use_as_albedo = true
@@ -2422,7 +2423,9 @@ script = ExtResource("45_56ibc")
 visible = true
 
 [node name="lightbulb2" parent="LightbulbLights" index="1"]
+process_mode = 4
 visible = true
+script = ExtResource("62_wqh86")
 
 [node name="lightbulb3" type="OmniLight3D" parent="LightbulbLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, -5.72857)

@@ -56,5 +56,5 @@ func _start_event() -> void:
 			#event._trigger_event_start()
 
 func _event_finished() -> void:
-	await get_tree().create_timer(1 * gb.difficulty).timeout
+	await get_tree().create_timer(randf_range(0.75,1.5)).timeout
 	_start_event()
