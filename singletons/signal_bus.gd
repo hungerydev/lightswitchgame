@@ -35,4 +35,7 @@ signal _lightning_fail
 
 signal _jumpscare_finished
 
+## Emitted by res://text_sequences/drawing_sequences.gd when death text is done
+signal _death_seq_finished
+
 signal _monster_inactive

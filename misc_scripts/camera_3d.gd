@@ -3,6 +3,7 @@ extends Camera3D
 @onready var pcom = $positionComponent
 
 func _ready() -> void:
+	_reset()
 	sb._event_finished.connect(_reset)
 	sb._event_start.connect(_event_start)
 

@@ -21,6 +21,11 @@ func _event_start(event) -> void:
 func _lights_on() -> void:
 	spot.visible = true
 	omni.visible = true
+	am._play_train_short()
+	await get_tree().create_timer(randf_range(0.25, 1)).timeout
+	am._kill_streams_by_group("TrainShort")
+	spot.visible = false
+	omni.visible = false
 
 func _reset() -> void:
 	vcom._set_visibility_on()

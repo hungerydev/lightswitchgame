@@ -14,6 +14,7 @@ func _ready() -> void:
 	sb._remote_light_off.connect(_lights_off)
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
+	sb._jumpscare_finished.connect(_lights_off_death)
 	_hour_changed(gb.current_hour)
 
 	
@@ -77,7 +78,7 @@ func _lights_on() -> void:
 		on = true
 		sb._light_on.emit()
 	else:
-		sb._fail.emit()
+		sb._fail.emit("fast")
 	
 func _lights_off() -> void:
 	visible = false
@@ -92,7 +93,7 @@ func _time_fail() -> void:
 		if not on:
 			await sb._light_on
 			flicker = true
-			sb._fail.emit()
+			sb._fail.emit("slow")
 		else:
 			_flicker()
 
@@ -100,7 +101,11 @@ func _flicker() -> void:
 	control = false
 	flicker = true
 	await get_tree().create_timer(.1).timeout
-	sb._fail.emit()
+	sb._fail.emit("slow")
+
+func _lights_off_death(string) -> void:
+	visible = false
+	on = false
 
 func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)

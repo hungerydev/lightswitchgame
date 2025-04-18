@@ -22,5 +22,5 @@ func _event_start(event) -> void:
 func _reset() -> void:
 	pass
 
-func _fail() -> void:
+func _fail(string) -> void:
 	pass

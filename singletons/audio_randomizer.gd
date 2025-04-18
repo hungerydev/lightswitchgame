@@ -124,7 +124,7 @@ func _choose_thun() -> String:
 	var effect = thun.keys()[rng.rand_weighted(thun.values())]
 	for key in thun.keys():
 		if key == effect:
-			thun[key] -= 0.5
+			thun[key] = 0
 		else:
 			if thun[key] < 1:
 				thun[key] += 0.25

@@ -78,4 +78,4 @@ func _death_timer() -> void:
 	
 func _too_slow() -> void:
 	print("Death timer timed out!")
-	sb._time_fail.emit()
+	sb._time_fail.emit("slow")

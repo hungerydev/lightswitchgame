@@ -83,7 +83,7 @@ func _start_rain() -> void:
 	stream.stream = load(file)
 	stream.volume_db = -80
 	var tween = get_tree().create_tween()
-	tween.tween_property(stream, "volume_db",-10,4)
+	tween.tween_property(stream, "volume_db",-5,4)
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Rain")
@@ -300,7 +300,25 @@ func _play_thun() -> void:
 	await stream.finished
 	remove_child(stream)
 
-func _fail() -> void:
+func _play_train_short() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/TrainHorn/trainhornshort.ogg"
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("TrainShort")
+	stream.add_to_group("SFX")
+	await stream.finished
+	remove_child(stream)
+
+func _kill_streams_by_group(group) -> void:
+	get_tree().call_group(group, "queue_free")
+
+func _fail(string) -> void:
 	if gb.death:
 		for child in get_children():
 			child.queue_free()

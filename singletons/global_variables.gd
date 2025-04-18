@@ -5,6 +5,8 @@ var difficulty_setting: float = 1.0
 var difficulty_default: float = 1.0
 var difficulty: float = 1.0
 
+var control: bool = true
+
 var loading: bool = false
 
 var death: bool = true
@@ -35,19 +37,29 @@ enum hour1 {EVENT_1_1 = 101,
 EVENT_1_2, EVENT_1_3, EVENT_1_4, EVENT_1_5, EVENT_1_6, EVENT_1_7, EVENT_1_8, EVENT_1_9,
 EVENT_1_10}
 
+enum hour2cut {HOUR_2_CUT_1 = 251, HOUR_2_CUT_2, HOUR_2_CUT_3, HOUR_2_CUT_4}
+
 enum hour2 {EVENT_2_1 = 201,
 EVENT_2_2, EVENT_2_3, EVENT_2_4, EVENT_2_5, EVENT_2_6, EVENT_2_7, EVENT_2_8, EVENT_2_9,
 EVENT_2_10}
+
+enum hour3cut {HOUR_3_CUT_1 = 351, HOUR_3_CUT_2, HOUR_3_CUT_3, HOUR_3_CUT_4}
 
 enum hour3 {EVENT_3_1 = 301, 
 EVENT_3_2, EVENT_3_3, EVENT_3_4, EVENT_3_5, EVENT_3_6, EVENT_3_7, EVENT_3_8, EVENT_3_9, 
 EVENT_3_10}
 
+enum hour4cut {HOUR_4_CUT_1 = 451, HOUR_4_CUT_2, HOUR_4_CUT_3, HOUR_4_CUT_4}
+
 enum hour4 {EVENT_4_1 = 401, 
 EVENT_4_2, EVENT_4_3, EVENT_4_4, EVENT_4_5, EVENT_4_6, EVENT_4_7, EVENT_4_8, EVENT_4_9,
 EVENT_4_10, EVENT_4_11, EVENT_4_12, EVENT_4_13, EVENT_4_14, EVENT_4_15}
 
+enum hour5cut {HOUR_5_CUT_1 = 551, HOUR_5_CUT_2, HOUR_5_CUT_3, HOUR_5_CUT_4}
+
 enum hour5 {HOUR_5 = 501}
+
+enum credits {CRED_1 = 651, CRED_2, CRED_3, CRED_4}
 
 enum post_game {POST_GAME = 601}
 
@@ -67,6 +79,7 @@ var event_dict: Dictionary = {
 	"endless_mode": endless_mode
 }
 
+	
 func _hour5() -> int:
 	hour_5_active = true
 	var hour5_pick = er._hour5_pick()

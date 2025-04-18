@@ -71,7 +71,7 @@ func _lights_on() -> void:
 		on = true
 		sb._light_on.emit()
 	else:
-		sb._fail.emit()
+		sb._fail.emit("fast")
 	
 func _lights_off() -> void:
 	visible = false
@@ -87,7 +87,7 @@ func _time_fail() -> void:
 		if not on:
 			await sb._light_on
 			flicker = true
-			sb._fail.emit()
+			sb._fail.emit("slow")
 		else:
 			_flicker()
 
@@ -95,4 +95,4 @@ func _flicker() -> void:
 	control = false
 	flicker = true
 	await get_tree().create_timer(.1).timeout
-	sb._fail.emit()
+	sb._fail.emit("slow")

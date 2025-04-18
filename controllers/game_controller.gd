@@ -1,22 +1,20 @@
 extends Node
 class_name GameController
 
+signal finished
+
 var menu_active: bool
 
 var override_active: bool = false
 
 func _ready() -> void:
 	add_to_group("gc")
-	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
-	mainscene.add_to_group("Main Scene")
-	add_child(mainscene)
-	var menu = preload("uid://dx7ifjjpdwquv").instantiate()
-	add_child(menu)
-	menu_active = true
+	_instantiate_main_scene()
+	_instantiate_main_menu()
 	sb._event_finished.emit()
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
-	sb._fail.connect(_fail)
+	sb._death_seq_finished.connect(_fail)
 
 
 func _input(event: InputEvent) -> void:
@@ -35,11 +33,25 @@ func _start_game() -> void:
 		var event_controller = preload("uid://dvku403rcrta0").instantiate()
 		add_child(event_controller)
 
-func _fail() -> void:
-	await sb._jumpscare_finished
+func _fail() -> void: 
+	_clear_scene()
+	_instantiate_main_scene()
+	_instantiate_main_menu()
+
+func _clear_scene() -> Signal:
 	for child in get_children():
-		if child.is_in_group("Main Scene"):
-			child.queue_free()
+		child.queue_free()
+	return finished
+	
+func _instantiate_main_scene() -> void:
+	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
+	mainscene.add_to_group("Main Scene")
+	add_child(mainscene)
+	
+func _instantiate_main_menu() -> void:
+	var menu = preload("uid://dx7ifjjpdwquv").instantiate()
+	add_child(menu)
+	menu_active = true
 
 func _instantiate_debug_menu() -> void:
 	get_tree().paused = true

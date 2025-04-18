@@ -13,7 +13,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if visible:
-		light_energy = randf_range(0,1.5)
+		light_energy = randf_range(0,3)
+		await get_tree().create_timer(.25).timeout
 	
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("right_click"):
@@ -63,4 +64,4 @@ func _reset() -> void:
 	on = false
 
 func _too_slow() -> void:
-	sb._fail.emit()
+	sb._fail.emit("slow")
