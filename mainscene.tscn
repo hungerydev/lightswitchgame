@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=173 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -104,10 +104,14 @@
 [ext_resource type="Texture2D" uid="uid://bbco0tui6xbgg" path="res://text_sequences/no_peeking/0018.png" id="69_5sad8"]
 [ext_resource type="Texture2D" uid="uid://bgpeo5ftoiisk" path="res://text_sequences/no_peeking/0019.png" id="70_72hcu"]
 [ext_resource type="Texture2D" uid="uid://b6tmy2ie3tt3e" path="res://text_sequences/no_peeking/0020.png" id="71_8iu8y"]
+[ext_resource type="Texture2D" uid="uid://c2mbn0fcca88l" path="res://text_sequences/hour2cut2/0113.png" id="72_5sad8"]
 [ext_resource type="Texture2D" uid="uid://cmabgk7wbvk6k" path="res://text_sequences/no_peeking/0021.png" id="72_y621n"]
+[ext_resource type="Texture2D" uid="uid://cs66ykk4kpxln" path="res://text_sequences/hour2cut2/0114.png" id="73_72hcu"]
 [ext_resource type="Texture2D" uid="uid://dqid6av8oq550" path="res://text_sequences/okay_ready/0030.png" id="73_a6nrr"]
 [ext_resource type="Texture2D" uid="uid://i5i8slo88d1m" path="res://text_sequences/okay_ready/0031.png" id="74_0a8k5"]
+[ext_resource type="Texture2D" uid="uid://d214pn1hcntw3" path="res://text_sequences/hour2cut2/0115.png" id="74_8iu8y"]
 [ext_resource type="Texture2D" uid="uid://b0mfjgtf72twc" path="res://text_sequences/okay_ready/0032.png" id="75_ollo0"]
+[ext_resource type="Texture2D" uid="uid://bdxwtelryuivc" path="res://text_sequences/hour2cut2/0116.png" id="75_y621n"]
 [ext_resource type="Texture2D" uid="uid://bj4stv52hyb7n" path="res://text_sequences/okay_ready/0033.png" id="76_y4a6a"]
 [ext_resource type="Texture2D" uid="uid://chrs8vwrdu15i" path="res://text_sequences/out_of_batts/0074.png" id="77_tirwv"]
 [ext_resource type="Texture2D" uid="uid://dxcxwru1atdqk" path="res://text_sequences/out_of_batts/0075.png" id="78_t5jff"]
@@ -2120,6 +2124,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("72_5sad8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_72hcu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_8iu8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_y621n")
+}],
+"loop": true,
+"name": &"hour2cut2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("41_8u1yw")
 }, {
 "duration": 1.0,
@@ -2780,7 +2801,8 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(923, 501)
 scale = Vector2(0.55, 0.522222)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"death1"
+animation = &"hour2cut2"
+frame_progress = 0.57816
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]

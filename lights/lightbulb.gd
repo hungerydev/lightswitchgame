@@ -44,27 +44,36 @@ func _hour_changed(hour) -> void:
 			control = true
 
 func _event_start(event) -> void:
-	match event:
-		gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1:
-			_lights_on()
-			await sb._event_finished
+	match gb.current_hour:
+		gb.tutorial:
+			match event:
+				gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1:
+					_lights_on()
+					await sb._event_finished
+					_lights_off()
+				gb.tutorial.EVENT_0_3:
+					_lights_off()
+		gb.hour1:
+			match event:
+				gb.hour1.EVENT_1_4:
+					_lights_off()
+					var result = await sb._rc_result
+					if result:
+						light_color = Color(0.974, 0.0, 0.16)
+				_:
+					_lights_off()
+		gb.hour2cut:
+			match event:
+				_:
+					_lights_on()
+					await sb._event_finished
+					_lights_off()
+		gb.hour2:
 			_lights_off()
-		gb.tutorial.EVENT_0_3:
+		gb.hour3:
 			_lights_off()
-		gb.hour1.EVENT_1_4:
+		gb.hour4:
 			_lights_off()
-			var result = await sb._rc_result
-			if result:
-				light_color = Color(0.974, 0.0, 0.16)
-		_:
-			if event in gb.hour1.values():
-				_lights_off()
-			elif event in gb.hour2.values():
-				_lights_off()
-			if event in gb.hour3.values():
-				_lights_off()
-			if event in gb.hour4.values():
-				_lights_off()
 
 func _lights_on() -> void:
 	if not am.monster_active:

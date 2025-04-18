@@ -70,6 +70,7 @@ enum endless_mode {ENDLESS_MODE = 801}
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
+	"hour2cut": hour2cut,
 	"hour2": hour2,
 	"hour3": hour3,
 	"hour4": hour4,

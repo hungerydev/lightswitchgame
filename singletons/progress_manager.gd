@@ -8,6 +8,9 @@ var tutorialmax: int = 5
 var hour1i: int = 0
 var hour1max: int = 10
 
+var hour2cuti: int = 1
+var hour2cutmax: int = 3
+
 var hour2i: int = 0
 var hour2max: int = 10
 
@@ -44,9 +47,15 @@ func _event_start(event) -> Signal:
 		gb.hour1:
 			await sb._event_finished
 			if hour1i == hour1max:
-				gb.current_hour = gb.hour2
+				gb.current_hour = gb.hour2cut
 			else:
 				hour1i += 1
+		gb.hour2cut:
+			await sb._event_finished
+			if hour2cuti == hour2cutmax:
+				gb.current_hour = gb.hour2
+			else:
+				hour2cuti += 1
 		gb.hour2:
 			await sb._event_finished
 			if hour2i == hour2max:

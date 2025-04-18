@@ -64,9 +64,11 @@ func _hour_changed(event) -> void:
 			gb.hour1:
 				use_lightbulb_fx = true
 				_stop_rain()
+			gb.hour2cut:
+				use_lightbulb_fx = true
+				_start_rain()
 			gb.hour2:
 				use_lightbulb_fx = false
-				_start_rain()
 			gb.hour3:
 				use_lightbulb_fx = false
 				_start_rain()
