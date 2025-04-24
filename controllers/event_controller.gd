@@ -1,5 +1,7 @@
 extends Node
 
+var cutscene: bool = false
+
 func _ready() -> void:
 	sb._monster_clicked.connect(_monster_clicked)
 	sb._event_finished.connect(_event_finished)
@@ -24,7 +26,45 @@ func _start_event() -> void:
 			gb.hour2cut:
 				var new_event = gb.hour2cut.values()[pm.hour2cuti]
 				print(new_event)
-				sb._event_start.emit(new_event)
+				if pm.hour2cuti < 2:
+					cutscene = true
+					sb._remote_light_off.emit()
+					am._play_cut_music_snippets("Cut_Snip_1.ogg")
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour2cut.HOUR_2_CUT_1)
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour2cut.HOUR_2_CUT_2)
+					cutscene = false
+				else:
+					sb._event_start.emit(new_event)
+			gb.hour4cut:
+				var new_event = gb.hour4cut.values()[pm.hour4cuti]
+				print(new_event)
+				if pm.hour4cuti < 2:
+					cutscene = true
+					sb._remote_light_off.emit()
+					am._play_cut_music_snippets("Cut_Snip_3.ogg")
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour4cut.HOUR_4_CUT_1)
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour4cut.HOUR_4_CUT_2)
+					cutscene = false
+				else:
+					sb._event_start.emit(new_event)
+			gb.hour5cut:
+				var new_event = gb.hour5cut.values()[pm.hour5cuti]
+				print(new_event)
+				if pm.hour5cuti < 2:
+					cutscene = true
+					sb._remote_light_off.emit()
+					am._play_cut_music_snippets("Cut_Snip_4.ogg")
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour5cut.HOUR_5_CUT_1)
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour5cut.HOUR_5_CUT_2)
+					cutscene = false
+				else:
+					sb._event_start.emit(new_event)
 			gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 				gb.difficulty = gb.difficulty_setting
 				var new_event = er._choose_random_event()
@@ -47,6 +87,22 @@ func _start_event() -> void:
 				sb._event_start.emit(event)
 				await sb._event_finished
 				gb.current_hour = gb.endless_mode
+			gb.end3:
+				var new_event = gb.end3.values()[pm.end3i]
+				print(new_event)
+				if pm.end3i < 2:
+					cutscene = true
+					sb._remote_light_off.emit()
+					sb._event_start.emit(gb.end3.END_3_1)
+					sb._remote_light_on.emit()
+					await get_tree().create_timer(5).timeout
+					sb._event_start.emit(gb.end3.END_3_2)
+					await get_tree().create_timer(0.65).timeout
+					am._play_train_ending()
+					await get_tree().create_timer(14.35).timeout
+					sb._jumpscare_finished.emit("null")
+					await am.finished
+					cutscene = false
 	else:
 		var new_event = gb.override_event_target
 		print(new_event)
@@ -60,5 +116,6 @@ func _start_event() -> void:
 			#event._trigger_event_start()
 
 func _event_finished() -> void:
-	await get_tree().create_timer(randf_range(0.75,1.5)).timeout
-	_start_event()
+	if not cutscene:
+		await get_tree().create_timer(randf_range(0.75,1.5)).timeout
+		_start_event()

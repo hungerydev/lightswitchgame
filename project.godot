@@ -41,6 +41,10 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="E:/OBS Recordings/movie.avi"
+
 [input]
 
 right_click={

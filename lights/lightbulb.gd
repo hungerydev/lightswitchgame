@@ -64,6 +64,21 @@ func _event_start(event) -> void:
 					_lights_off()
 		gb.hour2cut:
 			match event:
+				gb.hour2cut.HOUR_2_CUT_3:
+					flicker = true
+					_lights_on()
+					await get_tree().create_timer(0.5).timeout
+					_lights_off()
+				gb.hour2cut.HOUR_2_CUT_4, gb.hour2cut.HOUR_2_CUT_5:
+					_lights_off()
+				_:
+					_lights_on()
+					await sb._event_finished
+					_lights_off()
+		gb.hour4cut:
+			match event:
+				gb.hour4cut.HOUR_4_CUT_1, gb.hour4cut.HOUR_4_CUT_2:
+					pass
 				_:
 					_lights_on()
 					await sb._event_finished

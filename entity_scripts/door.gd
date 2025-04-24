@@ -7,6 +7,10 @@ func _event_start(event) -> void:
 			await sb._light_on
 			if gf._rc_very_hard():
 				_open()
+		gb.end3:
+			match event:
+				gb.end3.END_3_1:
+					_open()
 		
 func _open() -> void:
 	var tween = get_tree().create_tween()

@@ -37,6 +37,8 @@ func _fail() -> void:
 	_clear_scene()
 	_instantiate_main_scene()
 	_instantiate_main_menu()
+	sb._event_finished.emit()
+	am._start_ambience()
 
 func _clear_scene() -> Signal:
 	for child in get_children():

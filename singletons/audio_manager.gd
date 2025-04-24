@@ -15,6 +15,7 @@ var monster_active: bool = false:
 
 var amb1: AudioStreamPlayer
 var amb2: AudioStreamPlayer
+var amb3: AudioStreamPlayer
 
 var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
 var fs_slow: Array = ResourceLoader.list_directory("res://audio/Footsteps/Slow/")
@@ -36,6 +37,7 @@ var use_lightbulb_fx: bool = true
 var thun_fx: Array = ResourceLoader.list_directory("res://audio/Thunder/")
 
 var rain_amb: Array = ResourceLoader.list_directory("res://audio/Rain/")
+var raining: bool = false
 
 func _ready() -> void:
 	_start_ambience()
@@ -47,34 +49,50 @@ func _ready() -> void:
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
 	amb2 = AudioStreamPlayer.new()
+	amb3 = AudioStreamPlayer.new()
 	add_child(amb1)
 	add_child(amb2)
+	add_child(amb3)
 	amb1.stream = load("res://audio/Room Tone and Ambience/rta1.ogg")
 	amb2.stream = load("res://audio/Room Tone and Ambience/rta2.ogg")
+	amb3.stream = load("res://audio/Room Tone and Ambience/nightamb.ogg")
 	amb1.volume_db = -100
 	amb2.volume_db = -5
+	amb3.volume_db = -10
 	amb1.add_to_group("Ambience")
 	amb2.add_to_group("Ambience")
+	amb3.add_to_group("Ambience")
 	amb1.play()
 	amb2.play()
+	amb3.play()
 
 func _hour_changed(event) -> void:
 	if not gb.hour_5_active:
 		match gb.current_hour:
 			gb.hour1:
 				use_lightbulb_fx = true
-				_stop_rain()
+				if raining:
+					_stop_rain()
 			gb.hour2cut:
-				use_lightbulb_fx = true
-				_start_rain()
+				use_lightbulb_fx = false
+				if not raining:
+					_start_rain()
 			gb.hour2:
 				use_lightbulb_fx = false
+				if not raining:
+					_start_rain()
+			gb.hour3cut:
+				use_lightbulb_fx = false
+				if not raining:
+					_start_rain()
 			gb.hour3:
 				use_lightbulb_fx = false
-				_start_rain()
+				if not raining:
+					_start_rain()
 			gb.hour4:
 				use_lightbulb_fx = true
-				_stop_rain()
+				if raining:
+					_stop_rain()
 
 func _start_rain() -> void:
 	var random_id = randi_range(1,1000000)
@@ -89,6 +107,7 @@ func _start_rain() -> void:
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Rain")
+	raining = true
 
 	
 
@@ -98,6 +117,7 @@ func _stop_rain() -> void:
 			var tween = get_tree().create_tween()
 			await tween.tween_property(child, "volume_db", -80, 2).finished
 			child.queue_free()
+	raining = false
 
 func _switch_ambience_light_off() -> void:
 	amb1.volume_db = -5
@@ -317,16 +337,51 @@ func _play_train_short() -> void:
 	await stream.finished
 	remove_child(stream)
 
+func _play_train_ending() -> Signal:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/TrainHorn/trainend.ogg"
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("TrainEnd")
+	stream.add_to_group("SFX")
+	await stream.finished
+	remove_child(stream)
+	return finished
+
+func _play_cut_music_snippets(string) -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://music/Snippets/" + string
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Music")
+	await stream.finished
+	remove_child(stream)
+
 func _kill_streams_by_group(group) -> void:
 	get_tree().call_group(group, "queue_free")
 
 func _fail(string) -> void:
 	if gb.death:
 		for child in get_children():
-			child.queue_free()
+			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer"):
+				child.queue_free()
+		amb1.volume_db = -80
+		amb2.volume_db = -80
+		amb3.volume_db = -80
 		_play_jumpscare("js2.ogg")
 		_play_stingers("stinger4.ogg")
 		_play_bassy("bass2.ogg")
+		monster_active = false
 	
 func _time_fail() -> void:
 	pass

@@ -13,8 +13,6 @@ func _ready() -> void:
 	set_process_input(false)
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
-	sb._remote_light_on.connect(_lights_on)
-	sb._remote_light_off.connect(_lights_off)
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
 	_hour_changed(gb.current_hour)
@@ -51,14 +49,16 @@ func _process(_delta: float) -> void:
 func _event_start(_event) -> void:
 	match gb.current_hour:
 		gb.tutorial:
-			pass
+			_lights_off()
 		gb.hour1:
-			pass
+			_lights_off()
 		gb.hour2:
 			_lights_off()
 		gb.hour3:
 			_lights_off()
 		gb.hour4:
+			_lights_off()
+		gb.end3:
 			_lights_off()
 
 func _lights_on() -> void:

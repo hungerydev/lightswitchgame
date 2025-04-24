@@ -20,6 +20,7 @@ var thun: Dictionary
 @onready var am: AudioManager = get_parent()
 
 func _ready() -> void:
+	add_to_group("Randomizer")
 	fs_speed_folders = am.footstep_fx
 	for folder in fs_speed_folders:
 		fs_speed_dict.get_or_add(folder, 1)

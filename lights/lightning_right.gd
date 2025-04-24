@@ -7,8 +7,7 @@ func _ready() -> void:
 	on = visible
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
-	sb._remote_light_on.connect(_lights_on)
-	sb._remote_light_off.connect(_lights_off)
+
 	#sb._hour_changed.connect(_hour_changed)
 
 func _process(_delta: float) -> void:
@@ -44,7 +43,12 @@ func _event_start(event) -> void:
 					timer.timeout.connect(_too_slow)
 					await sb._event_finished
 					timer.timeout.disconnect(_too_slow)
-				
+		gb.hour2cut:
+			match event:
+				gb.hour2cut.HOUR_2_CUT_3:
+					_lights_on()
+					await get_tree().create_timer(4).timeout
+					_lights_off()
 				
 func _lights_on() -> void:
 	visible = true
