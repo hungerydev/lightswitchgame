@@ -9,6 +9,7 @@ var control: bool = false
 var flicker: bool = false
 
 func _ready() -> void:
+	add_to_group("Controls")
 	on = visible
 	set_process_input(false)
 	sb._event_start.connect(_event_start)
@@ -17,7 +18,21 @@ func _ready() -> void:
 	sb._time_fail.connect(_time_fail)
 	_hour_changed(gb.current_hour)
 
+func _disable_controls() -> void:
+	control = false
 
+func _enable_controls() -> void:
+	match gb.current_hour:
+		gb.tutorial:
+			control = false
+		gb.hour1:
+			control = false
+		gb.hour2:
+			control = true
+		gb.hour3:
+			control = false
+		gb.hour4:
+			control = false
 
 func _hour_changed(hour) -> void:
 	match hour:
@@ -82,7 +97,7 @@ func _lights_off() -> void:
 func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)
 	
-func _time_fail() -> void:
+func _time_fail(string) -> void:
 	if gb.death:
 		if not on:
 			await sb._light_on

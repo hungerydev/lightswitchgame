@@ -9,6 +9,10 @@ signal _remote_light_on
 
 signal _remote_light_off
 
+## Emitted by the main_menu scene in order to transition between pages
+signal _menu_light_on
+signal _menu_light_off
+
 signal _monster_clicked
 
 signal _event_start(event)

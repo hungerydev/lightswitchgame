@@ -2041,6 +2041,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("64_271hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_w18dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_75nmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_al776")
+}],
+"loop": true,
+"name": &"death2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("44_ulndg")
 }, {
 "duration": 1.0,
@@ -2051,23 +2068,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("47_8iu8y")
-}],
-"loop": true,
-"name": &"death2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("48_y621n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_a6nrr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_0a8k5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_ollo0")
 }],
 "loop": true,
 "name": &"death3",
@@ -2126,16 +2126,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("64_271hy")
+"texture": ExtResource("48_y621n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_w18dl")
+"texture": ExtResource("49_a6nrr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_75nmp")
+"texture": ExtResource("50_0a8k5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_al776")
+"texture": ExtResource("51_ollo0")
 }],
 "loop": true,
 "name": &"death7",
@@ -2966,7 +2966,7 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(923, 501)
 scale = Vector2(0.55, 0.522222)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"hour5cut2"
+animation = &"death7"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]

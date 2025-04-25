@@ -3,6 +3,7 @@ extends Entity
 @export var restpos = [Vector3(0.337757, 0.438782, 2.9471),Vector3(-0.520139, -1.81272, 1.5823),Vector3(0.999999, 1, 1)]
 
 @onready var hitbox_pcom = $monsterHitbox/positionComponent
+@onready var hitbox = $monsterHitbox
 
 @onready var anim_player = $AnimationPlayer
 
@@ -18,12 +19,14 @@ func _event_start(event) -> void:
 					anim_player.play("jawagape")
 					hitbox_pcom._set_position(Vector3(-2.55667, -0.30804, 4.11227),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
 				gb.tutorial.EVENT_0_4:
+					hitbox.monster_active = true
 					vcom._set_visibility_on()
 					pcom._set_position(Vector3(-2.83174, 0.907496, 0.565283),Vector3(-0.108582, 0.2845, 0.137062),Vector3(1, 1, 1))
 					anim_player.play("turned")
 					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
 		gb.hour1:
 			await sb._light_off
+			hitbox.monster_active = true
 			match event:
 				gb.hour1.EVENT_1_1, gb.hour1.EVENT_1_10:
 					vcom._set_visibility_on()
@@ -54,6 +57,7 @@ func _event_start(event) -> void:
 					print("No position logged for " + str(event))
 		gb.hour2:
 			await sb._light_off
+			hitbox.monster_active = true
 			match event:
 				gb.hour2.EVENT_2_1:
 					vcom._set_visibility_on()
@@ -109,6 +113,7 @@ func _event_start(event) -> void:
 					print("No position logged for " + str(event))
 		gb.hour3:
 			await sb._light_off
+			hitbox.monster_active = true
 			match event:
 				gb.hour3.EVENT_3_1:
 					vcom._set_visibility_on()
@@ -162,6 +167,7 @@ func _event_start(event) -> void:
 					hitbox_pcom._set_position(Vector3(2.88824, 3.82361, 4.62252),Vector3(0, 0, 0),Vector3(1.38965, 2.34234, 1.98996))
 		gb.hour4:
 			await sb._light_off
+			hitbox.monster_active = true
 			match event:
 				gb.hour4.EVENT_4_1:
 					vcom._set_visibility_on()
@@ -254,3 +260,5 @@ func _reset() -> void:
 	vcom._set_visibility_off()
 	pcom._set_position(restpos[0],restpos[1], restpos[2])
 	hitbox_pcom._set_position(Vector3(0.608086, 0.251468, 2.9471),Vector3(0.0363553, -1.78035, 1.45254),Vector3(1, 1.98868, 1.54615))
+	hitbox.monster_active = false
+	hitbox.misclicks = 0

@@ -67,6 +67,7 @@ func _start_event() -> void:
 					sb._event_start.emit(new_event)
 			gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 				gb.difficulty = gb.difficulty_setting
+				print(gb.difficulty)
 				var new_event = er._choose_random_event()
 				print(new_event)
 				sb._event_start.emit(new_event)
@@ -77,7 +78,7 @@ func _start_event() -> void:
 				await sb._event_finished
 				gb.current_hour = gb.hour5
 			gb.custom_mode:
-				gb.difficulty = gb.difficulty_setting
+				gb.difficulty = gb.custom_mode_difficulty
 				var event = gb._custom_mode()
 				sb._event_start.emit(event)
 				await sb._event_finished
@@ -117,5 +118,8 @@ func _start_event() -> void:
 
 func _event_finished() -> void:
 	if not cutscene:
+		get_tree().call_group("Controls", "_disable_controls")
 		await get_tree().create_timer(randf_range(0.75,1.5)).timeout
+		get_tree().call_group("Controls", "_enable_controls")
 		_start_event()
+		

@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _start_custom_mode(hour_selection, difficulty, RNG):
 	er._create_custom_dict(hour_selection)
-	gb.difficulty_setting = difficulty
+	gb.custom_mode_difficulty = difficulty
 	gf.chance_setting = RNG
 	gb.current_hour = gb.custom_mode
 	get_tree().call_group("gc", "_start_game")

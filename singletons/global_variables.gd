@@ -2,6 +2,7 @@ extends Node
 class_name GlobalVariables
 
 var difficulty_setting: float = 1.0
+var custom_mode_difficulty: float = 1.0
 var difficulty_default: float = 1.0
 var difficulty: float = 1.0
 
@@ -17,8 +18,6 @@ var current_hour = tutorial:
 	get:
 		return current_hour
 	set(new_hour):
-		if not loading:
-			last_hour_completed = current_hour
 		current_hour = new_hour
 		sb._hour_changed.emit(current_hour)
 
@@ -134,19 +133,19 @@ func _load(data) -> void:
 			
 		101.0:
 			last_hour_completed = hour1
-			current_hour = hour2
+			current_hour = hour2cut
 			
 		201.0:
 			last_hour_completed = hour2
-			current_hour = hour3
+			current_hour = hour3cut
 			
 		301.0:
 			last_hour_completed = hour3
-			current_hour = hour4
+			current_hour = hour4cut
 			
 		401.0:
 			last_hour_completed = hour4
-			current_hour = hour5
+			current_hour = hour5cut
 			
 		501.0:
 			last_hour_completed = hour5

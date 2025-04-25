@@ -3,6 +3,7 @@ extends SpotLight3D
 var on: bool = true
 
 func _ready() -> void:
+	
 	visible = false
 	on = visible
 	sb._event_start.connect(_event_start)

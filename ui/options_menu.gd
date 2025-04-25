@@ -11,3 +11,15 @@ func _delete_save() -> void:
 	var sure = preload("uid://caekpt3ac7vsy").instantiate()
 	add_child(sure)
 	
+
+
+func _on_hard_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_medium_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_easy_button_pressed() -> void:
+	pass # Replace with function body.

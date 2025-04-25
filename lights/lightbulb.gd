@@ -4,9 +4,11 @@ var on: bool = true
 
 var flicker: bool = false
 
-var control: bool = true
+var control: bool = false
 
 func _ready() -> void:
+	add_to_group("Controls")
+	visible = false
 	on = visible
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
@@ -17,7 +19,21 @@ func _ready() -> void:
 	sb._jumpscare_finished.connect(_lights_off_death)
 	_hour_changed(gb.current_hour)
 
-	
+func _disable_controls() -> void:
+	control = false
+
+func _enable_controls() -> void:
+	match gb.current_hour:
+		gb.tutorial:
+			control = true
+		gb.hour1:
+			control = true
+		gb.hour2:
+			control = false
+		gb.hour3:
+			control = false
+		gb.hour4:
+			control = true
 
 func _process(_delta: float) -> void:
 	if flicker:
@@ -48,11 +64,15 @@ func _event_start(event) -> void:
 		gb.tutorial:
 			match event:
 				gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1:
+					control = false
 					_lights_on()
 					await sb._event_finished
 					_lights_off()
 				gb.tutorial.EVENT_0_3:
+					control = true
 					_lights_off()
+				gb.tutorial.EVENT_0_4:
+					control = true
 		gb.hour1:
 			match event:
 				gb.hour1.EVENT_1_4:
@@ -112,7 +132,7 @@ func _lights_off() -> void:
 	await get_tree().create_timer(0.25).timeout
 	sb._light_off.emit()
 	
-func _time_fail() -> void:
+func _time_fail(string) -> void:
 	if gb.death:
 		if not on:
 			await sb._light_on

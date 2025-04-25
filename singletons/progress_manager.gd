@@ -60,60 +60,69 @@ func _event_start(event) -> Signal:
 			await sb._event_finished
 			if tutoriali == tutorialmax:
 				gb.current_hour = gb.hour1
+				gb.last_hour_completed = gb.tutorial
 			else:
 				tutoriali += 1
 		gb.hour1:
 			await sb._event_finished
 			if hour1i == hour1max:
 				gb.current_hour = gb.hour2cut
+				gb.last_hour_completed = gb.hour1
 			else:
 				hour1i += 1
 		gb.hour2cut:
 			await sb._event_finished
 			if hour2cuti == hour2cutmax:
 				gb.current_hour = gb.hour2
+				gb.last_hour_completed = gb.hour1
 			else:
 				hour2cuti += 1
 		gb.hour2:
 			await sb._event_finished
 			if hour2i == hour2max:
 				gb.current_hour = gb.hour3cut
+				gb.last_hour_completed = gb.hour2
 			else:
 				hour2i += 1
 		gb.hour3cut:
 			await sb._event_finished
 			if hour3cuti == hour3cutmax:
 				gb.current_hour = gb.hour3
+				gb.last_hour_completed = gb.hour2
 			else:
 				hour3cuti += 1
 		gb.hour3:
 			await sb._event_finished
 			if hour3i == hour3max:
 				gb.current_hour = gb.hour4cut
+				gb.last_hour_completed = gb.hour3
 			else:
 				hour3i += 1
 		gb.hour4cut:
 			await sb._event_finished
 			if hour4cuti == hour4cutmax:
 				gb.current_hour = gb.hour4
+				gb.last_hour_completed = gb.hour3
 			else:
 				hour4cuti += 1
 		gb.hour4:
 			await sb._event_finished
 			if hour4i == hour4max:
 				gb.current_hour = gb.hour5
+				gb.last_hour_completed = gb.hour4
 			else:
 				hour4i += 1
 		gb.hour5cut:
 			await sb._event_finished
 			if hour5cuti == hour5cutmax:
 				gb.current_hour = gb.hour5
+				gb.last_hour_completed = gb.hour4
 			else:
 				hour5cuti += 1
 		gb.hour5:
 			if hour5i == hour5max:
-				## TODO: Change this!
 				gb.current_hour = gb.post_game
+				gb.last_hour_completed = gb.hour5
 			else:
 				hour5i += 1
 		gb.custom_mode:
