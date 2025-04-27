@@ -16,6 +16,7 @@ var potlid: Dictionary
 var scrapes: Dictionary
 var stingers: Dictionary
 var thun: Dictionary
+var growl: Dictionary
 
 @onready var am: AudioManager = get_parent()
 
@@ -42,6 +43,8 @@ func _ready() -> void:
 		ls_off.get_or_add(effect, 1)
 	for effect in am.thun_fx:
 		thun.get_or_add(effect, 1)
+	for effect in am.growl_fx:
+		growl.get_or_add(effect, 1)
 
 func _choose_footstep() -> String:
 	print(gb.difficulty)
@@ -130,4 +133,15 @@ func _choose_thun() -> String:
 			if thun[key] < 1:
 				thun[key] += 0.25
 	effect = "res://audio/Thunder/" + effect
+	return effect
+
+func _choose_growl() -> String:
+	var effect = growl.keys()[rng.rand_weighted(growl.values())]
+	for key in growl.keys():
+		if key == effect:
+			growl[key] = 0
+		else:
+			if growl[key] < 1:
+				growl[key] += 0.25
+	effect = "res://audio/Growls/" + effect
 	return effect

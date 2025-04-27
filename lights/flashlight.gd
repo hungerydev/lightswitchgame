@@ -78,6 +78,8 @@ func _event_start(_event) -> void:
 
 func _lights_on() -> void:
 	if not am.monster_active:
+		if not visible:
+			am._play_flashlight_fx()
 		visible = true
 		on = true
 		sb._light_on.emit()
@@ -89,8 +91,11 @@ func _lights_on() -> void:
 		sb._fail.emit("fast")
 	
 func _lights_off() -> void:
+	if visible:
+		am._play_flashlight_fx()
 	visible = false
 	on = false
+	am._play_flashlight_fx()
 	await get_tree().create_timer(0.25).timeout
 	sb._light_off.emit()
 

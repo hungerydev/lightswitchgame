@@ -5,6 +5,7 @@ func _ready() -> void:
 	$BoxContainer2/delete_save.pressed.connect(_delete_save)
 	
 func _back_to_main_menu() -> void:
+	slm._save_game("")
 	get_parent()._ready()
 	
 func _delete_save() -> void:

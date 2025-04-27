@@ -2,8 +2,8 @@ extends Control
 
 func _ready() -> void:
 	_instantiate_main_page()
-	$main_page/settings.pressed.connect(_instantiate_settings)
-	$main_page/quit.pressed.connect(_quit_game)
+	$main_page/BoxContainer/settings.pressed.connect(_instantiate_settings)
+	$main_page/BoxContainer/quit.pressed.connect(_quit_game)
 	
 	
 

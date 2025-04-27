@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://dck8xgg5hblwk"]
+
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_ejwgg"]
+[ext_resource type="Script" uid="uid://obyo1a451fmc" path="res://pause_menu.gd" id="2_fob5h"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ejwgg")
+script = ExtResource("2_fob5h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -193.0
+offset_right = 49.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.608, 1.608)
+theme_override_constants/separation = 25
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 36
+text = "Paused"
+fit_content = true
+
+[node name="resume" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="main_menu" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[node name="exit_game" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Exit Game"
+
+[connection signal="pressed" from="BoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="BoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="BoxContainer/exit_game" to="." method="_on_exit_game_pressed"]

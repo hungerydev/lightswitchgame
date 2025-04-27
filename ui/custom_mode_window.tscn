@@ -22,8 +22,9 @@ script = ExtResource("1_3bl6u")
 layout_mode = 2
 offset_left = 100.0
 offset_top = 100.0
-offset_right = 371.0
+offset_right = 426.0
 offset_bottom = 923.0
+scale = Vector2(1.705, 1.705)
 theme = ExtResource("1_gkj1u")
 theme_override_constants/separation = 130
 
@@ -85,9 +86,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -270.0
-offset_right = 472.0
+offset_left = 41.0
+offset_top = -487.0
+offset_right = 513.0
+offset_bottom = -217.0
 grow_vertical = 0
+scale = Vector2(1.621, 1.621)
 theme = ExtResource("1_gkj1u")
 script = SubResource("GDScript_6uq7r")
 
@@ -102,10 +106,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -376.0
-offset_top = -249.0
+offset_left = -740.0
+offset_top = -503.0
+offset_right = -364.0
+offset_bottom = -254.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1.775, 1.775)
 theme = ExtResource("1_gkj1u")
 
 [node name="back" type="Button" parent="CenterContainer2"]

@@ -34,10 +34,19 @@ var ls_fx_on: Array = ResourceLoader.list_directory("res://audio/Lightswitch/On/
 var ls_fx_off: Array = ResourceLoader.list_directory("res://audio/Lightswitch/Off/")
 var use_lightbulb_fx: bool = true
 
+var flashlight_fx: Array = ResourceLoader.list_directory("res://audio/Flashlight/")
+var use_flashlight_fx: bool = false
+
 var thun_fx: Array = ResourceLoader.list_directory("res://audio/Thunder/")
 
 var rain_amb: Array = ResourceLoader.list_directory("res://audio/Rain/")
 var raining: bool = false
+
+var robot_fx: Array = ResourceLoader.list_directory("res://audio/Robot/")
+
+var sigh_fx: Array = ResourceLoader.list_directory("res://audio/Sighs/")
+
+var growl_fx: Array = ResourceLoader.list_directory("res://audio/Growls/")
 
 func _ready() -> void:
 	_start_ambience()
@@ -45,6 +54,7 @@ func _ready() -> void:
 	sb._event_finished.connect(_event_end)
 	sb._fail.connect(_fail)
 	sb._hour_changed.connect(_hour_changed)
+	sb._monster_clicked.connect(_play_sigh_fx)
 
 func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
@@ -93,17 +103,19 @@ func _hour_changed(event) -> void:
 				use_lightbulb_fx = true
 				if raining:
 					_stop_rain()
+		use_flashlight_fx = !use_lightbulb_fx
+		
 
 func _start_rain() -> void:
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()
 	add_child(stream)
-	var file = "res://audio/Rain/" + rain_amb.pick_random()
+	var file = "res://audio/Rain/rainamb1.ogg"
 	print(file)
 	stream.stream = load(file)
 	stream.volume_db = -80
 	var tween = get_tree().create_tween()
-	tween.tween_property(stream, "volume_db",-5,4)
+	tween.tween_property(stream, "volume_db",-8,4)
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Rain")
@@ -152,6 +164,8 @@ func _event_start(event) -> void:
 						_play_bassy("none")
 					if randi_range(1,10) == 1:
 						_play_scrapes("none")
+					if randi_range(1,10) == 1:
+						_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
 		gb.hour3:
@@ -167,6 +181,8 @@ func _event_start(event) -> void:
 						_play_bassy("none")
 					if randi_range(1,10) == 1:
 						_play_scrapes("none")
+					if randi_range(1,10) == 1:
+						_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
 
@@ -207,6 +223,21 @@ func _play_ls_on() -> void:
 		await stream.finished
 		remove_child(stream)
 
+func _play_flashlight_fx() -> void:
+	if use_flashlight_fx:
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = "res://audio/Flashlight/" + flashlight_fx.pick_random()
+		print(file)
+		stream.stream = load(file)
+		stream.volume_db = 0
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Flashlight")
+		stream.add_to_group("SFX")
+		await stream.finished
+		remove_child(stream)
 
 func _play_footsteps(string) -> Signal:
 	var file: String
@@ -350,6 +381,65 @@ func _play_train_ending() -> Signal:
 	remove_child(stream)
 	return finished
 
+func _play_robot() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/Robot/" + robot_fx.pick_random()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = +3
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Robot")
+	stream.add_to_group("SFX")
+	await stream.finished
+	remove_child(stream)
+
+func _play_lightbulb_shatter() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/Lightbulb Shatter/glass_break.ogg"
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("SFX")
+	stream.add_to_group("LightbulbShatter")
+	await stream.finished
+	remove_child(stream)
+	
+func _play_sigh_fx() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = "res://audio/Sighs/" + sigh_fx.pick_random()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = +3
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Sigh")
+	await stream.finished
+	remove_child(stream)
+
+func _play_growls() -> void:
+	var random_id = randi_range(1,1000000)
+	var stream = AudioStreamPlayer.new()
+	add_child(stream)
+	var file = ar._choose_growl()
+	print(file)
+	stream.stream = load(file)
+	stream.volume_db = -5
+	stream.play()
+	stream.name += str(random_id)
+	stream.add_to_group("Growls")
+	stream.add_to_group("SFX")
+	await stream.finished
+	remove_child(stream)
+
 func _play_cut_music_snippets(string) -> void:
 	var random_id = randi_range(1,1000000)
 	var stream = AudioStreamPlayer.new()
@@ -363,6 +453,16 @@ func _play_cut_music_snippets(string) -> void:
 	stream.add_to_group("Music")
 	await stream.finished
 	remove_child(stream)
+
+func _pause_audio_streams() -> void:
+	for child in get_children():
+		if not child.is_in_group("Randomizer"):
+			child.set_stream_paused(true)
+
+func _unpause_audio_streams() -> void:
+	for child in get_children():
+		if not child.is_in_group("Randomizer"):
+			child.set_stream_paused(false)
 
 func _kill_streams_by_group(group) -> void:
 	get_tree().call_group(group, "queue_free")

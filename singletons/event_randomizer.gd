@@ -9,6 +9,7 @@ var customdict: Dictionary
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	sb._event_start.connect(_random_chance_selection)
 	for event in gb.hour1.values():
 		hour1dict.get_or_add(event, 1)
 	for event in gb.hour2.values():
@@ -19,7 +20,16 @@ func _ready() -> void:
 		hour4dict.get_or_add(event, 1)
 	hour5dict = {gb.hour1: 1, gb.hour2: 1, gb.hour3: 1, gb.hour4: 1}
 
-	
+
+func _random_chance_selection(_event) -> void:
+	var entities = get_tree().get_nodes_in_group("Entity")
+	entities.shuffle()
+	for entity in entities:
+		if entity.chance_active == true:
+			print("Calling random chance event on " + str(entity))
+			entity.call("_random_chance")
+			entity.chance_active = false
+
 
 func _choose_random_event() -> int:
 	match gb.current_hour:

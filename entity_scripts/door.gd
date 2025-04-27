@@ -6,13 +6,14 @@ func _event_start(event) -> void:
 		gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 			await sb._light_on
 			if gf._rc_very_hard():
-				_open()
+				chance_active = true
 		gb.end3:
 			match event:
 				gb.end3.END_3_1:
-					_open()
+					_random_chance()
 		
-func _open() -> void:
+		
+func _random_chance() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT) 
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -23,4 +24,5 @@ func _open() -> void:
 	
 
 func _reset() -> void:
+	chance_active = false
 	pcom._set_position(Vector3(1.42795, 2.40736, 6.06637),Vector3(-1.5708, 1.5708, 0),Vector3(1, 1, 1.00321))

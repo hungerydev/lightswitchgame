@@ -2603,7 +2603,7 @@ script = ExtResource("5_4ofsq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97963, -6.63983)
-fov = 37.8493
+fov = 29.3
 far = 13.82
 script = ExtResource("8_1cnxy")
 
@@ -2630,6 +2630,7 @@ mouse_filter = 1
 script = ExtResource("10_56ibc")
 
 [node name="noise" type="ColorRect" parent="VisualEffects"]
+visible = false
 material = SubResource("ShaderMaterial_1ainy")
 layout_mode = 1
 anchors_preset = 15
@@ -2751,6 +2752,7 @@ near = 3.272
 
 [node name="SpotLight3D" type="SpotLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole"]
 transform = Transform3D(-2.01657e-08, -1.09992e-07, -0.461339, -1.09992e-07, 0.461339, -1.09992e-07, 0.461339, 1.09992e-07, -2.01658e-08, -2.04476, -4.76837e-07, -1.19209e-07)
+visible = false
 light_color = Color(1, 0.996078, 0.501961, 1)
 light_energy = 4.507
 light_volumetric_fog_energy = 11.082
@@ -2963,16 +2965,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01542, 5.77936, 0.0256929)
 size = Vector3(4.0498, 2.87403, 0.172241)
 
 [node name="drawing_sequences" type="AnimatedSprite2D" parent="."]
-position = Vector2(923, 501)
-scale = Vector2(0.55, 0.522222)
+position = Vector2(1920, 1080)
+scale = Vector2(1.00961, 1.01204)
 sprite_frames = SubResource("SpriteFrames_d76yy")
 animation = &"death7"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
 visibility_layer = 0
-position = Vector2(0.909164, 49.7873)
-scale = Vector2(5.95904, 4.81951)
+position = Vector2(6.69904, 0.668274)
+scale = Vector2(8.46149, 6.34608)
 color = Color(1, 1, 0.521569, 1)
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_qvxvv")

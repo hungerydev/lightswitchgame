@@ -80,7 +80,7 @@ func _event_start(event) -> Signal:
 		gb.hour2:
 			await sb._event_finished
 			if hour2i == hour2max:
-				gb.current_hour = gb.hour3cut
+				gb.current_hour = gb.hour3
 				gb.last_hour_completed = gb.hour2
 			else:
 				hour2i += 1
@@ -94,7 +94,7 @@ func _event_start(event) -> Signal:
 		gb.hour3:
 			await sb._event_finished
 			if hour3i == hour3max:
-				gb.current_hour = gb.hour4cut
+				gb.current_hour = gb.hour4cut      
 				gb.last_hour_completed = gb.hour3
 			else:
 				hour3i += 1

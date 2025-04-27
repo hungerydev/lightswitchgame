@@ -112,10 +112,11 @@ func _event_start(event) -> void:
 
 func _lights_on() -> void:
 	if not am.monster_active:
+		if not visible:
+			am._play_ls_on()
 		visible = true
 		on = true
 		am._switch_ambience_light_on()
-		am._play_ls_on()
 		sb._light_on.emit()
 	elif not gb.death:
 		visible = true
@@ -125,10 +126,11 @@ func _lights_on() -> void:
 		sb._fail.emit("fast")
 	
 func _lights_off() -> void:
+	if visible:
+		am._play_ls_off()
 	visible = false
 	on = false
 	am._switch_ambience_light_off()
-	am._play_ls_off()
 	await get_tree().create_timer(0.25).timeout
 	sb._light_off.emit()
 	

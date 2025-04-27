@@ -254,6 +254,7 @@ func _fail(string) -> void:
 		hitbox_pcom._set_position(Vector3(1.98867, 0.384552, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
 		await anim_player.animation_finished
 		sb._jumpscare_finished.emit(string)
+		am._play_lightbulb_shatter()
 		visible = false
 
 func _reset() -> void:

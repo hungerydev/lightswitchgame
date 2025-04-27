@@ -5,7 +5,7 @@ var easy_desc: String = "More forgiving timelimits\nLess punishing misclicks"
 var medium_mode: String = "Normal"
 var medium_desc: String = "The intended experience"
 var hard_mode: String = "[shake]Hard[/shake]"
-var hard_desc: String = "Less forgiving time limits\nLess punishing misclicks"
+var hard_desc: String = "Less forgiving time limits\nMore punishing misclicks"
 
 @onready var setting: RichTextLabel = $VBoxContainer/difficultySetting
 @onready var desc: RichTextLabel = $VBoxContainer/difficultyDescription

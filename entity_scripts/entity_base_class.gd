@@ -5,7 +5,10 @@ var vcom: VisibilityComponent
 
 var pcom: PositionComponent
 
+var chance_active = false
+
 func _ready() -> void:
+	add_to_group("Entity")
 	var new_pcom = preload("uid://b2u4efyyur6jb").instantiate()
 	add_child(new_pcom)
 	var new_vcom = preload("uid://dwej31ruiny7c").instantiate()
@@ -23,4 +26,7 @@ func _reset() -> void:
 	pass
 
 func _fail(string) -> void:
+	pass
+
+func _random_chance() -> void:
 	pass

@@ -15,30 +15,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ogda5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 110
-theme_override_constants/margin_top = 115
-
-[node name="flow_container" type="VFlowContainer" parent="MarginContainer"]
+[node name="flow_container" type="BoxContainer" parent="."]
 texture_filter = 1
-layout_mode = 2
+layout_mode = 1
+offset_left = 103.0
+offset_top = 55.0
+offset_right = 506.0
+offset_bottom = 528.0
+scale = Vector2(1.875, 1.875)
 theme = ExtResource("1_t1lix")
-theme_override_constants/h_separation = 715
-theme_override_constants/v_separation = 25
+theme_override_constants/separation = 35
+vertical = true
 
-[node name="master_volume_text" type="RichTextLabel" parent="MarginContainer/flow_container"]
+[node name="master_volume_text" type="RichTextLabel" parent="flow_container"]
 layout_mode = 2
 tooltip_text = "Change the overvall volume of all sounds"
 text = "Master Volume"
 fit_content = true
 
-[node name="master_volume" type="HSlider" parent="MarginContainer/flow_container"]
+[node name="master_volume" type="HSlider" parent="flow_container"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -46,14 +41,14 @@ min_value = -80.0
 max_value = 10.0
 script = ExtResource("1_lbr8e")
 
-[node name="jumpscare_volume_text" type="RichTextLabel" parent="MarginContainer/flow_container"]
+[node name="jumpscare_volume_text" type="RichTextLabel" parent="flow_container"]
 texture_filter = 1
 layout_mode = 2
 tooltip_text = "Change the volume of just the jumpscare audio"
 text = "Jumpscare Volume"
 fit_content = true
 
-[node name="jumpscare_volume" type="HSlider" parent="MarginContainer/flow_container"]
+[node name="jumpscare_volume" type="HSlider" parent="flow_container"]
 layout_mode = 2
 min_value = -80.0
 max_value = 10.0
@@ -66,27 +61,82 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -337.0
-offset_top = -179.0
-offset_right = -151.0
-offset_bottom = -72.0
+offset_left = -853.0
+offset_top = -547.0
+offset_right = -383.0
+offset_bottom = -269.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1.58, 1.58)
 size_flags_vertical = 8
 theme = ExtResource("1_t1lix")
+theme_override_constants/separation = 90
 alignment = 2
 vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_t1lix")
+alignment = 1
+
+[node name="left" type="Button" parent="BoxContainer/BoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "<"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/BoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="videoResolution" type="RichTextLabel" parent="BoxContainer/BoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "[shake]Hard[/shake]
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="right" type="Button" parent="BoxContainer/BoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = ">"
+
+[node name="resolutionOption" type="OptionButton" parent="BoxContainer/BoxContainer"]
+layout_mode = 2
+selected = 1
+item_count = 4
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560x1440"
+popup/item_2/id = 2
+popup/item_3/text = "3840x2160"
+popup/item_3/id = 3
 
 [node name="go_back" type="Button" parent="BoxContainer"]
 layout_mode = 2
 text = "Go Back"
 
 [node name="BoxContainer2" type="BoxContainer" parent="."]
-layout_mode = 2
-offset_left = 1558.84
-offset_top = 138.755
-offset_right = 1796.84
-offset_bottom = 244.755
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -619.0
+offset_top = 123.0
+offset_right = -381.0
+offset_bottom = 229.0
+grow_horizontal = 0
+scale = Vector2(1.92, 1.92)
 theme = ExtResource("1_t1lix")
 alignment = 2
 
@@ -163,10 +213,15 @@ fit_content = true
 
 [node name="BoxContainer4" type="BoxContainer" parent="."]
 layout_mode = 1
-offset_left = 92.0
-offset_top = 579.0
-offset_right = 848.0
-offset_bottom = 989.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -555.0
+offset_right = 886.0
+offset_bottom = -251.0
+grow_vertical = 0
+scale = Vector2(1.395, 1.395)
 theme = ExtResource("1_t1lix")
 alignment = 1
 vertical = true
@@ -218,6 +273,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = ">"
 
+[connection signal="pressed" from="BoxContainer/BoxContainer/left" to="BoxContainer/BoxContainer" method="_on_left_pressed"]
+[connection signal="pressed" from="BoxContainer/BoxContainer/right" to="BoxContainer/BoxContainer" method="_on_right_pressed"]
+[connection signal="item_selected" from="BoxContainer/BoxContainer/resolutionOption" to="BoxContainer/BoxContainer" method="_on_resolution_option_item_selected"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer/easy_button" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer2/medium_button" to="." method="_on_medium_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer3/hard_button" to="." method="_on_hard_button_pressed"]

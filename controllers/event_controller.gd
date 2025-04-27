@@ -79,6 +79,7 @@ func _start_event() -> void:
 				gb.current_hour = gb.hour5
 			gb.custom_mode:
 				gb.difficulty = gb.custom_mode_difficulty
+				gf.chance_modifier = gf.chance_setting
 				var event = gb._custom_mode()
 				sb._event_start.emit(event)
 				await sb._event_finished

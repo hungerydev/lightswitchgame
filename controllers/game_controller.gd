@@ -25,11 +25,14 @@ func _input(event: InputEvent) -> void:
 			_leave_debug_menu()
 		else:
 			_instantiate_debug_menu()
+	if event.is_action_pressed("pause"):
+		_pause_menu()
 
 func _start_game() -> void:
 	if menu_active == true:
 		get_node("main_menu").queue_free()
 		menu_active = false
+		sb._hour_changed.emit(gb.current_hour)
 		var event_controller = preload("uid://dvku403rcrta0").instantiate()
 		add_child(event_controller)
 
@@ -63,6 +66,16 @@ func _instantiate_debug_menu() -> void:
 func _leave_debug_menu() -> void:
 	$"debug_menu".queue_free()
 	get_tree().paused = false
+
+func _pause_menu() -> void:
+	if not menu_active:
+		if get_tree().paused:
+			$"pause_menu".queue_free()
+			get_tree().paused = false
+		else:
+			get_tree().paused = true
+			var pm: PauseMenu = preload("res://ui/pause_menu.tscn").instantiate()
+			add_child(pm)
 
 func _override(hour_section, event, hour) -> void:
 	if override_active:
