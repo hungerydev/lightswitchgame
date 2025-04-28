@@ -13,6 +13,12 @@ signal _remote_light_off
 signal _menu_light_on
 signal _menu_light_off
 
+## Emitted by global variables any time the brightness setting is changed
+signal _change_brightness(value)
+
+## Emitted by brightness slider to tell world environment to show logos
+signal _brightness_hover(value)
+
 signal _monster_clicked
 
 signal _event_start(event)

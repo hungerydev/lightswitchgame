@@ -8,6 +8,7 @@ func _ready() -> void:
 	
 
 func _instantiate_settings() -> void:
+	get_tree().set_group("gc", "menu_active", false)
 	sb._menu_light_off.emit()
 	for child in get_children():
 		if child.name == "main_page":
@@ -22,6 +23,7 @@ func _instantiate_settings() -> void:
 	options.visible = true
 
 func _instantiate_main_page() -> void:
+	get_tree().set_group("gc", "menu_active", true)
 	var pg = null
 	sb._menu_light_off.emit()
 	for child in get_children():
@@ -46,6 +48,7 @@ func _instantiate_post_game() -> Control:
 	
 
 func _instantiate_custom_mode_menu() -> void:
+	get_tree().set_group("gc", "menu_active", false)
 	sb._menu_light_off.emit()
 	for child in get_children():
 		if child.name == "main_page":
@@ -62,6 +65,7 @@ func _instantiate_custom_mode_menu() -> void:
 	custom_mode.visible = true
 
 func _instantiate_endless_mode_menu() -> void:
+	get_tree().set_group("gc", "menu_active", false)
 	sb._menu_light_off.emit()
 	for child in get_children():
 		if child.name == "main_page":

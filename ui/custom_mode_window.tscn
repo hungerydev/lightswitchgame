@@ -22,9 +22,8 @@ script = ExtResource("1_3bl6u")
 layout_mode = 2
 offset_left = 100.0
 offset_top = 100.0
-offset_right = 426.0
-offset_bottom = 923.0
-scale = Vector2(1.705, 1.705)
+offset_right = 699.0
+offset_bottom = 971.0
 theme = ExtResource("1_gkj1u")
 theme_override_constants/separation = 130
 
@@ -75,46 +74,46 @@ value = -1.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "Note: high amounts of RNG may result in unwinnable situations. Play at your own risk"
 fit_content = true
 script = ExtResource("4_3bl6u")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 41.0
-offset_top = -487.0
-offset_right = 513.0
-offset_bottom = -217.0
+offset_left = 94.0
+offset_top = -465.0
+offset_right = 740.0
+offset_bottom = -299.0
 grow_vertical = 0
-scale = Vector2(1.621, 1.621)
 theme = ExtResource("1_gkj1u")
 script = SubResource("GDScript_6uq7r")
 
 [node name="start" type="Button" parent="CenterContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Start Custom Mode"
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
+[node name="CenterContainer2" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -740.0
-offset_top = -503.0
-offset_right = -364.0
-offset_bottom = -254.0
+offset_left = -819.0
+offset_top = -446.0
+offset_right = -139.0
+offset_bottom = -285.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.775, 1.775)
 theme = ExtResource("1_gkj1u")
 
 [node name="back" type="Button" parent="CenterContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Back to Main Menu"

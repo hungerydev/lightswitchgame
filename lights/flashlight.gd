@@ -16,6 +16,7 @@ func _ready() -> void:
 	sb._event_finished.connect(_reset)
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
+	sb._jumpscare_finished.connect(_lights_off_death)
 	_hour_changed(gb.current_hour)
 
 func _disable_controls() -> void:
@@ -110,6 +111,10 @@ func _time_fail(string) -> void:
 			sb._fail.emit("slow")
 		else:
 			_flicker()
+
+func _lights_off_death(string) -> void:
+	visible = false
+	on = false
 
 func _flicker() -> void:
 	control = false

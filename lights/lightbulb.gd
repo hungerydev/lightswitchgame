@@ -17,6 +17,7 @@ func _ready() -> void:
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
 	sb._jumpscare_finished.connect(_lights_off_death)
+	sb._brightness_hover.connect(_brightness_setting_adjust)
 	_hour_changed(gb.current_hour)
 
 func _disable_controls() -> void:
@@ -152,6 +153,9 @@ func _flicker() -> void:
 func _lights_off_death(string) -> void:
 	visible = false
 	on = false
+
+func _brightness_setting_adjust(value) -> void:
+	visible = value
 
 func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)

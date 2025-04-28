@@ -37,6 +37,8 @@ func _start_event() -> void:
 					cutscene = false
 				else:
 					sb._event_start.emit(new_event)
+			gb.hour3cut:
+				pass
 			gb.hour4cut:
 				var new_event = gb.hour4cut.values()[pm.hour4cuti]
 				print(new_event)
@@ -105,6 +107,9 @@ func _start_event() -> void:
 					sb._jumpscare_finished.emit("null")
 					await am.finished
 					cutscene = false
+			gb.demo_sizzle:
+				var new_event = gb.demo_sizzle.values()[pm.dsi]
+				sb._event_start.emit(new_event)
 	else:
 		var new_event = gb.override_event_target
 		print(new_event)

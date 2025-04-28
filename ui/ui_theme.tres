@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://eds042pwsot7"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://eds042pwsot7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbeor"]
-bg_color = Color(0.133871, 0.139403, 0.126233, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0.129412)
+shadow_color = Color(0, 0, 0, 0.764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmjyp"]
 bg_color = Color(0.800386, 0.752897, 0.262039, 1)
@@ -17,8 +18,17 @@ bg_color = Color(0.573761, 0.635407, 0.348291, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbeor"]
 
+[sub_resource type="SystemFont" id="SystemFont_1eq05"]
+font_names = PackedStringArray("Constantia")
+font_weight = 625
+font_stretch = 200
+generate_mipmaps = true
+force_autohinter = true
+hinting = 0
+
 [resource]
-default_font_size = 29
+default_font = SubResource("SystemFont_1eq05")
+default_font_size = 64
 Button/colors/font_hover_color = Color(0.636723, 0.619328, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_tbeor")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_dmjyp")

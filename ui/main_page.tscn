@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://gg5suj2tw5qv"]
+[gd_scene load_steps=125 format=3 uid="uid://gg5suj2tw5qv"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_y2fak"]
 [ext_resource type="Texture2D" uid="uid://05cpbpwxxht7" path="res://logo/buildout/lightswitch_logo_buildout00000000.png" id="2_qsocc"]
@@ -123,7 +123,6 @@
 [ext_resource type="Texture2D" uid="uid://dmwv86fyr1a6t" path="res://logo/buildout/lightswitch_logo_buildout00000119.png" id="121_d4uar"]
 [ext_resource type="Texture2D" uid="uid://8ee22r61opag" path="res://logo/buildout/lightswitch_logo_buildout00000120.png" id="122_31t53"]
 [ext_resource type="Script" uid="uid://b7mvno40sjuvm" path="res://ui/title.gd" id="123_fa85m"]
-[ext_resource type="Script" uid="uid://bnhkgb3eir1t0" path="res://ui/demo_text.gd" id="124_dqh5x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
 animations = [{
@@ -519,41 +518,26 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 181.0
-offset_top = -486.0
-offset_right = 624.0
+offset_top = -532.0
+offset_right = 960.0
 offset_bottom = -338.0
 grow_vertical = 0
-scale = Vector2(1.775, 1.775)
 vertical = true
 
 [node name="info" type="RichTextLabel" parent="BoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 91
 text = "Right-Click to turn on the light"
 fit_content = true
 
 [node name="settings" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Settings"
-alignment = 0
 
 [node name="quit" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Quit"
-alignment = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -515.0
-offset_top = 66.0
-offset_right = -411.0
-offset_bottom = 141.0
-grow_horizontal = 0
-scale = Vector2(4.31, 4.31)
-bbcode_enabled = true
-text = "[wave]DEMO"
-script = ExtResource("124_dqh5x")

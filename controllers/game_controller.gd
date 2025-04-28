@@ -3,11 +3,17 @@ class_name GameController
 
 signal finished
 
-var menu_active: bool
+var menu_active: bool:
+	get:
+		return menu_active
+	set(value):
+		menu_active = value
 
 var override_active: bool = false
 
 func _ready() -> void:
+	if OS.has_feature("demo_build"):
+		gb.demo_mode = true
 	add_to_group("gc")
 	_instantiate_main_scene()
 	_instantiate_main_menu()
@@ -15,6 +21,7 @@ func _ready() -> void:
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
 	sb._death_seq_finished.connect(_fail)
+	get_tree().call_group("Controls", "_disable_controls")
 
 
 func _input(event: InputEvent) -> void:

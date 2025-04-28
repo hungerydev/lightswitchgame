@@ -1,5 +1,5 @@
 extends RichTextLabel
 
 func _ready() -> void:
-	if OS.has_feature("demo_build"):
+	if gb.demo_mode:
 		visible = true

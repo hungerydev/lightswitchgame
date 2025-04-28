@@ -47,6 +47,8 @@ var endlessmax := 999
 var end3i: int = 0
 var end3max: int = 2
 
+var dsi: int = 0
+var dsmax: int = 6
 
 func _ready() -> void:
 	sb._event_start.connect(_event_start)
@@ -80,8 +82,11 @@ func _event_start(event) -> Signal:
 		gb.hour2:
 			await sb._event_finished
 			if hour2i == hour2max:
-				gb.current_hour = gb.hour3
-				gb.last_hour_completed = gb.hour2
+				if gb.demo_mode:
+					gb.current_hour = gb.demo_sizzle
+				else:
+					gb.current_hour = gb.hour3
+					gb.last_hour_completed = gb.hour2
 			else:
 				hour2i += 1
 		gb.hour3cut:
@@ -145,4 +150,10 @@ func _event_start(event) -> Signal:
 				pass
 			else:
 				end3i += 1
+		gb.demo_sizzle:
+			if dsi == dsmax:
+				get_tree().call_group("gc", "_fail")
+				gb.current_hour = gb.tutorial
+			else:
+				dsi += 1
 	return finished

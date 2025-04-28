@@ -1,10 +1,19 @@
 extends Node
 class_name GlobalVariables
 
+var demo_mode: bool = false
+
 var difficulty_setting: float = 1.0
 var custom_mode_difficulty: float = 1.0
 var difficulty_default: float = 1.0
 var difficulty: float = 1.0
+
+var brightness_setting: float = 1.0:
+	get:
+		return brightness_setting
+	set(value):
+		brightness_setting = value
+		sb._change_brightness.emit(value)
 
 var control: bool = true
 
@@ -73,6 +82,8 @@ enum endless_mode {ENDLESS_MODE = 801}
 
 enum end3 {END_3_1 = 1101, END_3_2}
 
+enum demo_sizzle {DS_1 = 1201, DS_2, DS_3, DS_4, DS_5, DS_6, DS_7}
+
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
@@ -90,7 +101,8 @@ var event_dict: Dictionary = {
 	"custom_mode": custom_mode, 
 	"end2": end2,
 	"endless_mode": endless_mode,
-	"end3": end3
+	"end3": end3,
+	"demo_sizzle": demo_sizzle
 }
 
 	
@@ -116,7 +128,7 @@ func _new_override_target(hour_section, event, hours) -> void:
 var vis_effects
 
 func _save() -> Dictionary:
-	var demo_mode = false
+	demo_mode = false
 	if OS.has_feature("demo_build"):
 		demo_mode = true
 	var save_dict = {

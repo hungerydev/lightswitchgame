@@ -4,8 +4,16 @@ class_name GlobalFunctions
 var perf_chance: bool = false
 var chance_setting: float = 1.0
 var chance_default: float = 1.0
-var chance_modifier: float = 1.0
+var chance_modifier: float = clamp(1.0, 0.01, chance_setting):
+	get:
+		return chance_modifier
+	set(value):
+		chance_modifier = clamp(value, 0.01, chance_setting)
+
 func _ready() -> void:
+	if gb.demo_mode:
+		chance_default = 0.7
+	chance_setting = chance_default
 	sb._monster_inactive.connect(_death_timer)
 	sb._event_start.connect(_set_death_timer_dur)
 

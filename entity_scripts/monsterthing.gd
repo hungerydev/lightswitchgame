@@ -249,6 +249,7 @@ func _event_start(event) -> void:
 
 func _fail(string) -> void:
 	if gb.death:
+		get_tree().call_group("Controls", "_disable_controls")
 		pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))
 		anim_player.play("jumpscare")
 		hitbox_pcom._set_position(Vector3(1.98867, 0.384552, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))

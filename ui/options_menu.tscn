@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://q28ueobsmonp"]
+[gd_scene load_steps=7 format=3 uid="uid://q28ueobsmonp"]
 
 [ext_resource type="Script" uid="uid://cpon8mvn3rsnv" path="res://ui/master_volume_slider.gd" id="1_lbr8e"]
 [ext_resource type="Script" uid="uid://x0uuemlxuek5" path="res://ui/options_menu.gd" id="1_ogda5"]
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_t1lix"]
 [ext_resource type="Script" uid="uid://dj2lk7fjxg82j" path="res://ui/jumpscare_volume_slider.gd" id="3_4gmlt"]
+[ext_resource type="Script" uid="uid://carloyymnlx7u" path="res://ui/brightness_silder.gd" id="5_4ja32"]
 [ext_resource type="Script" uid="uid://b5j3bi63rud6j" path="res://ui/difficulty_setting.gd" id="5_stwrb"]
 
 [node name="options_menu" type="Control"]
@@ -22,7 +23,6 @@ offset_left = 103.0
 offset_top = 55.0
 offset_right = 506.0
 offset_bottom = 528.0
-scale = Vector2(1.875, 1.875)
 theme = ExtResource("1_t1lix")
 theme_override_constants/separation = 35
 vertical = true
@@ -67,12 +67,27 @@ offset_right = -383.0
 offset_bottom = -269.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.58, 1.58)
 size_flags_vertical = 8
 theme = ExtResource("1_t1lix")
 theme_override_constants/separation = 90
 alignment = 2
 vertical = true
+
+[node name="master_volume_text" type="RichTextLabel" parent="BoxContainer"]
+layout_mode = 2
+tooltip_text = "Change the overvall volume of all sounds"
+text = "Brightness"
+fit_content = true
+
+[node name="brightness_silder" type="HSlider" parent="BoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 0.1
+max_value = 3.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_4ja32")
 
 [node name="BoxContainer" type="BoxContainer" parent="BoxContainer"]
 visible = false
@@ -131,17 +146,17 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -619.0
-offset_top = 123.0
-offset_right = -381.0
-offset_bottom = 229.0
+offset_left = -724.0
+offset_top = 169.0
+offset_right = -176.0
+offset_bottom = 275.0
 grow_horizontal = 0
-scale = Vector2(1.92, 1.92)
 theme = ExtResource("1_t1lix")
 alignment = 2
 
 [node name="delete_save" type="Button" parent="BoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Delete Save Data
 "
 
@@ -218,10 +233,9 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 114.0
 offset_top = -555.0
-offset_right = 886.0
+offset_right = 1272.0
 offset_bottom = -251.0
 grow_vertical = 0
-scale = Vector2(1.395, 1.395)
 theme = ExtResource("1_t1lix")
 alignment = 1
 vertical = true
@@ -254,7 +268,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 51
+theme_override_font_sizes/normal_font_size = 86
 bbcode_enabled = true
 text = "[shake]Hard[/shake]
 "
@@ -273,6 +287,32 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = ">"
 
+[node name="brightnessExample" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -961.0
+offset_top = -825.0
+offset_right = 942.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t1lix")
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="brightnessExample"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Adjust the slider until the left logo is barely visible"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="BoxContainer/brightness_silder" to="BoxContainer/brightness_silder" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/brightness_silder" to="BoxContainer/brightness_silder" method="_on_mouse_exited"]
+[connection signal="value_changed" from="BoxContainer/brightness_silder" to="BoxContainer/brightness_silder" method="_on_value_changed"]
 [connection signal="pressed" from="BoxContainer/BoxContainer/left" to="BoxContainer/BoxContainer" method="_on_left_pressed"]
 [connection signal="pressed" from="BoxContainer/BoxContainer/right" to="BoxContainer/BoxContainer" method="_on_right_pressed"]
 [connection signal="item_selected" from="BoxContainer/BoxContainer/resolutionOption" to="BoxContainer/BoxContainer" method="_on_resolution_option_item_selected"]
