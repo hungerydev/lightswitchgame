@@ -61,3 +61,4 @@ func _save_user_data() -> void:
 		
 func _delete_save() -> void:
 	gb.current_hour = gb.tutorial
+	gb.last_hour_completed = gb.tutorial

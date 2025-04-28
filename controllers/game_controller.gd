@@ -12,8 +12,7 @@ var menu_active: bool:
 var override_active: bool = false
 
 func _ready() -> void:
-	if OS.has_feature("demo_build"):
-		gb.demo_mode = true
+	gb.demo_mode = true
 	add_to_group("gc")
 	_instantiate_main_scene()
 	_instantiate_main_menu()

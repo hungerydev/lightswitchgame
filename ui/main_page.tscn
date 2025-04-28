@@ -122,7 +122,7 @@
 [ext_resource type="Texture2D" uid="uid://bpshoo074r6r0" path="res://logo/buildout/lightswitch_logo_buildout00000118.png" id="120_u3jyc"]
 [ext_resource type="Texture2D" uid="uid://dmwv86fyr1a6t" path="res://logo/buildout/lightswitch_logo_buildout00000119.png" id="121_d4uar"]
 [ext_resource type="Texture2D" uid="uid://8ee22r61opag" path="res://logo/buildout/lightswitch_logo_buildout00000120.png" id="122_31t53"]
-[ext_resource type="Script" uid="uid://b7mvno40sjuvm" path="res://ui/title.gd" id="123_fa85m"]
+[ext_resource type="Script" uid="uid://bnhkgb3eir1t0" path="res://ui/demo_text.gd" id="124_dqh5x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
 animations = [{
@@ -507,10 +507,8 @@ theme = ExtResource("1_y2fak")
 [node name="title" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wvrey")
-frame = 71
-frame_progress = 0.70694
+autoplay = "default"
 centered = false
-script = ExtResource("123_fa85m")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -541,3 +539,16 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Quit"
+
+[node name="demo_text" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2297.0
+offset_top = 1432.0
+offset_right = 2679.0
+offset_bottom = 1549.0
+theme_override_font_sizes/normal_font_size = 116
+bbcode_enabled = true
+text = "[wave]DEMO"
+fit_content = true
+script = ExtResource("124_dqh5x")

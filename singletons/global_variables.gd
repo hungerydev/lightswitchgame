@@ -128,9 +128,6 @@ func _new_override_target(hour_section, event, hours) -> void:
 var vis_effects
 
 func _save() -> Dictionary:
-	demo_mode = false
-	if OS.has_feature("demo_build"):
-		demo_mode = true
 	var save_dict = {
 		"last_hour_completed": last_hour_completed,
 		"difficulty_setting": difficulty_setting,
@@ -142,6 +139,7 @@ func _save_data() -> Dictionary:
 	var save_dict = {
 		"master_volume": AudioServer.get_bus_volume_db(0),
 		"jumpscare_volume": AudioServer.get_bus_volume_db(1),
+		"brightness_setting": brightness_setting,
 		"rng": gf.chance_setting,
 	}
 	return save_dict
@@ -186,5 +184,6 @@ func _load_data(data) -> void:
 	loading = true
 	AudioServer.set_bus_volume_db(0, data["master_volume"])
 	AudioServer.set_bus_volume_db(1, data["jumpscare_volume"])
+	brightness_setting = data["brightness_setting"]
 	gf.chance_setting = data["rng"]
 	

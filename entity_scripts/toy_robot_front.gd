@@ -17,6 +17,13 @@ func _event_start(event) -> void:
 		gb.hour1, gb.hour2, gb.hour3:
 			if gf._rc_very_hard():
 				chance_active = true
+
+
+func _process(delta: float) -> void:
+	if lights.visible:
+		var energy = randf_range(0,1.5)
+		for child in lights.get_children():
+			child.light_energy = energy
 		
 
 func _random_chance() -> void:

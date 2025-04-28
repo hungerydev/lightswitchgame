@@ -4,7 +4,6 @@ extends Entity
 func _event_start(event) -> void:
 	match gb.current_hour:
 		gb.hour1, gb.hour2, gb.hour3, gb.hour4:
-			await sb._light_on
 			if gf._rc_very_hard():
 				chance_active = true
 		gb.end3:
@@ -14,6 +13,7 @@ func _event_start(event) -> void:
 		
 		
 func _random_chance() -> void:
+	await sb._light_on
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT) 
 	tween.set_trans(Tween.TRANS_QUAD)

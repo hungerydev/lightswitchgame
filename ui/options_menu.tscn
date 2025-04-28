@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://q28ueobsmonp"]
+[gd_scene load_steps=8 format=3 uid="uid://q28ueobsmonp"]
 
 [ext_resource type="Script" uid="uid://cpon8mvn3rsnv" path="res://ui/master_volume_slider.gd" id="1_lbr8e"]
 [ext_resource type="Script" uid="uid://x0uuemlxuek5" path="res://ui/options_menu.gd" id="1_ogda5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dj2lk7fjxg82j" path="res://ui/jumpscare_volume_slider.gd" id="3_4gmlt"]
 [ext_resource type="Script" uid="uid://carloyymnlx7u" path="res://ui/brightness_silder.gd" id="5_4ja32"]
 [ext_resource type="Script" uid="uid://b5j3bi63rud6j" path="res://ui/difficulty_setting.gd" id="5_stwrb"]
+[ext_resource type="Script" uid="uid://cbypl1en4yofb" path="res://ui/brightness_example.gd" id="7_sov54"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -302,6 +303,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_t1lix")
 vertical = true
+script = ExtResource("7_sov54")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="brightnessExample"]
 layout_mode = 2

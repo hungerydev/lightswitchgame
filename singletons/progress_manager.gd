@@ -6,31 +6,31 @@ var tutoriali: int = 0
 var tutorialmax: int = 5
 
 var hour1i: int = 0
-var hour1max: int = 10
+var hour1max: int = 15
 
 var hour2cuti: int = 0
 var hour2cutmax: int = 4
 
 var hour2i: int = 0
-var hour2max: int = 10
+var hour2max: int = 15
 
 var hour3cuti: int = 0
 var hour3cutmax: int = 3
 
 var hour3i: int = 0
-var hour3max: int = 10
+var hour3max: int = 15
 
 var hour4cuti: int = 0
 var hour4cutmax: int = 5
 
 var hour4i: int = 0
-var hour4max: int = 10
+var hour4max: int = 15
 
 var hour5cuti: int = 0
 var hour5cutmax: int = 3
 
 var hour5i: int = 0
-var hour5max: int = 20
+var hour5max: int = 25
 
 var end1i: int = 0
 var end1max: int = 4
@@ -39,7 +39,7 @@ var crediti: int = 0
 var creditmax: int = 0
 
 var customi: int = 0
-var custommax: int = 20
+var custommax: int = 30
 
 var endlessi := 0
 var endlessmax := 999
@@ -157,3 +157,21 @@ func _event_start(event) -> Signal:
 			else:
 				dsi += 1
 	return finished
+
+func _reset_progress() -> void:
+	tutoriali = 0
+	hour1i = 0
+	hour2cuti = 0
+	hour2i = 0
+	hour3cuti = 0
+	hour3i = 0
+	hour4cuti = 0
+	hour4i = 0
+	hour5cuti = 0
+	hour5i = 0
+	end1i = 0
+	customi = 0
+	endlessi = 0
+	crediti = 0
+	end3i = 0
+	dsi = 0
