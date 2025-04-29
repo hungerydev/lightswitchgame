@@ -289,6 +289,7 @@ layout_mode = 2
 text = ">"
 
 [node name="brightnessExample" type="BoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -309,7 +310,7 @@ script = ExtResource("7_sov54")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Adjust the slider until the left logo is barely visible"
+text = "Adjust the slider until the right logo roughly matches the left logo"
 horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="BoxContainer/brightness_silder" to="BoxContainer/brightness_silder" method="_on_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=221 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=223 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -1969,10 +1969,19 @@ volumetric_fog_detail_spread = 2.19613
 volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_103jf"]
+albedo_color = Color(0.0142752, 0.0142752, 0.0142752, 1)
+albedo_texture = ExtResource("18_103jf")
+refraction_scale = -0.68
+grow_amount = 0.636
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8dkib"]
+material = SubResource("StandardMaterial3D_103jf")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5tvp"]
 albedo_texture = ExtResource("18_103jf")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8dkib"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_y5tvp"]
 material = SubResource("StandardMaterial3D_y5tvp")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_w18dl"]
@@ -2811,15 +2820,23 @@ environment = SubResource("Environment_0b4ue")
 script = ExtResource("17_tvq51")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 1, 2, 3)
+transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 1, 2, 3.33118)
 visible = false
-transparency = 0.99
 mesh = SubResource("PlaneMesh_8dkib")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="WorldEnvironment"]
 transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, -0.65685, 2, 3)
 visible = false
-mesh = SubResource("PlaneMesh_8dkib")
+mesh = SubResource("PlaneMesh_y5tvp")
+
+[node name="TextureRect" type="TextureRect" parent="WorldEnvironment"]
+visible = false
+offset_left = 777.0
+offset_top = 667.0
+offset_right = 1994.0
+offset_bottom = 1430.0
+texture = ExtResource("18_103jf")
+expand_mode = 1
 
 [node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
 
