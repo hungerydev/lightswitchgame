@@ -50,6 +50,9 @@ var end3max: int = 2
 var dsi: int = 0
 var dsmax: int = 6
 
+var traileri: int = 0
+var trailermax: int = 7
+
 func _ready() -> void:
 	sb._event_start.connect(_event_start)
 
@@ -156,6 +159,11 @@ func _event_start(event) -> Signal:
 				gb.current_hour = gb.tutorial
 			else:
 				dsi += 1
+		gb.trailer:
+			if traileri == trailermax:
+				pass
+			else:
+				traileri += 1
 	return finished
 
 func _reset_progress() -> void:

@@ -110,6 +110,14 @@ func _event_start(event) -> void:
 			_lights_off()
 		gb.hour4:
 			_lights_off()
+		gb.trailer:
+			match event:
+				gb.trailer.t3:
+					_lights_on()
+					await get_tree().create_timer(1.5).timeout
+					flicker = true
+					await get_tree().create_timer(1.5).timeout
+					_lights_off()
 
 func _lights_on() -> void:
 	if not am.monster_active:

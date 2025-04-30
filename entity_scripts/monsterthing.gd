@@ -246,6 +246,18 @@ func _event_start(event) -> void:
 					hitbox_pcom._set_position(Vector3(0.320746, 1.94818, -0.850135),Vector3(0, 0, 0),Vector3(0.851296, 1.74792, 0.324705))
 				_:
 					print("No position logged for " + str(event))
+		gb.trailer:
+			match event:
+				gb.trailer.t3:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(-2.1414, 0.164057, 4.80948),Vector3(-0.167235, 2.0095, 0.0254998),Vector3(1.20673, 1.34779, 1.0643))
+					anim_player.play("turned")
+					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
+				gb.trailer.t5:
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(2.61054, -0.0399795, 4.21352),Vector3(-0.266686, -1.89065, 0.0656624),Vector3(1.20673, 1.34779, 1.0643))
+					anim_player.play("crawling")
+					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
 
 func _fail(string) -> void:
 	if gb.death:

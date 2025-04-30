@@ -3,6 +3,9 @@ class_name ShadowCastComponent
 
 @onready var parent = get_parent()
 
+func _ready() -> void:
+	add_to_group("scom")
+
 func _set_shadows_only() -> void:
 	parent.cast_shadow = 3
 

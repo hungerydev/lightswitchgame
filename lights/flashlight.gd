@@ -47,22 +47,24 @@ func _hour_changed(hour) -> void:
 			control = false
 		gb.hour4:
 			control = false
+		gb.trailer:
+			control = false
 
 func _process(_delta: float) -> void:
 	var m_pos = get_viewport().get_mouse_position()
 	var ray_start = cam.project_ray_origin(m_pos)
 	var ray_end = ray_start + cam.project_ray_normal(m_pos) * 10
-	look_at(ray_end)
 	if control:
 		if Input.is_action_just_pressed("right_click"):
 			if on:
 				_lights_off()
 			else:
 				_lights_on()
+		look_at(ray_end)
 	if flicker:
 		light_energy = randf_range(0,1.5)
 
-func _event_start(_event) -> void:
+func _event_start(event) -> void:
 	match gb.current_hour:
 		gb.tutorial:
 			_lights_off()
@@ -78,6 +80,19 @@ func _event_start(_event) -> void:
 			_lights_off()
 		gb.demo_sizzle:
 			_lights_off()
+		gb.trailer:
+			match event:
+				gb.trailer.t5:
+					rotation_degrees = Vector3(7.4, 169.5, -53.5)
+					_lights_on()
+					var tween = get_tree().create_tween()
+					tween.set_trans(Tween.TRANS_EXPO)
+					tween.set_ease(Tween.EASE_IN_OUT)
+					tween.tween_property(self, "rotation_degrees", Vector3(0.6, 191, -53.1), 2)
+					await get_tree().create_timer(1).timeout
+					flicker = true
+					await get_tree().create_timer(1.5).timeout
+					_lights_off()
 
 func _lights_on() -> void:
 	if not am.monster_active:

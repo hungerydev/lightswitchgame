@@ -110,6 +110,33 @@ func _start_event() -> void:
 			gb.demo_sizzle:
 				var new_event = gb.demo_sizzle.values()[pm.dsi]
 				sb._event_start.emit(new_event)
+			gb.trailer:
+				sb._remote_light_off.emit()
+				sb._event_start.emit(gb.trailer.t1) # Drawing with lights on
+				sb._remote_light_on.emit()
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(0.5).timeout
+				sb._event_start.emit(gb.trailer.t2) # Drawing
+				await get_tree().create_timer(4).timeout
+				sb._event_start.emit(gb.trailer.t3) # Hide and Seek
+				await get_tree().create_timer(4).timeout
+				sb._event_start.emit(gb.trailer.t4) # Drawing
+				await get_tree().create_timer(4).timeout
+				sb._event_start.emit(gb.trailer.t5) # Flashlight Tag
+				await get_tree().create_timer(4).timeout
+				sb._event_start.emit(gb.trailer.t6) # Drawing
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				get_tree().call_group("scom", "_set_shadows_only")
+				sb._remote_light_on.emit()
+				sb._event_start.emit(gb.trailer.t7) # All items missing
+				await get_tree().create_timer(3).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(.5).timeout
+				sb._event_start.emit(gb.trailer.t8) # Drawing
+				await get_tree().create_timer(4).timeout
+				sb._event_start.emit(gb.trailer.t9) # Drawing
 	else:
 		var new_event = gb.override_event_target
 		print(new_event)

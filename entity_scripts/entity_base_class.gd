@@ -30,3 +30,4 @@ func _fail(string) -> void:
 
 func _random_chance() -> void:
 	pass
+	

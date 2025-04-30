@@ -1,4 +1,4 @@
-[gd_scene load_steps=223 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=247 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -185,6 +185,30 @@
 [ext_resource type="Texture2D" uid="uid://dkdo23t3rw042" path="res://text_sequences/we_can_still_play/0072.png" id="103_2onmc"]
 [ext_resource type="Texture2D" uid="uid://cji3cdmjx1nx6" path="res://text_sequences/we_can_still_play/0073.png" id="104_b45a6"]
 [ext_resource type="Script" uid="uid://cdh8xayk4q7rx" path="res://lightbulb_red.gd" id="138_6mykh"]
+[ext_resource type="Texture2D" uid="uid://duw3drw8ibyuw" path="res://text_sequences/trailer/1/0270.png" id="171_15kie"]
+[ext_resource type="Texture2D" uid="uid://rx025svhhi43" path="res://text_sequences/trailer/1/0271.png" id="172_w7kiy"]
+[ext_resource type="Texture2D" uid="uid://djymnpx86xkrt" path="res://text_sequences/trailer/1/0272.png" id="173_bgat0"]
+[ext_resource type="Texture2D" uid="uid://cp6rutrm1cm2g" path="res://text_sequences/trailer/1/0273.png" id="174_a8oim"]
+[ext_resource type="Texture2D" uid="uid://cd2now6usg00m" path="res://text_sequences/trailer/2/0274.png" id="175_yvyu2"]
+[ext_resource type="Texture2D" uid="uid://ojlh4cvqo4i8" path="res://text_sequences/trailer/2/0275.png" id="176_b8ges"]
+[ext_resource type="Texture2D" uid="uid://c1bqxcq632k0y" path="res://text_sequences/trailer/2/0276.png" id="177_rua3f"]
+[ext_resource type="Texture2D" uid="uid://bdjf8toje4fxa" path="res://text_sequences/trailer/2/0277.png" id="178_wgk5s"]
+[ext_resource type="Texture2D" uid="uid://d3gyckfvqhex3" path="res://text_sequences/trailer/3/0278.png" id="179_3ir63"]
+[ext_resource type="Texture2D" uid="uid://crq3euuscfw0a" path="res://text_sequences/trailer/3/0279.png" id="180_x4y71"]
+[ext_resource type="Texture2D" uid="uid://dkk58utdwxv22" path="res://text_sequences/trailer/3/0280.png" id="181_3ykty"]
+[ext_resource type="Texture2D" uid="uid://c28hdr4qs0ubl" path="res://text_sequences/trailer/3/0281.png" id="182_ixeg6"]
+[ext_resource type="Texture2D" uid="uid://b6cedofc1jcg" path="res://text_sequences/trailer/4/0282.png" id="183_l52ma"]
+[ext_resource type="Texture2D" uid="uid://lyfi7mbyjcbs" path="res://text_sequences/trailer/4/0283.png" id="184_gum2l"]
+[ext_resource type="Texture2D" uid="uid://wa68brrc6l4u" path="res://text_sequences/trailer/4/0284.png" id="185_vr50f"]
+[ext_resource type="Texture2D" uid="uid://dfutdti62jfpj" path="res://text_sequences/trailer/4/0285.png" id="186_p46uw"]
+[ext_resource type="Texture2D" uid="uid://c7rufwd76n78b" path="res://text_sequences/trailer/5/0286.png" id="187_lupwe"]
+[ext_resource type="Texture2D" uid="uid://2834fmluyvgh" path="res://text_sequences/trailer/5/0287.png" id="188_eg236"]
+[ext_resource type="Texture2D" uid="uid://iu5us6l65w7n" path="res://text_sequences/trailer/5/0288.png" id="189_ni1hf"]
+[ext_resource type="Texture2D" uid="uid://qmvrktrs7acg" path="res://text_sequences/trailer/5/0289.png" id="190_0667l"]
+[ext_resource type="Texture2D" uid="uid://dymnrj4fejxr1" path="res://text_sequences/trailer/6/0290.png" id="191_nui55"]
+[ext_resource type="Texture2D" uid="uid://ci4sblu8qx7k8" path="res://text_sequences/trailer/6/0291.png" id="192_wkc0g"]
+[ext_resource type="Texture2D" uid="uid://b8uibjq310ue2" path="res://text_sequences/trailer/6/0292.png" id="193_162md"]
+[ext_resource type="Texture2D" uid="uid://bs5sts2dnlo02" path="res://text_sequences/trailer/6/0293.png" id="194_wbjwa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hev8t"]
 vertex_color_use_as_albedo = true
@@ -2605,6 +2629,108 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("171_15kie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_w7kiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_bgat0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_a8oim")
+}],
+"loop": true,
+"name": &"trailer1",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("175_yvyu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_b8ges")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_rua3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_wgk5s")
+}],
+"loop": true,
+"name": &"trailer2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("179_3ir63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_x4y71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_3ykty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_ixeg6")
+}],
+"loop": true,
+"name": &"trailer3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("183_l52ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_gum2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_vr50f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_p46uw")
+}],
+"loop": true,
+"name": &"trailer4",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("187_lupwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_eg236")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_ni1hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_0667l")
+}],
+"loop": true,
+"name": &"trailer5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("191_nui55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_wkc0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_162md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_wbjwa")
+}],
+"loop": true,
+"name": &"trailer6",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("93_ammyj")
 }, {
 "duration": 1.0,
@@ -2670,36 +2796,36 @@ fill_to = Vector2(0.465812, 0.320513)
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
-transform = Transform3D(1.17442, -0.309792, 1.06931e-08, 0, -5.89142e-08, -1.0643, 0.277367, 1.31171, -4.52764e-08, -0.0461082, -0.197323, -4.40204)
+transform = Transform3D(-0.0651089, 0.278465, -1.03975, 0.082723, 1.31655, 0.215838, 1.20213, -0.0755148, -0.0711672, 2.61054, -0.0399795, 4.21352)
 script = ExtResource("2_1ftms")
 
 [node name="Skeleton3D" parent="monsterthing/Armature_003" index="0"]
-bones/1/position = Vector3(0.10962, 0.457232, -1.04952)
-bones/1/rotation = Quaternion(-0.698737, 2.83696e-07, -0.0330951, 0.714613)
-bones/2/rotation = Quaternion(0.00838391, 2.72873e-08, -0.00590973, 0.999947)
-bones/3/rotation = Quaternion(-0.00838394, 8.46023e-08, 0.00590974, 0.999947)
+bones/1/position = Vector3(0.0519049, 0.262257, -0.204218)
+bones/1/rotation = Quaternion(-0.112222, -0.0203345, -0.0261116, 0.993132)
+bones/2/rotation = Quaternion(0.115021, -0.00934648, -0.0935825, 0.988901)
+bones/3/rotation = Quaternion(0.0977612, 0.000627069, 0.00587642, 0.995192)
 bones/4/rotation = Quaternion(-0.0180208, -0.123989, 0.904326, 0.408039)
-bones/5/rotation = Quaternion(0.0726318, 0.0391252, -0.170289, 0.981935)
-bones/6/rotation = Quaternion(0.128444, 0.0234466, -5.73451e-05, 0.99144)
-bones/7/rotation = Quaternion(-0.0543265, -0.0169831, 0.0128279, 0.998296)
-bones/8/rotation = Quaternion(6.59345e-08, 4.40201e-10, 1.37422e-10, 1)
-bones/9/rotation = Quaternion(0.00792984, 6.22443e-05, 0.00768781, 0.999939)
-bones/10/position = Vector3(-0.00170001, 0.0825788, 0.340693)
-bones/10/rotation = Quaternion(0.84112, 0.0419243, 0.080878, 0.533121)
+bones/5/rotation = Quaternion(0.0468615, 0.0678977, -0.598591, 0.796795)
+bones/6/rotation = Quaternion(0.122681, 0.044688, -0.166588, 0.977344)
+bones/7/rotation = Quaternion(-0.0506947, -0.0258812, -0.155313, 0.986224)
+bones/8/rotation = Quaternion(-0.203496, 0.0126607, -0.00931942, 0.97895)
+bones/9/rotation = Quaternion(-0.563667, -0.122039, 0.0927104, 0.811659)
+bones/10/position = Vector3(-0.00170003, 0.0825788, 0.340693)
+bones/10/rotation = Quaternion(0.87792, 0.0477373, 0.0775889, 0.470061)
 bones/11/position = Vector3(0.0164609, 0.274231, 0.277297)
-bones/11/rotation = Quaternion(0.699554, 0.00942297, 0.0734274, 0.710734)
+bones/11/rotation = Quaternion(0.686629, 0.00809789, 0.0735853, 0.723229)
 bones/12/rotation = Quaternion(0.0180201, -0.12399, 0.904327, -0.408038)
-bones/13/rotation = Quaternion(0.0726316, -0.0391257, 0.170289, 0.981935)
-bones/14/rotation = Quaternion(0.128444, -0.0234466, 5.72792e-05, 0.99144)
-bones/15/rotation = Quaternion(-0.0543265, 0.0169832, -0.0128279, 0.998296)
+bones/13/rotation = Quaternion(0.0726316, -0.0391257, 0.170288, 0.981935)
+bones/14/rotation = Quaternion(0.125783, -0.0350185, 0.090127, 0.987335)
+bones/15/rotation = Quaternion(-0.0568919, 0.00176902, -0.280468, 0.958174)
 bones/16/rotation = Quaternion(0.5959, -0.384204, -0.587909, -0.389427)
-bones/17/rotation = Quaternion(-0.301854, -0.0188413, -0.0169559, 0.953017)
-bones/18/rotation = Quaternion(-0.0622948, -1.77312e-07, 0.0260816, 0.997717)
-bones/19/rotation = Quaternion(-0.0878633, -6.40988e-08, 0.000962932, 0.996132)
+bones/17/rotation = Quaternion(-0.482437, -0.0151608, -0.0203139, 0.875564)
+bones/18/rotation = Quaternion(-0.0622949, -1.76097e-07, 0.0260816, 0.997717)
+bones/19/rotation = Quaternion(-0.0878633, -6.41695e-08, 0.000962926, 0.996132)
 bones/20/rotation = Quaternion(0.595901, 0.384203, 0.587909, -0.389426)
-bones/21/rotation = Quaternion(-0.301853, 0.0188411, 0.0169559, 0.953017)
-bones/22/rotation = Quaternion(-0.0622948, 1.15399e-07, -0.0260816, 0.997717)
-bones/23/rotation = Quaternion(-0.0878633, -5.35361e-08, -0.000962914, 0.996132)
+bones/21/rotation = Quaternion(-0.0550845, 0.0224693, 0.0117314, 0.99816)
+bones/22/rotation = Quaternion(-0.135833, 0.00192684, -0.0260102, 0.990388)
+bones/23/rotation = Quaternion(-0.29165, 0.000198679, -0.000942273, 0.956525)
 
 [node name="Plane_003" parent="monsterthing/Armature_003/Skeleton3D" index="0"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
@@ -2969,8 +3095,6 @@ script = ExtResource("22_ocswj")
 [node name="Sketchfab_model_001" parent="mainroom" index="3"]
 script = ExtResource("23_j64eu")
 
-[node name="shadow_component" parent="mainroom/Sketchfab_model_001" index="1" instance=ExtResource("23_4tqfu")]
-
 [node name="SpringBoneSimulator3D" parent="mainroom/Armature/Skeleton3D" index="1"]
 settings/0/stiffness/value = 0.48
 settings/0/drag/value = 0.25
@@ -3110,7 +3234,7 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(1920, 1080)
 scale = Vector2(1.00961, 1.01204)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"demo_sizzle5"
+animation = &"trailer5"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
@@ -3123,7 +3247,7 @@ texture = SubResource("GradientTexture2D_qvxvv")
 
 [node name="flashlight" type="SpotLight3D" parent="."]
 process_mode = 1
-transform = Transform3D(-0.923103, -0.283258, -0.260086, -0.305161, 0.951129, 0.0472146, 0.234002, 0.122952, -0.96443, 0, 1.05635, -3.771)
+transform = Transform3D(-0.557628, -0.800393, -0.220051, -0.822447, 0.568619, 0.0159092, 0.112392, 0.189852, -0.975359, 0, 1.05635, -3.771)
 visible = false
 light_intensity_lumens = 284.13
 light_color = Color(0.453699, 0.384035, 0.149262, 1)

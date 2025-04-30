@@ -16,6 +16,7 @@ var monster_active: bool = false:
 var amb1: AudioStreamPlayer
 var amb2: AudioStreamPlayer
 var amb3: AudioStreamPlayer
+var amb4: AudioStreamPlayer
 
 var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
 var fs_slow: Array = ResourceLoader.list_directory("res://audio/Footsteps/Slow/")
@@ -60,21 +61,27 @@ func _start_ambience() -> void:
 	amb1 = AudioStreamPlayer.new()
 	amb2 = AudioStreamPlayer.new()
 	amb3 = AudioStreamPlayer.new()
+	amb4 = AudioStreamPlayer.new()
 	add_child(amb1)
 	add_child(amb2)
 	add_child(amb3)
+	add_child(amb4)
 	amb1.stream = load("res://audio/Room Tone and Ambience/rta1.ogg")
 	amb2.stream = load("res://audio/Room Tone and Ambience/rta2.ogg")
 	amb3.stream = load("res://audio/Room Tone and Ambience/nightamb.ogg")
+	amb4.stream = load("res://audio/Pad/dronepadlong.ogg")
 	amb1.volume_db = -100
 	amb2.volume_db = -5
 	amb3.volume_db = -10
+	amb4.volume_db = -10
 	amb1.add_to_group("Ambience")
 	amb2.add_to_group("Ambience")
 	amb3.add_to_group("Ambience")
+	amb4.add_to_group("Ambience")
 	amb1.play()
 	amb2.play()
 	amb3.play()
+	amb4.play()
 
 func _hour_changed(event) -> void:
 	if not gb.hour_5_active:

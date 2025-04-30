@@ -84,6 +84,8 @@ enum end3 {END_3_1 = 1101, END_3_2}
 
 enum demo_sizzle {DS_1 = 1201, DS_2, DS_3, DS_4, DS_5, DS_6, DS_7}
 
+enum trailer {t1 = 1301, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13}
+
 var event_dict: Dictionary = {
 	"tutorial": tutorial,
 	"hour1": hour1,
@@ -102,7 +104,8 @@ var event_dict: Dictionary = {
 	"end2": end2,
 	"endless_mode": endless_mode,
 	"end3": end3,
-	"demo_sizzle": demo_sizzle
+	"demo_sizzle": demo_sizzle,
+	"trailer": trailer
 }
 
 	
