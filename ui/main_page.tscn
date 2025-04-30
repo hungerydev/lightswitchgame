@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://gg5suj2tw5qv"]
+[gd_scene load_steps=126 format=3 uid="uid://gg5suj2tw5qv"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_y2fak"]
 [ext_resource type="Texture2D" uid="uid://05cpbpwxxht7" path="res://logo/buildout/lightswitch_logo_buildout00000000.png" id="2_qsocc"]
@@ -122,6 +122,7 @@
 [ext_resource type="Texture2D" uid="uid://bpshoo074r6r0" path="res://logo/buildout/lightswitch_logo_buildout00000118.png" id="120_u3jyc"]
 [ext_resource type="Texture2D" uid="uid://dmwv86fyr1a6t" path="res://logo/buildout/lightswitch_logo_buildout00000119.png" id="121_d4uar"]
 [ext_resource type="Texture2D" uid="uid://8ee22r61opag" path="res://logo/buildout/lightswitch_logo_buildout00000120.png" id="122_31t53"]
+[ext_resource type="Script" uid="uid://cdenjy5o6qs5n" path="res://ui/title_anim.gd" id="123_dqh5x"]
 [ext_resource type="Script" uid="uid://bnhkgb3eir1t0" path="res://ui/demo_text.gd" id="124_dqh5x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
@@ -505,49 +506,58 @@ grow_vertical = 2
 theme = ExtResource("1_y2fak")
 
 [node name="title" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(0.605, 0.605)
 sprite_frames = SubResource("SpriteFrames_wvrey")
 autoplay = "default"
 centered = false
+script = ExtResource("123_dqh5x")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 181.0
-offset_top = -532.0
-offset_right = 960.0
-offset_bottom = -338.0
+offset_left = 49.0
+offset_top = -189.0
+offset_right = 349.0
+offset_bottom = -77.0
 grow_vertical = 0
 vertical = true
 
 [node name="info" type="RichTextLabel" parent="BoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 91
+theme_override_font_sizes/normal_font_size = 26
 text = "Right-Click to turn on the light"
 fit_content = true
 
 [node name="settings" type="Button" parent="BoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Settings"
+alignment = 0
 
 [node name="quit" type="Button" parent="BoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Quit"
+alignment = 0
 
 [node name="demo_text" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 2297.0
-offset_top = 1432.0
-offset_right = 2679.0
-offset_bottom = 1549.0
-theme_override_font_sizes/normal_font_size = 116
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -66.0
+offset_right = -31.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "[wave]DEMO"
 fit_content = true

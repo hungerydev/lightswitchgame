@@ -25,17 +25,20 @@ theme = ExtResource("1_fhdwj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 10
 
 [node name="are_u_sure_text" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(650, 100)
+custom_minimum_size = Vector2(400, 25)
 layout_mode = 2
 bbcode_enabled = true
 text = "Are you sure you want to delete your save? [wave amp = 1000.0 freq=10.0 connected=1]This can't be undone![/wave]"
+vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_fhdwj"), null, null, null, null]
 
 [node name="yes" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 3
 text = "yes"
 
 [node name="no" type="Button" parent="CenterContainer/VBoxContainer"]

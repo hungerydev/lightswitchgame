@@ -28,7 +28,7 @@ hinting = 0
 
 [resource]
 default_font = SubResource("SystemFont_1eq05")
-default_font_size = 64
+default_font_size = 13
 Button/colors/font_hover_color = Color(0.636723, 0.619328, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_tbeor")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_dmjyp")

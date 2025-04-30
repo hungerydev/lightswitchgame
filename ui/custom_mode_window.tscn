@@ -20,15 +20,16 @@ script = ExtResource("1_3bl6u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 699.0
-offset_bottom = 971.0
+offset_left = 50.0
+offset_top = 57.0
+offset_right = 455.0
+offset_bottom = 421.0
 theme = ExtResource("1_gkj1u")
-theme_override_constants/separation = 130
+theme_override_constants/separation = 56
 
 [node name="mechanic_chooser" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 select_mode = 2
 auto_height = true
 item_count = 4
@@ -42,6 +43,7 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "difficulty
 "
@@ -61,6 +63,7 @@ theme_override_constants/separation = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer3"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "Chance for random events"
 fit_content = true
@@ -74,7 +77,6 @@ value = -1.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "Note: high amounts of RNG may result in unwinnable situations. Play at your own risk"
 fit_content = true
@@ -85,10 +87,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 94.0
-offset_top = -465.0
-offset_right = 740.0
-offset_bottom = -299.0
+offset_left = 41.0
+offset_top = -96.0
+offset_right = 298.0
+offset_bottom = -28.0
 grow_vertical = 0
 theme = ExtResource("1_gkj1u")
 script = SubResource("GDScript_6uq7r")
@@ -96,6 +98,7 @@ script = SubResource("GDScript_6uq7r")
 [node name="start" type="Button" parent="CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
 text = "Start Custom Mode"
 
 [node name="CenterContainer2" type="BoxContainer" parent="."]
@@ -105,10 +108,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -819.0
-offset_top = -446.0
-offset_right = -139.0
-offset_bottom = -285.0
+offset_left = -270.0
+offset_top = -76.0
+offset_right = -12.0
+offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_gkj1u")
@@ -116,4 +119,5 @@ theme = ExtResource("1_gkj1u")
 [node name="back" type="Button" parent="CenterContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
 text = "Back to Main Menu"

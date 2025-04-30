@@ -18,6 +18,8 @@ var amb2: AudioStreamPlayer
 var amb3: AudioStreamPlayer
 var amb4: AudioStreamPlayer
 
+var progress_speed: float = clamp(0.0, 0.0, 2.5)
+
 var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
 var fs_slow: Array = ResourceLoader.list_directory("res://audio/Footsteps/Slow/")
 var fs_medium: Array = ResourceLoader.list_directory("res://audio/Footsteps/Medium/")
@@ -111,6 +113,7 @@ func _hour_changed(event) -> void:
 				if raining:
 					_stop_rain()
 		use_flashlight_fx = !use_lightbulb_fx
+		progress_speed = 0.0
 		
 
 func _start_rain() -> void:
@@ -192,6 +195,7 @@ func _event_start(event) -> void:
 						_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
+	progress_speed += 0.1
 
 func _event_end() -> void:
 	for child in get_children():
@@ -256,6 +260,9 @@ func _play_footsteps(string) -> Signal:
 	print(file)
 	stream.stream = load(file)
 	stream.volume_db = -5
+	stream.pitch_scale += progress_speed
+	AudioServer.get_bus_effect(3,0).pitch_scale = 1 / stream.pitch_scale
+	stream.bus = "Footsteps"
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Footsteps")

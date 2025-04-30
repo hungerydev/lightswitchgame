@@ -54,13 +54,13 @@ func _process(_delta: float) -> void:
 	var m_pos = get_viewport().get_mouse_position()
 	var ray_start = cam.project_ray_origin(m_pos)
 	var ray_end = ray_start + cam.project_ray_normal(m_pos) * 10
+	look_at(ray_end)
 	if control:
 		if Input.is_action_just_pressed("right_click"):
 			if on:
 				_lights_off()
 			else:
 				_lights_on()
-		look_at(ray_end)
 	if flicker:
 		light_energy = randf_range(0,1.5)
 

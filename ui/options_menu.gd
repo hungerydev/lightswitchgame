@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	$BoxContainer/go_back.pressed.connect(_back_to_main_menu)
+	$settings/go_back.pressed.connect(_back_to_main_menu)
 	$BoxContainer2/delete_save.pressed.connect(_delete_save)
 	
 func _back_to_main_menu() -> void:

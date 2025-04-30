@@ -3231,8 +3231,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01542, 5.77936, 0.0256929)
 size = Vector3(4.0498, 2.87403, 0.172241)
 
 [node name="drawing_sequences" type="AnimatedSprite2D" parent="."]
-position = Vector2(1920, 1080)
-scale = Vector2(1.00961, 1.01204)
+position = Vector2(577, 289)
+scale = Vector2(0.265, 0.266)
 sprite_frames = SubResource("SpriteFrames_d76yy")
 animation = &"trailer5"
 script = ExtResource("44_4olqe")
