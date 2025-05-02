@@ -187,6 +187,6 @@ func _load_data(data) -> void:
 	loading = true
 	AudioServer.set_bus_volume_db(0, data["master_volume"])
 	AudioServer.set_bus_volume_db(1, data["jumpscare_volume"])
-	brightness_setting = data["brightness_setting"]
 	gf.chance_setting = data["rng"]
+	loading = false
 	

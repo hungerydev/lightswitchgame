@@ -42,14 +42,15 @@ func _load_data() -> void:
 			
 
 func _save_game(_hour) -> void:
-	var err = FileAccess.open("user://usersave.json", FileAccess.WRITE)
-	if err == null:
-		print(FileAccess.get_open_error())
-	else:
-		var data = gb._save()
-		var json_string = JSON.stringify(data)
-		err.store_line(json_string)
-	_save_user_data()
+	if not gb.loading:
+		var err = FileAccess.open("user://usersave.json", FileAccess.WRITE)
+		if err == null:
+			print(FileAccess.get_open_error())
+		else:
+			var data = gb._save()
+			var json_string = JSON.stringify(data)
+			err.store_line(json_string)
+		_save_user_data()
 
 func _save_window_props() -> Dictionary:
 	var _window = get_window()
@@ -64,17 +65,19 @@ func _save_window_props() -> Dictionary:
 		"vsync": vsync,
 		"scaler": scaler,
 		"scaling_amount": scaling_amount,
-		"screen": screen
+		"screen": screen,
+		"brightness_setting": gb.brightness_setting
 	}
 	return save_dict
 
 func _load_window_props(dict) -> void:
-	get_window().set_mode(dict["fullscreen"])
 	get_window().size = dict["resolution"]
+	get_window().set_mode(dict["fullscreen"])
 	get_window().set_current_screen(dict["screen"])
 	get_viewport().set_scaling_3d_mode(dict["scaler"])
 	get_viewport().set_scaling_3d_scale(dict["scaling_amount"])
 	DisplayServer.window_set_vsync_mode(dict["vsync"])
+	gb.brightness_setting = dict["brightness_setting"]
 
 func _save_user_data() -> void:
 	var err = FileAccess.open("user://userdata.data", FileAccess.WRITE)

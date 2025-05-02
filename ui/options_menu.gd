@@ -3,9 +3,12 @@ extends Control
 func _ready() -> void:
 	$settings/go_back.pressed.connect(_back_to_main_menu)
 	$BoxContainer2/delete_save.pressed.connect(_delete_save)
+	await sb._menu_light_on
+	sb._remote_light_on.emit()
 	
 func _back_to_main_menu() -> void:
 	sb._brightness_hover.emit(false)
+	sb._remote_light_off.emit()
 	slm._save_game("")
 	get_parent()._ready()
 	

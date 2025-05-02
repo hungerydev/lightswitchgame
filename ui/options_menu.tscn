@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://q28ueobsmonp"]
+[gd_scene load_steps=10 format=3 uid="uid://q28ueobsmonp"]
 
 [ext_resource type="Script" uid="uid://cpon8mvn3rsnv" path="res://ui/master_volume_slider.gd" id="1_lbr8e"]
 [ext_resource type="Script" uid="uid://x0uuemlxuek5" path="res://ui/options_menu.gd" id="1_ogda5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://carloyymnlx7u" path="res://ui/brightness_silder.gd" id="5_4ja32"]
 [ext_resource type="Script" uid="uid://cwskj4y1ljhmo" path="res://ui/settings.gd" id="5_kyuhg"]
 [ext_resource type="Script" uid="uid://b5j3bi63rud6j" path="res://ui/difficulty_setting.gd" id="5_stwrb"]
+[ext_resource type="Script" uid="uid://cjs2e7hhu6pqx" path="res://ui/reset_settings.gd" id="7_q8ppv"]
 [ext_resource type="Script" uid="uid://cbypl1en4yofb" path="res://ui/brightness_example.gd" id="7_sov54"]
 
 [node name="options_menu" type="Control"]
@@ -136,6 +137,8 @@ selected = 0
 item_count = 3
 popup/item_0/text = "SCALER"
 popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
 popup/item_1/text = "BILINEAR"
 popup/item_1/id = 1
 popup/item_2/text = "AMD FSR 2.2"
@@ -148,6 +151,8 @@ selected = 0
 item_count = 5
 popup/item_0/text = "FSR Options"
 popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
 popup/item_1/text = "Performance"
 popup/item_1/id = 1
 popup/item_2/text = "Balanced"
@@ -189,6 +194,7 @@ offset_bottom = 119.0
 grow_horizontal = 0
 theme = ExtResource("1_t1lix")
 alignment = 2
+vertical = true
 
 [node name="delete_save" type="Button" parent="BoxContainer2"]
 custom_minimum_size = Vector2(150, 25)
@@ -196,6 +202,12 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "Delete Save Data
 "
+
+[node name="reset_settings" type="Button" parent="BoxContainer2"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+text = "Reset Settings to Default"
+script = ExtResource("7_q8ppv")
 
 [node name="BoxContainer3" type="BoxContainer" parent="."]
 visible = false
@@ -290,6 +302,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme = ExtResource("1_t1lix")
+theme_override_constants/separation = 30
 alignment = 1
 script = ExtResource("5_stwrb")
 
@@ -305,7 +318,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="difficultySetting" type="RichTextLabel" parent="BoxContainer4/BoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 61
@@ -332,26 +345,22 @@ text = ">"
 [node name="brightnessExample" type="BoxContainer" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -961.0
-offset_top = -825.0
-offset_right = 942.0
-offset_bottom = 197.0
+offset_left = -211.5
+offset_top = 109.971
+offset_right = 211.5
+offset_bottom = 140.971
 grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("1_t1lix")
 vertical = true
 script = ExtResource("7_sov54")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="brightnessExample"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "Adjust the slider until the right logo roughly matches the left logo"
+fit_content = true
 horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="settings/VBoxContainer/brightness_silder" to="settings/VBoxContainer/brightness_silder" method="_on_mouse_entered"]
@@ -364,6 +373,7 @@ horizontal_alignment = 1
 [connection signal="toggled" from="settings/BoxContainer/Fullscreen_Checkbox" to="settings" method="_on_fullscreen_checkbox_toggled"]
 [connection signal="toggled" from="settings/BoxContainer/vsync" to="settings" method="_on_vsync_toggled"]
 [connection signal="item_selected" from="settings/BoxContainer/screenSelector" to="settings" method="_on_screen_selector_item_selected"]
+[connection signal="pressed" from="BoxContainer2/reset_settings" to="BoxContainer2/reset_settings" method="_on_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer/easy_button" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer2/medium_button" to="." method="_on_medium_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer3/hard_button" to="." method="_on_hard_button_pressed"]
