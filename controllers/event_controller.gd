@@ -38,7 +38,19 @@ func _start_event() -> void:
 				else:
 					sb._event_start.emit(new_event)
 			gb.hour3cut:
-				pass
+				var new_event = gb.hour4cut.values()[pm.hour4cuti]
+				print(new_event)
+				if pm.hour3cuti < 2:
+					cutscene = true
+					sb._remote_flashlight_off.emit()
+					am._play_cut_music_snippets("Cut_Snip_2.ogg")
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour3cut.HOUR_3_CUT_1)
+					await get_tree().create_timer(8).timeout
+					sb._event_start.emit(gb.hour3cut.HOUR_3_CUT_2)
+					cutscene = false
+				else:
+					sb._event_start.emit(new_event)
 			gb.hour4cut:
 				var new_event = gb.hour4cut.values()[pm.hour4cuti]
 				print(new_event)

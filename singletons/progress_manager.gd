@@ -85,15 +85,15 @@ func _event_start(event) -> Signal:
 		gb.hour2:
 			await sb._event_finished
 			if hour2i == hour2max:
-				if gb.demo_mode:
-					gb.current_hour = gb.demo_sizzle
-				else:
-					gb.current_hour = gb.hour3
-					gb.last_hour_completed = gb.hour2
+				gb.current_hour = gb.hour3cut
+				gb.last_hour_completed = gb.hour2
 			else:
 				hour2i += 1
 		gb.hour3cut:
 			await sb._event_finished
+			if hour3cuti == 1:
+				if gb.demo_mode:
+					gb.current_hour = gb.demo_sizzle
 			if hour3cuti == hour3cutmax:
 				gb.current_hour = gb.hour3
 				gb.last_hour_completed = gb.hour2

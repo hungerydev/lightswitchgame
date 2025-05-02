@@ -8,6 +8,7 @@ signal _light_off
 signal _remote_light_on
 
 signal _remote_light_off
+signal _remote_flashlight_off
 
 ## Emitted by the main_menu scene in order to transition between pages
 signal _menu_light_on

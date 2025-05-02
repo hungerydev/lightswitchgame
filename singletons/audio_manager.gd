@@ -90,29 +90,42 @@ func _hour_changed(event) -> void:
 		match gb.current_hour:
 			gb.hour1:
 				use_lightbulb_fx = true
+				use_flashlight_fx = !use_lightbulb_fx
 				if raining:
 					_stop_rain()
 			gb.hour2cut:
 				use_lightbulb_fx = false
+				use_flashlight_fx = !use_lightbulb_fx
 				if not raining:
 					_start_rain()
 			gb.hour2:
 				use_lightbulb_fx = false
+				use_flashlight_fx = !use_lightbulb_fx
 				if not raining:
 					_start_rain()
 			gb.hour3cut:
 				use_lightbulb_fx = false
+				use_flashlight_fx = !use_lightbulb_fx
 				if not raining:
 					_start_rain()
 			gb.hour3:
 				use_lightbulb_fx = false
+				use_flashlight_fx = !use_lightbulb_fx
 				if not raining:
 					_start_rain()
-			gb.hour4:
-				use_lightbulb_fx = true
+			gb.hour4cut:
 				if raining:
 					_stop_rain()
-		use_flashlight_fx = !use_lightbulb_fx
+			gb.hour4:
+				use_lightbulb_fx = true
+				use_flashlight_fx = !use_lightbulb_fx
+				if raining:
+					_stop_rain()
+			gb.demo_sizzle:
+				use_lightbulb_fx = false
+				use_flashlight_fx = false
+				if raining:
+					_stop_rain()
 		progress_speed = 0.0
 		
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=247 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=255 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -174,7 +174,7 @@
 [ext_resource type="Texture2D" uid="uid://dni5kxis0o1wg" path="res://text_sequences/hour5cut2/0172.png" id="94_33ks5"]
 [ext_resource type="Texture2D" uid="uid://d38vfmxt1icq4" path="res://text_sequences/tutorial_fail/0023.png" id="94_pfjl7"]
 [ext_resource type="Texture2D" uid="uid://dni05k61vbgfe" path="res://text_sequences/tutorial_fail/0024.png" id="95_33ks5"]
-[ext_resource type="Texture2D" uid="uid://yarnd1gbhr65" path="res://text_sequences/hour5cut2/0173.png" id="95_jp27q"]
+[ext_resource type="Texture2D" uid="uid://c5dyktrs6xuqy" path="res://text_sequences/hour5cut2/0173.png" id="95_jp27q"]
 [ext_resource type="Texture2D" uid="uid://ciidjq8akg7y4" path="res://text_sequences/tutorial_fail/0025.png" id="96_jp27q"]
 [ext_resource type="Texture2D" uid="uid://b1t2yp8v62qmr" path="res://text_sequences/tutorial_fail/0026.png" id="97_lgswy"]
 [ext_resource type="Texture2D" uid="uid://slsxrk74rk4" path="res://text_sequences/tutorial_fail/0027.png" id="98_u0hlv"]
@@ -183,7 +183,15 @@
 [ext_resource type="Texture2D" uid="uid://cmm5w08qr2uh0" path="res://text_sequences/we_can_still_play/0070.png" id="101_5r045"]
 [ext_resource type="Texture2D" uid="uid://cojurcr2ikmgi" path="res://text_sequences/we_can_still_play/0071.png" id="102_qsfcs"]
 [ext_resource type="Texture2D" uid="uid://dkdo23t3rw042" path="res://text_sequences/we_can_still_play/0072.png" id="103_2onmc"]
+[ext_resource type="Texture2D" uid="uid://c8agpw17iuuob" path="res://text_sequences/hour3cut1/0177.png" id="103_3ir63"]
 [ext_resource type="Texture2D" uid="uid://cji3cdmjx1nx6" path="res://text_sequences/we_can_still_play/0073.png" id="104_b45a6"]
+[ext_resource type="Texture2D" uid="uid://bsnlebfdao8dk" path="res://text_sequences/hour3cut1/0178.png" id="104_x4y71"]
+[ext_resource type="Texture2D" uid="uid://iog20u81uxgx" path="res://text_sequences/hour3cut1/0179.png" id="105_3ykty"]
+[ext_resource type="Texture2D" uid="uid://cinb7w425qo0h" path="res://text_sequences/hour3cut1/0180.png" id="106_ixeg6"]
+[ext_resource type="Texture2D" uid="uid://bk7mvhofw8h6b" path="res://text_sequences/hour3cut2/0181.png" id="107_l52ma"]
+[ext_resource type="Texture2D" uid="uid://dpj2w1yyh288e" path="res://text_sequences/hour3cut2/0182.png" id="108_gum2l"]
+[ext_resource type="Texture2D" uid="uid://daxoq5soyodoa" path="res://text_sequences/hour3cut2/0183.png" id="109_vr50f"]
+[ext_resource type="Texture2D" uid="uid://bu4w0i15j6tl1" path="res://text_sequences/hour3cut2/0184.png" id="110_p46uw"]
 [ext_resource type="Script" uid="uid://cdh8xayk4q7rx" path="res://lightbulb_red.gd" id="138_6mykh"]
 [ext_resource type="Texture2D" uid="uid://duw3drw8ibyuw" path="res://text_sequences/trailer/1/0270.png" id="171_15kie"]
 [ext_resource type="Texture2D" uid="uid://rx025svhhi43" path="res://text_sequences/trailer/1/0271.png" id="172_w7kiy"]
@@ -2340,6 +2348,40 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("103_3ir63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_x4y71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_3ykty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_ixeg6")
+}],
+"loop": true,
+"name": &"hour3cut1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("107_l52ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_gum2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_vr50f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_p46uw")
+}],
+"loop": true,
+"name": &"hour3cut2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("80_0yyd3")
 }, {
 "duration": 1.0,
@@ -3241,7 +3283,9 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(577, 289)
 scale = Vector2(0.265, 0.266)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"trailer5"
+animation = &"hour3cut2"
+frame = 1
+frame_progress = 0.234361
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
