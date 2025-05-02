@@ -7,6 +7,7 @@ extends BoxContainer
 @onready var scale_slider: HSlider = $BoxContainer/HBoxContainer/scaleSlider
 @onready var vsync: CheckBox = $BoxContainer/vsync
 @onready var screen_selector: OptionButton = $BoxContainer/screenSelector
+@onready var scaler: OptionButton = $BoxContainer/scaler
 
 
 var resolutions: Dictionary = {"3840x2160":Vector2i(3840,2160),
@@ -23,16 +24,41 @@ var resolutions: Dictionary = {"3840x2160":Vector2i(3840,2160),
 func _ready() -> void:
 	_add_resolutions()
 	_get_screens()
+	_check_Variables()
 
-func _check_Varialbes():
+func _check_Variables():
 	var _window = get_window()
 	var mode = _window.get_mode()
 	
 	if mode == Window.MODE_FULLSCREEN:
 		fullscreen_checkbox.set_pressed_no_signal(true)
+		match get_viewport().get_scaling_3d_mode():
+			0:
+				scaler.select(1)
+				_on_scaler_item_selected(1)
+			2:
+				scaler.select(2)
+				_on_scaler_item_selected(2)
+				var scale_value = get_viewport().get_scaling_3d_scale()
+				match snappedf(scale_value, 0.01):
+					0.50:
+						fsr_options.select(1)
+					0.59:
+						fsr_options.select(2)
+					0.67:
+						fsr_options.select(3)
+					0.77:
+						fsr_options.select(4)
+					
+		if scaler.selected == 1:
+			scale_slider.set_value_no_signal(get_viewport().get_scaling_3d_scale())
+		
 	
 	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED:
 		vsync.set_pressed_no_signal(true)
+	for s in DisplayServer.get_screen_count():
+		if s == get_window().get_current_screen():
+			screen_selector.select(s)
 
 func _set_resolution_text() -> void:
 	var res_text = str(get_window().get_size().x)+"x"+str(get_window().get_size().y)
@@ -128,3 +154,4 @@ func _on_screen_selector_item_selected(index: int) -> void:
 	
 	if mode == Window.MODE_FULLSCREEN:
 		window.set_mode(Window.MODE_FULLSCREEN)
+		
