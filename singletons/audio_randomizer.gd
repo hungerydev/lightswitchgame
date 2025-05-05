@@ -21,6 +21,7 @@ var growl: Dictionary
 @onready var am: AudioManager = get_parent()
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_to_group("Randomizer")
 	fs_speed_folders = am.footstep_fx
 	for folder in fs_speed_folders:
@@ -47,7 +48,7 @@ func _ready() -> void:
 		growl.get_or_add(effect, 1)
 
 func _choose_footstep() -> String:
-	print(gb.difficulty)
+	print(str(Time.get_ticks_msec()) + ": " + str(gb.difficulty))
 	if gb.difficulty > .90:
 		for key in fs_speed_dict:
 			if key == "Fast/":
@@ -66,10 +67,10 @@ func _choose_footstep() -> String:
 				fs_speed_dict[key] = 0
 			if key == "Medium/":
 				fs_speed_dict[key] = 0.5
-	print(fs_speed_dict)
+	print(str(Time.get_ticks_msec()) + ": " + str(fs_speed_dict))
 	var speed = fs_speed_dict.keys()[rng.rand_weighted(fs_speed_dict.values())]
 	speed = "res://audio/Footsteps/" + speed
-	print(speed)
+	print(str(Time.get_ticks_msec()) + ": " + speed)
 	match speed:
 		"res://audio/Footsteps/Fast/":
 			var effect = fs_fast.keys()[rng.rand_weighted(fs_fast.values())]
@@ -88,7 +89,7 @@ func _choose_footstep() -> String:
 				else:
 					if fs_medium[fx] < 1:
 						fs_medium[fx] +=  0.25
-			print(fs_medium)
+			print(str(Time.get_ticks_msec()) + ": " + str(fs_medium))
 			return speed + effect
 		"res://audio/Footsteps/Slow/":
 			var effect = fs_slow.keys()[rng.rand_weighted(fs_slow.values())]
@@ -98,7 +99,7 @@ func _choose_footstep() -> String:
 				else:
 					if fs_slow[fx] < 1:
 						fs_slow[fx] +=  0.25
-			print(fs_slow)
+			print(str(Time.get_ticks_msec()) + ": " + str(fs_slow))
 			return speed + effect
 	return "res://audio/Footsteps/Slow/fsslow4.ogg"
 

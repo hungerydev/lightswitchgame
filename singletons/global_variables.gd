@@ -108,6 +108,8 @@ var event_dict: Dictionary = {
 	"trailer": trailer
 }
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 func _hour5() -> int:
 	hour_5_active = true

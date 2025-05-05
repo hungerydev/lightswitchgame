@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpu4m1pmbnib2"]
+
+[ext_resource type="Script" uid="uid://dpqyrevr2demo" path="res://controllers/boss_fight_music_controller.gd" id="1_ul2ki"]
+
+[node name="BossFightMusicController" type="Node"]
+script = ExtResource("1_ul2ki")

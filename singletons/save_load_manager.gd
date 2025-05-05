@@ -10,7 +10,7 @@ func _load_game() -> void:
 	
 	var err = FileAccess.open("user://usersave.json", FileAccess.READ)
 	if err == null:
-		print(FileAccess.get_open_error())
+		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
 		_save_game("null")
 	else:
 		while err.get_position() < err.get_length():
@@ -18,7 +18,7 @@ func _load_game() -> void:
 			var json = JSON.new()
 			var parse_result = json.parse(json_string)
 			if not parse_result == OK:
-				print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+				print(str(Time.get_ticks_msec()) + ": " + "JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 				continue
 			var data = json.data
 			gb._load(data)
@@ -30,7 +30,7 @@ func _load_data() -> void:
 	
 	var err = FileAccess.open("user://userdata.data", FileAccess.READ)
 	if err == null:
-		print(FileAccess.get_open_error())
+		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
 		_save_game("null")
 	else:
 		var _dict1 = err.get_var()
@@ -45,7 +45,7 @@ func _save_game(_hour) -> void:
 	if not gb.loading:
 		var err = FileAccess.open("user://usersave.json", FileAccess.WRITE)
 		if err == null:
-			print(FileAccess.get_open_error())
+			print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
 		else:
 			var data = gb._save()
 			var json_string = JSON.stringify(data)
@@ -82,7 +82,7 @@ func _load_window_props(dict) -> void:
 func _save_user_data() -> void:
 	var err = FileAccess.open("user://userdata.data", FileAccess.WRITE)
 	if err == null:
-		print(FileAccess.get_open_error())
+		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
 	else:
 		var data1 = gb._save()
 		var data2 = gb._save_data()
@@ -92,10 +92,10 @@ func _save_user_data() -> void:
 		err.store_var(data3)
 	err = FileAccess.open("user://userdata.data", FileAccess.READ)
 	if err == null:
-		print(FileAccess.get_open_error())
-	print(err.get_var())
-	print(err.get_var())
-	print(err.get_var())
+		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
+	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
+	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
+	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
 		
 func _delete_save() -> void:
 	gb.current_hour = gb.tutorial

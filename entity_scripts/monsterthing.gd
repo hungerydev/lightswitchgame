@@ -54,7 +54,7 @@ func _event_start(event) -> void:
 					anim_player.play("turned")
 					hitbox_pcom._set_position(Vector3(3.00584, 1.36251, -1.39476),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 				_:
-					print("No position logged for " + str(event))
+					print(str(Time.get_ticks_msec()) + ": " + "No position logged for " + str(event))
 		gb.hour2:
 			await sb._light_off
 			hitbox.monster_active = true
@@ -110,7 +110,7 @@ func _event_start(event) -> void:
 					anim_player.play("crawling")
 					hitbox_pcom._set_position(Vector3(1.11811, 1.21637, 0.719154),Vector3(0, 0, 0),Vector3(1.38965, 1.39279, 1.98996))
 				_:
-					print("No position logged for " + str(event))
+					print(str(Time.get_ticks_msec()) + ": " + "No position logged for " + str(event))
 		gb.hour3:
 			await sb._light_off
 			hitbox.monster_active = true
@@ -245,7 +245,7 @@ func _event_start(event) -> void:
 					anim_player.play("Plane_002Action_001")
 					hitbox_pcom._set_position(Vector3(0.320746, 1.94818, -0.850135),Vector3(0, 0, 0),Vector3(0.851296, 1.74792, 0.324705))
 				_:
-					print("No position logged for " + str(event))
+					print(str(Time.get_ticks_msec()) + ": " + "No position logged for " + str(event))
 		gb.trailer:
 			match event:
 				gb.trailer.t3:

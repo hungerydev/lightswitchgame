@@ -54,6 +54,7 @@ var traileri: int = 0
 var trailermax: int = 7
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sb._event_start.connect(_event_start)
 
 

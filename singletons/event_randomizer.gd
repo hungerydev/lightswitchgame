@@ -9,6 +9,7 @@ var customdict: Dictionary
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sb._event_start.connect(_rcs_defer)
 	for event in gb.hour1.values():
 		hour1dict.get_or_add(event, 1)
@@ -26,9 +27,10 @@ func _rcs_defer(_event) -> void:
 func _random_chance_selection() -> void:
 	var entities = get_tree().get_nodes_in_group("Entity")
 	entities.shuffle()
+	print(str(Time.get_ticks_msec()) + ": " + str(len(entities)))
 	for entity in entities:
 		if entity.chance_active == true:
-			print("Calling random chance event on " + str(entity))
+			print(str(Time.get_ticks_msec()) + ": " + "Calling random chance event on " + str(entity))
 			entity.call("_random_chance")
 			entity.chance_active = false
 
@@ -63,7 +65,7 @@ func _hour5_pick() -> Dictionary:
 		else:
 			if hour5dict[hour] < 1:
 				hour5dict[hour] += 0.25
-	print(hour5dict)
+	print(str(Time.get_ticks_msec()) + ": " + str(hour5dict))
 	return choice
 
 func _create_custom_dict(selections) -> void:
@@ -89,6 +91,6 @@ func _custom_pick() -> Dictionary:
 		else:
 			if customdict[hour] < 1:
 				customdict[hour] += 0.25
-	print(customdict)
+	print(str(Time.get_ticks_msec()) + ": " + str(customdict))
 	return choice
 				

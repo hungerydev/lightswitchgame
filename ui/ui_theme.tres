@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://eds042pwsot7"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://eds042pwsot7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbeor"]
 bg_color = Color(0.6, 0.6, 0.6, 0.129412)
@@ -9,6 +9,9 @@ bg_color = Color(0.800386, 0.752897, 0.262039, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk0s6"]
 bg_color = Color(0.614713, 0.618917, 0.370869, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1eq05"]
+bg_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_touxu"]
 bg_color = Color(0.593403, 0.622911, 0.420613, 1)
@@ -33,6 +36,7 @@ Button/colors/font_hover_color = Color(0.636723, 0.619328, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_tbeor")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_dmjyp")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_mk0s6")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_1eq05")
 RichTextLabel/colors/default_color = Color(1, 1, 0.431373, 1)
 RichTextLabel/styles/fill = SubResource("StyleBoxFlat_touxu")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_2pn01")

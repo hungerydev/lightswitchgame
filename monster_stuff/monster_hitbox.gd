@@ -31,11 +31,11 @@ func _ready() -> void:
 	#sb._event_finished.connect(_reset)
 
 func _on_mouse_entered() -> void:
-	print("Mouse entered")
+	print(str(Time.get_ticks_msec()) + ": " + "Mouse entered")
 	mouse_active = true
 	
 func _on_mouse_exited() -> void:
-	print("Mouse exited")
+	print(str(Time.get_ticks_msec()) + ": " + "Mouse exited")
 	mouse_active = false
 
 
@@ -43,10 +43,10 @@ func _input(event: InputEvent) -> void:
 	if monster_active:
 		if event.is_action_pressed("left_click"):
 			if mouse_active:
-				print("you clicked on the monster")
+				print(str(Time.get_ticks_msec()) + ": " + "you clicked on the monster")
 				sb._monster_clicked.emit()
 			else:
-				print("You missed the monster!")
+				print(str(Time.get_ticks_msec()) + ": " + "You missed the monster!")
 				misclicks += 1
 
 

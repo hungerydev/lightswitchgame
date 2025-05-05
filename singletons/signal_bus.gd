@@ -5,6 +5,9 @@ signal _light_on
 
 signal _light_off
 
+## Emitted by lightbulb armature to tell the light where to go
+signal _light_target_pos(Vector3)
+
 signal _remote_light_on
 
 signal _remote_light_off

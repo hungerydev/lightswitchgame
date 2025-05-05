@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TextDeliver" load_steps=2 format=3 uid="uid://citq8y8hqk2q1"]
+
+[ext_resource type="Script" uid="uid://dcuepukutdxbq" path="res://resources/text_deliver_base_class.gd" id="1_6cgi2"]
+
+[resource]
+script = ExtResource("1_6cgi2")
+text = "v0.24:
+	- Fixed audio firing multiple times in settings menu
+
+v0.23:
+	- Pause menu now properly pauses the game
+
+v0.22:
+	- Added the text box you are currently looking at
+"
+metadata/_custom_type_script = "uid://dcuepukutdxbq"

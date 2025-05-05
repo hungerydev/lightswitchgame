@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="lightswitch"
-config/version="0.2"
+config/version="v0.24"
 run/main_scene="uid://b6fa2np4sh5pu"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [audio]
@@ -34,6 +36,7 @@ sw="*res://steamworks.gd"
 [debug]
 
 file_logging/enable_file_logging=true
+file_logging/max_log_files=10
 gdscript/warnings/unused_parameter=0
 
 [display]

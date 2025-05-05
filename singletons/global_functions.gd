@@ -9,8 +9,11 @@ var chance_modifier: float = clamp(1.0, 0.01, chance_setting):
 		return chance_modifier
 	set(value):
 		chance_modifier = clamp(value, 0.01, chance_setting)
+		print(str(Time.get_ticks_msec()) + ": " + "Current chance modifier: " + str(chance_modifier))
+var chance_reducer: float = 0.020
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	if gb.demo_mode:
 		chance_default = 0.7
 	chance_setting = chance_default
@@ -41,7 +44,7 @@ func _rc_hard() -> bool: ## 1 in 50
 	elif perf_chance:
 		return true
 	else:
-		chance_modifier -= .005
+		chance_modifier -= chance_reducer
 		return false
 
 func _rc_very_hard() -> bool: ## 1 in 100
@@ -51,7 +54,7 @@ func _rc_very_hard() -> bool: ## 1 in 100
 	elif perf_chance:
 		return true
 	else:
-		chance_modifier -= .005
+		chance_modifier -= chance_reducer
 		return false
 		
 func _rc_impossible() -> bool: ## 1 in 1000
@@ -61,7 +64,7 @@ func _rc_impossible() -> bool: ## 1 in 1000
 	elif perf_chance:
 		return true
 	else:
-		chance_modifier -= .005
+		chance_modifier -= chance_reducer
 		return false
 
 var death_timer: float = 5.0
@@ -78,12 +81,12 @@ func _set_death_timer_dur(event) -> void:
 			death_timer = 10.0
 
 func _death_timer() -> void:
-	var timer = get_tree().create_timer(clamp(death_timer * gb.difficulty, 1, death_timer))
-	print("Death timer started")
+	var timer = get_tree().create_timer(clamp(death_timer * gb.difficulty, 1, death_timer), false)
+	print(str(Time.get_ticks_msec()) + ": " + "Death timer started")
 	timer.timeout.connect(_too_slow)
 	await sb._event_finished
 	timer.timeout.disconnect(_too_slow)
 	
 func _too_slow() -> void:
-	print("Death timer timed out!")
+	print(str(Time.get_ticks_msec()) + ": " + "Death timer timed out!")
 	sb._time_fail.emit("slow")

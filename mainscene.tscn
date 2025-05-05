@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=259 format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_76yo1"]
 [ext_resource type="Script" uid="uid://coopam4q5fdfk" path="res://entity_scripts/monsterthing.gd" id="2_1ftms"]
@@ -217,6 +217,7 @@
 [ext_resource type="Texture2D" uid="uid://ci4sblu8qx7k8" path="res://text_sequences/trailer/6/0291.png" id="192_wkc0g"]
 [ext_resource type="Texture2D" uid="uid://b8uibjq310ue2" path="res://text_sequences/trailer/6/0292.png" id="193_162md"]
 [ext_resource type="Texture2D" uid="uid://bs5sts2dnlo02" path="res://text_sequences/trailer/6/0293.png" id="194_wbjwa"]
+[ext_resource type="Script" uid="uid://cgv87f3sl3k3f" path="res://car_light.gd" id="213_x4y71"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hev8t"]
 vertex_color_use_as_albedo = true
@@ -2051,17 +2052,17 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_wqh86"]
 resource_name = "swing"
-length = 2.0
+length = 4.013
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("..:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(0.574349, 1, 0.450625),
+"times": PackedFloat32Array(0, 1.96667, 4.03333),
+"transitions": PackedFloat32Array(1.18921, 1.10957, 1.10957),
 "update": 0,
 "values": [Vector3(0, 0, 1.5708), Vector3(0, 0, -1.5708), Vector3(0, 0, 1.5708)]
 }
@@ -2835,6 +2836,43 @@ fill = 2
 fill_from = Vector2(0.493191, 0.717949)
 fill_to = Vector2(0.465812, 0.320513)
 
+[sub_resource type="Animation" id="Animation_3ykty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x4y71"]
+resource_name = "carl_alarm"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00999999, 0.51, 1, 1.47667, 2, 2.5, 2.99, 3.46667, 4.01, 4.51, 5, 5.47667, 6, 6.5, 6.99, 7.46667, 8, 8.5, 8.99, 9.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixeg6"]
+_data = {
+&"RESET": SubResource("Animation_3ykty"),
+&"carl_alarm": SubResource("Animation_x4y71")
+}
+
 [node name="mainscene" type="Node3D"]
 
 [node name="monsterthing" parent="." instance=ExtResource("1_76yo1")]
@@ -2880,6 +2918,7 @@ libraries = {
 }
 
 [node name="monsterHitbox" type="Area3D" parent="monsterthing"]
+process_mode = 1
 transform = Transform3D(1.25137, 0, 0, 0, 2.33363, 0, 0, 0, 1.38325, -2.49906, 2.31092, -1.36708)
 top_level = true
 script = ExtResource("2_8bn17")
@@ -3144,12 +3183,10 @@ script = ExtResource("22_ocswj")
 [node name="Sketchfab_model_001" parent="mainroom" index="3"]
 script = ExtResource("23_j64eu")
 
-[node name="SpringBoneSimulator3D" parent="mainroom/Armature/Skeleton3D" index="1"]
-settings/0/stiffness/value = 0.48
-settings/0/drag/value = 0.25
-settings/0/gravity/value = 0.44
+[node name="LightTarget" type="Node3D" parent="mainroom/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.850829, 0.525443, 0, -0.525443, -0.850829, 0, 0, 0, 1, -0.122171, 2.00621, 0.310285)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="mainroom/Armature/Skeleton3D" index="2"]
+[node name="LightBulbAnimator" type="AnimationPlayer" parent="mainroom/Armature/Skeleton3D" index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_e0jif")
 }
@@ -3308,6 +3345,26 @@ shadow_enabled = true
 spot_range = 11.128
 spot_angle = 11.2417
 script = ExtResource("7_j64eu")
+
+[node name="CarLight" type="SpotLight3D" parent="."]
+process_mode = 1
+transform = Transform3D(-0.345102, -0.476531, -0.808593, -0.822447, 0.568619, 0.015909, 0.452201, 0.670515, -0.588153, -4.82436, 3.01484, -0.325571)
+visible = false
+light_intensity_lumens = 6950.8
+light_color = Color(0.453699, 0.384035, 0.149262, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.705
+shadow_enabled = true
+spot_range = 11.3277
+spot_angle = 38.7574
+script = ExtResource("213_x4y71")
+
+[node name="car_light_player" type="AnimationPlayer" parent="CarLight"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ixeg6")
+}
 
 [node name="lightning" type="Node3D" parent="."]
 

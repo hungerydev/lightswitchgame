@@ -6,6 +6,7 @@ var flicker: bool = false
 
 var control: bool = false
 
+
 func _ready() -> void:
 	add_to_group("Controls")
 	visible = false
@@ -17,7 +18,11 @@ func _ready() -> void:
 	sb._hour_changed.connect(_hour_changed)
 	sb._time_fail.connect(_time_fail)
 	sb._jumpscare_finished.connect(_lights_off_death)
+	sb._light_target_pos.connect(_change_pos)
 	_hour_changed(gb.current_hour)
+
+func _change_pos(pos: Vector3) -> void:
+	position = pos
 
 func _disable_controls() -> void:
 	control = false

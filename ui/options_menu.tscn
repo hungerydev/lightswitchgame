@@ -182,6 +182,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Go Back"
 
+[node name="version_info" type="Button" parent="settings"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "v0.21"
+
 [node name="BoxContainer2" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -373,6 +380,7 @@ horizontal_alignment = 1
 [connection signal="toggled" from="settings/BoxContainer/Fullscreen_Checkbox" to="settings" method="_on_fullscreen_checkbox_toggled"]
 [connection signal="toggled" from="settings/BoxContainer/vsync" to="settings" method="_on_vsync_toggled"]
 [connection signal="item_selected" from="settings/BoxContainer/screenSelector" to="settings" method="_on_screen_selector_item_selected"]
+[connection signal="pressed" from="settings/version_info" to="settings" method="_on_version_info_pressed"]
 [connection signal="pressed" from="BoxContainer2/reset_settings" to="BoxContainer2/reset_settings" method="_on_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer/easy_button" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer2/medium_button" to="." method="_on_medium_button_pressed"]

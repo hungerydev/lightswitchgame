@@ -10,11 +10,11 @@ func _ready() -> void:
 
 func _initialize_steam() -> void:
 	var initialize_response: Dictionary = Steam.steamInitEx(3681220)
-	print("Did Steam Initialize?: %s " % initialize_response)
-	print(Steam.getPersonaName())
-	print(Steam.getAchievement("TEST"))
+	print(str(Time.get_ticks_msec()) + ": " + "Did Steam Initialize?: %s " % initialize_response)
+	print(str(Time.get_ticks_msec()) + ": " + Steam.getPersonaName())
+	print(str(Time.get_ticks_msec()) + ": " + str(Steam.getAchievement("TEST")))
 	if not Steam.setAchievement("SHADOW_CLICKS_1"):
-		print("Failed to set achievement: test")
+		print(str(Time.get_ticks_msec()) + ": " + "Failed to set achievement: test")
 		return
 	Steam.storeStats()
 
@@ -22,4 +22,4 @@ func _process(delta: float) -> void:
 	Steam.run_callbacks()
 
 func _on_steam_stats_ready() -> void:
-	print(Steam.getAchievement("SHADOW_CLICKS_1"))
+	print(str(Time.get_ticks_msec()) + ": " + str(Steam.getAchievement("SHADOW_CLICKS_1")))

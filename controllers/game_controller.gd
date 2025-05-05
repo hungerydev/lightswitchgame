@@ -78,8 +78,10 @@ func _pause_menu() -> void:
 		if get_tree().paused:
 			$"pause_menu".queue_free()
 			get_tree().paused = false
+			print(str(Time.get_ticks_msec()) + ": " + "Game is unpaused")
 		else:
 			get_tree().paused = true
+			print(str(Time.get_ticks_msec()) + ": " + "Game is paused")
 			var pm: PauseMenu = preload("res://ui/pause_menu.tscn").instantiate()
 			add_child(pm)
 

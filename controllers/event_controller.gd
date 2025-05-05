@@ -20,12 +20,12 @@ func _start_event() -> void:
 			gb.tutorial:
 				if gb.current_hour == gb.tutorial:
 					var new_event = gb.current_hour.values()[pm.tutoriali]
-					print(new_event)
+					print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 					sb._event_start.emit(new_event)
 					gb.difficulty = 10.0
 			gb.hour2cut:
 				var new_event = gb.hour2cut.values()[pm.hour2cuti]
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.hour2cuti < 2:
 					cutscene = true
 					sb._remote_light_off.emit()
@@ -39,7 +39,7 @@ func _start_event() -> void:
 					sb._event_start.emit(new_event)
 			gb.hour3cut:
 				var new_event = gb.hour4cut.values()[pm.hour4cuti]
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.hour3cuti < 2:
 					cutscene = true
 					sb._remote_flashlight_off.emit()
@@ -53,7 +53,7 @@ func _start_event() -> void:
 					sb._event_start.emit(new_event)
 			gb.hour4cut:
 				var new_event = gb.hour4cut.values()[pm.hour4cuti]
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.hour4cuti < 2:
 					cutscene = true
 					sb._remote_light_off.emit()
@@ -67,7 +67,7 @@ func _start_event() -> void:
 					sb._event_start.emit(new_event)
 			gb.hour5cut:
 				var new_event = gb.hour5cut.values()[pm.hour5cuti]
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.hour5cuti < 2:
 					cutscene = true
 					sb._remote_light_off.emit()
@@ -81,9 +81,9 @@ func _start_event() -> void:
 					sb._event_start.emit(new_event)
 			gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 				gb.difficulty = gb.difficulty_setting
-				print(gb.difficulty)
+				print(str(Time.get_ticks_msec()) + ": " + str(gb.difficulty))
 				var new_event = er._choose_random_event()
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				sb._event_start.emit(new_event)
 			gb.hour5:
 				gb.difficulty = gb.difficulty_setting
@@ -105,7 +105,7 @@ func _start_event() -> void:
 				gb.current_hour = gb.endless_mode
 			gb.end3:
 				var new_event = gb.end3.values()[pm.end3i]
-				print(new_event)
+				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.end3i < 2:
 					cutscene = true
 					sb._remote_light_off.emit()
@@ -151,8 +151,8 @@ func _start_event() -> void:
 				sb._event_start.emit(gb.trailer.t9) # Drawing
 	else:
 		var new_event = gb.override_event_target
-		print(new_event)
-		print(str(new_event) + " is from an active override")
+		print(str(Time.get_ticks_msec()) + ": " + str(new_event))
+		print(str(Time.get_ticks_msec()) + ": " + str(new_event) + " is from an active override")
 		sb._event_start.emit(new_event)
 		
 	#for child in get_children():

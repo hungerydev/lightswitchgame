@@ -9,6 +9,7 @@ extends BoxContainer
 @onready var screen_selector: OptionButton = $BoxContainer/screenSelector
 @onready var scaler: OptionButton = $BoxContainer/scaler
 @onready var brightness_silder: HSlider = $VBoxContainer/brightness_silder
+@onready var version_info: Button = $version_info
 
 
 
@@ -27,6 +28,7 @@ func _ready() -> void:
 	_add_resolutions()
 	_get_screens()
 	_check_variables()
+	version_info.text = str(ProjectSettings.get_setting("application/config/version"))
 
 
 func _check_variables():
@@ -162,3 +164,8 @@ func _on_screen_selector_item_selected(index: int) -> void:
 	if mode == Window.MODE_FULLSCREEN:
 		window.set_mode(Window.MODE_FULLSCREEN)
 		
+
+
+func _on_version_info_pressed() -> void:
+	var patch_notes = preload("uid://c5ie47b70a2gu").instantiate()
+	get_parent().add_child(patch_notes)

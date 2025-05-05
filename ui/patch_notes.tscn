@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ie47b70a2gu"]
+
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_7dx1k"]
+[ext_resource type="Script" uid="uid://dvikmi4fr1v18" path="res://ui/patch_notes.gd" id="1_7e0dc"]
+[ext_resource type="Resource" uid="uid://citq8y8hqk2q1" path="res://resources/patch_notes.tres" id="3_y0r2n"]
+
+[node name="PatchNotes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_7dx1k")
+script = ExtResource("1_7e0dc")
+patch_notes = ExtResource("3_y0r2n")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -205.0
+offset_right = 176.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 21
+text = "Patch Notes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Notes" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]

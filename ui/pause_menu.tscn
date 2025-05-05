@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dck8xgg5hblwk"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_ejwgg"]
-[ext_resource type="Script" uid="uid://obyo1a451fmc" path="res://pause_menu.gd" id="2_fob5h"]
+[ext_resource type="Script" uid="uid://obyo1a451fmc" path="res://ui/pause_menu.gd" id="2_fob5h"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
