@@ -9,6 +9,7 @@ func _ready() -> void:
 	sb._manual_event_start.connect(_start_event)
 	await get_tree().create_timer(1).timeout
 	_start_event()
+	
 
 
 	

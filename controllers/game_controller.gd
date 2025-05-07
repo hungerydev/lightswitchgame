@@ -50,7 +50,9 @@ func _fail() -> void:
 	_instantiate_main_scene()
 	_instantiate_main_menu()
 	sb._event_finished.emit()
+	pm._reset_progress()
 	am._start_ambience()
+	
 
 func _clear_scene() -> Signal:
 	for child in get_children():
