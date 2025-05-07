@@ -1,6 +1,7 @@
 extends Camera3D
 
 @onready var pcom = $positionComponent
+@onready var jumpscare_animator: AnimationPlayer = $jumpscare_animator
 
 var chance_active = false
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	_reset()
 	sb._event_finished.connect(_reset)
 	sb._event_start.connect(_event_start)
+	sb._fail.connect(_fail)
 	
 
 func _event_start(event) -> void:
@@ -38,6 +40,12 @@ func _random_chance() -> void:
 	tween1.stop()
 	tween2.stop()
  
+func _fail(_string) -> void:
+	jumpscare_animator.play("jumpscare/jumpscare")
+	await sb._jumpscare_finished
+	jumpscare_animator.play("RESET")
+	_reset()
+
 func _reset() -> void:
 	chance_active = false
 	if fov_reset:

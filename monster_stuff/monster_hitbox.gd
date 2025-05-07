@@ -47,7 +47,8 @@ func _input(event: InputEvent) -> void:
 				sb._monster_clicked.emit()
 			else:
 				print(str(Time.get_ticks_msec()) + ": " + "You missed the monster!")
-				misclicks += 1
+				if not gb.current_hour == gb.tutorial:
+					misclicks += 1
 
 
 #func _event_1_1() -> void:

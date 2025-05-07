@@ -3,6 +3,7 @@ extends Node
 var cutscene: bool = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sb._monster_clicked.connect(_monster_clicked)
 	sb._event_finished.connect(_event_finished)
 	sb._manual_event_start.connect(_start_event)

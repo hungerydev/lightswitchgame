@@ -38,11 +38,14 @@ func _start_game() -> void:
 	if menu_active == true:
 		get_node("main_menu").queue_free()
 		menu_active = false
+		var monster = preload("res://monster_stuff/monsterthingfullinherit.tscn").instantiate()
+		get_tree().get_first_node_in_group("Main Scene").add_child(monster)
 		sb._hour_changed.emit(gb.current_hour)
 		var event_controller = preload("uid://dvku403rcrta0").instantiate()
 		add_child(event_controller)
 
 func _fail() -> void: 
+	gf.chance_modifier = gf.chance_setting
 	_clear_scene()
 	_instantiate_main_scene()
 	_instantiate_main_menu()

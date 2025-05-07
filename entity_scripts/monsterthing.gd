@@ -263,7 +263,8 @@ func _fail(string) -> void:
 	if gb.death:
 		get_tree().call_group("Controls", "_disable_controls")
 		pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))
-		anim_player.play("jumpscare")
+		vcom._set_visibility_on()
+		anim_player.play("jumpscare/jumpscare")
 		hitbox_pcom._set_position(Vector3(1.98867, 0.384552, 2.3053),Vector3(0, 0, 0),Vector3(1.25137, 2.33363, 1.38325))
 		await anim_player.animation_finished
 		sb._jumpscare_finished.emit(string)
@@ -271,6 +272,7 @@ func _fail(string) -> void:
 		visible = false
 
 func _reset() -> void:
+	
 	vcom._set_visibility_off()
 	pcom._set_position(restpos[0],restpos[1], restpos[2])
 	hitbox_pcom._set_position(Vector3(0.608086, 0.251468, 2.9471),Vector3(0.0363553, -1.78035, 1.45254),Vector3(1, 1.98868, 1.54615))

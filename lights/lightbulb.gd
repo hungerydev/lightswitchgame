@@ -74,10 +74,12 @@ func _event_start(event) -> void:
 					await sb._event_finished
 					_lights_off()
 				gb.tutorial.EVENT_0_3:
-					control = true
+					control = false
 					_lights_off()
 				gb.tutorial.EVENT_0_4:
 					control = true
+				gb.tutorial.EVENT_0_5:
+					control = false
 		gb.hour1:
 			match event:
 				gb.hour1.EVENT_1_4:
@@ -136,7 +138,13 @@ func _lights_on() -> void:
 		on = true
 		sb._light_on.emit()
 	else:
+		visible = true
+		on = true
+		flicker = true
 		sb._fail.emit("fast")
+		await sb._jumpscare_finished
+		visible = false
+		on = false
 	
 func _lights_off() -> void:
 	if visible:
