@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsow31epoy2sd"
 path.s3tc="res://.godot/imported/MainRoom_dirty_carpet_nor_gl_1k.png-5ffccd9ce5524d611c393c494d2e93e1.s3tc.ctex"
+path.etc2="res://.godot/imported/MainRoom_dirty_carpet_nor_gl_1k.png-5ffccd9ce5524d611c393c494d2e93e1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://textures/MainRoom_dirty_carpet_nor_gl_1k.png"
-dest_files=["res://.godot/imported/MainRoom_dirty_carpet_nor_gl_1k.png-5ffccd9ce5524d611c393c494d2e93e1.s3tc.ctex"]
+dest_files=["res://.godot/imported/MainRoom_dirty_carpet_nor_gl_1k.png-5ffccd9ce5524d611c393c494d2e93e1.s3tc.ctex", "res://.godot/imported/MainRoom_dirty_carpet_nor_gl_1k.png-5ffccd9ce5524d611c393c494d2e93e1.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgamoh2s13q1j"
 path.s3tc="res://.godot/imported/Bedroom_Shelf_baseColor.png-ad5db6f01dbcc3a9c67bff942d29b5ee.s3tc.ctex"
+path.etc2="res://.godot/imported/Bedroom_Shelf_baseColor.png-ad5db6f01dbcc3a9c67bff942d29b5ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Bedroom_Shelf_baseColor.png"
-dest_files=["res://.godot/imported/Bedroom_Shelf_baseColor.png-ad5db6f01dbcc3a9c67bff942d29b5ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bedroom_Shelf_baseColor.png-ad5db6f01dbcc3a9c67bff942d29b5ee.s3tc.ctex", "res://.godot/imported/Bedroom_Shelf_baseColor.png-ad5db6f01dbcc3a9c67bff942d29b5ee.etc2.ctex"]
 
 [params]
 

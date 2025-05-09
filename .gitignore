@@ -2,9 +2,10 @@
 .godot/
 /android/
 /audio/
-/textures/
 /text_sequences/
 /main_room_scenes_and_glbs/
 /logo/
 /addons/
 /music/
+
+/textures

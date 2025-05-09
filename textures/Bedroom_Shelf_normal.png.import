@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1k6gcuhiknws"
 path.s3tc="res://.godot/imported/Bedroom_Shelf_normal.png-736c72bd8ed6107ec9dcfd8f998f73a5.s3tc.ctex"
+path.etc2="res://.godot/imported/Bedroom_Shelf_normal.png-736c72bd8ed6107ec9dcfd8f998f73a5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Bedroom_Shelf_normal.png"
-dest_files=["res://.godot/imported/Bedroom_Shelf_normal.png-736c72bd8ed6107ec9dcfd8f998f73a5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bedroom_Shelf_normal.png-736c72bd8ed6107ec9dcfd8f998f73a5.s3tc.ctex", "res://.godot/imported/Bedroom_Shelf_normal.png-736c72bd8ed6107ec9dcfd8f998f73a5.etc2.ctex"]
 
 [params]
 

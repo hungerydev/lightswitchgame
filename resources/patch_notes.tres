@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.25.2:
+text = "v0.25.3:
+- Added stats
+- Achievement unlocks (doesn't work in the playtest mode currently)
+- Changed some default settings
+
+v0.25.2:
 - Going back to the main menu will now properly adjust your game progress
 
 v0.25.1:
