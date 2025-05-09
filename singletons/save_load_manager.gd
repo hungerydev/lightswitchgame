@@ -36,8 +36,10 @@ func _load_data() -> void:
 		var _dict1 = err.get_var()
 		var dict2 = err.get_var()
 		var dict3 = err.get_var()
+		var dict4 = err.get_var()
 		gb._load_data(dict2)
 		_load_window_props(dict3)
+		ap._load(dict4)
 		
 			
 
@@ -87,12 +89,15 @@ func _save_user_data() -> void:
 		var data1 = gb._save()
 		var data2 = gb._save_data()
 		var data3 = _save_window_props()
+		var data4 = ap._save()
 		err.store_var(data1)
 		err.store_var(data2)
 		err.store_var(data3)
+		err.store_var(data4)
 	err = FileAccess.open("user://userdata.data", FileAccess.READ)
 	if err == null:
 		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
+	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
 	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
 	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))
 	print(str(Time.get_ticks_msec()) + ": " + str(err.get_var()))

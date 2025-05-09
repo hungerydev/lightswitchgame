@@ -1273,7 +1273,7 @@ _data = {
 [node name="mainscene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.197323, -4.18796)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.98, -6.64)
 fov = 37.8
 far = 13.82
 script = ExtResource("8_1cnxy")

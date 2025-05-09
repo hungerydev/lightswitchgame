@@ -4,7 +4,16 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.24:
+text = "v0.25.2:
+- Going back to the main menu will now properly adjust your game progress
+
+v0.25.1:
+- The shadow shouldn't be able to kill you in the menus anymore (sorry drew lol)
+- The shadow shouldn't be able to kill you in the tutorial anymore (also sorry drew lol)
+- Fixed more pausability issues
+- Fixed control handling during certain events
+
+v0.24:
 	- Fixed audio firing multiple times in settings menu
 
 v0.23:
