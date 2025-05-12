@@ -1,5 +1,6 @@
-[gd_scene load_steps=244 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=258 format=3 uid="uid://c2os4xibt88g5"]
 
+[ext_resource type="Script" uid="uid://bdqxfqgr5mmro" path="res://mainscene.gd" id="1_nui55"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://shaders/scanlines.gdshader" id="4_0lhry"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://shaders/noise.gdshader" id="5_0ibrq"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://components/position_component.tscn" id="5_0lhry"]
@@ -187,7 +188,15 @@
 [ext_resource type="Texture2D" uid="uid://dpj2w1yyh288e" path="res://text_sequences/hour3cut2/0182.png" id="108_gum2l"]
 [ext_resource type="Texture2D" uid="uid://daxoq5soyodoa" path="res://text_sequences/hour3cut2/0183.png" id="109_vr50f"]
 [ext_resource type="Texture2D" uid="uid://bu4w0i15j6tl1" path="res://text_sequences/hour3cut2/0184.png" id="110_p46uw"]
+[ext_resource type="Texture2D" uid="uid://bdcx8bmqrb2uj" path="res://text_sequences/keep_me_waiting/0304.png" id="134_eg236"]
+[ext_resource type="Texture2D" uid="uid://4duybaxo2sbg" path="res://text_sequences/keep_me_waiting/0305.png" id="135_ni1hf"]
+[ext_resource type="Texture2D" uid="uid://b72plexineblx" path="res://text_sequences/keep_me_waiting/0306.png" id="136_0667l"]
+[ext_resource type="Texture2D" uid="uid://bnpmutx4bk8lh" path="res://text_sequences/keep_me_waiting/0307.png" id="137_nui55"]
 [ext_resource type="Script" uid="uid://cdh8xayk4q7rx" path="res://lightbulb_red.gd" id="138_6mykh"]
+[ext_resource type="Texture2D" uid="uid://b2ao41jfxkhwh" path="res://text_sequences/no_peeking_2/0300.png" id="158_wkc0g"]
+[ext_resource type="Texture2D" uid="uid://b4hsxqeanaf6h" path="res://text_sequences/no_peeking_2/0301.png" id="159_162md"]
+[ext_resource type="Texture2D" uid="uid://d2iuxl3cxwusk" path="res://text_sequences/no_peeking_2/0302.png" id="160_wbjwa"]
+[ext_resource type="Texture2D" uid="uid://j15c2nb4bbel" path="res://text_sequences/no_peeking_2/0303.png" id="161_0rhlb"]
 [ext_resource type="Texture2D" uid="uid://duw3drw8ibyuw" path="res://text_sequences/trailer/1/0270.png" id="171_15kie"]
 [ext_resource type="Texture2D" uid="uid://rx025svhhi43" path="res://text_sequences/trailer/1/0271.png" id="172_w7kiy"]
 [ext_resource type="Texture2D" uid="uid://djymnpx86xkrt" path="res://text_sequences/trailer/1/0272.png" id="173_bgat0"]
@@ -212,7 +221,12 @@
 [ext_resource type="Texture2D" uid="uid://ci4sblu8qx7k8" path="res://text_sequences/trailer/6/0291.png" id="192_wkc0g"]
 [ext_resource type="Texture2D" uid="uid://b8uibjq310ue2" path="res://text_sequences/trailer/6/0292.png" id="193_162md"]
 [ext_resource type="Texture2D" uid="uid://bs5sts2dnlo02" path="res://text_sequences/trailer/6/0293.png" id="194_wbjwa"]
+[ext_resource type="Texture2D" uid="uid://1hjlooybvdkw" path="res://text_sequences/tutorial_restart/0308.png" id="210_50hpv"]
+[ext_resource type="Texture2D" uid="uid://dbm7kypxvyd7n" path="res://text_sequences/tutorial_restart/0309.png" id="211_fhg52"]
+[ext_resource type="Texture2D" uid="uid://bjotmboyas6o6" path="res://text_sequences/tutorial_restart/0310.png" id="212_h6od2"]
+[ext_resource type="Texture2D" uid="uid://n4kr1sph7aq1" path="res://text_sequences/tutorial_restart/0311.png" id="213_oecti"]
 [ext_resource type="Script" uid="uid://cgv87f3sl3k3f" path="res://car_light.gd" id="213_x4y71"]
+[ext_resource type="Script" uid="uid://copcd517mkdgb" path="res://lights/lightbulb_lights.gd" id="225_wkc0g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -899,6 +913,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("134_eg236")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_ni1hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_0667l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_nui55")
+}],
+"loop": true,
+"name": &"keep_me_waiting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("53_7to5o")
 }, {
 "duration": 1.0,
@@ -981,6 +1012,23 @@ animations = [{
 "loop": true,
 "name": &"no_peeking",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("158_wkc0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_162md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_wbjwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_0rhlb")
+}],
+"loop": true,
+"name": &"no_peeking_2",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1205,6 +1253,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("210_50hpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_fhg52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_h6od2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_oecti")
+}],
+"loop": true,
+"name": &"tutorial_restart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("101_5r045")
 }, {
 "duration": 1.0,
@@ -1271,6 +1336,7 @@ _data = {
 }
 
 [node name="mainscene" type="Node3D"]
+script = ExtResource("1_nui55")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.98, -6.64)
@@ -1669,9 +1735,7 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(577, 289)
 scale = Vector2(0.265, 0.266)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"hour3cut2"
-frame = 1
-frame_progress = 0.234361
+animation = &"death8"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
@@ -1744,6 +1808,7 @@ spot_angle = 14.3925
 script = ExtResource("45_56ibc")
 
 [node name="LightbulbLights" parent="." instance=ExtResource("50_j64eu")]
+script = ExtResource("225_wkc0g")
 
 [node name="lightbulb2" parent="LightbulbLights" index="1"]
 process_mode = 4

@@ -41,10 +41,11 @@ func _random_chance() -> void:
 	tween2.stop()
  
 func _fail(_string) -> void:
-	jumpscare_animator.play("jumpscare/jumpscare")
-	await sb._jumpscare_finished
-	jumpscare_animator.play("RESET")
-	_reset()
+	if gb.current_hour != gb.tutorial:
+		jumpscare_animator.play("jumpscare/jumpscare")
+		await sb._jumpscare_finished
+		jumpscare_animator.play("RESET")
+		_reset()
 
 func _reset() -> void:
 	chance_active = false

@@ -115,6 +115,7 @@ vertical = true
 
 [node name="resolutionOption" type="OptionButton" parent="settings/BoxContainer"]
 layout_mode = 2
+tooltip_text = "Changes the resolution of the window while in Windowed Mode"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="settings/BoxContainer"]
 layout_mode = 2
@@ -122,6 +123,7 @@ layout_mode = 2
 [node name="scaleSlider" type="HSlider" parent="settings/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+tooltip_text = "While in fullscreen, turn this up or down to increase or reduce visual quality"
 min_value = 50.0
 max_value = 200.0
 step = 5.0
@@ -133,6 +135,8 @@ text = "100% - 1920x1080"
 
 [node name="scaler" type="OptionButton" parent="settings/BoxContainer"]
 layout_mode = 2
+tooltip_text = "Bilinear - Standard option, uses the scaling slider to determine quality
+AMD FSR - Alternative for slow computers, uses the FSR Option dropdown below (WARNING: In low light environments, this can cause artifacting, only use if necessary)"
 selected = 0
 item_count = 3
 popup/item_0/text = "SCALER"
@@ -165,16 +169,25 @@ popup/item_4/id = 4
 [node name="Fullscreen_Checkbox" type="CheckBox" parent="settings/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+tooltip_text = "Sets the game to fullscreen and to the full extents of your monitor. If you don't want the game to completely fill the monitor, turn this off and use the Resolution Options above"
 text = "Fullscreen"
 flat = true
 
 [node name="vsync" type="CheckBox" parent="settings/BoxContainer"]
 layout_mode = 2
+tooltip_text = "Attempts to sync framerate to the refresh rate of your device"
 text = "VSYNC Enabled"
+flat = true
+
+[node name="emitters" type="CheckBox" parent="settings/BoxContainer"]
+layout_mode = 2
+tooltip_text = "Particles are emitted at different times during the game. Turning this off can help with performance"
+text = "Particles"
 flat = true
 
 [node name="screenSelector" type="OptionButton" parent="settings/BoxContainer"]
 layout_mode = 2
+tooltip_text = "Changes which screen the game is on"
 
 [node name="go_back" type="Button" parent="settings"]
 custom_minimum_size = Vector2(100, 25)
@@ -379,6 +392,7 @@ horizontal_alignment = 1
 [connection signal="item_selected" from="settings/BoxContainer/FSROptions" to="settings" method="_on_fsr_options_item_selected"]
 [connection signal="toggled" from="settings/BoxContainer/Fullscreen_Checkbox" to="settings" method="_on_fullscreen_checkbox_toggled"]
 [connection signal="toggled" from="settings/BoxContainer/vsync" to="settings" method="_on_vsync_toggled"]
+[connection signal="toggled" from="settings/BoxContainer/emitters" to="settings" method="_on_emitters_toggled"]
 [connection signal="item_selected" from="settings/BoxContainer/screenSelector" to="settings" method="_on_screen_selector_item_selected"]
 [connection signal="pressed" from="settings/version_info" to="settings" method="_on_version_info_pressed"]
 [connection signal="pressed" from="BoxContainer2/reset_settings" to="BoxContainer2/reset_settings" method="_on_pressed"]

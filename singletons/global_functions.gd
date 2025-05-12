@@ -88,5 +88,6 @@ func _death_timer() -> void:
 	timer.timeout.disconnect(_too_slow)
 	
 func _too_slow() -> void:
-	print(str(Time.get_ticks_msec()) + ": " + "Death timer timed out!")
-	sb._time_fail.emit("slow")
+	if not gb.tutorial_reset:
+		print(str(Time.get_ticks_msec()) + ": " + "Death timer timed out!")
+		sb._time_fail.emit("slow")

@@ -207,11 +207,12 @@ func _event_start(event) -> void:
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
-				gb.tutorial.EVENT_0_0, gb.tutorial.EVENT_0_1, gb.tutorial.EVENT_0_2, gb.tutorial.EVENT_0_4, gb.tutorial.EVENT_0_5:
-					pass
-				gb.tutorial.EVENT_0_3:
+				gb.tutorial.EVENT_0_4:
+					progress_speed = 0.0
+					await sb._light_off
+					monster_active = true
 					await _play_footsteps("none")
-					sb._event_finished.emit()
+					monster_active = false
 		gb.hour1, gb.hour2:
 			match event:
 				_:
@@ -471,6 +472,7 @@ func _play_lightbulb_shatter() -> void:
 	stream.volume_db = -5
 	stream.play()
 	stream.name += str(random_id)
+	stream.bus = "Jumpscares"
 	stream.add_to_group("SFX")
 	stream.add_to_group("LightbulbShatter")
 	await stream.finished
@@ -571,7 +573,12 @@ func _kill_streams_by_group(group) -> void:
 	get_tree().call_group(group, "queue_free")
 
 func _fail(string) -> void:
-	if gb.death:
+	if gb.current_hour == gb.tutorial:
+		for child in get_children():
+			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer"):
+				child.queue_free()
+		
+	elif gb.death:
 		for child in get_children():
 			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer"):
 				child.queue_free()

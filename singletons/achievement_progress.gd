@@ -35,15 +35,16 @@ func _hour_changed(hour) -> void:
 			sw._achievement_unlock(sw.achievements.HOUR_5_COMPLETE)
 
 func _jumpscare_finished(_string) -> void:
-	jumpscares += 1
-	sw._increment_stats("jumpscares", jumpscares)
-	match jumpscares:
-		1:
-			sw._achievement_unlock(sw.achievements.JUMPSCARED_1)
-		10:
-			sw._achievement_unlock(sw.achievements.JUMPSCARED_10)
-		100:
-			sw._achievement_unlock(sw.achievements.JUMPSCARED_100)
+	if gb.current_hour != gb.tutorial:
+		jumpscares += 1
+		sw._increment_stats("jumpscares", jumpscares)
+		match jumpscares:
+			1:
+				sw._achievement_unlock(sw.achievements.JUMPSCARED_1)
+			10:
+				sw._achievement_unlock(sw.achievements.JUMPSCARED_10)
+			100:
+				sw._achievement_unlock(sw.achievements.JUMPSCARED_100)
 
 func _save() -> Dictionary:
 	var save_dict = {

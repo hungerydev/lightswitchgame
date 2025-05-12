@@ -73,11 +73,9 @@ func _event_start(event) -> void:
 					_lights_on()
 					await sb._event_finished
 					_lights_off()
-				gb.tutorial.EVENT_0_3:
-					control = false
-					_lights_off()
 				gb.tutorial.EVENT_0_4:
 					control = true
+					_lights_off()
 				gb.tutorial.EVENT_0_5:
 					control = false
 		gb.hour1:
@@ -156,7 +154,9 @@ func _lights_off() -> void:
 	sb._light_off.emit()
 	
 func _time_fail(string) -> void:
-	if gb.death:
+	if gb.current_hour == gb.tutorial:
+		sb._fail.emit("tutorial_slow")
+	elif gb.death:
 		if not on:
 			await sb._light_on
 			flicker = true

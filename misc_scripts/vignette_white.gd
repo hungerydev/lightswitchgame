@@ -9,7 +9,8 @@ func _event_start(event) -> void:
 		gb.tutorial:
 			match event:
 				gb.tutorial.EVENT_0_4:
-					_white_vignette()
+					pass
+					#_white_vignette()
 		gb.hour1, gb.hour2, gb.hour3, gb.hour4:
 			_white_vignette()
 		

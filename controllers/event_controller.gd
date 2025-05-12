@@ -24,7 +24,7 @@ func _start_event() -> void:
 					var new_event = gb.current_hour.values()[pm.tutoriali]
 					print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 					sb._event_start.emit(new_event)
-					gb.difficulty = 10.0
+					gb.difficulty = 0.8
 			gb.hour2cut:
 				var new_event = gb.hour2cut.values()[pm.hour2cuti]
 				print(str(Time.get_ticks_msec()) + ": " + str(new_event))

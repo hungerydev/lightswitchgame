@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnm3l4sdnlbt"]
+
+[ext_resource type="Script" uid="uid://uhqcmcedab63" path="res://particle_emitters/shadow_particles.gd" id="1_e7tu8"]
+
+[sub_resource type="Gradient" id="Gradient_rua3f"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.281915, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xiond"]
+gradient = SubResource("Gradient_rua3f")
+
+[sub_resource type="Curve" id="Curve_rua3f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wgk5s"]
+curve = SubResource("Curve_rua3f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wgk5s"]
+lifetime_randomness = 0.04
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 103.279
+initial_velocity_max = 7.94
+gravity = Vector3(0, 0.1, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 3.17
+scale_min = 0.0
+scale_max = 0.17
+scale_curve = SubResource("CurveTexture_wgk5s")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_xiond")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8ges"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rua3f"]
+material = SubResource("StandardMaterial3D_b8ges")
+radius = 0.1
+height = 0.2
+
+[node name="shadowParticles" type="GPUParticles3D"]
+emitting = false
+amount = 1500
+lifetime = 1.22
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wgk5s")
+draw_pass_1 = SubResource("SphereMesh_rua3f")
+script = ExtResource("1_e7tu8")
+
+[node name="particleTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00551, 2.1026)
+top_level = true

@@ -36,7 +36,7 @@ func _input(event: InputEvent) -> void:
 
 func _start_game() -> void:
 	if menu_active == true:
-		get_node("main_menu").queue_free()
+		get_tree().call_group("main_menu", "queue_free")
 		menu_active = false
 		var monster = preload("res://monster_stuff/monsterthingfullinherit.tscn").instantiate()
 		get_tree().get_first_node_in_group("Main Scene").add_child(monster)

@@ -4,7 +4,15 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.25.3:
+text = "v0.26:
+Major Changes:
+- New tutorial
+
+Minor Changes:
+- Visual: Added particle effects to a few different things
+- Settings: Added tooltips to the window and performance settings, added new \"emitters\" button which turns particles on or off
+
+v0.25.3:
 - Added stats
 - Achievement unlocks (doesn't work in the playtest mode currently)
 - Changed some default settings

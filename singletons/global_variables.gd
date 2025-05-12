@@ -8,6 +8,9 @@ var custom_mode_difficulty: float = 1.0
 var difficulty_default: float = 1.0
 var difficulty: float = 1.0
 
+
+var use_particles: bool = true
+
 var brightness_setting: float = 1.0:
 	get:
 		return brightness_setting
@@ -41,6 +44,8 @@ var fail: bool = false:
 			sb._fail.emit()
 
 enum tutorial {EVENT_0_0 = 0, EVENT_0_1, EVENT_0_2, EVENT_0_3, EVENT_0_4, EVENT_0_5} 
+
+var tutorial_reset : bool = false
 
 enum hour1 {EVENT_1_1 = 101,
 EVENT_1_2, EVENT_1_3, EVENT_1_4, EVENT_1_5, EVENT_1_6, EVENT_1_7, EVENT_1_8, EVENT_1_9,
@@ -146,6 +151,7 @@ func _save_data() -> Dictionary:
 		"jumpscare_volume": AudioServer.get_bus_volume_db(1),
 		"brightness_setting": brightness_setting,
 		"rng": gf.chance_setting,
+		"use_particles": use_particles,
 	}
 	return save_dict
 
@@ -185,10 +191,12 @@ func _load(data) -> void:
 	fail = false
 	loading = false
 
-func _load_data(data) -> void:
+func _load_data(data: Dictionary) -> void:
 	loading = true
 	AudioServer.set_bus_volume_db(0, data["master_volume"])
 	AudioServer.set_bus_volume_db(1, data["jumpscare_volume"])
 	gf.chance_setting = data["rng"]
+	if data.has("use_particles"):
+		use_particles = data["use_particles"]
 	loading = false
 	

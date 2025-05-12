@@ -25,6 +25,8 @@ var misclick_limit: int = 2
 
 @onready var cshape = $CollisionShape3D
 
+
+
 func _ready() -> void:
 	pass
 	#sb._event_1_1.connect(_event_1_1)
@@ -49,6 +51,7 @@ func _input(event: InputEvent) -> void:
 				print(str(Time.get_ticks_msec()) + ": " + "You missed the monster!")
 				if not gb.current_hour == gb.tutorial:
 					misclicks += 1
+			
 
 
 #func _event_1_1() -> void:

@@ -21,9 +21,9 @@ func _event_start(event) -> void:
 				gb.tutorial.EVENT_0_4:
 					hitbox.monster_active = true
 					vcom._set_visibility_on()
-					pcom._set_position(Vector3(-2.83174, 0.907496, 0.565283),Vector3(-0.108582, 0.2845, 0.137062),Vector3(1, 1, 1))
-					anim_player.play("turned")
-					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
+					pcom._set_position(Vector3(-1.25024, 0.431627, 4.18886),Vector3(-0.108582, 0.000953448, 0.137062),Vector3(1, 1, 1))
+					anim_player.play("jawagape")
+					hitbox_pcom._set_position(Vector3(-1.18833, 2.45734, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 		gb.hour1:
 			await sb._light_off
 			hitbox.monster_active = true
@@ -260,7 +260,11 @@ func _event_start(event) -> void:
 					hitbox_pcom._set_position(Vector3(-2.49906, 2.31092, -1.36708),Vector3(0, 0, 0),Vector3(0.413929, 0.440365, 0.324705))
 
 func _fail(string) -> void:
-	if gb.death:
+	if gb.current_hour == gb.tutorial:
+		if string == "tutorial_slow":
+			sb._jumpscare_finished.emit(string)
+		else: sb._jumpscare_finished.emit("tutorial_fast")
+	elif gb.death:
 		get_tree().call_group("Controls", "_disable_controls")
 		pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))
 		vcom._set_visibility_on()

@@ -10,6 +10,7 @@ extends BoxContainer
 @onready var scaler: OptionButton = $BoxContainer/scaler
 @onready var brightness_silder: HSlider = $VBoxContainer/brightness_silder
 @onready var version_info: Button = $version_info
+@onready var emitters: CheckBox = $BoxContainer/emitters
 
 
 
@@ -68,6 +69,10 @@ func _check_variables():
 	for s in DisplayServer.get_screen_count():
 		if s == get_window().get_current_screen():
 			screen_selector.select(s)
+	if gb.use_particles:
+		emitters.set_pressed_no_signal(true)
+	else:
+		emitters.set_pressed_no_signal(false)
 
 func _set_resolution_text() -> void:
 	var res_text = str(get_window().get_size().x)+"x"+str(get_window().get_size().y)
@@ -169,3 +174,12 @@ func _on_screen_selector_item_selected(index: int) -> void:
 func _on_version_info_pressed() -> void:
 	var patch_notes = preload("uid://c5ie47b70a2gu").instantiate()
 	get_parent().add_child(patch_notes)
+
+
+func _on_emitters_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		get_tree().call_group("Emitter Controller", "_add_emitter")
+		gb.use_particles = true
+	if not toggled_on:
+		get_tree().call_group("Particle Emitter", "queue_free")
+		gb.use_particles = false

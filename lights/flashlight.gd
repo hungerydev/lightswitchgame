@@ -122,7 +122,9 @@ func _reset() -> void:
 	light_color = Color(0.454, 0.384, 0.149)
 	
 func _time_fail(string) -> void:
-	if gb.death:
+	if gb.current_hour == gb.tutorial:
+		pass
+	elif gb.death:
 		if not on:
 			await sb._light_on
 			flicker = true
