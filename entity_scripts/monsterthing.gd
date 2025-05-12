@@ -261,9 +261,11 @@ func _event_start(event) -> void:
 
 func _fail(string) -> void:
 	if gb.current_hour == gb.tutorial:
+		get_tree().call_group("Controls", "_disable_controls")
 		if string == "tutorial_slow":
 			sb._jumpscare_finished.emit(string)
 		else: sb._jumpscare_finished.emit("tutorial_fast")
+		
 	elif gb.death:
 		get_tree().call_group("Controls", "_disable_controls")
 		pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))

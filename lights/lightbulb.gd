@@ -24,9 +24,11 @@ func _ready() -> void:
 func _change_pos(pos: Vector3) -> void:
 	position = pos
 
+## This function is used to enable/disable controls directly, primarily during cutscenes
 func _disable_controls() -> void:
 	control = false
 
+## This function is used to enable/disable controls directly, primarily during cutscenes
 func _enable_controls() -> void:
 	match gb.current_hour:
 		gb.tutorial:
@@ -41,8 +43,9 @@ func _enable_controls() -> void:
 			control = true
 
 func _process(_delta: float) -> void:
-	if flicker:
-		light_energy = randf_range(0,1.5)
+	if not gb.current_hour == gb.tutorial:
+		if flicker:
+			light_energy = randf_range(0,1.5)
 	if control:
 		if Input.is_action_just_pressed("right_click"):
 			if on:
@@ -53,8 +56,6 @@ func _process(_delta: float) -> void:
 
 func _hour_changed(hour) -> void:
 	match hour:
-		gb.tutorial:
-			control = true
 		gb.hour1:
 			control = true
 		gb.hour2:
@@ -76,7 +77,7 @@ func _event_start(event) -> void:
 				gb.tutorial.EVENT_0_4:
 					control = true
 					_lights_off()
-				gb.tutorial.EVENT_0_5:
+				_:
 					control = false
 		gb.hour1:
 			match event:
@@ -156,6 +157,7 @@ func _lights_off() -> void:
 func _time_fail(string) -> void:
 	if gb.current_hour == gb.tutorial:
 		sb._fail.emit("tutorial_slow")
+		control = false
 	elif gb.death:
 		if not on:
 			await sb._light_on
@@ -175,4 +177,5 @@ func _lights_off_death(string) -> void:
 	on = false
 
 func _reset() -> void:
+	flicker = false
 	light_color = Color(0.454, 0.384, 0.149)
