@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.26:
+text = "v0.26.1:
+- Fixed a few issues with the new tutorial
+
+v0.26:
 Major Changes:
 - New tutorial
 
