@@ -57,6 +57,8 @@ var growl_fx: Array = ResourceLoader.list_directory("res://audio/Growls/")
 
 var boss_fight_boosted: bool = false
 
+signal tutorial_finished_moving
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	_start_ambience()
@@ -67,6 +69,7 @@ func _ready() -> void:
 	sb._monster_clicked.connect(_play_sigh_fx)
 
 func _start_ambience() -> void:
+	get_tree().call_group("Ambience", "queue_free")
 	amb1 = AudioStreamPlayer.new()
 	amb2 = AudioStreamPlayer.new()
 	amb3 = AudioStreamPlayer.new()
@@ -212,6 +215,7 @@ func _event_start(event) -> void:
 					await sb._light_off
 					monster_active = true
 					await _play_footsteps("none")
+					tutorial_finished_moving.emit()
 					monster_active = false
 		gb.hour1, gb.hour2:
 			match event:

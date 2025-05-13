@@ -1,9 +1,13 @@
 extends Control
+class_name MainMenu
+
+signal finished
 
 func _ready() -> void:
-	_instantiate_main_page()
+	await _instantiate_main_page()
 	$main_page/BoxContainer/settings.pressed.connect(_instantiate_settings)
 	$main_page/BoxContainer/quit.pressed.connect(_quit_game)
+	finished.emit()
 	
 	
 
@@ -22,7 +26,7 @@ func _instantiate_settings() -> void:
 	sb._menu_light_on.emit()
 	options.visible = true
 
-func _instantiate_main_page() -> void:
+func _instantiate_main_page() -> Signal:
 	get_tree().set_group("gc", "menu_active", true)
 	var pg = null
 	sb._menu_light_off.emit()
@@ -31,6 +35,7 @@ func _instantiate_main_page() -> void:
 			child.queue_free()
 	var main_page = preload("uid://gg5suj2tw5qv").instantiate()
 	add_child(main_page)
+	get_tree().call_group("Controls", "_disable_controls")
 	main_page.visible = false
 	if gb.current_hour == gb.post_game:
 		pg = _instantiate_post_game()
@@ -41,6 +46,7 @@ func _instantiate_main_page() -> void:
 	main_page.visible = true
 	if pg != null:
 		pg.visible = true
+	return finished
 
 func _instantiate_post_game() -> Control:
 	var pg = preload("uid://dah32f8hosg6b").instantiate()

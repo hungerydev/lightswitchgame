@@ -9,33 +9,40 @@ var menu_active: bool:
 	set(value):
 		menu_active = value
 
+var control: bool = false
+
 var override_active: bool = false
 
 func _ready() -> void:
 	gb.demo_mode = true
 	add_to_group("gc")
-	_instantiate_main_scene()
-	_instantiate_main_menu()
+	control = false
+	await _instantiate_main_scene()
+	
+	await _instantiate_main_menu()
+	
 	sb._event_finished.emit()
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
 	sb._death_seq_finished.connect(_fail)
-	get_tree().call_group("Controls", "_disable_controls")
+	
+	control = true
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right_click"):
-		_start_game()
-	if event.is_action_pressed("debug_menu"):
-		if get_tree().paused:
-			_leave_debug_menu()
-		else:
-			_instantiate_debug_menu()
-	if event.is_action_pressed("pause"):
-		_pause_menu()
+	if control:
+		if event.is_action_pressed("right_click"):
+			_start_game()
+		if event.is_action_pressed("debug_menu"):
+			if get_tree().paused:
+				_leave_debug_menu()
+			else:
+				_instantiate_debug_menu()
+		if event.is_action_pressed("pause"):
+			_pause_menu()
 
 func _start_game() -> void:
-	if menu_active == true:
+	if menu_active:
 		get_tree().call_group("main_menu", "queue_free")
 		menu_active = false
 		var monster = preload("res://monster_stuff/monsterthingfullinherit.tscn").instantiate()
@@ -45,13 +52,15 @@ func _start_game() -> void:
 		add_child(event_controller)
 
 func _fail() -> void: 
+	control = false
 	gf.chance_modifier = gf.chance_setting
 	_clear_scene()
-	_instantiate_main_scene()
-	_instantiate_main_menu()
+	await _instantiate_main_scene()
+	await _instantiate_main_menu()
 	sb._event_finished.emit()
 	pm._reset_progress()
 	am._start_ambience()
+	control = true
 	
 
 func _clear_scene() -> Signal:
@@ -59,15 +68,19 @@ func _clear_scene() -> Signal:
 		child.queue_free()
 	return finished
 	
-func _instantiate_main_scene() -> void:
+func _instantiate_main_scene() -> Signal:
 	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
 	mainscene.add_to_group("Main Scene")
 	add_child(mainscene)
+	await get_tree().create_timer(.1).timeout
+	return finished
 	
-func _instantiate_main_menu() -> void:
+func _instantiate_main_menu() -> Signal:
 	var menu = preload("uid://dx7ifjjpdwquv").instantiate()
 	add_child(menu)
+	await menu.finished
 	menu_active = true
+	return finished
 
 func _instantiate_debug_menu() -> void:
 	get_tree().paused = true
@@ -97,6 +110,12 @@ func _override(hour_section, event, hour) -> void:
 	if not override_active:
 		override_active = true
 		gb._new_override_target(hour_section, event, hour)
+
+func _enable_controls() -> void:
+	control = true
+
+func _disable_controls() -> void:
+	control = false
 
 func _quit_game() -> void:
 	get_tree().quit()

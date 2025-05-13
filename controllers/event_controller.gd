@@ -167,6 +167,5 @@ func _event_finished() -> void:
 	if not cutscene:
 		get_tree().call_group("Controls", "_disable_controls")
 		await get_tree().create_timer(randf_range(0.75,1.5)).timeout
-		get_tree().call_group("Controls", "_enable_controls")
 		_start_event()
 		

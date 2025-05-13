@@ -66,6 +66,7 @@ func _hour_changed(hour) -> void:
 			control = true
 
 func _event_start(event) -> void:
+	control = true
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
@@ -75,8 +76,8 @@ func _event_start(event) -> void:
 					await sb._event_finished
 					_lights_off()
 				gb.tutorial.EVENT_0_4:
-					control = true
 					_lights_off()
+					control = true
 				_:
 					control = false
 		gb.hour1:
@@ -140,6 +141,7 @@ func _lights_on() -> void:
 		visible = true
 		on = true
 		flicker = true
+		control = false
 		sb._fail.emit("fast")
 		await sb._jumpscare_finished
 		visible = false
@@ -156,8 +158,8 @@ func _lights_off() -> void:
 	
 func _time_fail(string) -> void:
 	if gb.current_hour == gb.tutorial:
-		sb._fail.emit("tutorial_slow")
 		control = false
+		sb._fail.emit("tutorial_slow")
 	elif gb.death:
 		if not on:
 			await sb._light_on

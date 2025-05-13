@@ -9,6 +9,7 @@ var fov_reset = false
 
 func _ready() -> void:
 	add_to_group("Entity")
+	jumpscare_animator.play("RESET")
 	_reset()
 	sb._event_finished.connect(_reset)
 	sb._event_start.connect(_event_start)
