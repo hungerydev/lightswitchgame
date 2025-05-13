@@ -66,6 +66,7 @@ func _process(_delta: float) -> void:
 		light_energy = randf_range(0,1.5)
 
 func _event_start(event) -> void:
+	_enable_controls()
 	match gb.current_hour:
 		gb.tutorial:
 			_lights_off()

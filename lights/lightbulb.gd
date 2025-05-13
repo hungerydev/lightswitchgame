@@ -66,7 +66,7 @@ func _hour_changed(hour) -> void:
 			control = true
 
 func _event_start(event) -> void:
-	control = true
+	_enable_controls()
 	match gb.current_hour:
 		gb.tutorial:
 			match event:

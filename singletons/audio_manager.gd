@@ -154,7 +154,7 @@ func _start_rain() -> void:
 	stream.stream = load(file)
 	stream.volume_db = -80
 	var tween = get_tree().create_tween()
-	tween.tween_property(stream, "volume_db",-8,4)
+	tween.tween_property(stream, "volume_db",-10,4)
 	stream.play()
 	stream.name += str(random_id)
 	stream.add_to_group("Rain")

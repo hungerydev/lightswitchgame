@@ -4,7 +4,11 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.26.3
+text = "v0.26.4
+- fixed an issue caused by 0.26.2
+- slight volume adjustment to rain VFX to make it easier for non-headphone players
+
+v0.26.3
 - Slight difficulty adjustments
 
 v0.26.2:
