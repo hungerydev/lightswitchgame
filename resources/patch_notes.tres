@@ -4,7 +4,16 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.26.1:
+text = "v0.26.2:
+Features
+- Added the dialogue that says \"turn the light on and find me\" back into the tutorial
+
+Bugs
+- (Hopefully) fixed an issue allowing the jumpscare to play in the menu (again)
+- Fixed a lot of input management issues, should no longer be able to spam right click and cause problems
+- Fixed potential crashes caused by spamming right click at certain points
+
+v0.26.1:
 - Fixed a few issues with the new tutorial
 
 v0.26:
