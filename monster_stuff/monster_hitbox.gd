@@ -10,11 +10,11 @@ var misclicks: int = 0:
 	set(value):
 		misclicks = value
 		if gb.difficulty > 1:
-			misclick_limit = 3
+			misclick_limit = 4
 		elif gb.difficulty > 0.7:
-			misclick_limit = 2
+			misclick_limit = 3
 		else:
-			misclick_limit = 1
+			misclick_limit = 2
 		if value == misclick_limit:
 			sb._fail.emit("null")
 var misclick_limit: int = 2

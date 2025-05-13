@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.26.2:
+text = "v0.26.3
+- Slight difficulty adjustments
+
+v0.26.2:
 Features
 - Added the dialogue that says \"turn the light on and find me\" back into the tutorial
 

@@ -72,13 +72,13 @@ var death_timer: float = 5.0
 func _set_death_timer_dur(event) -> void:
 	match gb.current_hour:
 		gb.hour1:
-			death_timer = 5.0
+			death_timer = 6.0
 		gb.hour2:
-			death_timer = 7.0
+			death_timer = 8.0
 		gb.hour3:
-			death_timer = 2.0
+			death_timer = 3.0
 		gb.hour4:
-			death_timer = 10.0
+			death_timer = 9.0
 
 func _death_timer() -> void:
 	var timer = get_tree().create_timer(clamp(death_timer * gb.difficulty, 1, death_timer), false)
