@@ -141,8 +141,6 @@ func _hour_changed(event) -> void:
 		var bf = get_tree().get_nodes_in_group("BossFight")
 		if bf.is_empty():
 			_boss_fight_music()
-			var bfmc = preload("res://controllers/boss_fight_music_controller.tscn").instantiate()
-			add_child(bfmc)
 		#
 
 func _start_rain() -> void:
@@ -179,25 +177,7 @@ func _switch_ambience_light_on() -> void:
 	amb2.volume_db = -5
 	
 
-func _boss_fight_music_dip() -> void:
-	AudioServer.set_bus_effect_enabled(4,0,true)
-	boss_fight_boosted = false
-	#var bf = get_tree().get_nodes_in_group("BossFight")
-	#if not bf.is_empty():
-		#var rand_int = randi_range(0, bf.size()-1)
-		#for node: AudioStreamPlayer in bf:
-			#if node == bf[rand_int]:
-				#node.volume_db = -5
-			#else:
-				#node.volume_db = -10
 
-func _boss_fight_music_boost() -> void:
-	AudioServer.set_bus_effect_enabled(4,0,false)
-	boss_fight_boosted = true
-	#var bf = get_tree().get_nodes_in_group("BossFight")
-	#if not bf.is_empty():
-		#for node: AudioStreamPlayer in bf:
-			#node.volume_db = -5
 
 func _play_sound(sound: String) -> void:
 	var stream = AudioStreamPlayer.new()
@@ -541,37 +521,25 @@ func _play_cut_music_snippets(string) -> void:
 	remove_child(stream)
 
 func _boss_fight_music() -> void:
-	var mus1 = AudioStreamPlayer.new()
-	var mus2 = AudioStreamPlayer.new()
-	var mus3 = AudioStreamPlayer.new()
-	add_child(mus1)
-	add_child(mus2)
-	add_child(mus3)
-	mus1.stream = load("uid://bnnko703v8mkl")
-	mus2.stream = load("uid://c7l33n1sc2c23")
-	mus3.stream = load("uid://bdxrgfb6eesvq")
-	mus1.add_to_group("BossFight1")
-	mus1.add_to_group("BossFight")
-	mus2.add_to_group("BossFight2")
-	mus2.add_to_group("BossFight")
-	mus3.add_to_group("BossFight3")
-	mus3.add_to_group("BossFight")
-	mus1.bus = "Music"
-	mus2.bus = "Music"
-	mus3.bus = "Music"
-	mus1.play()
-	mus2.play()
-	mus3.play()
+	var hour_5_track: AnimationPlayer = preload("uid://d3v85gdrfqqcq").instantiate()
+	hour_5_track.add_to_group("BossFight")
+	add_child(hour_5_track)
+	hour_5_track.play("hour_5")
+	
 
 func _pause_audio_streams() -> void:
 	for child in get_children():
-		if not child.is_in_group("Randomizer") and not child.is_in_group("BFMC"):
+		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight"):
 			child.set_stream_paused(true)
+		if child.is_in_group("BossFight"):
+			child.speed_scale = 0 
 
 func _unpause_audio_streams() -> void:
 	for child in get_children():
-		if not child.is_in_group("Randomizer"):
+		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight"):
 			child.set_stream_paused(false)
+		if child.is_in_group("BossFight"):
+			child.speed_scale = 1 
 
 func _kill_streams_by_group(group) -> void:
 	get_tree().call_group(group, "queue_free")

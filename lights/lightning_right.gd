@@ -38,9 +38,9 @@ func _event_start(event) -> void:
 			match event:
 				gb.hour3.EVENT_3_1, gb.hour3.EVENT_3_2, gb.hour3.EVENT_3_3, gb.hour3.EVENT_3_4, gb.hour3.EVENT_3_5:
 					_lights_off()
-					await get_tree().create_timer(randf_range(1, 5)*gb.difficulty).timeout
+					await get_tree().create_timer(randf_range(1, 5)*gb.difficulty, false).timeout
 					_lights_on()
-					var timer = get_tree().create_timer(2*gb.difficulty)
+					var timer = get_tree().create_timer(2*gb.difficulty, false)
 					timer.timeout.connect(_too_slow)
 					await sb._event_finished
 					timer.timeout.disconnect(_too_slow)

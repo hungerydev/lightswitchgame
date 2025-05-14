@@ -15,3 +15,4 @@ func _start_custom_mode() -> void:
 
 func _back_to_main_menu() -> void:
 	get_parent()._ready()
+	

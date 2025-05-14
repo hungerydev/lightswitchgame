@@ -4,7 +4,6 @@ extends GPUParticles3D
 @onready var particle_target: Node3D = $particleTarget
 
 
-
 func _ready() -> void:
 	add_to_group("Particle Emitter")
 	sb._monster_clicked.connect(_monster_clicked)
