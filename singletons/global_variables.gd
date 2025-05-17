@@ -73,7 +73,7 @@ enum hour5cut {HOUR_5_CUT_1 = 551, HOUR_5_CUT_2, HOUR_5_CUT_3, HOUR_5_CUT_4}
 
 enum hour5 {HOUR_5 = 501}
 
-enum end1 {END_1_1 = 901, END_1_2, END_1_3, END_1_4}
+enum end1 {END_1_1 = 901, END_1_2, END_1_3, END_1_4, END_1_5, END_1_6, END_1_7, END_1_8, END_1_9, END_1_10}
 
 enum credits {CRED_1 = 651, CRED_2, CRED_3, CRED_4}
 

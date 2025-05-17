@@ -4,6 +4,7 @@ class_name MainMenu
 signal finished
 
 func _ready() -> void:
+	add_to_group("main_menu")
 	await _instantiate_main_page()
 	$main_page/BoxContainer/settings.pressed.connect(_instantiate_settings)
 	$main_page/BoxContainer/quit.pressed.connect(_quit_game)
@@ -86,6 +87,8 @@ func _instantiate_endless_mode_menu() -> void:
 	endless_mode.visible = true
 
 func _quit_game():
+	get_tree().call_group("Controls", "_disable_controls")
+	get_tree().call_group("gc", "_disable_controls")
 	for child in get_children():
 		child.visible = false
 	sb._menu_light_off.emit()

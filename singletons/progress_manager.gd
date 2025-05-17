@@ -30,7 +30,7 @@ var hour5cuti: int = 0
 var hour5cutmax: int = 3
 
 var hour5i: int = 0
-var hour5max: int = 25
+var hour5max: int = 125
 
 var end1i: int = 0
 var end1max: int = 4

@@ -2,11 +2,14 @@ extends Node
 
 var cutscene: bool = false
 
+var hour5loop: bool = true
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sb._monster_clicked.connect(_monster_clicked)
 	sb._event_finished.connect(_event_finished)
 	sb._manual_event_start.connect(_start_event)
+	sb._hour5_loop_deactivate.connect(_disable_hour_5_loop)
 	await get_tree().create_timer(1).timeout
 	_start_event()
 	
@@ -88,14 +91,27 @@ func _start_event() -> void:
 				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				sb._event_start.emit(new_event)
 			gb.hour5:
-				gb.difficulty = gb.difficulty_setting
-				var event = gb._hour5()
-				sb._event_start.emit(event)
-				await sb._event_finished
-				gb.current_hour = gb.hour5
+				if hour5loop:
+					gb.difficulty = gb.difficulty_setting
+					var event = gb._hour5()
+					sb._event_start.emit(event)
+					await sb._event_finished
+					gb.current_hour = gb.hour5
+				else:
+					gb.hour_5_active = false
+					gb.current_hour = gb.end1
+					sb._remote_light_off.emit()
+					sb._remote_flashlight_off.emit()
+					get_tree().call_group("Controls", "_disable_controls")
+					queue_free()
+			gb.end1:
+				gb.hour_5_active = false
+				sb._remote_light_off.emit()
+				sb._remote_flashlight_off.emit()
+				get_tree().call_group("Controls", "_disable_controls")
+				queue_free()
 			gb.custom_mode:
 				gb.difficulty = gb.custom_mode_difficulty
-				gf.chance_modifier = gf.chance_setting
 				var event = gb._custom_mode()
 				sb._event_start.emit(event)
 				await sb._event_finished
@@ -157,15 +173,13 @@ func _start_event() -> void:
 		print(str(Time.get_ticks_msec()) + ": " + str(new_event) + " is from an active override")
 		sb._event_start.emit(new_event)
 		
-	#for child in get_children():
-		#if child.name == gb.current_hour:
-			##var event = child.get_children().pick_random()
-			#var event = child.get_child(3)
-			#event._trigger_event_start()
 
 func _event_finished() -> void:
 	if not cutscene:
 		get_tree().call_group("Controls", "_disable_controls")
-		await get_tree().create_timer(randf_range(0.75,1.5)).timeout
+		await get_tree().create_timer(randf_range(0.75,1.5), false).timeout
 		_start_event()
 		
+		
+func _disable_hour_5_loop() -> void:
+	hour5loop = false

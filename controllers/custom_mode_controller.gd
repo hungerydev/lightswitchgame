@@ -8,4 +8,5 @@ func _start_custom_mode(hour_selection, difficulty, RNG):
 	gb.custom_mode_difficulty = difficulty
 	gf.chance_setting = RNG
 	gb.current_hour = gb.custom_mode
+	get_tree().set_group("gc", "menu_active", true)
 	get_tree().call_group("gc", "_start_game")

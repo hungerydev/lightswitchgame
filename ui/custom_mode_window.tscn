@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://dm4i0h233j4e4" path="res://ui/rng_note.gd" id="4_3bl6u"]
 
 [sub_resource type="GDScript" id="GDScript_6uq7r"]
-script/source = "extends CenterContainer
-"
 
 [node name="custom_mode_window" type="Control"]
 layout_mode = 3
@@ -93,11 +91,23 @@ offset_right = 298.0
 offset_bottom = -28.0
 grow_vertical = 0
 theme = ExtResource("1_gkj1u")
+alignment = 1
+vertical = true
 script = SubResource("GDScript_6uq7r")
+
+[node name="SelectGameMode" type="RichTextLabel" parent="CenterContainer"]
+visible = false
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[wave]Select a game mode above!"
+fit_content = true
 
 [node name="start" type="Button" parent="CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 26
 text = "Start Custom Mode"
 

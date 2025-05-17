@@ -49,7 +49,15 @@ signal _lightning_fail
 
 signal _jumpscare_finished
 
-## Emitted by res://text_sequences/drawing_sequences.gd when death text is done
+## Emitted by res://text_sequences/drawing_sequences.gd
+## when death text is done
 signal _death_seq_finished
 
 signal _monster_inactive
+
+## Emitted by hour5helper in order to break the hour 5 loop and start the end1 cutscene
+signal _hour5_loop_deactivate
+
+## Emitted by drawing sequences to turn off the sun at certain times
+signal _remote_sun_off
+signal _remote_sun_on

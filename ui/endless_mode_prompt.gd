@@ -6,6 +6,7 @@ func _ready() -> void:
 
 func _start_endless_mode() -> void:
 	gb.current_hour = gb.endless_mode
+	get_tree().set_group("gc", "menu_active", true)
 	get_tree().call_group("gc", "_start_game")
 
 func _back_to_main_menu() -> void:

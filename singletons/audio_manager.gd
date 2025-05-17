@@ -524,22 +524,27 @@ func _boss_fight_music() -> void:
 	var hour_5_track: AnimationPlayer = preload("uid://d3v85gdrfqqcq").instantiate()
 	hour_5_track.add_to_group("BossFight")
 	add_child(hour_5_track)
-	hour_5_track.play("hour_5")
+	hour_5_track.play_section("hour_5", 160.0, 260.0)
+	
 	
 
 func _pause_audio_streams() -> void:
 	for child in get_children():
-		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight"):
+		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
 			child.set_stream_paused(true)
 		if child.is_in_group("BossFight"):
 			child.speed_scale = 0 
+		if child.is_in_group("Credits"):
+			child.animator.speed_Scale = 0
 
 func _unpause_audio_streams() -> void:
 	for child in get_children():
-		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight"):
+		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
 			child.set_stream_paused(false)
 		if child.is_in_group("BossFight"):
 			child.speed_scale = 1 
+		if child.is_in_group("Credits"):
+			child.animator.speed_Scale = 1
 
 func _kill_streams_by_group(group) -> void:
 	get_tree().call_group(group, "queue_free")
@@ -552,7 +557,7 @@ func _fail(string) -> void:
 		
 	elif gb.death:
 		for child in get_children():
-			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer"):
+			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer") and not child.is_in_group("Credits"):
 				child.queue_free()
 		amb1.volume_db = -80
 		amb2.volume_db = -80

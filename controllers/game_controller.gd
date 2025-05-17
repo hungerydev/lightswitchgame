@@ -43,10 +43,12 @@ func _input(event: InputEvent) -> void:
 
 func _start_game() -> void:
 	if menu_active:
-		get_tree().call_group("main_menu", "queue_free")
+		var tree: SceneTree = get_tree()
+		tree.call_group("main_menu", "queue_free")
+		tree.call_group("PostGameMenu", "queue_free")
 		menu_active = false
 		var monster = preload("res://monster_stuff/monsterthingfullinherit.tscn").instantiate()
-		get_tree().get_first_node_in_group("Main Scene").add_child(monster)
+		tree.get_first_node_in_group("Main Scene").add_child(monster)
 		sb._hour_changed.emit(gb.current_hour)
 		var event_controller = preload("uid://dvku403rcrta0").instantiate()
 		add_child(event_controller)
@@ -118,4 +120,6 @@ func _disable_controls() -> void:
 	control = false
 
 func _quit_game() -> void:
+	get_tree().call_group("Controls", "_disable_controls")
+	_disable_controls()
 	get_tree().quit()

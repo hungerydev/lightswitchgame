@@ -1,4 +1,4 @@
-[gd_scene load_steps=258 format=3 uid="uid://c2os4xibt88g5"]
+[gd_scene load_steps=303 format=3 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="Script" uid="uid://bdqxfqgr5mmro" path="res://mainscene.gd" id="1_nui55"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://shaders/scanlines.gdshader" id="4_0lhry"]
@@ -162,32 +162,60 @@
 [ext_resource type="Texture2D" uid="uid://bx3jbfcvhff8x" path="res://text_sequences/spot_the_missing/0096.png" id="91_al776"]
 [ext_resource type="Texture2D" uid="uid://cc02jp2px64vx" path="res://text_sequences/demo_sizzle/5/0288.png" id="91_d1abe"]
 [ext_resource type="Texture2D" uid="uid://cunlu56nr7twb" path="res://text_sequences/hour5cut1/0163.png" id="91_obucg"]
+[ext_resource type="Texture2D" uid="uid://d4dtkk0t3humo" path="res://text_sequences/end_1_1/0185.png" id="91_ta3lm"]
 [ext_resource type="Texture2D" uid="uid://b75w0wbjqqtxo" path="res://text_sequences/hour5cut2/0170.png" id="92_ammyj"]
 [ext_resource type="Texture2D" uid="uid://cgmtt5duy8shp" path="res://text_sequences/spot_the_missing/0097.png" id="92_obucg"]
+[ext_resource type="Texture2D" uid="uid://cb7ns6pvynhyu" path="res://text_sequences/end_1_1/0186.png" id="92_pew3u"]
 [ext_resource type="Texture2D" uid="uid://82vcu7y07d4k" path="res://text_sequences/demo_sizzle/5/0289.png" id="92_wp8un"]
+[ext_resource type="Texture2D" uid="uid://dar0xcidiawsg" path="res://text_sequences/end_1_1/0187.png" id="93_1vusx"]
 [ext_resource type="Texture2D" uid="uid://x3pt0k2xbtss" path="res://text_sequences/tutorial_fail/0022.png" id="93_ammyj"]
 [ext_resource type="Texture2D" uid="uid://du12xfb8u2orw" path="res://text_sequences/hour5cut2/0171.png" id="93_pfjl7"]
+[ext_resource type="Texture2D" uid="uid://bwuukfhbf7dvj" path="res://text_sequences/end_1_1/0188.png" id="94_5wxdq"]
 [ext_resource type="Texture2D" uid="uid://dni5kxis0o1wg" path="res://text_sequences/hour5cut2/0172.png" id="94_33ks5"]
 [ext_resource type="Texture2D" uid="uid://d38vfmxt1icq4" path="res://text_sequences/tutorial_fail/0023.png" id="94_pfjl7"]
+[ext_resource type="Texture2D" uid="uid://dcyawamj0pxv" path="res://text_sequences/end_1_2/0190.png" id="95_8p2w4"]
 [ext_resource type="Texture2D" uid="uid://dni05k61vbgfe" path="res://text_sequences/tutorial_fail/0024.png" id="95_33ks5"]
 [ext_resource type="Texture2D" uid="uid://c5dyktrs6xuqy" path="res://text_sequences/hour5cut2/0173.png" id="95_jp27q"]
 [ext_resource type="Texture2D" uid="uid://ciidjq8akg7y4" path="res://text_sequences/tutorial_fail/0025.png" id="96_jp27q"]
+[ext_resource type="Texture2D" uid="uid://dsmq51e65r3fk" path="res://text_sequences/end_1_2/0191.png" id="96_mc0px"]
 [ext_resource type="Texture2D" uid="uid://b1t2yp8v62qmr" path="res://text_sequences/tutorial_fail/0026.png" id="97_lgswy"]
+[ext_resource type="Texture2D" uid="uid://bkkb5klqrf8fp" path="res://text_sequences/end_1_2/0192.png" id="97_vkx8a"]
+[ext_resource type="Texture2D" uid="uid://nnxg6hi8n5nn" path="res://text_sequences/end_1_2/0193.png" id="98_bqxg8"]
 [ext_resource type="Texture2D" uid="uid://slsxrk74rk4" path="res://text_sequences/tutorial_fail/0027.png" id="98_u0hlv"]
+[ext_resource type="Texture2D" uid="uid://bbjvcb6425iv7" path="res://text_sequences/end_1_3/0194.png" id="99_274lr"]
 [ext_resource type="Texture2D" uid="uid://p6p2nh3iw20h" path="res://text_sequences/tutorial_fail/0028.png" id="99_ks6fa"]
 [ext_resource type="Texture2D" uid="uid://mqk8ckxatkss" path="res://text_sequences/tutorial_fail/0029.png" id="100_jwae6"]
+[ext_resource type="Texture2D" uid="uid://besg1b48j23pn" path="res://text_sequences/end_1_3/0195.png" id="100_wldal"]
 [ext_resource type="Texture2D" uid="uid://cmm5w08qr2uh0" path="res://text_sequences/we_can_still_play/0070.png" id="101_5r045"]
+[ext_resource type="Texture2D" uid="uid://dm4n08tsjrika" path="res://text_sequences/end_1_3/0196.png" id="101_qntq4"]
+[ext_resource type="Texture2D" uid="uid://dahhk0nmpkeed" path="res://text_sequences/end_1_3/0197.png" id="102_mlkxg"]
 [ext_resource type="Texture2D" uid="uid://cojurcr2ikmgi" path="res://text_sequences/we_can_still_play/0071.png" id="102_qsfcs"]
 [ext_resource type="Texture2D" uid="uid://dkdo23t3rw042" path="res://text_sequences/we_can_still_play/0072.png" id="103_2onmc"]
 [ext_resource type="Texture2D" uid="uid://c8agpw17iuuob" path="res://text_sequences/hour3cut1/0177.png" id="103_3ir63"]
+[ext_resource type="Texture2D" uid="uid://b71vucmg73041" path="res://text_sequences/end_1_4/0198.png" id="103_fmirn"]
 [ext_resource type="Texture2D" uid="uid://cji3cdmjx1nx6" path="res://text_sequences/we_can_still_play/0073.png" id="104_b45a6"]
+[ext_resource type="Texture2D" uid="uid://b1ugdtttklnyf" path="res://text_sequences/end_1_4/0199.png" id="104_qbcxs"]
 [ext_resource type="Texture2D" uid="uid://bsnlebfdao8dk" path="res://text_sequences/hour3cut1/0178.png" id="104_x4y71"]
 [ext_resource type="Texture2D" uid="uid://iog20u81uxgx" path="res://text_sequences/hour3cut1/0179.png" id="105_3ykty"]
+[ext_resource type="Texture2D" uid="uid://b4he3yq8848uc" path="res://text_sequences/end_1_4/0200.png" id="105_4ftqr"]
 [ext_resource type="Texture2D" uid="uid://cinb7w425qo0h" path="res://text_sequences/hour3cut1/0180.png" id="106_ixeg6"]
+[ext_resource type="Texture2D" uid="uid://ckbrohq1v6gbd" path="res://text_sequences/end_1_4/0201.png" id="106_ty0js"]
+[ext_resource type="Texture2D" uid="uid://bl8dk0cv11qj4" path="res://text_sequences/end_1_4/0202.png" id="107_hcw4g"]
 [ext_resource type="Texture2D" uid="uid://bk7mvhofw8h6b" path="res://text_sequences/hour3cut2/0181.png" id="107_l52ma"]
 [ext_resource type="Texture2D" uid="uid://dpj2w1yyh288e" path="res://text_sequences/hour3cut2/0182.png" id="108_gum2l"]
+[ext_resource type="Texture2D" uid="uid://c0sprhbxli32p" path="res://text_sequences/end_1_4/0203.png" id="108_u2whr"]
+[ext_resource type="Texture2D" uid="uid://lt7qj2pcvenw" path="res://text_sequences/end_1_5/0204.png" id="109_2xtwq"]
 [ext_resource type="Texture2D" uid="uid://daxoq5soyodoa" path="res://text_sequences/hour3cut2/0183.png" id="109_vr50f"]
 [ext_resource type="Texture2D" uid="uid://bu4w0i15j6tl1" path="res://text_sequences/hour3cut2/0184.png" id="110_p46uw"]
+[ext_resource type="Texture2D" uid="uid://bd223idfjaecd" path="res://text_sequences/end_1_5/0205.png" id="110_tryto"]
+[ext_resource type="Texture2D" uid="uid://3ccwaqfv3gmm" path="res://text_sequences/end_1_5/0206.png" id="111_i3xe7"]
+[ext_resource type="Texture2D" uid="uid://ce84lwpnhvpfa" path="res://text_sequences/end_1_5/0207.png" id="112_qfnmx"]
+[ext_resource type="Texture2D" uid="uid://d2cuo6r35sn4a" path="res://text_sequences/end_1_6/0208.png" id="113_yjbh0"]
+[ext_resource type="Texture2D" uid="uid://dk5cg0kqp7asx" path="res://text_sequences/end_1_6/0209.png" id="114_eu3t8"]
+[ext_resource type="Texture2D" uid="uid://bkr71l8bu5i5i" path="res://text_sequences/end_1_6/0210.png" id="115_t52ds"]
+[ext_resource type="Texture2D" uid="uid://d1ss7hmvl0o7r" path="res://text_sequences/end_1_6/0211.png" id="116_gdwi2"]
+[ext_resource type="Texture2D" uid="uid://d2ceamd7c12dq" path="res://text_sequences/end_1_6/0213.png" id="118_yi5da"]
+[ext_resource type="Texture2D" uid="uid://dmtts1lp2a2te" path="res://text_sequences/end_1_6/0214.png" id="119_dk0f2"]
 [ext_resource type="Texture2D" uid="uid://bdcx8bmqrb2uj" path="res://text_sequences/keep_me_waiting/0304.png" id="134_eg236"]
 [ext_resource type="Texture2D" uid="uid://4duybaxo2sbg" path="res://text_sequences/keep_me_waiting/0305.png" id="135_ni1hf"]
 [ext_resource type="Texture2D" uid="uid://b72plexineblx" path="res://text_sequences/keep_me_waiting/0306.png" id="136_0667l"]
@@ -227,6 +255,8 @@
 [ext_resource type="Texture2D" uid="uid://n4kr1sph7aq1" path="res://text_sequences/tutorial_restart/0311.png" id="213_oecti"]
 [ext_resource type="Script" uid="uid://cgv87f3sl3k3f" path="res://car_light.gd" id="213_x4y71"]
 [ext_resource type="Script" uid="uid://copcd517mkdgb" path="res://lights/lightbulb_lights.gd" id="225_wkc0g"]
+[ext_resource type="PackedScene" uid="uid://cpo1aqoy7ibuj" path="res://lights/sun.tscn" id="228_0667l"]
+[ext_resource type="Script" uid="uid://cg74xdkjsi4sb" path="res://end_sequence_meshes.gd" id="258_pew3u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -723,6 +753,40 @@ animations = [{
 "loop": true,
 "name": &"demo_sizzle5",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("91_ta3lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_pew3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_1vusx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_5wxdq")
+}],
+"loop": true,
+"name": &"end_1_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("95_8p2w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_mc0px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_vkx8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_bqxg8")
+}],
+"loop": true,
+"name": &"end_1_2",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1335,11 +1399,113 @@ _data = {
 &"carl_alarm": SubResource("Animation_x4y71")
 }
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ta3lm"]
+frames = 4
+frame_0/texture = ExtResource("99_274lr")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("100_wldal")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("101_qntq4")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("102_mlkxg")
+frame_3/duration = 0.16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pew3u"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_ta3lm")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ta3lm"]
+material = SubResource("StandardMaterial3D_pew3u")
+size = Vector2(8, 4.5)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_pew3u"]
+frames = 6
+one_shot = true
+frame_0/texture = ExtResource("103_fmirn")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("104_qbcxs")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("105_4ftqr")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("106_ty0js")
+frame_3/duration = 0.16
+frame_4/texture = ExtResource("107_hcw4g")
+frame_4/duration = 0.16
+frame_5/texture = ExtResource("108_u2whr")
+frame_5/duration = 0.16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vusx"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_pew3u")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5wxdq"]
+material = SubResource("StandardMaterial3D_1vusx")
+size = Vector2(8, 4.5)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8p2w4"]
+frames = 4
+frame_0/texture = ExtResource("109_2xtwq")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("110_tryto")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("111_i3xe7")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("112_qfnmx")
+frame_3/duration = 0.16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc0px"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_8p2w4")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vkx8a"]
+material = SubResource("StandardMaterial3D_mc0px")
+size = Vector2(8, 4.5)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wldal"]
+frames = 4
+one_shot = true
+frame_0/texture = ExtResource("113_yjbh0")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("114_eu3t8")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("115_t52ds")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("116_gdwi2")
+frame_3/duration = 0.16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qntq4"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_wldal")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mlkxg"]
+material = SubResource("StandardMaterial3D_qntq4")
+size = Vector2(8, 4.5)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1vusx"]
+frames = 2
+frame_0/texture = ExtResource("118_yi5da")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("119_dk0f2")
+frame_1/duration = 0.16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wxdq"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_1vusx")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8p2w4"]
+material = SubResource("StandardMaterial3D_5wxdq")
+size = Vector2(8, 4.5)
+
 [node name="mainscene" type="Node3D"]
 script = ExtResource("1_nui55")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.98, -6.64)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 3.29744, -11.6972)
 fov = 37.8
 far = 13.82
 script = ExtResource("8_1cnxy")
@@ -1735,7 +1901,7 @@ size = Vector3(4.0498, 2.87403, 0.172241)
 position = Vector2(577, 289)
 scale = Vector2(0.265, 0.266)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"death8"
+animation = &"end_1_2"
 script = ExtResource("44_4olqe")
 
 [node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
@@ -1835,7 +2001,38 @@ omni_range = 4.98485
 omni_attenuation = 0.619
 script = ExtResource("138_6mykh")
 
+[node name="Sun" parent="." instance=ExtResource("228_0667l")]
+
+[node name="EndSequenceMeshes" type="Node3D" parent="."]
+script = ExtResource("258_pew3u")
+
+[node name="End2DSequence1_3" type="MeshInstance3D" parent="EndSequenceMeshes"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
+visible = false
+mesh = SubResource("PlaneMesh_ta3lm")
+
+[node name="End2DSequence1_4" type="MeshInstance3D" parent="EndSequenceMeshes"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
+visible = false
+mesh = SubResource("PlaneMesh_5wxdq")
+
+[node name="End2DSequence1_5" type="MeshInstance3D" parent="EndSequenceMeshes"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
+visible = false
+mesh = SubResource("PlaneMesh_vkx8a")
+
+[node name="End2DSequence1_6" type="MeshInstance3D" parent="EndSequenceMeshes"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
+visible = false
+mesh = SubResource("PlaneMesh_mlkxg")
+
+[node name="End2DSequence1_7" type="MeshInstance3D" parent="EndSequenceMeshes"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
+visible = false
+mesh = SubResource("PlaneMesh_8p2w4")
+
 [editable path="mainroom"]
 [editable path="mainroom/MainRoomNewStuff"]
 [editable path="mainroom/MainRoomMoreStuff"]
 [editable path="LightbulbLights"]
+[editable path="Sun"]

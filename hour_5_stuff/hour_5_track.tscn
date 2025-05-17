@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3v85gdrfqqcq"]
+
+[ext_resource type="AudioStream" uid="uid://x11gps8wwrx0" path="res://music/BossFight/Master.ogg" id="1_05x4i"]
+[ext_resource type="Script" uid="uid://xmrhx7dc4qk" path="res://hour_5_stuff/hour5helper.gd" id="2_quv7f"]
+
+[sub_resource type="Animation" id="Animation_05x4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hour5Track/AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-9.377]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hour5Track/HelperScript")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_8345h"]
+resource_name = "hour_5"
+length = 230.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hour5Track/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_05x4i")
+}],
+"times": PackedFloat32Array(-0.0666667, 0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hour5Track/AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(182.5, 184.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-9.377, -5.636]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hour5Track/HelperScript")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(176.833, 182.433, 194.7, 201.067, 204.833, 208.967, 211.467, 215.933, 222.867, 224.967),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"stop_loop"
+}, {
+"args": [],
+"method": &"step_one"
+}, {
+"args": [],
+"method": &"step_two"
+}, {
+"args": [],
+"method": &"step_three"
+}, {
+"args": [],
+"method": &"step_four"
+}, {
+"args": [],
+"method": &"step_five"
+}, {
+"args": [],
+"method": &"step_six"
+}, {
+"args": [],
+"method": &"step_seven"
+}, {
+"args": [],
+"method": &"step_eight"
+}, {
+"args": [],
+"method": &"step_nine"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05x4i"]
+_data = {
+&"RESET": SubResource("Animation_05x4i"),
+&"hour_5": SubResource("Animation_8345h")
+}
+
+[node name="Hour5Track" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_05x4i")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -9.377
+bus = &"Music"
+
+[node name="HelperScript" type="Node" parent="."]
+script = ExtResource("2_quv7f")
