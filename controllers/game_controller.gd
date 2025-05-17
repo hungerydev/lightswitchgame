@@ -14,7 +14,8 @@ var control: bool = false
 var override_active: bool = false
 
 func _ready() -> void:
-	gb.demo_mode = true
+	if OS.has_feature("demo_mode"):
+		gb.demo_mode = true
 	add_to_group("gc")
 	control = false
 	await _instantiate_main_scene()
