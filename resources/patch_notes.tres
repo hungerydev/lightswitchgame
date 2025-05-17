@@ -4,7 +4,17 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.26.4
+text = "v0.3
+Features:
+- The game is now feature complete from beginning to the main ending
+
+Bugs:
+- Fixed an issue where custom mode start button wouldn't start the game
+- Ensured you couldn't crash the game by not selecting mechanics before starting custom mode
+- Fixed an issue where endless mode start button wouldn't start the game
+- Fixed an issue allowing the player to halt quitting the game by right clicking while it closed
+
+v0.26.4
 - fixed an issue caused by 0.26.2
 - slight volume adjustment to rain VFX to make it easier for non-headphone players
 
