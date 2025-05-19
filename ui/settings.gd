@@ -29,7 +29,7 @@ func _ready() -> void:
 	_add_resolutions()
 	_get_screens()
 	_check_variables()
-	version_info.text = str(ProjectSettings.get_setting("application/config/version"))
+	version_info.text = "v" + str(ProjectSettings.get_setting("application/config/version"))
 
 
 func _check_variables():
@@ -58,7 +58,7 @@ func _check_variables():
 						fsr_options.select(4)
 					
 		if scaler.selected == 1:
-			scale_slider.set_value_no_signal(get_viewport().get_scaling_3d_scale())
+			scale_slider.set_value(get_viewport().get_scaling_3d_scale() * 100.00)
 		brightness_silder._ready()
 		
 	

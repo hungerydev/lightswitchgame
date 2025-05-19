@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://gg5suj2tw5qv"]
+[gd_scene load_steps=152 format=3 uid="uid://gg5suj2tw5qv"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_y2fak"]
 [ext_resource type="Script" uid="uid://m7h54jd7ef6w" path="res://ui/main_page.gd" id="2_772va"]
@@ -149,6 +149,7 @@
 [ext_resource type="Texture2D" uid="uid://3eacjgxr8uhn" path="res://logo/buildout_cropped/logo_fade_cropped00000142.png" id="144_l2l1w"]
 [ext_resource type="Texture2D" uid="uid://bfyxdxsr6jgcr" path="res://logo/buildout_cropped/logo_fade_cropped00000143.png" id="145_s24ri"]
 [ext_resource type="Texture2D" uid="uid://b6ijb6a7y7wtp" path="res://logo/buildout_cropped/logo_fade_cropped00000144.png" id="146_fqmp0"]
+[ext_resource type="PackedScene" uid="uid://cwp1t42pb1nox" path="res://chapter_select.tscn" id="149_gni4x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
 animations = [{
@@ -618,11 +619,21 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 49.0
-offset_top = -189.0
+offset_top = -244.0
 offset_right = 349.0
-offset_bottom = -77.0
+offset_bottom = -63.0
 grow_vertical = 0
 vertical = true
+
+[node name="ChapterSelect" parent="BoxContainer" instance=ExtResource("149_gni4x")]
+visible = false
+layout_mode = 2
+
+[node name="CurrentHour" type="RichTextLabel" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current Chapter: Hour 1"
+fit_content = true
 
 [node name="info" type="RichTextLabel" parent="BoxContainer"]
 layout_mode = 2
@@ -662,3 +673,18 @@ bbcode_enabled = true
 text = "[wave]DEMO"
 fit_content = true
 script = ExtResource("124_dqh5x")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 28.0
+offset_right = 174.0
+offset_bottom = 70.0
+
+[node name="SubmitFeedback" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Submit Feedback"
+
+[connection signal="item_selected" from="BoxContainer/ChapterSelect" to="." method="_on_chapter_select_item_selected"]
+[connection signal="pressed" from="BoxContainer2/SubmitFeedback" to="." method="_on_submit_feedback_pressed"]

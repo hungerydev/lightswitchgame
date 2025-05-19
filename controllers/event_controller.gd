@@ -43,7 +43,7 @@ func _start_event() -> void:
 				else:
 					sb._event_start.emit(new_event)
 			gb.hour3cut:
-				var new_event = gb.hour4cut.values()[pm.hour4cuti]
+				var new_event = gb.hour3cut.values()[pm.hour3cuti]
 				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.hour3cuti < 2:
 					cutscene = true

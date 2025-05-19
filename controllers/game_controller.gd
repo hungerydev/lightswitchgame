@@ -63,6 +63,7 @@ func _fail() -> void:
 	sb._event_finished.emit()
 	pm._reset_progress()
 	am._start_ambience()
+	am.monster_active = false
 	control = true
 	
 

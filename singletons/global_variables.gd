@@ -31,9 +31,19 @@ var current_hour = tutorial:
 		return current_hour
 	set(new_hour):
 		current_hour = new_hour
+		if current_hour == post_game:
+			post_game_active = true
 		sb._hour_changed.emit(current_hour)
 
 var hour_5_active: bool = false
+
+var custom_mode_active: bool = false
+
+var endless_mode_active: bool = false
+
+var post_game_active: bool = false
+
+var max_custom_mode_active: bool = false
 
 var fail: bool = false:
 	get:
@@ -142,6 +152,7 @@ func _save() -> Dictionary:
 		"last_hour_completed": last_hour_completed,
 		"difficulty_setting": difficulty_setting,
 		"demo_mode": demo_mode,
+		"post_game_active": post_game_active
 	}
 	return save_dict
 
@@ -155,7 +166,7 @@ func _save_data() -> Dictionary:
 	}
 	return save_dict
 
-func _load(data) -> void:
+func _load(data: Dictionary) -> void:
 	loading = true
 	var last_hour: Dictionary
 	if data["last_hour_completed"] == null:
@@ -186,6 +197,8 @@ func _load(data) -> void:
 		501.0:
 			last_hour_completed = hour5
 			current_hour = post_game
+	if data.has("post_game_active"):
+		post_game_active = data["post_game_active"]
 	difficulty_setting = data["difficulty_setting"]
 	death = true
 	fail = false

@@ -74,6 +74,7 @@ func _event_start(event) -> Signal:
 			if hour1i == hour1max:
 				gb.current_hour = gb.hour2cut
 				gb.last_hour_completed = gb.hour1
+				sw._achievement_unlock(sw.achievements.HOUR_1_COMPLETE)
 			else:
 				hour1i += 1
 		gb.hour2cut:
@@ -88,6 +89,7 @@ func _event_start(event) -> Signal:
 			if hour2i == hour2max:
 				gb.current_hour = gb.hour3cut
 				gb.last_hour_completed = gb.hour2
+				sw._achievement_unlock(sw.achievements.HOUR_2_COMPLETE)
 			else:
 				hour2i += 1
 		gb.hour3cut:
@@ -105,6 +107,7 @@ func _event_start(event) -> Signal:
 			if hour3i == hour3max:
 				gb.current_hour = gb.hour4cut      
 				gb.last_hour_completed = gb.hour3
+				sw._achievement_unlock(sw.achievements.HOUR_3_COMPLETE)
 			else:
 				hour3i += 1
 		gb.hour4cut:
@@ -117,8 +120,9 @@ func _event_start(event) -> Signal:
 		gb.hour4:
 			await sb._event_finished
 			if hour4i == hour4max:
-				gb.current_hour = gb.hour5
+				gb.current_hour = gb.hour5cut
 				gb.last_hour_completed = gb.hour4
+				sw._achievement_unlock(sw.achievements.HOUR_4_COMPLETE)
 			else:
 				hour4i += 1
 		gb.hour5cut:
@@ -137,6 +141,12 @@ func _event_start(event) -> Signal:
 		gb.custom_mode:
 			if customi == custommax:
 				gb.current_hour = gb.post_game
+				if gb.max_custom_mode_active:
+					sw._achievement_unlock(sw.achievements.CUSTOM_MODE_COMPLETE)
+					# TODO: Go to ending 2
+				else:
+					pass
+					# TODO: Figure out something else to do for non-max mode
 			else:
 				customi += 1
 		gb.endless_mode:
@@ -147,7 +157,15 @@ func _event_start(event) -> Signal:
 			elif endlessi == 75:
 				gb.difficulty = 0.3
 			elif endlessi == 100:
+				gb.difficulty = 0.2
+				sw._achievement_unlock(sw.achievements.ENDLESS_MODE_COMPLETE)
+				# TODO: Go to ending 3
+				# TODO: Handle determining if the player has gotten this far before and don't send them to the ending if they have
+			elif endlessi == 150:
 				gb.difficulty = 0.1
+			elif endlessi == endlessmax:
+				# TODO: Make an ending of some kind for beating this
+				sw._achievement_unlock(sw.achievements.ENDLESS_MODE_EXHAUSTED)
 			endlessi += 1
 		gb.end3:
 			if end3i == end3max:

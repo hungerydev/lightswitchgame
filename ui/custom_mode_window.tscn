@@ -69,7 +69,7 @@ fit_content = true
 [node name="rng_slider" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 min_value = -1.0
-max_value = 0.0
+max_value = -0.1
 step = 0.1
 value = -1.0
 

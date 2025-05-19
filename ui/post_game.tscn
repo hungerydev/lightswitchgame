@@ -25,7 +25,7 @@ offset_top = 94.0
 offset_right = -65.0
 offset_bottom = 167.0
 grow_horizontal = 0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 10
 vertical = true
 
 [node name="custom_mode" type="Button" parent="BoxContainer"]
@@ -37,3 +37,8 @@ text = "Custom Mode"
 layout_mode = 2
 text = "Endless Mode
 "
+
+[node name="Endings" type="RichTextLabel" parent="BoxContainer"]
+layout_mode = 2
+text = "Endings: 1/3"
+fit_content = true

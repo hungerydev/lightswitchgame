@@ -38,7 +38,7 @@ func _instantiate_main_page() -> Signal:
 	add_child(main_page)
 	get_tree().call_group("Controls", "_disable_controls")
 	main_page.visible = false
-	if gb.current_hour == gb.post_game:
+	if gb.post_game_active:
 		pg = _instantiate_post_game()
 		add_child(pg)
 		pg.visible = false
@@ -85,6 +85,21 @@ func _instantiate_endless_mode_menu() -> void:
 	await get_tree().create_timer(0.5).timeout
 	sb._menu_light_on.emit()
 	endless_mode.visible = true
+
+func _instantiate_feedback_response_menu() -> void:
+	get_tree().set_group("gc", "menu_active", false)
+	sb._menu_light_off.emit()
+	for child in get_children():
+		if child.name == "main_page":
+			child.queue_free()
+		if child.name == "post_game":
+			child.queue_free()
+	var feedback_confirm = preload("uid://cuhw5dhbgg6eu").instantiate()
+	add_child(feedback_confirm)
+	feedback_confirm.visible = false
+	await get_tree().create_timer(0.5).timeout
+	sb._menu_light_on.emit()
+	feedback_confirm.visible = true
 
 func _quit_game():
 	get_tree().call_group("Controls", "_disable_controls")

@@ -4,7 +4,22 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3
+text = "v0.3.1
+Features:
+- Added a chapter select menu to the main menu after completing the game
+- Added a \"current chapter\" text box to the main menu after completing the tutorial
+- Added \"Send Feedback\" button to better faciliate people giving feedback
+- Added ending counter to show how many endings one has seen - not fully functional yet
+
+Bugs:
+- Fixed scaling slider not adjusting properly
+- Fixed progress tracking for post-game game modes
+- Fixed achievement unlock functionality
+- Fixed jumpscares in the menu (for real this time!)
+- Fixed hour 3 cutscene not triggering
+
+
+v0.3
 Features:
 - The game is now feature complete from beginning to the main ending
 
@@ -23,7 +38,7 @@ v0.26.3
 
 v0.26.2:
 Features
-- Added the dialogue that says \"turn the light on and find me\" back into the tutorial
+- Added the dialogue that says \\\"turn the light on and find me\\\" back into the tutorial
 
 Bugs
 - (Hopefully) fixed an issue allowing the jumpscare to play in the menu (again)
@@ -39,7 +54,7 @@ Major Changes:
 
 Minor Changes:
 - Visual: Added particle effects to a few different things
-- Settings: Added tooltips to the window and performance settings, added new \"emitters\" button which turns particles on or off
+- Settings: Added tooltips to the window and performance settings, added new \\\"emitters\\\" button which turns particles on or off
 
 v0.25.3:
 - Added stats
@@ -62,6 +77,5 @@ v0.23:
 	- Pause menu now properly pauses the game
 
 v0.22:
-	- Added the text box you are currently looking at
-"
+	- Added the text box you are currently looking at"
 metadata/_custom_type_script = "uid://dcuepukutdxbq"

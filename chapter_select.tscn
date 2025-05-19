@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwp1t42pb1nox"]
+
+[node name="ChapterSelect" type="OptionButton"]
+selected = 0
+item_count = 6
+popup/item_0/text = "Chapter Select"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "Hour 1"
+popup/item_1/id = 1
+popup/item_2/text = "Hour 2"
+popup/item_2/id = 2
+popup/item_3/text = "Hour 3"
+popup/item_3/id = 3
+popup/item_4/text = "Hour 4"
+popup/item_4/id = 4
+popup/item_5/text = "Hour 5"
+popup/item_5/id = 5

@@ -6,7 +6,7 @@ var hour_progress: String
 
 func _ready() -> void:
 	sb._monster_clicked.connect(_monster_clicked)
-	sb._hour_changed.connect(_hour_changed)
+	# sb._hour_changed.connect(_hour_changed)
 	sb._jumpscare_finished.connect(_jumpscare_finished)
 
 func _monster_clicked() -> void:
@@ -21,18 +21,19 @@ func _monster_clicked() -> void:
 			sw._achievement_unlock(sw.achievements.SHADOW_CLICKS_1000)
 			
 
-func _hour_changed(hour) -> void:
-	match gb.last_hour_completed:
-		gb.hour1:
-			sw._achievement_unlock(sw.achievements.HOUR_1_COMPLETE)
-		gb.hour2:
-			sw._achievement_unlock(sw.achievements.HOUR_2_COMPLETE)
-		gb.hour3:
-			sw._achievement_unlock(sw.achievements.HOUR_3_COMPLETE)
-		gb.hour4:
-			sw._achievement_unlock(sw.achievements.HOUR_4_COMPLETE)
-		gb.hour5:
-			sw._achievement_unlock(sw.achievements.HOUR_5_COMPLETE)
+## DEPR: Instead of this, let the progress manager set the achievement progress for hours.
+# func _hour_changed(hour) -> void:
+# 	match gb.last_hour_completed:
+# 		gb.hour1:
+# 			sw._achievement_unlock(sw.achievements.HOUR_1_COMPLETE)
+# 		gb.hour2:
+# 			sw._achievement_unlock(sw.achievements.HOUR_2_COMPLETE)
+# 		gb.hour3:
+# 			sw._achievement_unlock(sw.achievements.HOUR_3_COMPLETE)
+# 		gb.hour4:
+# 			sw._achievement_unlock(sw.achievements.HOUR_4_COMPLETE)
+# 		gb.hour5:
+# 			sw._achievement_unlock(sw.achievements.HOUR_5_COMPLETE)
 
 func _jumpscare_finished(_string) -> void:
 	if gb.current_hour != gb.tutorial:

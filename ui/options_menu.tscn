@@ -40,13 +40,34 @@ theme_override_font_sizes/normal_font_size = 16
 text = "Master Volume"
 fit_content = true
 
-[node name="master_volume" type="HSlider" parent="flow_container/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "-80"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="master_volume" type="HSlider" parent="flow_container/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 min_value = -80.0
 max_value = 10.0
 script = ExtResource("1_lbr8e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+10"
+fit_content = true
+vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="flow_container"]
 layout_mode = 2
@@ -59,11 +80,34 @@ theme_override_font_sizes/normal_font_size = 16
 text = "Jumpscare Volume"
 fit_content = true
 
-[node name="jumpscare_volume" type="HSlider" parent="flow_container/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "-80"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="jumpscare_volume" type="HSlider" parent="flow_container/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
 script = ExtResource("3_4gmlt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+10"
+fit_content = true
+vertical_alignment = 1
 
 [node name="settings" type="BoxContainer" parent="."]
 layout_mode = 1

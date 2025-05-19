@@ -10,8 +10,7 @@ var monster_active: bool = false:
 		return monster_active
 	set(new_value):
 		monster_active = new_value
-		if monster_active == false:
-			sb._monster_inactive.emit()
+			
 
 var amb1: AudioStreamPlayer
 var amb2: AudioStreamPlayer
@@ -95,77 +94,81 @@ func _start_ambience() -> void:
 	amb3.play()
 	amb4.play()
 
+
 func _hour_changed(event) -> void:
-	if not gb.hour_5_active:
-		match gb.current_hour:
-			gb.hour1:
-				use_lightbulb_fx = true
-				use_flashlight_fx = !use_lightbulb_fx
-				if raining:
-					_stop_rain()
-			gb.hour2cut:
-				use_lightbulb_fx = false
-				use_flashlight_fx = !use_lightbulb_fx
-				if not raining:
-					_start_rain()
-			gb.hour2:
-				use_lightbulb_fx = false
-				use_flashlight_fx = !use_lightbulb_fx
-				if not raining:
-					_start_rain()
-			gb.hour3cut:
-				use_lightbulb_fx = false
-				use_flashlight_fx = !use_lightbulb_fx
-				if not raining:
-					_start_rain()
-			gb.hour3:
-				use_lightbulb_fx = false
-				use_flashlight_fx = !use_lightbulb_fx
-				if not raining:
-					_start_rain()
-			gb.hour4cut:
-				if raining:
-					_stop_rain()
-			gb.hour4:
-				use_lightbulb_fx = true
-				use_flashlight_fx = !use_lightbulb_fx
-				if raining:
-					_stop_rain()
-			gb.demo_sizzle:
-				use_lightbulb_fx = false
-				use_flashlight_fx = false
-				if raining:
-					_stop_rain()
-		progress_speed = 0.0
-	else:
+	match gb.current_hour:
+		gb.hour1:
+			use_lightbulb_fx = true
+			use_flashlight_fx = !use_lightbulb_fx
+			if raining:
+				_stop_rain()
+		gb.hour2cut:
+			use_lightbulb_fx = false
+			use_flashlight_fx = false
+			if not raining:
+				_start_rain()
+		gb.hour2:
+			use_lightbulb_fx = false
+			use_flashlight_fx = !use_lightbulb_fx
+			if not raining:
+				_start_rain()
+		gb.hour3cut:
+			use_lightbulb_fx = false
+			use_flashlight_fx = false
+			if not raining:
+				_start_rain()
+		gb.hour3:
+			use_lightbulb_fx = false
+			use_flashlight_fx = false
+			if not raining:
+				_start_rain()
+		gb.hour4cut:
+			use_lightbulb_fx = true
+			use_flashlight_fx = false
+			if raining:
+				_stop_rain()
+		gb.hour4:
+			use_lightbulb_fx = true
+			use_flashlight_fx = !use_lightbulb_fx
+			if raining:
+				_stop_rain()
+		gb.demo_sizzle:
+			use_lightbulb_fx = false
+			use_flashlight_fx = false
+			if raining:
+				_stop_rain()
+	progress_speed = 0.0
+	if gb.hour_5_active:
 		var bf = get_tree().get_nodes_in_group("BossFight")
 		if bf.is_empty():
 			_boss_fight_music()
-		#
+
 
 func _start_rain() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/Rain/rainamb1.ogg"
-	print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " +file)
-	stream.stream = load(file)
-	stream.volume_db = -80
-	var tween = get_tree().create_tween()
-	tween.tween_property(stream, "volume_db",-10,4)
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Rain")
-	raining = true
+	if not gb.hour_5_active:
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = "res://audio/Rain/rainamb1.ogg"
+		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " +file)
+		stream.stream = load(file)
+		stream.volume_db = -80
+		var tween = get_tree().create_tween()
+		tween.tween_property(stream, "volume_db",-10,4)
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Rain")
+		raining = true
 
 
 func _stop_rain() -> void:
-	for child in get_children():
-		if child.is_in_group("Rain"):
-			var tween = get_tree().create_tween()
-			await tween.tween_property(child, "volume_db", -80, 2).finished
-			child.queue_free()
-	raining = false
+	if not gb.hour_5_active:
+		for child in get_children():
+			if child.is_in_group("Rain"):
+				var tween = get_tree().create_tween()
+				await tween.tween_property(child, "volume_db", -80, 2).finished
+				child.queue_free()
+		raining = false
 
 func _switch_ambience_light_off() -> void:
 	amb1.volume_db = -5
@@ -197,6 +200,7 @@ func _event_start(event) -> void:
 					await _play_footsteps("none")
 					tutorial_finished_moving.emit()
 					monster_active = false
+					sb._monster_inactive.emit()
 		gb.hour1, gb.hour2:
 			match event:
 				_:
@@ -210,6 +214,7 @@ func _event_start(event) -> void:
 						_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
+					sb._monster_inactive.emit()
 		gb.hour3:
 			match event:
 				_:
@@ -227,6 +232,7 @@ func _event_start(event) -> void:
 						_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
+					sb._monster_inactive.emit()
 	progress_speed += 0.1
 
 func _event_end() -> void:
@@ -524,7 +530,7 @@ func _boss_fight_music() -> void:
 	var hour_5_track: AnimationPlayer = preload("uid://d3v85gdrfqqcq").instantiate()
 	hour_5_track.add_to_group("BossFight")
 	add_child(hour_5_track)
-	hour_5_track.play_section("hour_5", 160.0, 260.0)
+	hour_5_track.play_section("hour_5")
 	
 	
 

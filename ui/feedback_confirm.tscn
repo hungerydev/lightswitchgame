@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuhw5dhbgg6eu"]
+
+[ext_resource type="Script" uid="uid://c4qmmk3o5ap8g" path="res://ui/feedback_confirm.gd" id="1_5qskx"]
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="2_6m12n"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fhdwj"]
+
+[node name="FeedbackConfirm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6m12n")
+script = ExtResource("1_5qskx")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6m12n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="are_u_sure_text" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "This will open a google form in your default browser. Proceed?"
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_fhdwj"), null, null, null, null]
+
+[node name="yes" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "yes"
+
+[node name="no" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "no"
