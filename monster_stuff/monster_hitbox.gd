@@ -4,6 +4,8 @@ var mouse_active = false
 
 var monster_active = false
 
+var control: bool = true
+
 var misclicks: int = 0:
 	get:
 		return misclicks
@@ -28,7 +30,7 @@ var misclick_limit: int = 2
 
 
 func _ready() -> void:
-	pass
+	add_to_group("Controls")
 	#sb._event_1_1.connect(_event_1_1)
 	#sb._event_finished.connect(_reset)
 
@@ -52,7 +54,11 @@ func _input(event: InputEvent) -> void:
 				if not gb.current_hour == gb.tutorial:
 					misclicks += 1
 			
+func _disable_controls() -> void:
+	control = false
 
+func _enable_controls() -> void:
+	control = true
 
 #func _event_1_1() -> void:
 	#pcom._set_position(Vector3(-3.03967, -0.380207, 1.81116),Vector3(0, 0, 0),Vector3(0.72, 2.259, 0.846))

@@ -3,6 +3,8 @@ extends Camera3D
 @onready var pcom = $positionComponent
 @onready var jumpscare_animator: AnimationPlayer = $jumpscare_animator
 
+var fail: bool = false
+
 var chance_active = false
 
 var fov_reset = false
@@ -11,6 +13,7 @@ func _ready() -> void:
 	add_to_group("Entity")
 	jumpscare_animator.play("RESET")
 	_reset()
+	fail = false
 	sb._event_finished.connect(_reset)
 	sb._event_start.connect(_event_start)
 	sb._fail.connect(_fail)
@@ -48,12 +51,16 @@ func _random_chance() -> void:
  
 func _fail(_string) -> void:
 	if gb.current_hour != gb.tutorial:
-		jumpscare_animator.play("jumpscare/jumpscare")
-		await sb._jumpscare_finished
-		jumpscare_animator.play("RESET")
-		_reset()
+		if not fail:
+			fail = true
+			print("Setting camera to fail")
+			jumpscare_animator.play("jumpscare/jumpscare")
+			await sb._jumpscare_finished
+			jumpscare_animator.play("RESET")
+			_reset()
 
 func _reset() -> void:
+	print("resetting Camera")
 	chance_active = false
 	if fov_reset:
 		fov = 36.5

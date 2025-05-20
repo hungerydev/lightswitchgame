@@ -63,7 +63,6 @@ func _ready() -> void:
 	_start_ambience()
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_event_end)
-	sb._fail.connect(_fail)
 	sb._hour_changed.connect(_hour_changed)
 	sb._monster_clicked.connect(_play_sigh_fx)
 
@@ -138,11 +137,7 @@ func _hour_changed(event) -> void:
 			if raining:
 				_stop_rain()
 	progress_speed = 0.0
-	if gb.hour_5_active:
-		var bf = get_tree().get_nodes_in_group("BossFight")
-		if bf.is_empty():
-			_boss_fight_music()
-
+	
 
 func _start_rain() -> void:
 	if not gb.hour_5_active:
@@ -233,6 +228,10 @@ func _event_start(event) -> void:
 					await _play_footsteps("none")
 					monster_active = false
 					sb._monster_inactive.emit()
+	if gb.hour_5_active:
+		var bf = get_tree().get_nodes_in_group("BossFight")
+		if bf.is_empty():
+			_boss_fight_music()
 	progress_speed += 0.1
 
 func _event_end() -> void:
@@ -275,6 +274,40 @@ func _play_ls_on() -> void:
 			stream.add_to_group("SFX")
 			await stream.finished
 			remove_child(stream)
+
+func _play_ls_off_menu() -> void:
+	var group = get_tree().get_nodes_in_group("Lightswitch_Off")
+	if group.is_empty():
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = ar._choose_ls_off()
+		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+		stream.stream = load(file)
+		stream.volume_db = -10
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Lightswitch_Off")
+		stream.add_to_group("SFX")
+		await stream.finished
+		remove_child(stream)
+
+func _play_ls_on_menu() -> void:
+	var group = get_tree().get_nodes_in_group("Lightswitch_On")
+	if group.is_empty():
+		var random_id = randi_range(1,1000000)
+		var stream = AudioStreamPlayer.new()
+		add_child(stream)
+		var file = ar._choose_ls_on()
+		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+		stream.stream = load(file)
+		stream.volume_db = -10
+		stream.play()
+		stream.name += str(random_id)
+		stream.add_to_group("Lightswitch_On")
+		stream.add_to_group("SFX")
+		await stream.finished
+		remove_child(stream)
 
 func _play_flashlight_fx() -> void:
 	if use_flashlight_fx:

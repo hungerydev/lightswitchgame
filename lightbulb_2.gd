@@ -18,9 +18,9 @@ func _process_on(_event) -> void:
 func _lights_off() -> void:
 	set_process(false)
 	visible = false
-	am._play_ls_off()
+	am._play_ls_off_menu()
 	
 func _lights_on() -> void:
 	set_process(false)
 	visible = true
-	am._play_ls_on()
+	am._play_ls_on_menu()

@@ -10,7 +10,7 @@ var chance_modifier: float = clamp(1.0, 0.01, chance_setting):
 	set(value):
 		chance_modifier = clamp(value, 0.01, chance_setting)
 		print(str(Time.get_ticks_msec()) + ": " + "Current chance modifier: " + str(chance_modifier))
-var chance_reducer: float = 0.020
+var chance_reducer: float = 0.002
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE

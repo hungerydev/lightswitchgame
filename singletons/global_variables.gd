@@ -35,7 +35,11 @@ var current_hour = tutorial:
 			post_game_active = true
 		sb._hour_changed.emit(current_hour)
 
+var custom_endless_5_reset: Dictionary = {}
+
 var hour_5_active: bool = false
+
+var dont_change_hour: bool = false
 
 var custom_mode_active: bool = false
 

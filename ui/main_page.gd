@@ -45,34 +45,40 @@ func _new_text(text) -> void:
 
 
 func _on_chapter_select_item_selected(index: int) -> void:
+	
 	match index:
 		1:
+			
+			gb.hour_5_active = false
+			gb.custom_mode_active = false
+			gb.endless_mode_active = false
 			gb.current_hour = gb.hour1
-			gb.hour_5_active = false
-			gb.custom_mode_active = false
-			gb.endless_mode_active = false
 		2:
+			
+			gb.hour_5_active = false
+			gb.custom_mode_active = false
+			gb.endless_mode_active = false
 			gb.current_hour = gb.hour2
-			gb.hour_5_active = false
-			gb.custom_mode_active = false
-			gb.endless_mode_active = false
 		3:
-			gb.current_hour = gb.hour3
+			
 			gb.hour_5_active = false
 			gb.custom_mode_active = false
 			gb.endless_mode_active = false
+			gb.current_hour = gb.hour3
 
 		4:
-			gb.current_hour = gb.hour4
+			
 			gb.hour_5_active = false
 			gb.custom_mode_active = false
 			gb.endless_mode_active = false
+			gb.current_hour = gb.hour4
 
 		5:
-			gb.current_hour = gb.hour5
+			
 			gb.hour_5_active = true
 			gb.custom_mode_active = false
 			gb.endless_mode_active = false
+			gb.current_hour = gb.hour5
 
 
 func _on_submit_feedback_pressed() -> void:

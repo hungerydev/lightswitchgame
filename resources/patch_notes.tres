@@ -4,7 +4,18 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3.1
+text = "v0.3.2
+Bugs:
+- Deleting save data now properly resets post game status
+- Fixed an issue causing RNG to increase too quickly
+- Fixed an issue allowing random events to play during cutscenes
+- Fixed an issue causing particle effects to not load after a jumpscare
+- Fixed the lightning round
+- Fixed menu light switch sound effects
+- Fixed an issue allowing the hour 5 track to play on the main menu
+- Fixed multiple situations in which jumpscares could potentially play more than once in a row
+
+v0.3.1
 Features:
 - Added a chapter select menu to the main menu after completing the game
 - Added a \"current chapter\" text box to the main menu after completing the tutorial

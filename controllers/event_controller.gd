@@ -93,10 +93,12 @@ func _start_event() -> void:
 			gb.hour5:
 				if hour5loop:
 					gb.difficulty = gb.difficulty_setting
+					gb.custom_endless_5_reset = gb.current_hour
 					var event = gb._hour5()
 					sb._event_start.emit(event)
 					await sb._event_finished
 					gb.current_hour = gb.hour5
+					gb.custom_endless_5_reset = {}
 				else:
 					gb.hour_5_active = false
 					gb.current_hour = gb.end1
@@ -112,15 +114,19 @@ func _start_event() -> void:
 				queue_free()
 			gb.custom_mode:
 				gb.difficulty = gb.custom_mode_difficulty
+				gb.custom_endless_5_reset = gb.current_hour
 				var event = gb._custom_mode()
 				sb._event_start.emit(event)
 				await sb._event_finished
 				gb.current_hour = gb.custom_mode
+				gb.custom_endless_5_reset = {}
 			gb.endless_mode:
+				gb.custom_endless_5_reset = gb.current_hour
 				var event = gb._hour5()
 				sb._event_start.emit(event)
 				await sb._event_finished
 				gb.current_hour = gb.endless_mode
+				gb.custom_endless_5_reset = {}
 			gb.end3:
 				var new_event = gb.end3.values()[pm.end3i]
 				print(str(Time.get_ticks_msec()) + ": " + str(new_event))

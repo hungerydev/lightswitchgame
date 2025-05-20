@@ -115,7 +115,6 @@ func _lights_off() -> void:
 		am._play_flashlight_fx()
 	visible = false
 	on = false
-	am._play_flashlight_fx()
 	await get_tree().create_timer(0.25).timeout
 	sb._light_off.emit()
 

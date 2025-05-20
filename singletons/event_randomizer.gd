@@ -8,6 +8,7 @@ var hour5dict: Dictionary
 var customdict: Dictionary
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
+var allow_events: Array = [gb.hour1, gb.hour2, gb.hour3, gb.hour4]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sb._event_start.connect(_rcs_defer)
@@ -25,7 +26,7 @@ func _rcs_defer(_event) -> void:
 	call_deferred("_random_chance_selection")
 
 func _random_chance_selection() -> void:
-	if not gb.current_hour == gb.end1:
+	if gb.current_hour in allow_events:
 		var entities = get_tree().get_nodes_in_group("Entity")
 		entities.shuffle()
 		print(str(Time.get_ticks_msec()) + ": " + str(len(entities)))
@@ -34,6 +35,8 @@ func _random_chance_selection() -> void:
 				print(str(Time.get_ticks_msec()) + ": " + "Calling random chance event on " + str(entity))
 				entity.call("_random_chance")
 				entity.chance_active = false
+	else:
+		print(str(Time.get_ticks_msec()) + ": " + "Random events are currently disabled")
 
 
 func _choose_random_event() -> int:

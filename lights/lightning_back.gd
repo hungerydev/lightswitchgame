@@ -2,6 +2,8 @@ extends SpotLight3D
 
 var on: bool = true
 
+var fail: bool = false
+
 func _ready() -> void:
 	visible = false
 	on = visible
@@ -36,13 +38,7 @@ func _event_start(event) -> void:
 		gb.hour3:
 			match event:
 				gb.hour3.EVENT_3_6, gb.hour3.EVENT_3_7, gb.hour3.EVENT_3_8, gb.hour3.EVENT_3_9, gb.hour3.EVENT_3_10:
-					_lights_off()
-					await get_tree().create_timer(randf_range(1, 5)*gb.difficulty, false).timeout
-					_lights_on()
-					var timer = get_tree().create_timer(3*gb.difficulty, false)
-					timer.timeout.connect(_too_slow)
-					await sb._event_finished
-					timer.timeout.disconnect(_too_slow)
+					_lightning_event_step_one()
 		gb.hour2cut:
 			match event:
 				gb.hour2cut.HOUR_2_CUT_3:
@@ -51,6 +47,20 @@ func _event_start(event) -> void:
 					_lights_off()
 					sb._event_finished.emit()
 				
+func _lightning_event_step_one() -> void:
+	_lights_off()
+	var timer = get_tree().create_timer(randf_range(1, 5)*gb.difficulty, false)
+	timer.timeout.connect(_lightning_event_step_two)
+	await sb._event_finished
+	timer.timeout.disconnect(_lightning_event_step_two)
+	
+	
+func _lightning_event_step_two() -> void:
+	_lights_on()
+	var timer = get_tree().create_timer(2*gb.difficulty, false)
+	timer.timeout.connect(_too_slow)
+	await sb._event_finished
+	timer.timeout.disconnect(_too_slow)
 				
 func _lights_on() -> void:
 	visible = true
@@ -68,6 +78,9 @@ func _reset() -> void:
 	light_color = Color(0.631, 0.969, 0.902)
 	visible = false
 	on = false
+	fail = false
 
 func _too_slow() -> void:
-	sb._fail.emit("slow")
+	if not fail:
+		sb._fail.emit("slow")
+		fail = true

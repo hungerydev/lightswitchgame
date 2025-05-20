@@ -57,12 +57,14 @@ func _start_game() -> void:
 func _fail() -> void: 
 	control = false
 	gf.chance_modifier = gf.chance_setting
-	_clear_scene()
+	await _clear_scene()
 	await _instantiate_main_scene()
 	await _instantiate_main_menu()
 	sb._event_finished.emit()
 	pm._reset_progress()
 	am._start_ambience()
+	if gb.custom_endless_5_reset != {}:
+		gb.current_hour = gb.custom_endless_5_reset
 	am.monster_active = false
 	control = true
 	
@@ -70,6 +72,7 @@ func _fail() -> void:
 func _clear_scene() -> Signal:
 	for child in get_children():
 		child.queue_free()
+	await get_tree().create_timer(0.01).timeout
 	return finished
 	
 func _instantiate_main_scene() -> Signal:

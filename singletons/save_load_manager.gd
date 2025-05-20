@@ -105,3 +105,7 @@ func _save_user_data() -> void:
 func _delete_save() -> void:
 	gb.current_hour = gb.tutorial
 	gb.last_hour_completed = gb.tutorial
+	gb.post_game_active = false
+	gb.hour_5_active = false
+	gb.custom_mode_active = false
+	gb.endless_mode_active = false
