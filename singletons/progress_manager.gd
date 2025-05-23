@@ -39,7 +39,7 @@ var crediti: int = 0
 var creditmax: int = 0
 
 var customi: int = 0
-var custommax: int = 30
+var custommax: int = 2
 
 var endlessi := 0
 var endlessmax := 999
@@ -61,6 +61,44 @@ func _ready() -> void:
 func _event_start(event) -> Signal:
 	if gb.override_event_target != null:
 		pass
+	if gb.endless_mode_active:
+		await sb._event_finished
+		if endlessi == 25:
+			gb.difficulty = 0.7
+		elif endlessi == 50:
+			gb.difficulty = 0.5
+		elif endlessi == 75:
+			gb.difficulty = 0.3
+		elif endlessi == 100:
+			gb.difficulty = 0.2
+			if not gb.end_3_achieved:
+				gb.end_3_achieved = true
+				sw._achievement_unlock(sw.achievements.ENDLESS_MODE_COMPLETE)
+				gb.current_hour = gb.end3
+				gb.endless_mode_active = false
+		elif endlessi == 300:
+			gb.difficulty = 0.1
+		elif endlessi == endlessmax:
+			sw._achievement_unlock(sw.achievements.ENDLESS_MODE_EXHAUSTED)
+			gb.current_hour = gb.endless_exhaust
+			gb.endless_mode_active = false
+		endlessi += 1
+		return finished
+	if gb.custom_mode_active:
+		await sb._event_finished
+		if customi == custommax:
+			gb.current_hour = gb.post_game
+			if gb.max_custom_mode_active:
+				sw._achievement_unlock(sw.achievements.CUSTOM_MODE_COMPLETE)
+				gb.current_hour = gb.end2
+				gb.custom_mode_active = false
+			else:
+				gb.custom_mode_active = false
+				gb.current_hour = gb.custom_mode_bad_end
+		else:
+			customi += 1
+		return finished
+
 	match gb.current_hour:
 		gb.tutorial:
 			await sb._event_finished
@@ -138,35 +176,6 @@ func _event_start(event) -> Signal:
 				gb.last_hour_completed = gb.hour5
 			else:
 				hour5i += 1
-		gb.custom_mode:
-			if customi == custommax:
-				gb.current_hour = gb.post_game
-				if gb.max_custom_mode_active:
-					sw._achievement_unlock(sw.achievements.CUSTOM_MODE_COMPLETE)
-					# TODO: Go to ending 2
-				else:
-					pass
-					# TODO: Figure out something else to do for non-max mode
-			else:
-				customi += 1
-		gb.endless_mode:
-			if endlessi == 25:
-				gb.difficulty = 0.7
-			elif endlessi == 50:
-				gb.difficulty = 0.5
-			elif endlessi == 75:
-				gb.difficulty = 0.3
-			elif endlessi == 100:
-				gb.difficulty = 0.2
-				sw._achievement_unlock(sw.achievements.ENDLESS_MODE_COMPLETE)
-				# TODO: Go to ending 3
-				# TODO: Handle determining if the player has gotten this far before and don't send them to the ending if they have
-			elif endlessi == 150:
-				gb.difficulty = 0.1
-			elif endlessi == endlessmax:
-				# TODO: Make an ending of some kind for beating this
-				sw._achievement_unlock(sw.achievements.ENDLESS_MODE_EXHAUSTED)
-			endlessi += 1
 		gb.end3:
 			if end3i == end3max:
 				pass

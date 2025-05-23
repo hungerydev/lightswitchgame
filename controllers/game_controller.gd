@@ -57,12 +57,14 @@ func _start_game() -> void:
 func _fail() -> void: 
 	control = false
 	gf.chance_modifier = gf.chance_setting
+	gb.difficulty = gb.difficulty_setting
 	await _clear_scene()
 	await _instantiate_main_scene()
 	await _instantiate_main_menu()
 	sb._event_finished.emit()
 	pm._reset_progress()
 	am._start_ambience()
+	am._kill_streams_by_group("BossFight")
 	if gb.custom_endless_5_reset != {}:
 		gb.current_hour = gb.custom_endless_5_reset
 	am.monster_active = false

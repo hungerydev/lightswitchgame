@@ -101,6 +101,7 @@ func _start_event() -> void:
 					gb.custom_endless_5_reset = {}
 				else:
 					gb.hour_5_active = false
+					gb.end_1_achieved = true
 					gb.current_hour = gb.end1
 					sb._remote_light_off.emit()
 					sb._remote_flashlight_off.emit()
@@ -118,21 +119,45 @@ func _start_event() -> void:
 				var event = gb._custom_mode()
 				sb._event_start.emit(event)
 				await sb._event_finished
-				gb.current_hour = gb.custom_mode
+				if gb.custom_mode_active:
+					gb.current_hour = gb.custom_mode
+					gb.custom_endless_5_reset = {}
+			gb.custom_mode_bad_end:
+				sb._remote_light_off.emit()
+				sb._remote_flashlight_off.emit()
+				get_tree().call_group("Controls", "_disable_controls")
+				sb._event_start.emit(gb.custom_mode_bad_end.CMBE_1)
+				await get_tree().create_timer(5).timeout
+				sb._event_start.emit(gb.custom_mode_bad_end.CMBE_2)
+				await get_tree().create_timer(5).timeout
+				gb.current_hour = gb.post_game
+				gb.custom_mode_active = false
 				gb.custom_endless_5_reset = {}
+				get_tree().call_group("gc", "_fail")
+			gb.end2:
+				get_tree().call_group("Controls", "_disable_controls")
+				sb._remote_light_off.emit()
+				sb._remote_flashlight_off.emit()
+				var end2track: AnimationPlayer = preload("uid://b3efrih6br3qh").instantiate()
+				add_child(end2track)
 			gb.endless_mode:
 				gb.custom_endless_5_reset = gb.current_hour
-				var event = gb._hour5()
+				var event = gb._endless()
 				sb._event_start.emit(event)
 				await sb._event_finished
-				gb.current_hour = gb.endless_mode
-				gb.custom_endless_5_reset = {}
+				if gb.endless_mode_active:
+					gb.current_hour = gb.endless_mode
+					gb.custom_endless_5_reset = {}
 			gb.end3:
+				get_tree().call_group("Controls", "_disable_controls")
+				gb.end_3_achieved = true
 				var new_event = gb.end3.values()[pm.end3i]
 				print(str(Time.get_ticks_msec()) + ": " + str(new_event))
 				if pm.end3i < 2:
 					cutscene = true
 					sb._remote_light_off.emit()
+					sb._remote_flashlight_off.emit()
+					await get_tree().create_timer(1).timeout
 					sb._event_start.emit(gb.end3.END_3_1)
 					sb._remote_light_on.emit()
 					await get_tree().create_timer(5).timeout
@@ -140,9 +165,33 @@ func _start_event() -> void:
 					await get_tree().create_timer(0.65).timeout
 					am._play_train_ending()
 					await get_tree().create_timer(14.35).timeout
-					sb._jumpscare_finished.emit("null")
-					await am.finished
-					cutscene = false
+					sb._remote_light_off.emit()
+					await get_tree().create_timer(5).timeout
+					get_tree().quit()
+			gb.endless_exhaust:
+				get_tree().call_group("Controls", "_disable_controls")
+				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_1)
+				sb._remote_light_on.emit()
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(1).timeout
+				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_2)
+				sb._remote_light_on.emit()
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(1).timeout
+				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_3)
+				sb._remote_light_on.emit()
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(1).timeout
+				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_4)
+				sb._remote_light_on.emit()
+				await get_tree().create_timer(4).timeout
+				sb._remote_light_off.emit()
+				await get_tree().create_timer(1).timeout
+				gb.current_hour = gb.post_game
+				get_tree().call_group("gc", "_fail")
 			gb.demo_sizzle:
 				var new_event = gb.demo_sizzle.values()[pm.dsi]
 				sb._event_start.emit(new_event)

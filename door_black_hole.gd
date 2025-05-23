@@ -9,6 +9,7 @@ func _ready() -> void:
 	sl_in_room.visible = false
 	sb._event_start.connect(_event_start)
 	sb._jumpscare_finished.connect(_lights_off_death)
+	sb._remote_light_off.connect(_lights_off_death)
 
 func _event_start(event) -> void:
 	match gb.current_hour:
@@ -22,6 +23,6 @@ func _event_start(event) -> void:
 					var tween2 = get_tree().create_tween()
 					tween2.tween_property(sl_in_room, "spot_range", 28, 3)
 
-func _lights_off_death(event) -> void:
+func _lights_off_death() -> void:
 	light_fov.fov = 179
 	sl_in_room.visible = false

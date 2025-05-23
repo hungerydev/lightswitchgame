@@ -109,3 +109,4 @@ func _delete_save() -> void:
 	gb.hour_5_active = false
 	gb.custom_mode_active = false
 	gb.endless_mode_active = false
+	gb.end_3_achieved = false

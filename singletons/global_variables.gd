@@ -89,17 +89,27 @@ enum hour5 {HOUR_5 = 501}
 
 enum end1 {END_1_1 = 901, END_1_2, END_1_3, END_1_4, END_1_5, END_1_6, END_1_7, END_1_8, END_1_9, END_1_10}
 
+var end_1_achieved: bool = false
+
 enum credits {CRED_1 = 651, CRED_2, CRED_3, CRED_4}
 
 enum post_game {POST_GAME = 601}
 
 enum custom_mode {CUSTOM_MODE = 701}
 
+enum custom_mode_bad_end {CMBE_1 = 1401, CMBE_2}
+
 enum end2 {END_2_1 = 1001, END_2_2, END_2_3}
 
 enum endless_mode {ENDLESS_MODE = 801}
 
 enum end3 {END_3_1 = 1101, END_3_2}
+
+var end_2_achieved: bool = false
+
+var end_3_achieved: bool = false
+
+enum endless_exhaust {ENDLESS_EXHAUST_1 = 1501, ENDLESS_EXHAUST_2, ENDLESS_EXHAUST_3, ENDLESS_EXHAUST_4}
 
 enum demo_sizzle {DS_1 = 1201, DS_2, DS_3, DS_4, DS_5, DS_6, DS_7}
 
@@ -137,6 +147,12 @@ func _hour5() -> int:
 	var event = er._choose_random_event()
 	return event
 
+func _endless() -> int:
+	var hour5_pick = er._hour5_pick()
+	current_hour = hour5_pick
+	var event = er._choose_random_event()
+	return event
+
 func _custom_mode() -> int:
 	var custom_pick = er._custom_pick()
 	current_hour = custom_pick
@@ -156,7 +172,10 @@ func _save() -> Dictionary:
 		"last_hour_completed": last_hour_completed,
 		"difficulty_setting": difficulty_setting,
 		"demo_mode": demo_mode,
-		"post_game_active": post_game_active
+		"post_game_active": post_game_active,
+		"end_1_achieved": end_1_achieved,
+		"end_2_achieved": end_2_achieved,
+		"end_3_achieved": end_3_achieved,
 	}
 	return save_dict
 
@@ -204,6 +223,12 @@ func _load(data: Dictionary) -> void:
 	if data.has("post_game_active"):
 		post_game_active = data["post_game_active"]
 	difficulty_setting = data["difficulty_setting"]
+	if data.has("end_1_achieved"):	
+		end_1_achieved = data["end_1_achieved"]
+	if data.has("end_2_achieved"):	
+		end_2_achieved = data["end_2_achieved"]
+	if data.has("end_3_achieved"):	
+		end_3_achieved = data["end_3_achieved"]
 	death = true
 	fail = false
 	loading = false
