@@ -149,7 +149,7 @@
 [ext_resource type="Texture2D" uid="uid://3eacjgxr8uhn" path="res://logo/buildout_cropped/logo_fade_cropped00000142.png" id="144_l2l1w"]
 [ext_resource type="Texture2D" uid="uid://bfyxdxsr6jgcr" path="res://logo/buildout_cropped/logo_fade_cropped00000143.png" id="145_s24ri"]
 [ext_resource type="Texture2D" uid="uid://b6ijb6a7y7wtp" path="res://logo/buildout_cropped/logo_fade_cropped00000144.png" id="146_fqmp0"]
-[ext_resource type="PackedScene" uid="uid://cwp1t42pb1nox" path="res://chapter_select.tscn" id="149_gni4x"]
+[ext_resource type="PackedScene" uid="uid://f3duwyk4sxuv" path="res://ui/chapter_select.tscn" id="149_gni4x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
 animations = [{

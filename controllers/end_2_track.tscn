@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3efrih6br3qh"]
 
 [ext_resource type="AudioStream" uid="uid://q2y8lna7doll" path="res://audio/Car Crash/CarCrash.ogg" id="1_nkpl5"]
-[ext_resource type="Script" uid="uid://bk6pebc5um0t7" path="res://end_2_helper.gd" id="2_7wnkm"]
+[ext_resource type="Script" uid="uid://1fovra7ieljn" path="res://controllers/end_2_helper.gd" id="2_7wnkm"]
 
 [sub_resource type="Animation" id="Animation_d00xi"]
 resource_name = "end_2"

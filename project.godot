@@ -31,7 +31,7 @@ pm="*res://singletons/progress_manager.gd"
 er="*res://singletons/event_randomizer.gd"
 slm="*res://singletons/save_load_manager.gd"
 am="*res://singletons/audio_manager.tscn"
-sw="*res://steamworks.gd"
+sw="*res://singletons/steamworks.gd"
 ap="*res://singletons/achievement_progress.gd"
 h5m="*res://singletons/h5m.gd"
 

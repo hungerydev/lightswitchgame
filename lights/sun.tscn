@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpo1aqoy7ibuj"]
 
-[ext_resource type="Script" uid="uid://cecpbm1quhku4" path="res://sun.gd" id="1_7y3ck"]
+[ext_resource type="Script" uid="uid://cy0wr2jl0c2eb" path="res://lights/sun.gd" id="1_7y3ck"]
 
 [sub_resource type="Animation" id="Animation_8a3nq"]
 length = 0.001

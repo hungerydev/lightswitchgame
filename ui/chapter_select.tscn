@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cwp1t42pb1nox"]
+[gd_scene format=3 uid="uid://f3duwyk4sxuv"]
 
 [node name="ChapterSelect" type="OptionButton"]
 selected = 0

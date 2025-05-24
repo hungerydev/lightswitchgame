@@ -5,7 +5,7 @@ var chance_active = false
 func _ready() -> void:
 	add_to_group("Entity")
 	visible = false
-	sb._light_on.connect(_chance)
+	sb._event_start.connect(_chance)
 	sb._event_finished.connect(_disable)
 
 func _chance() -> void:
@@ -13,6 +13,7 @@ func _chance() -> void:
 		chance_active = true
 
 func _random_chance() -> void:
+	await sb._light_on
 	visible = true
 	await get_tree().create_timer(4).timeout
 	visible = false
