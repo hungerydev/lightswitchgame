@@ -16,7 +16,6 @@ var override_active: bool = false
 func _ready() -> void:
 	if OS.has_feature("demo_mode"):
 		gb.demo_mode = true
-	gb.demo_mode = true
 	add_to_group("gc")
 	control = false
 	_instantiate_pointer()

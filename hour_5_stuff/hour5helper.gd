@@ -1,6 +1,12 @@
 extends Node
 class_name Hour5Helper
 
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+
+func _ready() -> void:
+	sb._light_on.connect(volume_up)
+	sb._light_off.connect(volume_down)
+
 ## Break the hour5loop at the correct time and remove the event controller
 func stop_loop() -> void:
 	sb._hour5_loop_deactivate.emit()
@@ -59,3 +65,11 @@ func step_nine() -> void:
 	var credits: Control = preload("uid://cux5p13g4uhf7").instantiate()
 	get_parent().add_sibling(credits)
 	get_parent().queue_free()
+	
+func volume_up() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(audio_stream_player, "volume_db", -12, 0.1)
+	
+func volume_down() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(audio_stream_player, "volume_db", -14, 0.1)

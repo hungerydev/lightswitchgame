@@ -2234,6 +2234,7 @@ omni_attenuation = 0.619
 script = ExtResource("138_6mykh")
 
 [node name="Sun" parent="." instance=ExtResource("228_0667l")]
+visible = false
 
 [node name="EndSequenceMeshes" type="Node3D" parent="."]
 script = ExtResource("258_pew3u")

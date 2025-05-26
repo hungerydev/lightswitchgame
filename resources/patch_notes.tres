@@ -4,7 +4,11 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3.5
+text = "v0.3.6
+- Small changes to hour 5
+- Small changes to particle emission
+
+v0.3.5
 - Proper demo handling
 
 v0.3.4
