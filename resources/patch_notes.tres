@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3.3
+text = "v0.3.4
+- Visual polish
+- Added a custom cursor
+- Fixed some pausing issues
+
+v0.3.3
 - All Endings are now in place
 - Ending Counter now works
 - Fixed an issue allowing the hour 5 track to play on the main menu (for real this time)
