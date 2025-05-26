@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3.4
+text = "v0.3.5
+- Proper demo handling
+
+v0.3.4
 - Visual polish
 - Added a custom cursor
 - Fixed some pausing issues

@@ -33,6 +33,12 @@ var current_hour = tutorial:
 		current_hour = new_hour
 		if current_hour == post_game:
 			post_game_active = true
+		if demo_mode == true:
+			match new_hour:
+				gb.tutorial, gb.hour1, gb.hour2cut, gb.hour2, gb.hour3cut, gb.demo_sizzle:
+					pass
+				_:
+					gb.current_hour = gb.demo_sizzle
 		sb._hour_changed.emit(current_hour)
 
 var custom_endless_5_reset: Dictionary = {}

@@ -110,3 +110,4 @@ func _delete_save() -> void:
 	gb.custom_mode_active = false
 	gb.endless_mode_active = false
 	gb.end_3_achieved = false
+	gf.chance_setting = gf.chance_default
