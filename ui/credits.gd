@@ -7,6 +7,9 @@ extends Control
 
 func _ready() -> void:
 	add_to_group("Credits")
+	title.visible = false
+	assets.visible = false
+	audio.visible = false
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	gb.current_hour = gb.post_game
 	gb.last_hour_completed = gb.hour5

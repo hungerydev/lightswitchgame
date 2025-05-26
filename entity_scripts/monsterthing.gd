@@ -264,6 +264,7 @@ func _event_start(event) -> void:
 func _fail(string) -> void:
 	if gb.current_hour == gb.tutorial:
 		get_tree().call_group("Controls", "_disable_controls")
+		am._fail(string)
 		if string == "tutorial_slow":
 			sb._jumpscare_finished.emit(string)
 		else: sb._jumpscare_finished.emit("tutorial_fast")

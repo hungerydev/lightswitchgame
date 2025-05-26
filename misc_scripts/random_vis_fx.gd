@@ -8,14 +8,14 @@ func _ready() -> void:
 	sb._event_start.connect(_chance)
 	sb._event_finished.connect(_disable)
 
-func _chance() -> void:
+func _chance(_event) -> void:
 	if gf._rc_very_hard():
 		chance_active = true
 
 func _random_chance() -> void:
 	await sb._light_on
 	visible = true
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(4, false).timeout
 	visible = false
 
 func _disable() -> void:

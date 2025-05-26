@@ -23,7 +23,7 @@ func _instantiate_settings() -> void:
 	var options = preload("uid://q28ueobsmonp").instantiate()
 	add_child(options)
 	options.visible = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	options.visible = true
 
@@ -42,7 +42,7 @@ func _instantiate_main_page() -> Signal:
 		pg = _instantiate_post_game()
 		add_child(pg)
 		pg.visible = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	main_page.visible = true
 	if pg != null:
@@ -67,7 +67,7 @@ func _instantiate_custom_mode_menu() -> void:
 	var cmc = preload("uid://dh8v5pqicae2j").instantiate()
 	add_child(cmc)
 	custom_mode.visible = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	custom_mode.visible = true
 
@@ -82,7 +82,7 @@ func _instantiate_endless_mode_menu() -> void:
 	var endless_mode = preload("uid://ddbt5gxjq5o8w").instantiate()
 	add_child(endless_mode)
 	endless_mode.visible = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	endless_mode.visible = true
 
@@ -97,7 +97,7 @@ func _instantiate_feedback_response_menu() -> void:
 	var feedback_confirm = preload("uid://cuhw5dhbgg6eu").instantiate()
 	add_child(feedback_confirm)
 	feedback_confirm.visible = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	feedback_confirm.visible = true
 
@@ -107,5 +107,5 @@ func _quit_game():
 	for child in get_children():
 		child.visible = false
 	sb._menu_light_off.emit()
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.5, false).timeout
 	get_tree().quit()

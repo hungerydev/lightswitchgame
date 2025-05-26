@@ -25,7 +25,7 @@ func _event_start(event) -> void:
 			if gf._rc_hard():
 				pcom._set_position(Vector3(0, 1.97963, -6.63983),Vector3(0, -3.14159, 2.51327),Vector3(1, 1, 1))
 		gb.end1.END_1_5:
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.5, false).timeout
 			pcom._set_position(Vector3(0, 3.29744, -11.6972),Vector3(0, -3.14159, 0),Vector3(1, 1, 1))
 		gb.end1.END_1_9:
 			_reset()

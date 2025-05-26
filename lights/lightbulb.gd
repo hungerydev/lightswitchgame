@@ -94,7 +94,7 @@ func _event_start(event) -> void:
 				gb.hour2cut.HOUR_2_CUT_3:
 					flicker = true
 					_lights_on()
-					await get_tree().create_timer(0.5).timeout
+					await get_tree().create_timer(0.5, false).timeout
 					_lights_off()
 				gb.hour2cut.HOUR_2_CUT_4, gb.hour2cut.HOUR_2_CUT_5:
 					_lights_off()
@@ -120,9 +120,9 @@ func _event_start(event) -> void:
 			match event:
 				gb.trailer.t3:
 					_lights_on()
-					await get_tree().create_timer(1.5).timeout
+					await get_tree().create_timer(1.5, false).timeout
 					flicker = true
-					await get_tree().create_timer(1.5).timeout
+					await get_tree().create_timer(1.5, false).timeout
 					_lights_off()
 
 func _lights_on() -> void:
@@ -153,7 +153,7 @@ func _lights_off() -> void:
 	visible = false
 	on = false
 	am._switch_ambience_light_off()
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.25, false).timeout
 	sb._light_off.emit()
 	
 func _time_fail(string) -> void:
@@ -171,7 +171,7 @@ func _time_fail(string) -> void:
 func _flicker() -> void:
 	control = false
 	flicker = true
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.1, false).timeout
 	sb._fail.emit("slow")
 
 func _lights_off_death(string) -> void:

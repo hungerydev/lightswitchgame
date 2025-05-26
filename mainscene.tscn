@@ -465,6 +465,8 @@ shader_parameter/inner_radius = 0.08
 shader_parameter/outer_radius = 4.325
 
 [sub_resource type="Environment" id="Environment_0b4ue"]
+glow_enabled = true
+glow_hdr_threshold = 1.35
 fog_light_color = Color(0, 0, 0, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0205
@@ -1673,7 +1675,7 @@ size = Vector2(8, 4.5)
 script = ExtResource("1_nui55")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 3.29744, -11.6972)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.917, -6.127)
 fov = 37.8
 far = 13.82
 script = ExtResource("8_1cnxy")
@@ -2170,6 +2172,7 @@ omni_attenuation = 0.619
 script = ExtResource("138_6mykh")
 
 [node name="Sun" parent="." instance=ExtResource("228_0667l")]
+visible = false
 
 [node name="EndSequenceMeshes" type="Node3D" parent="."]
 script = ExtResource("258_pew3u")

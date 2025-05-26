@@ -18,6 +18,7 @@ func _ready() -> void:
 		gb.demo_mode = true
 	add_to_group("gc")
 	control = false
+	_instantiate_pointer()
 	await _instantiate_main_scene()
 	
 	await _instantiate_main_menu()
@@ -73,10 +74,16 @@ func _fail() -> void:
 
 func _clear_scene() -> Signal:
 	for child in get_children():
-		child.queue_free()
+		if !child.is_in_group("Pointer"):
+			child.queue_free()
 	await get_tree().create_timer(0.01).timeout
 	return finished
 	
+func _instantiate_pointer() -> void:
+	var pointer = preload("uid://dciu331xf3kvc").instantiate()
+	pointer.add_to_group("Pointer")
+	add_child(pointer)
+
 func _instantiate_main_scene() -> Signal:
 	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
 	mainscene.add_to_group("Main Scene")

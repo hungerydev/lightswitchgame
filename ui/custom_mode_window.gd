@@ -7,6 +7,7 @@ extends Control
 func _ready() -> void:
 	$CenterContainer/start.pressed.connect(_start_custom_mode)
 	$CenterContainer2/back.pressed.connect(_back_to_main_menu)
+	mechanic_chooser.multi_selected.connect(_warning_hide)
 	
 
 
@@ -21,6 +22,10 @@ func _start_custom_mode() -> void:
 		for node in nodes:
 			node._start_custom_mode(hour_selection, difficulty, rng)
 	
+
+func _warning_hide(_i, _b) -> void:
+	if warning_text.visible:
+		warning_text.visible = false
 
 func _back_to_main_menu() -> void:
 	get_parent()._ready()

@@ -39,7 +39,7 @@ var crediti: int = 0
 var creditmax: int = 0
 
 var customi: int = 0
-var custommax: int = 2
+var custommax: int = 30
 
 var endlessi := 0
 var endlessmax := 999

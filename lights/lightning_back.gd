@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if visible:
 		light_energy = randf_range(0,3)
-		await get_tree().create_timer(.25).timeout
+		await get_tree().create_timer(.25, false).timeout
 	
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("right_click"):
@@ -43,7 +43,7 @@ func _event_start(event) -> void:
 			match event:
 				gb.hour2cut.HOUR_2_CUT_3:
 					_lights_on()
-					await get_tree().create_timer(4).timeout
+					await get_tree().create_timer(4, false).timeout
 					_lights_off()
 					sb._event_finished.emit()
 				
@@ -71,7 +71,7 @@ func _lights_on() -> void:
 func _lights_off() -> void:
 	visible = false
 	on = false
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.25, false).timeout
 	sb._light_off.emit()
 
 func _reset() -> void:

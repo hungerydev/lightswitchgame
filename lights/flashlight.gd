@@ -91,9 +91,9 @@ func _event_start(event) -> void:
 					tween.set_trans(Tween.TRANS_EXPO)
 					tween.set_ease(Tween.EASE_IN_OUT)
 					tween.tween_property(self, "rotation_degrees", Vector3(0.6, 191, -53.1), 2)
-					await get_tree().create_timer(1).timeout
+					await get_tree().create_timer(1, false).timeout
 					flicker = true
-					await get_tree().create_timer(1.5).timeout
+					await get_tree().create_timer(1.5, false).timeout
 					_lights_off()
 
 func _lights_on() -> void:
@@ -115,7 +115,7 @@ func _lights_off() -> void:
 		am._play_flashlight_fx()
 	visible = false
 	on = false
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.25, false).timeout
 	sb._light_off.emit()
 
 func _reset() -> void:
@@ -139,5 +139,5 @@ func _lights_off_death(string) -> void:
 func _flicker() -> void:
 	control = false
 	flicker = true
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.1, false).timeout
 	sb._fail.emit("slow")

@@ -36,7 +36,7 @@ func one_four() -> void:
     three.visible = false
     four_mat.set_current_frame(0)
     four.visible = true
-    await get_tree().create_timer(0.96).timeout
+    await get_tree().create_timer(0.96, false).timeout
     one_five()
     
 
@@ -48,7 +48,7 @@ func one_six() -> void:
     five.visible = false
     six_mat.set_current_frame(0)
     six.visible = true
-    await get_tree().create_timer(0.64).timeout
+    await get_tree().create_timer(0.64, false).timeout
     six.visible = false
     seven.visible = true
 

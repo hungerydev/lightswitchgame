@@ -10,7 +10,7 @@ func _ready() -> void:
 	sb._event_finished.connect(_event_finished)
 	sb._manual_event_start.connect(_start_event)
 	sb._hour5_loop_deactivate.connect(_disable_hour_5_loop)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1, false).timeout
 	_start_event()
 	
 
@@ -35,9 +35,9 @@ func _start_event() -> void:
 					cutscene = true
 					sb._remote_light_off.emit()
 					am._play_cut_music_snippets("Cut_Snip_1.ogg")
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour2cut.HOUR_2_CUT_1)
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour2cut.HOUR_2_CUT_2)
 					cutscene = false
 				else:
@@ -49,9 +49,9 @@ func _start_event() -> void:
 					cutscene = true
 					sb._remote_flashlight_off.emit()
 					am._play_cut_music_snippets("Cut_Snip_2.ogg")
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour3cut.HOUR_3_CUT_1)
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour3cut.HOUR_3_CUT_2)
 					cutscene = false
 				else:
@@ -63,9 +63,9 @@ func _start_event() -> void:
 					cutscene = true
 					sb._remote_light_off.emit()
 					am._play_cut_music_snippets("Cut_Snip_3.ogg")
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour4cut.HOUR_4_CUT_1)
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour4cut.HOUR_4_CUT_2)
 					cutscene = false
 				else:
@@ -77,9 +77,9 @@ func _start_event() -> void:
 					cutscene = true
 					sb._remote_light_off.emit()
 					am._play_cut_music_snippets("Cut_Snip_4.ogg")
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour5cut.HOUR_5_CUT_1)
-					await get_tree().create_timer(8).timeout
+					await get_tree().create_timer(8, false).timeout
 					sb._event_start.emit(gb.hour5cut.HOUR_5_CUT_2)
 					cutscene = false
 				else:
@@ -127,9 +127,9 @@ func _start_event() -> void:
 				sb._remote_flashlight_off.emit()
 				get_tree().call_group("Controls", "_disable_controls")
 				sb._event_start.emit(gb.custom_mode_bad_end.CMBE_1)
-				await get_tree().create_timer(5).timeout
+				await get_tree().create_timer(5, false).timeout
 				sb._event_start.emit(gb.custom_mode_bad_end.CMBE_2)
-				await get_tree().create_timer(5).timeout
+				await get_tree().create_timer(5, false).timeout
 				gb.current_hour = gb.post_game
 				gb.custom_mode_active = false
 				gb.custom_endless_5_reset = {}
@@ -157,39 +157,39 @@ func _start_event() -> void:
 					cutscene = true
 					sb._remote_light_off.emit()
 					sb._remote_flashlight_off.emit()
-					await get_tree().create_timer(1).timeout
+					await get_tree().create_timer(1, false).timeout
 					sb._event_start.emit(gb.end3.END_3_1)
 					sb._remote_light_on.emit()
-					await get_tree().create_timer(5).timeout
+					await get_tree().create_timer(5, false).timeout
 					sb._event_start.emit(gb.end3.END_3_2)
-					await get_tree().create_timer(0.65).timeout
+					await get_tree().create_timer(0.65, false).timeout
 					am._play_train_ending()
-					await get_tree().create_timer(14.35).timeout
+					await get_tree().create_timer(14.35, false).timeout
 					sb._remote_light_off.emit()
-					await get_tree().create_timer(5).timeout
+					await get_tree().create_timer(5, false).timeout
 					get_tree().quit()
 			gb.endless_exhaust:
 				get_tree().call_group("Controls", "_disable_controls")
 				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_1)
 				sb._remote_light_on.emit()
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(1).timeout
+				await get_tree().create_timer(1, false).timeout
 				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_2)
 				sb._remote_light_on.emit()
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(1).timeout
+				await get_tree().create_timer(1, false).timeout
 				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_3)
 				sb._remote_light_on.emit()
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(1).timeout
+				await get_tree().create_timer(1, false).timeout
 				sb._event_start.emit(gb.endless_exhaust.ENDLESS_EXHAUST_4)
 				sb._remote_light_on.emit()
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(1).timeout
+				await get_tree().create_timer(1, false).timeout
 				gb.current_hour = gb.post_game
 				get_tree().call_group("gc", "_fail")
 			gb.demo_sizzle:
@@ -199,28 +199,28 @@ func _start_event() -> void:
 				sb._remote_light_off.emit()
 				sb._event_start.emit(gb.trailer.t1) # Drawing with lights on
 				sb._remote_light_on.emit()
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.5, false).timeout
 				sb._event_start.emit(gb.trailer.t2) # Drawing
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._event_start.emit(gb.trailer.t3) # Hide and Seek
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._event_start.emit(gb.trailer.t4) # Drawing
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._event_start.emit(gb.trailer.t5) # Flashlight Tag
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._event_start.emit(gb.trailer.t6) # Drawing
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._remote_light_off.emit()
 				get_tree().call_group("scom", "_set_shadows_only")
 				sb._remote_light_on.emit()
 				sb._event_start.emit(gb.trailer.t7) # All items missing
-				await get_tree().create_timer(3).timeout
+				await get_tree().create_timer(3, false).timeout
 				sb._remote_light_off.emit()
-				await get_tree().create_timer(.5).timeout
+				await get_tree().create_timer(.5, false).timeout
 				sb._event_start.emit(gb.trailer.t8) # Drawing
-				await get_tree().create_timer(4).timeout
+				await get_tree().create_timer(4, false).timeout
 				sb._event_start.emit(gb.trailer.t9) # Drawing
 	else:
 		var new_event = gb.override_event_target
