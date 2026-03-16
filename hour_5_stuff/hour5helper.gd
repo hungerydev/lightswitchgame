@@ -1,15 +1,27 @@
 extends Node
 class_name Hour5Helper
 
-@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var ak_boss_music_event: AkEvent3D = get_tree().get_first_node_in_group("AkBossMusicEvent") 
+
+var loop = true
 
 func _ready() -> void:
-	sb._light_on.connect(volume_up)
-	sb._light_off.connect(volume_down)
+	ak_boss_music_event.event.post_callback(ak_boss_music_event, AkUtils.AK_MARKER, call_step)
+	#ak_boss_music_event.event.post(ak_boss_music_event)
+	# await get_tree().create_timer(10).timeout
+	# print("hour5track is killing itself now")
+	# get_parent().queue_free()
+
+
+func call_step(data: Dictionary) -> void:
+	if data.has("strLabel"):
+		call_deferred(data.strLabel)
+	
 
 ## Break the hour5loop at the correct time and remove the event controller
 func stop_loop() -> void:
 	sb._hour5_loop_deactivate.emit()
+	loop = false
 	
 
 ## Sunrise
@@ -62,14 +74,10 @@ func step_eight() -> void:
 func step_nine() -> void:
 	print("Step nine")
 	sb._event_start.emit(gb.end1.END_1_9)
+
+## Move to credits
+func step_ten() -> void:
 	var credits: Control = preload("uid://cux5p13g4uhf7").instantiate()
 	get_parent().add_sibling(credits)
+	ak_boss_music_event.stop_event()
 	get_parent().queue_free()
-	
-func volume_up() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property(audio_stream_player, "volume_db", -12, 0.1)
-	
-func volume_down() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property(audio_stream_player, "volume_db", -14, 0.1)

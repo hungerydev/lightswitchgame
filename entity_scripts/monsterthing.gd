@@ -271,9 +271,9 @@ func _fail(string) -> void:
 		
 	elif gb.death:
 		if not fail:
+			get_tree().call_group("Controls", "_disable_controls")
 			fail = true
 			am._fail(string)
-			get_tree().call_group("Controls", "_disable_controls")
 			pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))
 			vcom._set_visibility_on()
 			anim_player.play("jumpscare/jumpscare")

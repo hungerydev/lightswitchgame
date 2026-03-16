@@ -1,13 +1,17 @@
 extends Control
 
+@onready var custom_mode: Button = $BoxContainer/custom_mode
+@onready var endless_mode: Button = $BoxContainer/endless_mode
 @onready var endings_text: RichTextLabel = $BoxContainer/Endings
 
 
 
 
 func _ready() -> void:
-	$BoxContainer/custom_mode.pressed.connect(_custom)
-	$BoxContainer/endless_mode.pressed.connect(_endless)
+	custom_mode.pressed.connect(_custom)
+	endless_mode.pressed.connect(_endless)
+	custom_mode.visible = false
+	endless_mode.visible = false
 	var endings: int = 0
 	if gb.end_1_achieved == true:
 		endings += 1
@@ -24,9 +28,12 @@ func _ready() -> void:
 			endings_text.text = "Endings: 2/3"
 		3:
 			endings_text.text = "Endings: 3/3"
+	if gb.post_game_active:
+		custom_mode.visible = true
+		endless_mode.visible = true
 
 	
-
+# TODO fix these
 func _custom() -> void:
 	get_parent()._instantiate_custom_mode_menu()
 

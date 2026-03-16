@@ -1,0 +1,199 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhki8syqi5caq"]
+
+[ext_resource type="Script" uid="uid://cbl4dpfct60ps" path="res://ui/menu_credits.gd" id="1_ld4id"]
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_oq0hw"]
+[ext_resource type="Texture2D" uid="uid://ldgqi82u0cf2" path="res://AK_POWERED BY LOGO_WHITE.png" id="2_btvsf"]
+[ext_resource type="Texture2D" uid="uid://cnhss2vrqhd7u" path="res://icon.svg" id="3_ld4id"]
+
+[node name="MenuCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ld4id")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -205.0
+offset_right = 176.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oq0hw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 21
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameBy" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 31
+text = "A Game by Tetramorre"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Models"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "- Shadow Monster by Tetramorre
+
+- Wooden Door by Glicht on Fab - https://www.fab.com/listings/0da31383-5c81-4981-9339-8a48497e9e87 - Creative Commons Attribution (CC BY 4.0)
+
+- Child's room (day) - House - Room by Jorand on Fab - https://www.fab.com/listings/df3c2000-516c-447a-8f59-b8fcc4964112 - Creative Commons Attribution (CC BY 4.0)
+
+Game Ready | Free Bedroom Shelf by Saritasa - https://www.fab.com/listings/da44abc3-c0d1-4cb1-8062-93e1833480ac - Creative Commons Attribution (CC BY 4.0)
+
+Old Children's Toys Pack by Lost Frames on Fab - Standard License
+
+Baby Crib by Fab Mancer on Fab - Standard License"
+fit_content = true
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Sounds"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "- Train Horn 74 (Very Long).mp3 by FunWithSound -- https://freesound.org/s/591862/ -- License: Creative Commons 0
+
+- LoudThunder with crack and Sizzle JULY 1 2023.WAV by kvgarlic -- https://freesound.org/s/693540/ -- License: Creative Commons 0
+
+- Thunder Crack Rain Sequence January 11th 2020 Smaller File.WAV by kvgarlic -- https://freesound.org/s/501745/ -- License: Creative Commons 0
+
+- Nearby explosion with debris.wav by juskiddink -- https://freesound.org/s/108641/ -- License: Attribution 4.0
+
+- Explosion_Debris_Short_Stereo.wav by Nox_Sound -- https://freesound.org/s/560510/ -- License: Creative Commons 0
+
+- window small trailer rv glass smash with an axe debris fall metal grill close and nearby bg.wav by kyles -- https://freesound.org/s/452669/ -- License: Creative Commons 0
+
+- S10-15 Store display falls with big crash; extra debris.wav by craigsmith -- https://freesound.org/s/675848/ -- License: Creative Commons 0
+
+- paper_debris.wav by themfish -- https://freesound.org/s/45825/ -- License: Attribution 4.0
+
+- Explosion and Rubble/Debris by deleted_user_1887925 -- https://freesound.org/s/132929/ -- License: Creative Commons 0
+
+- Glass Break by Natty23 -- https://freesound.org/s/322603/ -- License: Attribution 4.0
+
+- Car Alarm.wav by theplax -- https://freesound.org/s/685526/ -- License: Attribution 4.0
+
+- Car Breaking Skid 01.wav by Medartimus -- https://freesound.org/s/217542/ -- License: Attribution 4.0
+
+- Rail Cars Slam Hard and Couple Together Air Released by WeenyBeany -- https://freesound.org/s/750751/ -- License: Attribution 4.0
+
+- Car travel Accident.mp3 by WaveAdventurer -- https://freesound.org/s/96345/ -- License: Attribution 4.0
+
+- Car Crash_EXT.wav by PauliusI -- https://freesound.org/s/346299/ -- License: Creative Commons 0
+
+- Large Crash.wav by CGEffex -- https://freesound.org/s/99960/ -- License: Attribution 4.0
+
+- CAR_GETIN and drive Z.wav by mitchellsounds -- https://freesound.org/s/368003/ -- License: Attribution 4.0
+
+- Car interior driving medium speed summer night.wav by Daphne_in_Wonderland -- https://freesound.org/s/383475/ -- License: Creative Commons 0
+
+- Car engine start up running and turning off.wav by sound_catcher99 -- https://freesound.org/s/425158/ -- License: Creative Commons 0
+
+- Car Start Up.wav by Kane53126 -- https://freesound.org/s/257931/ -- License: Creative Commons 0
+
+- Car Alarm Horn, Walking Past, A.wav by InspectorJ -- https://freesound.org/s/402958/ -- License: Attribution 4.0
+"
+fit_content = true
+
+[node name="HSeparator4" type="HSeparator" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Made With"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(116.41, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("2_btvsf")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+text = "Powered by Wwise © 2006 – 2024* Audiokinetic Inc. All rights reserved."
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ld4id")
+stretch_mode = 4
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]

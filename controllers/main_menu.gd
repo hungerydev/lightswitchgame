@@ -10,7 +10,10 @@ func _ready() -> void:
 	$main_page/BoxContainer/quit.pressed.connect(_quit_game)
 	finished.emit()
 	
-	
+	#
+#func _process(delta: float) -> void:
+	#pivot_offset.x = get_window().size.x / 2.0
+	#pivot_offset.y = get_window().size.y / 2.0
 
 func _instantiate_settings() -> void:
 	get_tree().set_group("gc", "menu_active", false)
@@ -29,7 +32,7 @@ func _instantiate_settings() -> void:
 
 func _instantiate_main_page() -> Signal:
 	get_tree().set_group("gc", "menu_active", true)
-	var pg = null
+	#var pg = null
 	sb._menu_light_off.emit()
 	for child in get_children():
 		if child.name != "main_page":
@@ -38,20 +41,20 @@ func _instantiate_main_page() -> Signal:
 	add_child(main_page)
 	get_tree().call_group("Controls", "_disable_controls")
 	main_page.visible = false
-	if gb.post_game_active:
-		pg = _instantiate_post_game()
-		add_child(pg)
-		pg.visible = false
+	# if gb.post_game_active:
+	# 	pg = _instantiate_post_game()
+	# 	add_child(pg)
+	# 	pg.visible = false
 	await get_tree().create_timer(0.5, false).timeout
 	sb._menu_light_on.emit()
 	main_page.visible = true
-	if pg != null:
-		pg.visible = true
+	# if pg != null:
+	# 	pg.visible = true
 	return finished
 
-func _instantiate_post_game() -> Control:
-	var pg = preload("uid://dah32f8hosg6b").instantiate()
-	return pg
+# func _instantiate_post_game() -> Control:
+# 	var pg = preload("uid://dah32f8hosg6b").instantiate()
+# 	return pg
 	
 
 func _instantiate_custom_mode_menu() -> void:

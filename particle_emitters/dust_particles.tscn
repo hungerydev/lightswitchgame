@@ -46,6 +46,8 @@ albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
 material = SubResource("StandardMaterial3D_wgk5s")
 radius = 0.05
 height = 0.1
+radial_segments = 6
+rings = 3
 
 [node name="dustParticles" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.50626, -5.62263)

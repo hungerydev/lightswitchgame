@@ -48,12 +48,14 @@ _data = {
 }
 
 [node name="End2Track" type="AnimationPlayer"]
+process_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_fmvab")
 }
 autoplay = "end_2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -8.273
 
 [node name="HelperScript" type="Node" parent="."]
 script = ExtResource("2_7wnkm")

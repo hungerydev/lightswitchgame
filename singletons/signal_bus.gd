@@ -53,6 +53,7 @@ signal _jumpscare_finished
 ## when death text is done
 signal _death_seq_finished
 
+signal _footsteps_finished
 signal _monster_inactive
 
 ## Emitted by hour5helper in order to break the hour 5 loop and start the end1 cutscene

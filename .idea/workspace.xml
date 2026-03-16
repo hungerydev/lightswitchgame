@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cbd09ba0-ad7c-4ee9-ad6a-60a8858a3db8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/end_2_track.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/end_2_track.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/game_controller.gd" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/game_controller.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/main_menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/main_menu.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity_scripts/monsterthing.gd" beforeDir="false" afterPath="$PROJECT_DIR$/entity_scripts/monsterthing.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/export_presets.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/export_presets.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hour_5_stuff/hour5helper.gd" beforeDir="false" afterPath="$PROJECT_DIR$/hour_5_stuff/hour5helper.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hour_5_stuff/hour_5_track.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/hour_5_stuff/hour_5_track.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lights/lightbulb.gd" beforeDir="false" afterPath="$PROJECT_DIR$/lights/lightbulb.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lights/world_environment.gd" beforeDir="false" afterPath="$PROJECT_DIR$/lights/world_environment.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainscene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/mainscene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/particle_emitters/dust_particles.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/particle_emitters/dust_particles.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/particle_emitters/shadow_particles.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/particle_emitters/shadow_particles.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/singletons/audio_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/singletons/audio_manager.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/singletons/save_load_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/singletons/save_load_manager.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/are_u_sure.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/are_u_sure.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/chapter_select.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/chapter_select.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/endless_mode_prompt.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/endless_mode_prompt.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/feedback_confirm.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/feedback_confirm.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/options_menu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/options_menu.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/post_game.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/ui/post_game.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/ui_theme.tres" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui_theme.tres" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2y1BqQBGKn4OA6tGQ7L3olZmEpy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/micha/Documents/FootageIngestion"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbd09ba0-ad7c-4ee9-ad6a-60a8858a3db8" name="Changes" comment="" />
+      <created>1748992390372</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748992390372</updated>
+    </task>
+    <servers />
+  </component>
+</project>

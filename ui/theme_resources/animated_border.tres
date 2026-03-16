@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://b316235rnphyt"]
+
+[ext_resource type="Texture2D" uid="uid://c7vhttps6fcp6" path="res://ui/theme_resources/border/border-0001.png" id="1_red02"]
+[ext_resource type="Texture2D" uid="uid://c34buddt4iyup" path="res://ui/theme_resources/border/border-0002.png" id="2_5yhw8"]
+[ext_resource type="Texture2D" uid="uid://bxvnl0to0nm1x" path="res://ui/theme_resources/border/border-0003.png" id="3_iska1"]
+[ext_resource type="Texture2D" uid="uid://kmtpsp0djwtd" path="res://ui/theme_resources/border/border-0004.png" id="4_red7i"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_red02")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("2_5yhw8")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("3_iska1")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("4_red7i")
+frame_3/duration = 0.16

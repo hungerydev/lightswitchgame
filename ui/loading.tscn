@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwd7yehtak1ha"]
+
+[ext_resource type="Script" uid="uid://c1uml3cir7y6t" path="res://ui/loading.gd" id="1_5txd7"]
+[ext_resource type="Texture2D" uid="uid://c3o5jxqne0nbg" path="res://ui/loading_screen_textures/loading_im_sorry.tres" id="2_og8k8"]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5txd7")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -366.0
+offset_top = -209.0
+offset_right = -61.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 3.0
+nine_patch_stretch = true
+texture_progress = ExtResource("2_og8k8")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)

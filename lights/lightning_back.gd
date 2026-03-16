@@ -65,7 +65,7 @@ func _lightning_event_step_two() -> void:
 func _lights_on() -> void:
 	visible = true
 	on = true
-	am._play_thun()
+	am._play_thun("back")
 	sb._lightning_strike.emit()
 	
 func _lights_off() -> void:

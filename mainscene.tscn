@@ -1,14 +1,26 @@
-[gd_scene load_steps=342 format=4 uid="uid://c2os4xibt88g5"]
+[gd_scene format=4 uid="uid://c2os4xibt88g5"]
 
 [ext_resource type="Script" uid="uid://bdqxfqgr5mmro" path="res://mainscene.gd" id="1_nui55"]
 [ext_resource type="Shader" uid="uid://b0nrmsv0j4jbt" path="res://shaders/scanlines.gdshader" id="4_0lhry"]
 [ext_resource type="Shader" uid="uid://6ilbxcrvu5gk" path="res://shaders/noise.gdshader" id="5_0ibrq"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://components/position_component.tscn" id="5_0lhry"]
+[ext_resource type="WwiseEvent" uid="uid://bdsmlm8i7jsod" path="res://Wwise/resources/Event/{B69A925F-3658-4270-967F-A523C4EA1A21}.tres" id="5_3k2qn"]
+[ext_resource type="WwiseEvent" uid="uid://b5brck44ymalc" path="res://Wwise/resources/Event/{D79970BF-D629-44E8-978B-42011C171B74}.tres" id="5_6qpy7"]
 [ext_resource type="PackedScene" uid="uid://dwej31ruiny7c" path="res://components/visibility_component.tscn" id="6_4p23x"]
+[ext_resource type="Script" uid="uid://bllr5mr37xmvm" path="res://AkEvents/ak_sigh_event.gd" id="6_55xn5"]
+[ext_resource type="Script" uid="uid://pexcklpsiygi" path="res://AkEvents/ak_jumpscare_event.gd" id="6_rwix6"]
 [ext_resource type="PackedScene" uid="uid://byo2h200jhu1h" path="res://main_room_scenes_and_glbs/mainroom.tscn" id="7_4p23x"]
+[ext_resource type="WwiseEvent" uid="uid://ckv2q0nlcy8wo" path="res://Wwise/resources/Event/{2029A631-7422-46F0-AFD2-DE6D18E03055}.tres" id="7_b8wq1"]
 [ext_resource type="Script" uid="uid://3rsp3dvs2g7l" path="res://lights/flashlight.gd" id="7_j64eu"]
+[ext_resource type="WwiseEvent" uid="uid://dlg1t1my304od" path="res://Wwise/resources/Event/{1EA31F51-4304-418F-AC9F-626439332F4E}.tres" id="7_mxnre"]
 [ext_resource type="Script" uid="uid://3j2wmiq7lm7w" path="res://misc_scripts/camera_3d.gd" id="8_1cnxy"]
+[ext_resource type="Script" uid="uid://3ku5ldp3xf4g" path="res://AkEvents/ak_jumpscare_stinger_event.gd" id="8_6rsn2"]
+[ext_resource type="Script" uid="uid://cfx4qgux4mdgv" path="res://AkEvents/ak_scrape_event.gd" id="8_ywxev"]
+[ext_resource type="WwiseEvent" uid="uid://cy5olx0kmh2aj" path="res://Wwise/resources/Event/{BE4E0CDC-EB31-4943-ACA4-F790F0803DAD}.tres" id="9_b8wq1"]
+[ext_resource type="WwiseEvent" uid="uid://dtnfrh8j831v8" path="res://Wwise/resources/Event/{A467ACE2-2F2B-4745-8B41-8F29C87C70B4}.tres" id="9_xfn8s"]
+[ext_resource type="Script" uid="uid://1xl7j6mxfqe8" path="res://AkEvents/ak_lightbulb_shatter_event.gd" id="10_6rsn2"]
 [ext_resource type="Script" uid="uid://crntlxukx8fpk" path="res://misc_scripts/visual_effects.gd" id="10_56ibc"]
+[ext_resource type="Script" uid="uid://csy1mj74r1xnm" path="res://AkEvents/ak_stinger_event.gd" id="10_oq3ph"]
 [ext_resource type="Shader" uid="uid://bo8plruv0mrxt" path="res://shaders/crt.gdshader" id="11_xs15d"]
 [ext_resource type="Script" uid="uid://bwlm0wk21x1il" path="res://entity_scripts/toy_bunny.gd" id="12_4ofsq"]
 [ext_resource type="Script" uid="uid://4tsgkpkw6m0g" path="res://misc_scripts/random_vis_fx.gd" id="12_4olqe"]
@@ -35,11 +47,14 @@
 [ext_resource type="Script" uid="uid://ba5tjlm2fwpxn" path="res://entity_scripts/toy_cube_floor.gd" id="27_e0jif"]
 [ext_resource type="Script" uid="uid://dl4hpbh3swjov" path="res://entity_scripts/toy_cube_dresser.gd" id="28_ohyyk"]
 [ext_resource type="Script" uid="uid://dpv57dsfty1eb" path="res://entity_scripts/toy_robot_front.gd" id="28_x351s"]
+[ext_resource type="WwiseEvent" uid="uid://cxsprtaf14ejv" path="res://Wwise/resources/Event/{7DD29BED-0A2E-4527-9FCE-FE4DC8388770}.tres" id="35_28kkm"]
 [ext_resource type="Material" uid="uid://c7pc0gr3wprv4" path="res://main_room_scenes_and_glbs/blackbox.tres" id="35_kg3rl"]
+[ext_resource type="Script" uid="uid://bdn7a6p5ku7y2" path="res://AkEvents/ak_robot_event.gd" id="36_j6jwc"]
 [ext_resource type="Texture2D" uid="uid://c01dit2u84sse" path="res://text_sequences/a_different_game/0086.png" id="37_67nc6"]
-[ext_resource type="Texture2D" uid="uid://n7tuu2rp8agm" path="res://main_room_scenes_and_glbs/brick_wall/textures/red_brick_nor_gl_1k.jpg" id="37_v771a"]
 [ext_resource type="Texture2D" uid="uid://c2kck4qeagiru" path="res://text_sequences/a_different_game/0087.png" id="38_1fe32"]
+[ext_resource type="WwiseEvent" uid="uid://d1tttpq0a8b43" path="res://Wwise/resources/Event/{209CAB36-F75B-40A0-AC91-6B1D49DCC994}.tres" id="38_ep6ux"]
 [ext_resource type="Texture2D" uid="uid://cycs46lym54c4" path="res://text_sequences/custom_mode_bad_end_1/0316.png" id="39_274lr"]
+[ext_resource type="Script" uid="uid://dmfr1nvsluqgm" path="res://AkEvents/ak_toy_train_event.gd" id="39_pnavk"]
 [ext_resource type="Texture2D" uid="uid://0vwbjnl3o14y" path="res://text_sequences/a_different_game/0088.png" id="39_qtx75"]
 [ext_resource type="Texture2D" uid="uid://xb8x0stgaso8" path="res://text_sequences/death/0042.png" id="40_kcv5m"]
 [ext_resource type="Texture2D" uid="uid://bca4ey4lk34p0" path="res://text_sequences/custom_mode_bad_end_1/0317.png" id="40_wldal"]
@@ -77,13 +92,9 @@
 [ext_resource type="Texture2D" uid="uid://c68s2nv3m4ra6" path="res://text_sequences/im_going_to/0092.png" id="51_fiux2"]
 [ext_resource type="Texture2D" uid="uid://nhtruiipa8ey" path="res://text_sequences/death/0049.png" id="51_ollo0"]
 [ext_resource type="Texture2D" uid="uid://d27a8rl83kx31" path="res://text_sequences/im_going_to/0093.png" id="52_wsynn"]
-[ext_resource type="Texture2D" uid="uid://4r4b7y2igwt7" path="res://text_sequences/death/0050.png" id="52_y4a6a"]
 [ext_resource type="Texture2D" uid="uid://4r52fpnog72y" path="res://text_sequences/lets_play/0034.png" id="53_7to5o"]
-[ext_resource type="Texture2D" uid="uid://cs7ulswisxnea" path="res://text_sequences/death/0051.png" id="53_tirwv"]
 [ext_resource type="Texture2D" uid="uid://bq0pkgxurjp2w" path="res://text_sequences/lets_play/0035.png" id="54_4lvoy"]
-[ext_resource type="Texture2D" uid="uid://dc1xe6hy7wyk5" path="res://text_sequences/death/0052.png" id="54_t5jff"]
 [ext_resource type="Texture2D" uid="uid://bibdro1mxauhq" path="res://text_sequences/lets_play/0036.png" id="55_mrps7"]
-[ext_resource type="Texture2D" uid="uid://dai3mug1whsd8" path="res://text_sequences/death/0053.png" id="55_oax41"]
 [ext_resource type="Texture2D" uid="uid://dnrpraonkei7a" path="res://text_sequences/lets_play/0037.png" id="56_s5vrd"]
 [ext_resource type="Texture2D" uid="uid://d0t0td1c0g1fh" path="res://text_sequences/death/0054.png" id="56_spusp"]
 [ext_resource type="Texture2D" uid="uid://dih8qd03ygoaa" path="res://text_sequences/death/0055.png" id="57_0yyd3"]
@@ -291,6 +302,53 @@
 [ext_resource type="Script" uid="uid://copcd517mkdgb" path="res://lights/lightbulb_lights.gd" id="225_wkc0g"]
 [ext_resource type="PackedScene" uid="uid://cpo1aqoy7ibuj" path="res://lights/sun.tscn" id="228_0667l"]
 [ext_resource type="Script" uid="uid://cst2o1pw7aj5t" path="res://ui/end_sequence_meshes.gd" id="258_pew3u"]
+[ext_resource type="WwiseEvent" uid="uid://wfavk3ud0kf3" path="res://Wwise/resources/Event/{8ACBE40B-24F9-4C06-8A73-42FA0E2D662C}.tres" id="258_sd6cn"]
+[ext_resource type="Script" uid="uid://cgb3dq8a80psu" path="res://AkEvents/ak_flashlight_event.gd" id="259_w16ef"]
+[ext_resource type="WwiseEvent" uid="uid://cetw1adlerbb6" path="res://Wwise/resources/Event/{23473265-E793-4959-B1C9-11DC1F1F7019}.tres" id="263_8e834"]
+[ext_resource type="Script" uid="uid://clvo3twcca7vn" path="res://AkEvents/ak_lightning_event.gd" id="264_u7a52"]
+[ext_resource type="Script" uid="uid://qelwpbi20f28" path="res://AkEvents/ak_lightbulb_event.gd" id="265_v771a"]
+[ext_resource type="WwiseEvent" uid="uid://n433rekv5pbw" path="res://Wwise/resources/Event/{86AABEE9-697B-467E-BB37-EFAC1A579C99}.tres" id="266_wfmek"]
+[ext_resource type="WwiseEvent" uid="uid://yqkcw8q55t38" path="res://Wwise/resources/Event/{F2312342-018B-4723-850A-456C58DDC3DE}.tres" id="267_yrwyj"]
+[ext_resource type="WwiseEvent" uid="uid://b13n571s43qn0" path="res://Wwise/resources/Event/{36D07328-9FFB-485B-9F8D-CBCD69EC49AE}.tres" id="277_2axys"]
+[ext_resource type="Script" uid="uid://xfcxw6ew2x8g" path="res://AkEvents/ak_car_alarm_event.gd" id="278_xn0aa"]
+[ext_resource type="ArrayMesh" uid="uid://dy68nyti75urj" path="res://main_room_scenes_and_glbs/untitled.obj" id="287_nci6h"]
+[ext_resource type="WwiseEvent" uid="uid://d257iaw547b3t" path="res://Wwise/resources/Event/{4B7B9AD5-48AE-425A-8D96-41E217CE9267}.tres" id="288_kg3rl"]
+[ext_resource type="WwiseEvent" uid="uid://d3apgnujyt01m" path="res://Wwise/resources/Event/{9084EA5E-14C0-4505-9AEF-C30CD68BCCE1}.tres" id="289_lerel"]
+[ext_resource type="WwiseEvent" uid="uid://bubmviiswig2x" path="res://Wwise/resources/Event/{40AE698B-0860-476C-B90C-024DB989B872}.tres" id="290_3k42s"]
+[ext_resource type="WwiseEvent" uid="uid://bapsvubn4inb2" path="res://Wwise/resources/Event/{9147270E-9FE2-4D0E-8CB1-5241CD8F5655}.tres" id="291_lerel"]
+[ext_resource type="WwiseEvent" uid="uid://yy4jhrgtnfls" path="res://Wwise/resources/Event/{64A9D536-BC03-4492-AB75-1D14C6AD20F9}.tres" id="292_3k42s"]
+[ext_resource type="WwiseEvent" uid="uid://cjrya721vo0d6" path="res://Wwise/resources/Event/{8FD2D5C2-3245-479D-912F-0567674A6CE5}.tres" id="298_qus63"]
+[ext_resource type="Script" uid="uid://efik5xaxurny" path="res://AkEvents/ak_footsteps_event.gd" id="299_wh7r7"]
+[ext_resource type="WwiseSwitch" uid="uid://hyub5aapq58" path="res://Wwise/resources/Switch/{D38B19BF-277E-44FF-AA39-51AC0B13B6F1}.tres" id="300_0f8ox"]
+[ext_resource type="WwiseSwitch" uid="uid://dhwacmt8plqd0" path="res://Wwise/resources/Switch/{7D5398BD-7D47-4CA4-894C-BDEF46D85B66}.tres" id="301_282ei"]
+[ext_resource type="WwiseSwitch" uid="uid://doe3a3lw2gho8" path="res://Wwise/resources/Switch/{8C374A56-3019-4B56-8A42-79D6EACB80F4}.tres" id="302_vnyge"]
+[ext_resource type="WwiseEvent" uid="uid://bs8x11bxivyas" path="res://Wwise/resources/Event/{FFA6CCF5-9273-41A4-8216-017B1EB48EC5}.tres" id="303_0f8ox"]
+[ext_resource type="Script" uid="uid://c3fs4avajefat" path="res://singletons/pauser.gd" id="304_282ei"]
+[ext_resource type="WwiseEvent" uid="uid://3p7og5pvt74w" path="res://Wwise/resources/Event/{84507E12-8AEC-4C94-B259-80FED59EEEE8}.tres" id="305_vnyge"]
+[ext_resource type="Script" uid="uid://byq7bb4egcsmj" path="res://singletons/ak_audio_resumer_event.gd" id="306_2j3vf"]
+[ext_resource type="WwiseEvent" uid="uid://inslbchqpp34" path="res://Wwise/resources/Event/{38ACF443-42FE-489C-B4D2-B296ACDB3611}.tres" id="307_evi3d"]
+[ext_resource type="Script" uid="uid://ecjom8bc5d7k" path="res://AkEvents/ak_rain_event.gd" id="308_3e3ki"]
+[ext_resource type="WwiseEvent" uid="uid://deh32dleafqbo" path="res://Wwise/resources/Event/{9BA1B8AE-9EB6-4FEE-B1D6-A7D66B46C22C}.tres" id="308_h5m4y"]
+[ext_resource type="WwiseEvent" uid="uid://xqbf0qffnm1o" path="res://Wwise/resources/Event/{99D7CF24-FA94-45B2-8F76-E4B23039D74B}.tres" id="309_4dukp"]
+[ext_resource type="Script" uid="uid://cp3tnwa2f8dm2" path="res://AkEvents/ak_growls_event.gd" id="309_55xn5"]
+[ext_resource type="WwiseEvent" uid="uid://q752xgb2dvi0" path="res://Wwise/resources/Event/{29F77632-33E5-494B-AD95-5C34B834E78E}.tres" id="309_qtkjn"]
+[ext_resource type="WwiseEvent" uid="uid://ctj0w15aicphw" path="res://Wwise/resources/Event/{569B51F0-96FC-4792-8CBF-E80D2CC68D26}.tres" id="310_1w64p"]
+[ext_resource type="WwiseEvent" uid="uid://cm2uu0kx3lw1r" path="res://Wwise/resources/Event/{76B5CF32-5F46-4319-A1EF-72BCB87F9C74}.tres" id="311_nddv2"]
+[ext_resource type="Script" uid="uid://hra1w4q63q6j" path="res://night_ambience_1.gd" id="312_6rsn2"]
+[ext_resource type="WwiseEvent" uid="uid://bc7l23p7mb247" path="res://Wwise/resources/Event/{33179AE6-84A0-42D9-84B6-454942F27AE6}.tres" id="313_cx8y8"]
+[ext_resource type="Script" uid="uid://ce1em86iul34u" path="res://AkEvents/ak_rain_pauser_event.gd" id="314_8e834"]
+[ext_resource type="WwiseEvent" uid="uid://b0dgipwjuc888" path="res://Wwise/resources/Event/{1CA7E6CC-9878-49CD-AC69-6A67B38DEFA6}.tres" id="315_u7a52"]
+[ext_resource type="Script" uid="uid://b5s8cq320kc2w" path="res://AkEvents/ak_rain_resumer_event.gd" id="316_28kkm"]
+[ext_resource type="WwiseEvent" uid="uid://gsdn88p1m3i8" path="res://Wwise/resources/Event/{3D0B3817-3A4E-4F71-A6B9-1F249677C28F}.tres" id="340_cpa50"]
+[ext_resource type="Script" uid="uid://ddpk02kls0aky" path="res://AkEvents/ak_cutscene_music_event_1.gd" id="341_dp4kx"]
+[ext_resource type="WwiseEvent" uid="uid://khb4fsfpsfk5" path="res://Wwise/resources/Event/{B7ED7A46-FB98-49B0-8C93-30B711DE9132}.tres" id="341_vktdv"]
+[ext_resource type="WwiseEvent" uid="uid://dtrksvwmuvn7d" path="res://Wwise/resources/Event/{48CE8F74-D112-46C3-A1D3-5D2CE4690AC4}.tres" id="342_34rii"]
+[ext_resource type="WwiseEvent" uid="uid://d2u52iaog7h6s" path="res://Wwise/resources/Event/{E41579D1-00E9-4965-83FE-6769332348C3}.tres" id="343_0p28t"]
+[ext_resource type="Script" uid="uid://bqkhpoevk67tj" path="res://AkEvents/ak_cutscene_music_event_2.gd" id="343_pekbb"]
+[ext_resource type="Script" uid="uid://behe4pac6cfwm" path="res://AkEvents/ak_cutscene_music_event_3.gd" id="345_nahht"]
+[ext_resource type="Script" uid="uid://frktr1535m6u" path="res://AkEvents/ak_cutscene_music_event_4.gd" id="347_j1dqb"]
+[ext_resource type="WwiseEvent" uid="uid://beb3kodwjftel" path="res://Wwise/resources/Event/{85B2AB16-5AE3-43EB-B63C-16E97F87912D}.tres" id="348_nahht"]
+[ext_resource type="Script" uid="uid://dv8gq4phgrdlr" path="res://AkEvents/ak_train_end_event.gd" id="349_j1dqb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2txt"]
 shader = ExtResource("4_0lhry")
@@ -466,7 +524,23 @@ shader_parameter/alpha = 0.83
 shader_parameter/inner_radius = 0.08
 shader_parameter/outer_radius = 4.325
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nu07u"]
+sky_top_color = Color(0.173926, 0.0794733, 0.0188309, 1)
+sky_horizon_color = Color(0.220815, 0.11387, 0.0224987, 1)
+sky_curve = 0.0315336
+ground_bottom_color = Color(0.219608, 0.113725, 0.0235294, 1)
+ground_horizon_color = Color(0.219608, 0.113725, 0.0235294, 1)
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_s73qv"]
+sky_material = SubResource("ProceduralSkyMaterial_nu07u")
+
 [sub_resource type="Environment" id="Environment_0b4ue"]
+background_mode = 2
+background_energy_multiplier = 0.07
+background_intensity = 18.6
+sky = SubResource("Sky_s73qv")
+ambient_light_energy = 9.37
 glow_enabled = true
 glow_hdr_threshold = 1.35
 fog_light_color = Color(0, 0, 0, 1)
@@ -589,10 +663,13 @@ _data = {
 &"swing": SubResource("Animation_wqh86")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kg3rl"]
+load_path = "res://.godot/imported/red_brick_nor_gl_1k.jpg-57e131a24eaf78d8d4b87c90dab431dd.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbtna"]
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
-normal_texture = ExtResource("37_v771a")
+normal_texture = SubResource("CompressedTexture2D_kg3rl")
 uv1_scale = Vector3(3.355, 3.355, 3.355)
 uv1_offset = Vector3(0.23, 0.575, 0)
 
@@ -702,16 +779,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("52_y4a6a")
+"texture": ExtResource("64_271hy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_tirwv")
+"texture": ExtResource("65_w18dl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_t5jff")
+"texture": ExtResource("66_75nmp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_oax41")
+"texture": ExtResource("67_al776")
 }],
 "loop": true,
 "name": &"death4",
@@ -1719,32 +1796,58 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_5wxdq")
 size = Vector2(8, 4.5)
 
-[node name="mainscene" type="Node3D"]
+[node name="mainscene" type="Node3D" unique_id=680836411]
 script = ExtResource("1_nui55")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 3.0345, -11.7559)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=882146037]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.85157, -6.19993)
 fov = 37.8
 far = 43.98
 script = ExtResource("8_1cnxy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=1555636280]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.34651e-07, 0.0173228, -1.54022)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_1ainy")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_n6hdu")
 
-[node name="positionComponent" parent="Camera3D" instance=ExtResource("5_0lhry")]
+[node name="positionComponent" parent="Camera3D" unique_id=57318464 instance=ExtResource("5_0lhry")]
 
-[node name="jumpscare_animator" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_b8ges"),
-&"jumpscare": SubResource("AnimationLibrary_l52ma")
-}
-autoplay = "RESET"
+[node name="jumpscare_animator" type="AnimationPlayer" parent="Camera3D" unique_id=1870250541]
+libraries/ = SubResource("AnimationLibrary_b8ges")
+libraries/jumpscare = SubResource("AnimationLibrary_l52ma")
+autoplay = &"RESET"
 
-[node name="VisualEffects" type="Control" parent="."]
+[node name="AkJumpscareEvent" type="AkEvent3D" parent="Camera3D/jumpscare_animator" unique_id=583806313]
+event = ExtResource("5_3k2qn")
+script = ExtResource("6_rwix6")
+
+[node name="AkJumpscareStingerEvent" type="AkEvent3D" parent="Camera3D/jumpscare_animator" unique_id=833495072]
+event = ExtResource("7_b8wq1")
+script = ExtResource("8_6rsn2")
+
+[node name="AkLightbulbShatterEvent" type="AkEvent3D" parent="Camera3D/jumpscare_animator" unique_id=294123931]
+event = ExtResource("9_b8wq1")
+script = ExtResource("10_6rsn2")
+
+[node name="Listener" type="AkListener3D" parent="Camera3D" unique_id=1197261260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11025e-08, 0.350326, 0.0735278)
+
+[node name="AkSighEvent" type="AkEvent3D" parent="Camera3D" unique_id=1808177255]
+event = ExtResource("5_6qpy7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.227885, 0)
+script = ExtResource("6_55xn5")
+
+[node name="AkScrapeEvent" type="AkEvent3D" parent="Camera3D" unique_id=8328109]
+event = ExtResource("7_mxnre")
+script = ExtResource("8_ywxev")
+
+[node name="AkStingerEvent" type="AkEvent3D" parent="Camera3D" unique_id=1825553044]
+event = ExtResource("9_xfn8s")
+script = ExtResource("10_oq3ph")
+
+[node name="VisualEffects" type="Control" parent="." unique_id=1693945739]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -1757,7 +1860,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("10_56ibc")
 
-[node name="noise" type="ColorRect" parent="VisualEffects"]
+[node name="noise" type="ColorRect" parent="VisualEffects" unique_id=1996169021]
 visible = false
 material = SubResource("ShaderMaterial_1ainy")
 layout_mode = 1
@@ -1769,7 +1872,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="CRT" type="ColorRect" parent="VisualEffects"]
+[node name="CRT" type="ColorRect" parent="VisualEffects" unique_id=1284472404]
 visible = false
 material = SubResource("ShaderMaterial_4olqe")
 layout_mode = 1
@@ -1782,7 +1885,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("12_4olqe")
 
-[node name="glitch" type="ColorRect" parent="VisualEffects"]
+[node name="glitch" type="ColorRect" parent="VisualEffects" unique_id=1172083500]
 visible = false
 material = SubResource("ShaderMaterial_56ibc")
 layout_mode = 1
@@ -1795,7 +1898,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("12_4olqe")
 
-[node name="vignette_black" type="ColorRect" parent="VisualEffects"]
+[node name="vignette_black" type="ColorRect" parent="VisualEffects" unique_id=1847665600]
 visible = false
 material = SubResource("ShaderMaterial_iwoyl")
 layout_mode = 1
@@ -1808,7 +1911,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("12_4olqe")
 
-[node name="vignette_white" type="ColorRect" parent="VisualEffects"]
+[node name="vignette_white" type="ColorRect" parent="VisualEffects" unique_id=705883746]
 visible = false
 material = SubResource("ShaderMaterial_j64eu")
 layout_mode = 1
@@ -1821,21 +1924,21 @@ size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("16_iwoyl")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=515115757]
 environment = SubResource("Environment_0b4ue")
 script = ExtResource("17_tvq51")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment" unique_id=808219309]
 transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 1, 2, 3.33118)
 visible = false
 mesh = SubResource("PlaneMesh_8dkib")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="WorldEnvironment"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WorldEnvironment" unique_id=883913322]
 transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, -0.65685, 2, 3)
 visible = false
 mesh = SubResource("PlaneMesh_y5tvp")
 
-[node name="TextureRect" type="TextureRect" parent="WorldEnvironment"]
+[node name="TextureRect" type="TextureRect" parent="WorldEnvironment" unique_id=2075783832]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1851,7 +1954,7 @@ grow_vertical = 2
 texture = ExtResource("18_103jf")
 expand_mode = 1
 
-[node name="mainroom" parent="." instance=ExtResource("7_4p23x")]
+[node name="mainroom" parent="." unique_id=165362090 instance=ExtResource("7_4p23x")]
 
 [node name="Sketchfab_model_002" parent="mainroom/MainRoomNewStuff" index="1"]
 script = ExtResource("19_4tqfu")
@@ -1860,52 +1963,52 @@ script = ExtResource("19_4tqfu")
 transform = Transform3D(1, -3.85841e-06, -5.981e-08, 3.85841e-06, 1, 3.63161e-06, 5.96046e-08, -3.61999e-06, 1.00321, 0.0350223, -0.507947, -0.115825)
 script = ExtResource("21_pgq4v")
 
-[node name="visibilityComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="0" instance=ExtResource("6_4p23x")]
+[node name="visibilityComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="0" unique_id=1026681503 instance=ExtResource("6_4p23x")]
 
-[node name="positionComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="1" instance=ExtResource("5_0lhry")]
+[node name="positionComponent" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/b98f1f149bc94fba995e1ae8912ac350_fbx/RootNode_002/Door_001/Door" index="1" unique_id=553142131 instance=ExtResource("5_0lhry")]
 
-[node name="doorBlackHole" type="CSGBox3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002" index="1"]
+[node name="doorBlackHole" type="CSGBox3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002" index="1" unique_id=610701418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303805, -0.150277, -0.256316)
 cast_shadow = 0
 size = Vector3(0.51355, 0.759445, 1.94863)
 material = SubResource("StandardMaterial3D_iwoyl")
 script = ExtResource("21_75nmp")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole"]
+[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole" unique_id=643972311]
 transform = Transform3D(-6.96603e-08, -2.7498e-08, 0.461339, 0.461339, -1.63901e-15, 6.96603e-08, -2.51307e-15, 0.461339, 2.7498e-08, -0.256088, 11.8406, 0.0324554)
 cast_shadow = 0
 gi_mode = 2
 size = Vector3(1, 3.79655, 13.9381)
 material = SubResource("StandardMaterial3D_al776")
 
-[node name="SubViewport" type="SubViewport" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D"]
+[node name="SubViewport" type="SubViewport" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D" unique_id=1367611536]
 
-[node name="Camera3D" type="Camera3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport" unique_id=1634415287]
 transform = Transform3D(0.0284799, 0, 0.999594, 0, 1, 0, -0.999594, 0, 0.0284799, -35.631, 22.172, 3.413)
 fov = 179.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport/Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport/Camera3D" unique_id=2019354392]
 transform = Transform3D(-0.993302, -2.31771e-07, 0.115544, -2.38418e-07, 1, -4.37113e-08, -0.115544, -7.09664e-08, -0.993302, 0.169, -0.004, -5.883)
 light_color = Color(1, 1, 0.364706, 1)
 spot_range = 9.29204
 spot_angle = 7.22206
 
-[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport/Camera3D/SpotLight3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/CSGBox3D/SubViewport/Camera3D/SpotLight3D" unique_id=43895315]
 transform = Transform3D(1, -1.42109e-14, 0, 2.84217e-14, 1, -2.22045e-16, 0, 0, 1, -0.0141087, 0, -1.67365)
 light_intensity_lumens = 24377.4
 light_energy = 1.094
 light_volumetric_fog_energy = 1.096
 omni_range = 0.144894
 
-[node name="SubViewport" type="SubViewport" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole"]
+[node name="SubViewport" type="SubViewport" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole" unique_id=1334609238]
 size = Vector2i(1920, 1080)
 
-[node name="Camera3D" type="Camera3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole/SubViewport" unique_id=693306033]
 transform = Transform3D(-5.96046e-08, 4.37114e-08, 1, -2.38419e-07, 1, -4.37114e-08, -1, -2.38419e-07, -5.96046e-08, -21.1457, 2.24167, 7.30849)
 fov = 14.7994
 near = 3.272
 
-[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole"]
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/MainRoomNewStuff/Sketchfab_model_002/doorBlackHole" unique_id=153991183]
 transform = Transform3D(-2.01657e-08, -1.09992e-07, -0.461339, -1.09992e-07, 0.461339, -1.09992e-07, 0.461339, 1.09992e-07, -2.01658e-08, -2.04476, -4.76837e-07, -1.19209e-07)
 visible = false
 light_color = Color(1, 0.996078, 0.501961, 1)
@@ -1920,65 +2023,65 @@ mesh = SubResource("ArrayMesh_3k42s")
 [node name="Plane" parent="mainroom/MainRoomMoreStuff" index="2"]
 script = ExtResource("21_utbtm")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane" index="0" unique_id=114898702 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyBunny_001" parent="mainroom/MainRoomMoreStuff" index="4"]
 script = ExtResource("21_x351s")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyBunny_001" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyBunny_001" index="0" unique_id=977839022 instance=ExtResource("23_4tqfu")]
 
 [node name="Plane_001" parent="mainroom/MainRoomMoreStuff" index="5"]
 script = ExtResource("22_hv5bq")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane_001" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/Plane_001" index="0" unique_id=1400343743 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyRobot_002" parent="mainroom/MainRoomMoreStuff" index="6"]
 transform = Transform3D(0.427158, -1.46437, -0.055973, 0.855027, 0.296398, -1.22925, 1.19015, 0.312643, 0.903211, 3.59732, 4.36791, 2.10568)
 script = ExtResource("25_wqh86")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot_002" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot_002" index="0" unique_id=1677891815 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyRobot" parent="mainroom/MainRoomMoreStuff" index="7"]
 script = ExtResource("26_m5ygy")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyRobot" index="0" unique_id=1303098857 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_01a_002" parent="mainroom/MainRoomMoreStuff" index="8"]
 script = ExtResource("27_e0jif")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_002" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_002" index="0" unique_id=1755989131 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_01a_003" parent="mainroom/MainRoomMoreStuff" index="9"]
 script = ExtResource("28_ohyyk")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_003" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_003" index="0" unique_id=865859328 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_01a_004" parent="mainroom/MainRoomMoreStuff" index="10"]
 script = ExtResource("28_ohyyk")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_004" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_004" index="0" unique_id=584023418 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_01a_005" parent="mainroom/MainRoomMoreStuff" index="11"]
 script = ExtResource("28_ohyyk")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_005" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_01a_005" index="0" unique_id=1084610883 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_02a_001" parent="mainroom/MainRoomMoreStuff" index="12"]
 script = ExtResource("27_e0jif")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_001" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_001" index="0" unique_id=3910882 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_02a_002" parent="mainroom/MainRoomMoreStuff" index="13"]
 script = ExtResource("28_ohyyk")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_002" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_002" index="0" unique_id=1916522891 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_02a_003" parent="mainroom/MainRoomMoreStuff" index="14"]
 script = ExtResource("28_ohyyk")
 
-[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_003" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/MainRoomMoreStuff/SM_ToyCube_02a_003" index="0" unique_id=43016654 instance=ExtResource("23_4tqfu")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/MainRoomMoreStuff" index="15"]
+[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/MainRoomMoreStuff" index="15" unique_id=1426550966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.14087, 2.01782)
 size = Vector3(7.52051, 0.167725, 11.7603)
 material = SubResource("StandardMaterial3D_v771a")
@@ -1990,29 +2093,27 @@ script = ExtResource("22_ocswj")
 [node name="Sketchfab_model_001" parent="mainroom" index="3"]
 script = ExtResource("23_j64eu")
 
-[node name="LightTarget" type="Node3D" parent="mainroom/Armature/Skeleton3D" index="1"]
+[node name="LightTarget" type="Node3D" parent="mainroom/Armature/Skeleton3D" index="1" unique_id=1902291055]
 transform = Transform3D(-0.850829, 0.525443, 0, -0.525443, -0.850829, 0, 0, 0, 1, -0.122171, 2.00621, 0.310285)
 
-[node name="LightBulbAnimator" type="AnimationPlayer" parent="mainroom/Armature/Skeleton3D" index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_e0jif")
-}
+[node name="LightBulbAnimator" type="AnimationPlayer" parent="mainroom/Armature/Skeleton3D" index="2" unique_id=980497137]
+libraries/ = SubResource("AnimationLibrary_e0jif")
 
 [node name="SM_Ball" parent="mainroom" index="7"]
 script = ExtResource("24_1g5l6")
 
-[node name="shadow_component" parent="mainroom/SM_Ball" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_Ball" index="0" unique_id=1348819670 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyBoat" parent="mainroom" index="8"]
 script = ExtResource("25_x351s")
 
-[node name="shadow_component" parent="mainroom/SM_ToyBoat" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyBoat" index="0" unique_id=1343606033 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyBunny" parent="mainroom" index="9"]
 transform = Transform3D(-2.61, 0, -2.26636, 0, 3.45666, 0, 2.26636, 0, -2.61, 0.355602, 0.69315, 4.76788)
 script = ExtResource("12_4ofsq")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyBunny" index="0"]
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyBunny" index="0" unique_id=2002184885]
 transform = Transform3D(-0.0014171, -0.144552, -0.25059, 0.00529218, 0.250539, -0.144552, 0.289245, -0.00529218, 0.00141708, -0.332943, -0.73338, 0.570541)
 visible = false
 light_intensity_lumens = 286.36
@@ -2020,23 +2121,23 @@ light_color = Color(0.973803, 0, 0.159782, 1)
 light_energy = 0.368
 light_volumetric_fog_energy = 0.0
 
-[node name="shadow_component" parent="mainroom/SM_ToyBunny" index="1" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyBunny" index="1" unique_id=1788442887 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_01a" parent="mainroom" index="10"]
 script = ExtResource("27_e0jif")
 
-[node name="shadow_component" parent="mainroom/SM_ToyCube_01a" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyCube_01a" index="0" unique_id=1044502603 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyCube_02a" parent="mainroom" index="11"]
 script = ExtResource("27_e0jif")
 
-[node name="shadow_component" parent="mainroom/SM_ToyCube_02a" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyCube_02a" index="0" unique_id=1838804759 instance=ExtResource("23_4tqfu")]
 
 [node name="SM_ToyTrain" parent="mainroom" index="13"]
 transform = Transform3D(-8.26896, 0, -2.84785, 0, 8.74562, 0, 2.84785, 0, -8.26896, -4.35, 0.195947, -4.68734)
 script = ExtResource("24_j64eu")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyTrain" index="0"]
+[node name="SpotLight3D" type="SpotLight3D" parent="mainroom/SM_ToyTrain" index="0" unique_id=483638358]
 transform = Transform3D(-0.0140544, 0.0147994, 0.112507, 0.0069332, 0.113267, -0.0140333, -0.113264, 0.00509697, -0.0148194, 0.00874141, 0.0165713, -0.551109)
 visible = false
 light_color = Color(0.516319, 0.516318, 3.85046e-07, 1)
@@ -2046,24 +2147,28 @@ shadow_caster_mask = 4294967294
 spot_range = 8.86465
 spot_angle = 19.6153
 
-[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyTrain" index="1"]
+[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyTrain" index="1" unique_id=2045409327]
 transform = Transform3D(0.114343, 0, -3.72529e-09, 0, 0.114343, 0, 3.72529e-09, 0, 0.114343, -0.0905323, 0.066001, -0.526129)
 visible = false
 light_color = Color(0.516319, 0.516318, 3.85046e-07, 1)
 omni_range = 0.771326
 
-[node name="shadow_component" parent="mainroom/SM_ToyTrain" index="2" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyTrain" index="2" unique_id=1652997199 instance=ExtResource("23_4tqfu")]
+
+[node name="AkToyTrainEvent" type="AkEvent3D" parent="mainroom/SM_ToyTrain" index="3" unique_id=1850310474]
+event = ExtResource("38_ep6ux")
+script = ExtResource("39_pnavk")
 
 [node name="SM_ToyRobot_001" parent="mainroom" index="15"]
 transform = Transform3D(1.30275, 0.0311321, -0.794903, -0.0790549, 1.52278, -0.069922, 0.791575, 0.100844, 1.30124, 2.22725, 0.201687, -0.791437)
 script = ExtResource("28_x351s")
 
-[node name="shadow_component" parent="mainroom/SM_ToyRobot_001" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyRobot_001" index="0" unique_id=596824795 instance=ExtResource("23_4tqfu")]
 
-[node name="lights" type="Node3D" parent="mainroom/SM_ToyRobot_001" index="1"]
+[node name="lights" type="Node3D" parent="mainroom/SM_ToyRobot_001" index="1" unique_id=1182528483]
 visible = false
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights" unique_id=1384003420]
 transform = Transform3D(0.0141425, -0.0469276, 0.653287, -0.424948, 0.496581, 0.0448703, -0.498403, -0.424725, -0.0197197, -0.0756294, 0.228609, 0.292336)
 light_intensity_lumens = 5192.62
 light_color = Color(0, 1, 1, 1)
@@ -2076,7 +2181,7 @@ spot_attenuation = 2.57
 spot_angle = 6.26707
 spot_angle_attenuation = 2.14354
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="mainroom/SM_ToyRobot_001/lights" unique_id=1845398525]
 transform = Transform3D(0.189589, 0.0901105, 0.620582, -0.414559, 0.504456, 0.0533994, -0.470514, -0.408155, 0.203008, -0.03333, 0.210527, 0.249627)
 light_intensity_lumens = 5192.62
 light_color = Color(0, 1, 1, 1)
@@ -2090,53 +2195,57 @@ spot_attenuation = 2.57
 spot_angle = 6.26707
 spot_angle_attenuation = 2.14354
 
-[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+[node name="OmniLight3D" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights" unique_id=438158137]
 transform = Transform3D(0.655123, -1.11759e-08, -2.98023e-08, 1.11759e-08, 0.655123, -1.11759e-08, 5.96046e-08, 1.11759e-08, 0.655123, -0.0188876, 0.209918, 0.261371)
 light_intensity_lumens = 965.76
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.233
 omni_range = 0.0293743
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="mainroom/SM_ToyRobot_001/lights" unique_id=777904360]
 transform = Transform3D(0.655123, -7.45058e-09, -2.98023e-08, 1.11759e-08, 0.655123, -1.11759e-08, 5.96046e-08, 1.11759e-08, 0.655123, -0.0240275, 0.209546, 0.295061)
 light_intensity_lumens = 965.76
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.233
 omni_range = 0.0357303
 
+[node name="AkRobotEvent" type="AkEvent3D" parent="mainroom/SM_ToyRobot_001" index="2" unique_id=1836711213]
+event = ExtResource("35_28kkm")
+script = ExtResource("36_j6jwc")
+
 [node name="SM_ToyCube_01a_001" parent="mainroom" index="16"]
 script = ExtResource("27_e0jif")
 
-[node name="shadow_component" parent="mainroom/SM_ToyCube_01a_001" index="0" instance=ExtResource("23_4tqfu")]
+[node name="shadow_component" parent="mainroom/SM_ToyCube_01a_001" index="0" unique_id=2024153862 instance=ExtResource("23_4tqfu")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="mainroom"]
+[node name="CSGBox3D" type="CSGBox3D" parent="mainroom" unique_id=1981717318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012207, 0.691483, -6.57139)
 size = Vector3(4.0498, 2.38297, 0.172241)
 material = ExtResource("35_kg3rl")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/CSGBox3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="mainroom/CSGBox3D" unique_id=1557752426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99544, 3.00555, 0.0256929)
 size = Vector3(4.0498, 8.42165, 0.172241)
 material = SubResource("StandardMaterial3D_pbtna")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="mainroom/CSGBox3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="mainroom/CSGBox3D" unique_id=1495166581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00088, 3.00555, 0.0256929)
 size = Vector3(4.0498, 8.42165, 0.172241)
 material = ExtResource("35_kg3rl")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="mainroom/CSGBox3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="mainroom/CSGBox3D" unique_id=2059142049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01542, 5.77936, 0.0256929)
 size = Vector3(4.0498, 2.87403, 0.172241)
 material = ExtResource("35_kg3rl")
 
-[node name="drawing_sequences" type="AnimatedSprite2D" parent="."]
+[node name="drawing_sequences" type="AnimatedSprite2D" parent="." unique_id=1533384320]
 position = Vector2(577, 289)
 scale = Vector2(0.265, 0.266)
 sprite_frames = SubResource("SpriteFrames_d76yy")
-animation = &"end_2_2"
+animation = &"death1"
 script = ExtResource("44_4olqe")
 
-[node name="PointLight2D" type="PointLight2D" parent="drawing_sequences"]
+[node name="PointLight2D" type="PointLight2D" parent="drawing_sequences" unique_id=886574218]
 visibility_layer = 0
 position = Vector2(6.69904, 0.668274)
 scale = Vector2(8.46149, 6.34608)
@@ -2144,7 +2253,7 @@ color = Color(1, 1, 0.521569, 1)
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_qvxvv")
 
-[node name="flashlight" type="SpotLight3D" parent="."]
+[node name="flashlight" type="SpotLight3D" parent="." unique_id=1499933948]
 process_mode = 1
 transform = Transform3D(-0.557628, -0.800393, -0.220051, -0.822447, 0.568619, 0.0159092, 0.112392, 0.189852, -0.975359, 0, 1.05635, -3.771)
 visible = false
@@ -2157,7 +2266,12 @@ spot_range = 11.128
 spot_angle = 11.2417
 script = ExtResource("7_j64eu")
 
-[node name="CarLight" type="SpotLight3D" parent="."]
+[node name="AkFlashlightEvent" type="AkEvent3D" parent="flashlight" unique_id=1994091988]
+event = ExtResource("258_sd6cn")
+transform = Transform3D(1, -3.1665e-08, 0, 1.91852e-07, 1, 2.98023e-08, 7.45058e-09, 2.98023e-08, 1, -0.424204, -0.13844, 1.57851)
+script = ExtResource("259_w16ef")
+
+[node name="CarLight" type="SpotLight3D" parent="." unique_id=1455213022]
 process_mode = 1
 transform = Transform3D(-0.345102, -0.476531, -0.808593, -0.822447, 0.568619, 0.015909, 0.452201, 0.670515, -0.588153, -4.82436, 3.01484, -0.325571)
 visible = false
@@ -2170,16 +2284,19 @@ spot_range = 11.3277
 spot_angle = 38.7574
 script = ExtResource("213_x4y71")
 
-[node name="car_light_player" type="AnimationPlayer" parent="CarLight"]
+[node name="car_light_player" type="AnimationPlayer" parent="CarLight" unique_id=122446523]
 unique_name_in_owner = true
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_ixeg6")
-}
+libraries/ = SubResource("AnimationLibrary_ixeg6")
 
-[node name="lightning" type="Node3D" parent="."]
+[node name="AkCarAlarmEvent" type="AkEvent3D" parent="CarLight" unique_id=527815466]
+event = ExtResource("277_2axys")
+transform = Transform3D(1, 0, -2.98023e-08, 2.98023e-08, 1, 2.98023e-08, -2.98023e-08, 8.9407e-08, 1, 1.77779, 2.32088, 8.95392)
+script = ExtResource("278_xn0aa")
 
-[node name="lightning_right" type="SpotLight3D" parent="lightning"]
+[node name="lightning" type="Node3D" parent="." unique_id=655650425]
+
+[node name="lightning_right" type="SpotLight3D" parent="lightning" unique_id=1070148979]
 transform = Transform3D(-0.271013, 0.234777, -0.933505, -0.361218, 0.87412, 0.324709, 0.892229, 0.425199, -0.152092, -9.78532, 6.36164, 1.70265)
 visible = false
 light_color = Color(0.631373, 0.968627, 0.901961, 1)
@@ -2192,7 +2309,7 @@ spot_range = 24.7419
 spot_angle = 15.3565
 script = ExtResource("50_hev8t")
 
-[node name="lightning_back" type="SpotLight3D" parent="lightning"]
+[node name="lightning_back" type="SpotLight3D" parent="lightning" unique_id=1601476272]
 transform = Transform3D(-0.9312, -0.356394, -0.0764839, -0.361218, 0.87412, 0.324709, -0.0488684, 0.329997, -0.942716, -0.462807, 5.88238, -14.7978)
 visible = false
 light_color = Color(0.631373, 0.968627, 0.901961, 1)
@@ -2205,7 +2322,12 @@ spot_range = 24.7419
 spot_angle = 14.3925
 script = ExtResource("45_56ibc")
 
-[node name="LightbulbLights" parent="." instance=ExtResource("50_j64eu")]
+[node name="AkLightningEvent" type="AkEvent3D" parent="lightning" unique_id=1488211067]
+event = ExtResource("263_8e834")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.0979, 17.1899, -18.11)
+script = ExtResource("264_u7a52")
+
+[node name="LightbulbLights" parent="." unique_id=1996385804 instance=ExtResource("50_j64eu")]
 script = ExtResource("225_wkc0g")
 
 [node name="lightbulb2" parent="LightbulbLights" index="1"]
@@ -2213,7 +2335,7 @@ process_mode = 4
 visible = true
 script = ExtResource("62_wqh86")
 
-[node name="lightbulb3" type="OmniLight3D" parent="LightbulbLights"]
+[node name="lightbulb3" type="OmniLight3D" parent="LightbulbLights" unique_id=1726944812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00657642, 1.90515, -5.72857)
 visible = false
 light_intensity_lumens = 412.89
@@ -2233,36 +2355,183 @@ omni_range = 4.98485
 omni_attenuation = 0.619
 script = ExtResource("138_6mykh")
 
-[node name="Sun" parent="." instance=ExtResource("228_0667l")]
-visible = false
+[node name="AkLightbulbEvent" type="AkEvent3D" parent="LightbulbLights" unique_id=322676720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.90717, 1.97269)
+script = ExtResource("265_v771a")
+on = ExtResource("266_wfmek")
+off = ExtResource("267_yrwyj")
 
-[node name="EndSequenceMeshes" type="Node3D" parent="."]
+[node name="Sun" parent="." unique_id=1793516229 instance=ExtResource("228_0667l")]
+
+[node name="EndSequenceMeshes" type="Node3D" parent="." unique_id=1898620841]
 script = ExtResource("258_pew3u")
 
-[node name="End2DSequence1_3" type="MeshInstance3D" parent="EndSequenceMeshes"]
+[node name="End2DSequence1_3" type="MeshInstance3D" parent="EndSequenceMeshes" unique_id=2142305051]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
 visible = false
 mesh = SubResource("PlaneMesh_ta3lm")
 
-[node name="End2DSequence1_4" type="MeshInstance3D" parent="EndSequenceMeshes"]
+[node name="End2DSequence1_4" type="MeshInstance3D" parent="EndSequenceMeshes" unique_id=1790259029]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
 visible = false
 mesh = SubResource("PlaneMesh_5wxdq")
 
-[node name="End2DSequence1_5" type="MeshInstance3D" parent="EndSequenceMeshes"]
+[node name="End2DSequence1_5" type="MeshInstance3D" parent="EndSequenceMeshes" unique_id=1323585541]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
 visible = false
 mesh = SubResource("PlaneMesh_vkx8a")
 
-[node name="End2DSequence1_6" type="MeshInstance3D" parent="EndSequenceMeshes"]
+[node name="End2DSequence1_6" type="MeshInstance3D" parent="EndSequenceMeshes" unique_id=756171554]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
 visible = false
 mesh = SubResource("PlaneMesh_mlkxg")
 
-[node name="End2DSequence1_7" type="MeshInstance3D" parent="EndSequenceMeshes"]
+[node name="End2DSequence1_7" type="MeshInstance3D" parent="EndSequenceMeshes" unique_id=1949932672]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -0.371, 3.112, -3.393)
 visible = false
 mesh = SubResource("PlaneMesh_8p2w4")
+
+[node name="Tree" type="MeshInstance3D" parent="." unique_id=1390522249]
+transform = Transform3D(0.955638, 0, 1.8531, 0, 2.085, 0, -1.8531, 0, 0.955638, -9.54058, 0.746746, 17.2576)
+mesh = ExtResource("287_nci6h")
+
+[node name="AkEventsAmbience" type="Node3D" parent="." unique_id=1620035850]
+process_mode = 1
+
+[node name="NightAmbience1" type="AkEvent3D" parent="AkEventsAmbience" unique_id=138038951]
+event = ExtResource("288_kg3rl")
+trigger_on = 1
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.9732, 1.45876, 0.610317)
+script = ExtResource("312_6rsn2")
+
+[node name="NightAmbience2" type="AkEvent3D" parent="AkEventsAmbience" unique_id=1265123974]
+event = ExtResource("289_lerel")
+trigger_on = 1
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2352, 0.396341, 4.85338)
+script = ExtResource("312_6rsn2")
+
+[node name="NightAmbience3" type="AkEvent3D" parent="AkEventsAmbience" unique_id=130647885]
+event = ExtResource("290_3k42s")
+trigger_on = 1
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01061, 5.58605, -25.5179)
+script = ExtResource("312_6rsn2")
+
+[node name="DronePadInside" type="AkEvent3D" parent="AkEventsAmbience" unique_id=368834714]
+event = ExtResource("291_lerel")
+trigger_on = 1
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.849802, 4.77284)
+script = ExtResource("312_6rsn2")
+
+[node name="DronePadOutside" type="AkEvent3D" parent="AkEventsAmbience" unique_id=1838808579]
+event = ExtResource("292_3k42s")
+trigger_on = 1
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.624413, -13.5485)
+script = ExtResource("312_6rsn2")
+
+[node name="AkEventsFootsteps" type="Node3D" parent="." unique_id=1598136242]
+
+[node name="AkFootstepsEvent" type="AkEvent3D" parent="AkEventsFootsteps" unique_id=1584506206]
+event = ExtResource("298_qus63")
+stop_on = 3
+stop_fade_time = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607524, 1.20366, 0.0679495)
+script = ExtResource("299_wh7r7")
+switch_fast = ExtResource("300_0f8ox")
+switch_medium = ExtResource("301_282ei")
+switch_slow = ExtResource("302_vnyge")
+
+[node name="AkGrowlsEvent" type="AkEvent3D" parent="AkEventsFootsteps/AkFootstepsEvent" unique_id=1620276960]
+event = ExtResource("309_qtkjn")
+script = ExtResource("309_55xn5")
+
+[node name="AkEventsOther" type="Node3D" parent="." unique_id=2015947177]
+
+[node name="AkAudioPauserEvent" type="AkEvent3D" parent="AkEventsOther" unique_id=147611731]
+event = ExtResource("303_0f8ox")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 111.57, 0)
+script = ExtResource("304_282ei")
+
+[node name="AkAudioResumerEvent" type="AkEvent3D" parent="AkEventsOther" unique_id=513177867]
+event = ExtResource("305_vnyge")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 116.137, 0)
+script = ExtResource("306_2j3vf")
+
+[node name="AkEventsRain" type="Node3D" parent="." unique_id=1206000983]
+
+[node name="AkRainEvent1" type="AkEvent3D" parent="AkEventsRain" unique_id=570930378]
+event = ExtResource("307_evi3d")
+stop_fade_time = 8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.06112, 2.4917, -17.6737)
+script = ExtResource("308_3e3ki")
+
+[node name="AkRainEvent2" type="AkEvent3D" parent="AkEventsRain" unique_id=1046100565]
+event = ExtResource("308_h5m4y")
+stop_fade_time = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313294, 10.7089, 1.51413)
+script = ExtResource("308_3e3ki")
+
+[node name="AkRainEvent3" type="AkEvent3D" parent="AkEventsRain" unique_id=1676316274]
+event = ExtResource("309_4dukp")
+stop_fade_time = 9
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313294, -0.106951, 13.4786)
+script = ExtResource("308_3e3ki")
+
+[node name="AkRainEvent4" type="AkEvent3D" parent="AkEventsRain" unique_id=2060617794]
+event = ExtResource("310_1w64p")
+stop_fade_time = 6
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4069, -0.106951, 0.542446)
+script = ExtResource("308_3e3ki")
+
+[node name="AkRainEvent5" type="AkEvent3D" parent="AkEventsRain" unique_id=526065985]
+event = ExtResource("311_nddv2")
+stop_fade_time = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0587, -0.106951, 0.542446)
+script = ExtResource("308_3e3ki")
+
+[node name="AkRainPauserEvent" type="AkEvent3D" parent="AkEventsRain" unique_id=1991453153]
+event = ExtResource("313_cx8y8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 117.303, 0)
+script = ExtResource("314_8e834")
+
+[node name="AkRainResumerEvent" type="AkEvent3D" parent="AkEventsRain" unique_id=1225652295]
+event = ExtResource("315_u7a52")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 115.195, 0)
+script = ExtResource("316_28kkm")
+
+[node name="AkEventsCutsceneMusic" type="Node3D" parent="." unique_id=1654722647]
+
+[node name="AkCutsceneMusicEvent1" type="AkEvent3D" parent="AkEventsCutsceneMusic" unique_id=368348043]
+event = ExtResource("340_cpa50")
+script = ExtResource("341_dp4kx")
+
+[node name="AkCutsceneMusicEvent2" type="AkEvent3D" parent="AkEventsCutsceneMusic" unique_id=346253986]
+event = ExtResource("341_vktdv")
+script = ExtResource("343_pekbb")
+
+[node name="AkCutsceneMusicEvent3" type="AkEvent3D" parent="AkEventsCutsceneMusic" unique_id=161341832]
+event = ExtResource("342_34rii")
+script = ExtResource("345_nahht")
+
+[node name="AkCutsceneMusicEvent4" type="AkEvent3D" parent="AkEventsCutsceneMusic" unique_id=126144181]
+event = ExtResource("343_0p28t")
+script = ExtResource("347_j1dqb")
+
+[node name="AkEventsTrain" type="Node3D" parent="." unique_id=1365270405]
+
+[node name="AkTrainEndEvent" type="AkEvent3D" parent="AkEventsTrain" unique_id=724761110]
+event = ExtResource("348_nahht")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 156)
+script = ExtResource("349_j1dqb")
 
 [editable path="mainroom"]
 [editable path="mainroom/MainRoomNewStuff"]

@@ -23,7 +23,7 @@ func _random_chance() -> void:
 	omni.visible = true
 	am._play_train_short()
 	await get_tree().create_timer(randf_range(0.25, 1), false).timeout
-	am._kill_streams_by_group("TrainShort")
+	get_tree().call_group("AkToyTrainEvent", "end")
 	spot.visible = false
 	omni.visible = false
 

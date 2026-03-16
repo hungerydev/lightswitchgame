@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://er4t5o1r02nh"]
+
+[ext_resource type="Texture2D" uid="uid://duw3drw8ibyuw" path="res://text_sequences/trailer/1/0270.png" id="1_pkwj6"]
+[ext_resource type="Texture2D" uid="uid://rx025svhhi43" path="res://text_sequences/trailer/1/0271.png" id="2_h1hvs"]
+[ext_resource type="Texture2D" uid="uid://djymnpx86xkrt" path="res://text_sequences/trailer/1/0272.png" id="3_jaqmi"]
+[ext_resource type="Texture2D" uid="uid://cp6rutrm1cm2g" path="res://text_sequences/trailer/1/0273.png" id="4_7rugn"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_pkwj6")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("2_h1hvs")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("3_jaqmi")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("4_7rugn")
+frame_3/duration = 0.16

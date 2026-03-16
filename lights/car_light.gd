@@ -14,6 +14,7 @@ func _chance(_event) -> void:
 				chance_active = true
 
 func _random_chance() -> void:
+	await get_tree().create_timer(randf_range(.25, 1.24)).timeout
 	am._play_car_alarm()
 	car_light_player.play("carl_alarm")
 	await sb._event_finished
@@ -21,6 +22,6 @@ func _random_chance() -> void:
 
 
 func _disable() -> void:
-	am._kill_streams_by_group("CarAlarm")
+	am._end_streams_by_group("AkCarAlarmEvent")
 	car_light_player.play("RESET")
 	chance_active = false

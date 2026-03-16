@@ -19,6 +19,10 @@ func _run() -> void:
 			node.global_position = vec_array[0]
 			node.global_rotation = vec_array[1]
 			node.scale = vec_array[2]
+		if node.is_class("AkEvent3D"):
+			var clip = DisplayServer.clipboard_get()
+			var vec = str_to_var(clip)
+			node.global_position = vec
 		else:
 			var clip = DisplayServer.clipboard_get()
 			var clip_array = clip.split("),")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://gg5suj2tw5qv"]
+[gd_scene load_steps=153 format=3 uid="uid://gg5suj2tw5qv"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_y2fak"]
 [ext_resource type="Script" uid="uid://m7h54jd7ef6w" path="res://ui/main_page.gd" id="2_772va"]
@@ -150,6 +150,7 @@
 [ext_resource type="Texture2D" uid="uid://bfyxdxsr6jgcr" path="res://logo/buildout_cropped/logo_fade_cropped00000143.png" id="145_s24ri"]
 [ext_resource type="Texture2D" uid="uid://b6ijb6a7y7wtp" path="res://logo/buildout_cropped/logo_fade_cropped00000144.png" id="146_fqmp0"]
 [ext_resource type="PackedScene" uid="uid://f3duwyk4sxuv" path="res://ui/chapter_select.tscn" id="149_gni4x"]
+[ext_resource type="PackedScene" uid="uid://dah32f8hosg6b" path="res://ui/post_game.tscn" id="151_7sn0k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvrey"]
 animations = [{
@@ -685,6 +686,9 @@ offset_bottom = 70.0
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Feedback"
+
+[node name="post_game" parent="." instance=ExtResource("151_7sn0k")]
+layout_mode = 1
 
 [connection signal="item_selected" from="BoxContainer/ChapterSelect" to="." method="_on_chapter_select_item_selected"]
 [connection signal="pressed" from="BoxContainer2/SubmitFeedback" to="." method="_on_submit_feedback_pressed"]

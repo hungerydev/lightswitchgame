@@ -58,8 +58,6 @@ vertical_alignment = 2
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-min_value = -80.0
-max_value = 10.0
 script = ExtResource("1_lbr8e")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer"]
@@ -98,8 +96,6 @@ vertical_alignment = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -80.0
-max_value = 10.0
 script = ExtResource("3_4gmlt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer"]
@@ -116,15 +112,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -357.0
-offset_top = -376.0
+offset_left = -446.0
+offset_top = -584.0
 offset_right = -41.0
 offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 theme = ExtResource("1_t1lix")
-theme_override_constants/separation = 70
+theme_override_constants/separation = 5
 alignment = 2
 vertical = true
 script = ExtResource("5_kyuhg")
@@ -240,7 +236,7 @@ size_flags_horizontal = 4
 text = "Go Back"
 
 [node name="version_info" type="Button" parent="settings"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
@@ -259,6 +255,10 @@ grow_horizontal = 0
 theme = ExtResource("1_t1lix")
 alignment = 2
 vertical = true
+
+[node name="credits" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "Credits"
 
 [node name="delete_save" type="Button" parent="BoxContainer2"]
 custom_minimum_size = Vector2(150, 25)
@@ -439,6 +439,7 @@ horizontal_alignment = 1
 [connection signal="toggled" from="settings/BoxContainer/emitters" to="settings" method="_on_emitters_toggled"]
 [connection signal="item_selected" from="settings/BoxContainer/screenSelector" to="settings" method="_on_screen_selector_item_selected"]
 [connection signal="pressed" from="settings/version_info" to="settings" method="_on_version_info_pressed"]
+[connection signal="pressed" from="BoxContainer2/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="BoxContainer2/reset_settings" to="BoxContainer2/reset_settings" method="_on_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer/easy_button" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/VBoxContainer2/medium_button" to="." method="_on_medium_button_pressed"]

@@ -20,6 +20,10 @@ func _run() -> void:
 			var string3 = r"hitbox_pcom._set_position(" + box_position + "," + box_rotation + "," + box_size + ")"
 			DisplayServer.clipboard_set(string1 + string2 + string3)
 			print(string1 + string2 + string3)
+		if node.is_class("AkEvent3D"):
+			var string = var_to_str(node.global_position)
+			DisplayServer.clipboard_set(string)
+			print(string)
 		else:
 			var position = var_to_str(node.global_position)
 			var rotation = var_to_str(node.rotation)

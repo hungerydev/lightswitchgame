@@ -13,21 +13,22 @@ var control: bool = false
 
 var override_active: bool = false
 
+var main_scene: PackedScene
+
 func _ready() -> void:
 	if OS.has_feature("demo_mode"):
 		gb.demo_mode = true
 	add_to_group("gc")
 	control = false
 	_instantiate_pointer()
-	await _instantiate_main_scene()
-	
+	await _initial_main_scene_load()
 	await _instantiate_main_menu()
-	
+	_instantiate_persistent_audio()
 	sb._event_finished.emit()
 	sb._event_override.connect(_override)
 	sb._manual_event_start.connect(_leave_debug_menu)
 	sb._death_seq_finished.connect(_fail)
-	
+	get_tree().call_group("Loading", "queue_free")
 	control = true
 
 
@@ -65,7 +66,7 @@ func _fail() -> void:
 	sb._event_finished.emit()
 	pm._reset_progress()
 	am._start_ambience()
-	am._kill_streams_by_group("BossFight")
+	#am._kill_streams_by_group("BossFight")
 	if gb.custom_endless_5_reset != {}:
 		gb.current_hour = gb.custom_endless_5_reset
 	am.monster_active = false
@@ -74,20 +75,29 @@ func _fail() -> void:
 
 func _clear_scene() -> Signal:
 	for child in get_children():
-		if !child.is_in_group("Pointer"):
+		if !child.is_in_group("Pointer") and !child.is_in_group("PersistentAudio"):
 			child.queue_free()
+	get_tree().call_group("AkBossMusicEvent", "end")
+	get_tree().call_group("BossFight", "queue_free")
 	await get_tree().create_timer(0.01).timeout
 	return finished
-	
+
+
+func _instantiate_persistent_audio() -> void:
+	var pa = preload("uid://cwrhr4g7bf7w7").instantiate()
+	add_child(pa)
+
+
 func _instantiate_pointer() -> void:
 	var pointer = preload("uid://dciu331xf3kvc").instantiate()
 	pointer.add_to_group("Pointer")
 	add_child(pointer)
 
 func _instantiate_main_scene() -> Signal:
-	var mainscene = preload("uid://c2os4xibt88g5").instantiate()
-	mainscene.add_to_group("Main Scene")
-	add_child(mainscene)
+	var scene_inst = main_scene.instantiate()
+	scene_inst.add_to_group("Main Scene")
+	add_child(scene_inst)
+	get_tree().call_group("Controls", "_disable_controls")
 	await get_tree().create_timer(.1).timeout
 	return finished
 	
@@ -98,10 +108,25 @@ func _instantiate_main_menu() -> Signal:
 	menu_active = true
 	return finished
 
+func _initial_main_scene_load() -> void:
+	var loading: LoadingScreen = preload("uid://dwd7yehtak1ha").instantiate()
+	add_child(loading)
+	loading.load("uid://c2os4xibt88g5")
+	await loading.scene_loaded
+	main_scene = ResourceLoader.load_threaded_get("uid://c2os4xibt88g5")
+	var scene_inst = main_scene.instantiate()
+	scene_inst.add_to_group("Main Scene")
+	add_child(scene_inst)
+
+
 func _instantiate_debug_menu() -> void:
-	get_tree().paused = true
-	var debug_menu = preload("uid://bc2e27n8iojo6").instantiate()
-	add_child(debug_menu)
+	if Steam.getPersonaName() == "tetramorre":
+		print("Welcome home tetra")
+		get_tree().paused = true
+		var debug_menu = preload("uid://bc2e27n8iojo6").instantiate()
+		add_child(debug_menu)
+	else:
+		print("I can't let you do that")
 
 func _leave_debug_menu() -> void:
 	$"debug_menu".queue_free()
@@ -111,6 +136,7 @@ func _pause_menu() -> void:
 	if not menu_active:
 		if get_tree().paused:
 			$"pause_menu".queue_free()
+			am._unpause_audio_streams()
 			get_tree().paused = false
 			print(str(Time.get_ticks_msec()) + ": " + "Game is unpaused")
 		else:

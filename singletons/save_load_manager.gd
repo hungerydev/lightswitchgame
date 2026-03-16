@@ -2,27 +2,27 @@ extends Node
 
 func _ready() -> void:
 	sb._hour_changed.connect(_save_game)
-	_load_game()
-
-func _load_game() -> void:
-	if not FileAccess.file_exists("user://usersave.json"):
-		return
-	
-	var err = FileAccess.open("user://usersave.json", FileAccess.READ)
-	if err == null:
-		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
-		_save_game("null")
-	else:
-		while err.get_position() < err.get_length():
-			var json_string = err.get_line()
-			var json = JSON.new()
-			var parse_result = json.parse(json_string)
-			if not parse_result == OK:
-				print(str(Time.get_ticks_msec()) + ": " + "JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-				continue
-			var data = json.data
-			gb._load(data)
 	_load_data()
+
+# func _load_game() -> void:
+# 	if not FileAccess.file_exists("user://usersave.json"):
+# 		return
+	
+# 	var err = FileAccess.open("user://usersave.json", FileAccess.READ)
+# 	if err == null:
+# 		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
+# 		_save_game("null")
+# 	else:
+# 		while err.get_position() < err.get_length():
+# 			var json_string = err.get_line()
+# 			var json = JSON.new()
+# 			var parse_result = json.parse(json_string)
+# 			if not parse_result == OK:
+# 				print(str(Time.get_ticks_msec()) + ": " + "JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+# 				continue
+# 			var data = json.data
+# 			gb._load(data)
+# 	_load_data()
 
 func _load_data() -> void:
 	if not FileAccess.file_exists("user://userdata.data"):
@@ -33,10 +33,11 @@ func _load_data() -> void:
 		print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
 		_save_game("null")
 	else:
-		var _dict1 = err.get_var()
+		var dict1 = err.get_var()
 		var dict2 = err.get_var()
 		var dict3 = err.get_var()
 		var dict4 = err.get_var()
+		gb._load(dict1)
 		gb._load_data(dict2)
 		_load_window_props(dict3)
 		ap._load(dict4)
@@ -45,13 +46,13 @@ func _load_data() -> void:
 
 func _save_game(_hour) -> void:
 	if not gb.loading:
-		var err = FileAccess.open("user://usersave.json", FileAccess.WRITE)
-		if err == null:
-			print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
-		else:
-			var data = gb._save()
-			var json_string = JSON.stringify(data)
-			err.store_line(json_string)
+		# var err = FileAccess.open("user://usersave.json", FileAccess.WRITE)
+		# if err == null:
+		# 	print(str(Time.get_ticks_msec()) + ": " + str(FileAccess.get_open_error()))
+		# else:
+		# 	var data = gb._save()
+		# 	var json_string = JSON.stringify(data)
+		# 	err.store_line(json_string)
 		_save_user_data()
 
 func _save_window_props() -> Dictionary:
@@ -107,7 +108,10 @@ func _delete_save() -> void:
 	gb.last_hour_completed = gb.tutorial
 	gb.post_game_active = false
 	gb.hour_5_active = false
+	gb.end_1_achieved = false
 	gb.custom_mode_active = false
+	gb.end_2_achieved = false
 	gb.endless_mode_active = false
 	gb.end_3_achieved = false
 	gf.chance_setting = gf.chance_default
+	_save_game("")

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://f3duwyk4sxuv"]
+[gd_scene load_steps=2 format=3 uid="uid://f3duwyk4sxuv"]
+
+[ext_resource type="Theme" uid="uid://d4lmtj6b4co4c" path="res://ui/chapter_select_theme.tres" id="1_wmjuj"]
 
 [node name="ChapterSelect" type="OptionButton"]
+theme = ExtResource("1_wmjuj")
 selected = 0
 item_count = 6
 popup/item_0/text = "Chapter Select"

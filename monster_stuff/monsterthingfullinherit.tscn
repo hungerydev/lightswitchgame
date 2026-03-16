@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7dt5xcmr2j2e"]
+[gd_scene load_steps=22 format=3 uid="uid://c7dt5xcmr2j2e"]
 
 [ext_resource type="PackedScene" uid="uid://bhcfhoxqicyhb" path="res://monster_stuff/monsterthing.glb" id="1_8vo3q"]
 [ext_resource type="Script" uid="uid://cnixrpdya4f4l" path="res://monster_stuff/monster_hitbox.gd" id="2_t02gq"]
@@ -6,6 +6,8 @@
 [ext_resource type="ArrayMesh" uid="uid://cp5prlvwi7has" path="res://monster_stuff/monster_mesh.tres" id="3_cbykc"]
 [ext_resource type="PackedScene" uid="uid://b2u4efyyur6jb" path="res://components/position_component.tscn" id="3_tct5t"]
 [ext_resource type="Script" uid="uid://dvml1rxodr3gm" path="res://monster_stuff/hitbox_position_size.gd" id="4_rqgrs"]
+[ext_resource type="WwiseEvent" uid="uid://bbdysh6wiwhih" path="res://Wwise/resources/Event/{F8484D5F-FEBB-44E8-A003-38A1155CC41A}.tres" id="7_cbykc"]
+[ext_resource type="Script" uid="uid://cnwcy7f47va01" path="res://monster_stuff/ak_bassy_event.gd" id="8_xiond"]
 
 [sub_resource type="Animation" id="Animation_mckpc"]
 resource_name = "Plane_002Action_001"
@@ -1810,6 +1812,10 @@ shape = SubResource("BoxShape3D_cbykc")
 
 [node name="positionComponent" parent="monsterHitbox" index="1" instance=ExtResource("3_tct5t")]
 script = ExtResource("4_rqgrs")
+
+[node name="AkBassyEvent" type="AkEvent3D" parent="." index="3"]
+event = ExtResource("7_cbykc")
+script = ExtResource("8_xiond")
 
 [connection signal="input_event" from="monsterHitbox" to="monsterHitbox" method="_on_input_event"]
 [connection signal="mouse_entered" from="monsterHitbox" to="monsterHitbox" method="_on_mouse_entered"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwrhr4g7bf7w7"]
+
+[ext_resource type="Script" uid="uid://4vfx15x6b0ve" path="res://persistent_audio.gd" id="1_kh64e"]
+[ext_resource type="WwiseEvent" uid="uid://fer5r4fixj8a" path="res://Wwise/resources/Event/{FBBD6354-1429-4272-8B11-0C2F337D9705}.tres" id="2_k4ur4"]
+[ext_resource type="Script" uid="uid://bnalheu10q0fp" path="res://hour_5_stuff/ak_boss_music_event.gd" id="3_j40dm"]
+[ext_resource type="WwiseEvent" uid="uid://bf58f2d0sk8hj" path="res://Wwise/resources/Event/{77FDC7CB-2A86-4199-BD5A-CEF823AD4647}.tres" id="4_3ubmk"]
+[ext_resource type="Script" uid="uid://c0h5wtec32ggn" path="res://ak_credits_music_event.gd" id="5_wcir6"]
+
+[node name="PersistentAudio" type="Node3D"]
+script = ExtResource("1_kh64e")
+
+[node name="AkEventsBossMusic" type="Node3D" parent="."]
+
+[node name="AkBossMusicEvent" type="AkEvent3D" parent="AkEventsBossMusic"]
+event = ExtResource("2_k4ur4")
+stop_on = 3
+script = ExtResource("3_j40dm")
+
+[node name="AkEventsCreditsMusic" type="Node3D" parent="."]
+
+[node name="AkCreditsMusicEvent" type="AkEvent3D" parent="AkEventsCreditsMusic"]
+event = ExtResource("4_3ubmk")
+stop_on = 3
+script = ExtResource("5_wcir6")

@@ -17,11 +17,19 @@ var amb2: AudioStreamPlayer
 var amb3: AudioStreamPlayer
 var amb4: AudioStreamPlayer
 
+
+
+
+
+@export var FootStepSpeed: WwiseRTPC
 var progress_speed: float = clamp(0.0, 0.0, 1.5):
 	get:
 		return progress_speed
 	set(value):
 		progress_speed = clamp(value, 0.0, 1.5)
+		FootStepSpeed.set_global_value(progress_speed)
+		print("Current progress_speed is " + str(progress_speed))
+		print("Setting FootStepSpeed to " + str(FootStepSpeed.get_global_value()))
 
 var footstep_fx: Array = ResourceLoader.list_directory("res://audio/Footsteps/")
 var fs_slow: Array = ResourceLoader.list_directory("res://audio/Footsteps/Slow/")
@@ -88,10 +96,10 @@ func _start_ambience() -> void:
 	amb2.add_to_group("Ambience")
 	amb3.add_to_group("Ambience")
 	amb4.add_to_group("Ambience")
-	amb1.play()
-	amb2.play()
-	amb3.play()
-	amb4.play()
+	#amb1.play()
+	#amb2.play()
+	#amb3.play()
+	#amb4.play()
 
 
 func _hour_changed(event) -> void:
@@ -131,38 +139,39 @@ func _hour_changed(event) -> void:
 			use_flashlight_fx = !use_lightbulb_fx
 			if raining:
 				_stop_rain()
+		gb.end1:
+			use_lightbulb_fx = true
+			use_flashlight_fx = false
 		gb.demo_sizzle:
 			use_lightbulb_fx = false
 			use_flashlight_fx = false
 			if raining:
 				_stop_rain()
-	progress_speed = 0.0
+	if !gb.custom_endless_5_reset:
+		progress_speed = 0.0
 	
 
 func _start_rain() -> void:
 	if not gb.hour_5_active:
-		var random_id = randi_range(1,1000000)
-		var stream = AudioStreamPlayer.new()
-		add_child(stream)
-		var file = "res://audio/Rain/rainamb1.ogg"
-		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " +file)
-		stream.stream = load(file)
-		stream.volume_db = -80
-		var tween = get_tree().create_tween()
-		tween.tween_property(stream, "volume_db",-10,4)
-		stream.play()
-		stream.name += str(random_id)
-		stream.add_to_group("Rain")
+		get_tree().call_group("AkRainEvent", "play")
+		#var random_id = randi_range(1,1000000)
+		#var stream = AudioStreamPlayer.new()
+		#add_child(stream)
+		#var file = "res://audio/Rain/rainamb1.ogg"
+		#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " +file)
+		#stream.stream = load(file)
+		#stream.volume_db = -80
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(stream, "volume_db",-10,4)
+		#stream.play()
+		#stream.name += str(random_id)
+		#stream.add_to_group("Rain")
 		raining = true
 
 
 func _stop_rain() -> void:
 	if not gb.hour_5_active:
-		for child in get_children():
-			if child.is_in_group("Rain"):
-				var tween = get_tree().create_tween()
-				await tween.tween_property(child, "volume_db", -80, 2).finished
-				child.queue_free()
+		get_tree().call_group("AkRainPauserEvent", "play")
 		raining = false
 
 func _switch_ambience_light_off() -> void:
@@ -185,6 +194,10 @@ func _play_sound(sound: String) -> void:
 	
 
 func _event_start(event) -> void:
+	if gb.hour_5_active:
+		var bf = get_tree().get_nodes_in_group("BossFight")
+		if bf.is_empty():
+			_boss_fight_music()
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
@@ -201,12 +214,9 @@ func _event_start(event) -> void:
 				_:
 					await sb._light_off
 					monster_active = true
-					if randi_range(1,10) == 1:
-						_play_bassy("none")
-					if randi_range(1,10) == 1:
-						_play_scrapes("none")
-					if randi_range(1,10) == 1:
-						_play_growls()
+					_play_bassy("none")
+					_play_scrapes("none")
+					_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
 					sb._monster_inactive.emit()
@@ -219,374 +229,392 @@ func _event_start(event) -> void:
 				_:
 					await sb._light_off
 					monster_active = true
-					if randi_range(1,10) == 1:
-						_play_bassy("none")
-					if randi_range(1,10) == 1:
-						_play_scrapes("none")
-					if randi_range(1,10) == 1:
-						_play_growls()
+					_play_bassy("none")
+					_play_scrapes("none")
+					_play_growls()
 					await _play_footsteps("none")
 					monster_active = false
 					sb._monster_inactive.emit()
-	if gb.hour_5_active:
-		var bf = get_tree().get_nodes_in_group("BossFight")
-		if bf.is_empty():
-			_boss_fight_music()
 	progress_speed += 0.1
 
 func _event_end() -> void:
-	for child in get_children():
-		if child.is_in_group("SFX"):
-			child.queue_free()
+	_end_streams_by_group("AkSFX")
+	# for child in get_children():
+	# 	if child.is_in_group("SFX"):
+	# 		child.queue_free()
 
 func _play_ls_off() -> void:
 	if use_lightbulb_fx:
-		var group = get_tree().get_nodes_in_group("Lightswitch_Off")
-		if group.is_empty():
-			var random_id = randi_range(1,1000000)
-			var stream = AudioStreamPlayer.new()
-			add_child(stream)
-			var file = ar._choose_ls_off()
-			print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-			stream.stream = load(file)
-			stream.volume_db = -10
-			stream.play()
-			stream.name += str(random_id)
-			stream.add_to_group("Lightswitch_Off")
-			stream.add_to_group("SFX")
-			await stream.finished
-			remove_child(stream)
+		get_tree().call_group("AkLightbulbEvent", "light_off")
+		#var group = get_tree().get_nodes_in_group("Lightswitch_Off")
+		#if group.is_empty():
+			#var random_id = randi_range(1,1000000)
+			#var stream = AudioStreamPlayer.new()
+			#add_child(stream)
+			#var file = ar._choose_ls_off()
+			#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+			#stream.stream = load(file)
+			#stream.volume_db = -10
+			#stream.play()
+			#stream.name += str(random_id)
+			#stream.add_to_group("Lightswitch_Off")
+			#stream.add_to_group("SFX")
+			#await stream.finished
+			#remove_child(stream)
 
 func _play_ls_on() -> void:
+	
 	if use_lightbulb_fx:
-		var group = get_tree().get_nodes_in_group("Lightswitch_On")
-		if group.is_empty():
-			var random_id = randi_range(1,1000000)
-			var stream = AudioStreamPlayer.new()
-			add_child(stream)
-			var file = ar._choose_ls_on()
-			print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-			stream.stream = load(file)
-			stream.volume_db = -10
-			stream.play()
-			stream.name += str(random_id)
-			stream.add_to_group("Lightswitch_On")
-			stream.add_to_group("SFX")
-			await stream.finished
-			remove_child(stream)
+		get_tree().call_group("AkLightbulbEvent", "light_on")
+		#var group = get_tree().get_nodes_in_group("Lightswitch_On")
+		#if group.is_empty():
+			#var random_id = randi_range(1,1000000)
+			#var stream = AudioStreamPlayer.new()
+			#add_child(stream)
+			#var file = ar._choose_ls_on()
+			#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+			#stream.stream = load(file)
+			#stream.volume_db = -10
+			#stream.play()
+			#stream.name += str(random_id)
+			#stream.add_to_group("Lightswitch_On")
+			#stream.add_to_group("SFX")
+			#await stream.finished
+			#remove_child(stream)
 
 func _play_ls_off_menu() -> void:
-	var group = get_tree().get_nodes_in_group("Lightswitch_Off")
-	if group.is_empty():
-		var random_id = randi_range(1,1000000)
-		var stream = AudioStreamPlayer.new()
-		add_child(stream)
-		var file = ar._choose_ls_off()
-		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-		stream.stream = load(file)
-		stream.volume_db = -10
-		stream.play()
-		stream.name += str(random_id)
-		stream.add_to_group("Lightswitch_Off")
-		stream.add_to_group("SFX")
-		await stream.finished
-		remove_child(stream)
+	print("Playing menu ls off")
+	get_tree().call_group("AkLightbulbEvent", "light_off")
+	#var group = get_tree().get_nodes_in_group("Lightswitch_Off")
+	#if group.is_empty():
+		#var random_id = randi_range(1,1000000)
+		#var stream = AudioStreamPlayer.new()
+		#add_child(stream)
+		#var file = ar._choose_ls_off()
+		#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+		#stream.stream = load(file)
+		#stream.volume_db = -10
+		#stream.play()
+		#stream.name += str(random_id)
+		#stream.add_to_group("Lightswitch_Off")
+		#stream.add_to_group("SFX")
+		#await stream.finished
+		#remove_child(stream)
 
 func _play_ls_on_menu() -> void:
-	var group = get_tree().get_nodes_in_group("Lightswitch_On")
-	if group.is_empty():
-		var random_id = randi_range(1,1000000)
-		var stream = AudioStreamPlayer.new()
-		add_child(stream)
-		var file = ar._choose_ls_on()
-		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-		stream.stream = load(file)
-		stream.volume_db = -10
-		stream.play()
-		stream.name += str(random_id)
-		stream.add_to_group("Lightswitch_On")
-		stream.add_to_group("SFX")
-		await stream.finished
-		remove_child(stream)
+	print("Playing menu ls on")
+	get_tree().call_group("AkLightbulbEvent", "light_on")
+	#var group = get_tree().get_nodes_in_group("Lightswitch_On")
+	#if group.is_empty():
+		#var random_id = randi_range(1,1000000)
+		#var stream = AudioStreamPlayer.new()
+		#add_child(stream)
+		#var file = ar._choose_ls_on()
+		#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+		#stream.stream = load(file)
+		#stream.volume_db = -10
+		#stream.play()
+		#stream.name += str(random_id)
+		#stream.add_to_group("Lightswitch_On")
+		#stream.add_to_group("SFX")
+		#await stream.finished
+		#remove_child(stream)
 
 func _play_flashlight_fx() -> void:
 	if use_flashlight_fx:
-		var random_id = randi_range(1,1000000)
-		var stream = AudioStreamPlayer.new()
-		add_child(stream)
-		var file = "res://audio/Flashlight/" + flashlight_fx.pick_random()
-		print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-		stream.stream = load(file)
-		stream.volume_db = 0
-		stream.play()
-		stream.name += str(random_id)
-		stream.add_to_group("Flashlight")
-		stream.add_to_group("SFX")
-		await stream.finished
-		remove_child(stream)
+		get_tree().call_group("AkFlashlightEvent", "play")
+		#var random_id = randi_range(1,1000000)
+		#var stream = AudioStreamPlayer.new()
+		#add_child(stream)
+		#var file = "res://audio/Flashlight/" + flashlight_fx.pick_random()
+		#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+		#stream.stream = load(file)
+		#stream.volume_db = 0
+		#stream.play()
+		#stream.name += str(random_id)
+		#stream.add_to_group("Flashlight")
+		#stream.add_to_group("SFX")
+		#await stream.finished
+		#remove_child(stream)
 
 func _play_footsteps(string) -> Signal:
-	var file: String
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	if string == "none":
-		file = ar._choose_footstep()
-	print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.pitch_scale += progress_speed
-	AudioServer.get_bus_effect(3,0).pitch_scale = 1 / stream.pitch_scale
-	stream.bus = "Footsteps"
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Footsteps")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	#var file: String
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#if string == "none":
+		#file = ar._choose_footstep()
+	#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = -5
+	#stream.pitch_scale += progress_speed
+	#AudioServer.get_bus_effect(3,0).pitch_scale = 1 / stream.pitch_scale
+	#stream.bus = "Footsteps"
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Footsteps")
+	#stream.add_to_group("SFX")
+	get_tree().call_group("AkFootstepsEvent", "play")
+	await sb._footsteps_finished
 	return finished
 	
 func _play_bassy(string) -> void:
-	var file: String
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	if string == "none":
-		file = "res://audio/Bassy/" + bassy_fx.pick_random()
-	else:
-		file = "res://audio/Bassy/" + string
-	print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = 0
-	stream.pitch_scale = 0.5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Bassy")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkBassyEvent", "play")
+	#var file: String
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#if string == "none":
+		#file = "res://audio/Bassy/" + bassy_fx.pick_random()
+	#else:
+		#file = "res://audio/Bassy/" + string
+	#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = 0
+	#stream.pitch_scale = 0.5
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Bassy")
+	#stream.add_to_group("SFX")
+	#await stream.finished
+	#remove_child(stream)
 
 func _play_scrapes(string) -> void:
-	var file
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	if string == "none":
-		file = "res://audio/Scrapes/" + scrape_fx.pick_random()
-	else:
-		file = "res://audio/Scrapes/" + string
-	print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = 5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Scrapes")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkScrapeEvent", "play")
+	#var file
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#if string == "none":
+		#file = "res://audio/Scrapes/" + scrape_fx.pick_random()
+	#else:
+		#file = "res://audio/Scrapes/" + string
+	#print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = 5
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Scrapes")
+	#stream.add_to_group("SFX")
+	#await stream.finished
+	#remove_child(stream)
 	
 func _play_stingers(string: String) -> void:
-	var file: String
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	if string == "none":
-		file = "res://audio/Stingers/" + stinger_fx.pick_random()
-	else:
-		file = "res://audio/Stingers/" + string
-	print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -10
-	stream.bus = "Jumpscares"
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Stingers")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkStingerEvent", "play")
+	# var file: String
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# if string == "none":
+	# 	file = "res://audio/Stingers/" + stinger_fx.pick_random()
+	# else:
+	# 	file = "res://audio/Stingers/" + string
+	# print(str(Time.get_ticks_msec()) + ": " + str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -10
+	# stream.bus = "Jumpscares"
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.add_to_group("Stingers")
+	# stream.add_to_group("SFX")
+	# await stream.finished
+	# remove_child(stream)
 
 func _play_jumpscare(string) -> void:
-	var file: String
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	if string == "none":
-		file = "res://audio/Jumpscares/" + jumpscare_fx.pick_random()
-	else:
-		file = "res://audio/Jumpscares/" + string
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -3
-	stream.bus = "Jumpscares"
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Jumpscares")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkJumpscareEvent", "play")
+	get_tree().call_group("AkJumpscareStingerEvent", "play")
+	# var file: String
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# if string == "none":
+	# 	file = "res://audio/Jumpscares/" + jumpscare_fx.pick_random()
+	# else:
+	# 	file = "res://audio/Jumpscares/" + string
+	# print(str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -3
+	# stream.bus = "Jumpscares"
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.add_to_group("Jumpscares")
+	# stream.add_to_group("SFX")
+	# await stream.finished
+	# remove_child(stream)
 	
-func _play_thun() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = ar._choose_thun()
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Thunder")
-	await stream.finished
-	remove_child(stream)
+func _play_thun(pos) -> void:
+	get_tree().call_group("AkLightningEvent", "play", pos)
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#var file = ar._choose_thun()
+	#print(str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = -5
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Thunder")
+	#await stream.finished
+	#remove_child(stream)
 
 func _play_train_short() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/TrainHorn/trainhornshort.ogg"
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("TrainShort")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkToyTrainEvent", "play")
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#var file = "res://audio/TrainHorn/trainhornshort.ogg"
+	#print(str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = -5
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("TrainShort")
+	#stream.add_to_group("SFX")
+	#await stream.finished
+	#remove_child(stream)
 
-func _play_train_ending() -> Signal:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/TrainHorn/trainend.ogg"
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("TrainEnd")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
-	return finished
+func _play_train_ending() -> void:
+	get_tree().call_group("AkTrainEndEvent", "play")
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# var file = "res://audio/TrainHorn/trainend.ogg"
+	# print(str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -10
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.add_to_group("TrainEnd")
+	# stream.add_to_group("SFX")
+	# await stream.finished
+	# remove_child(stream)
+	# return finished
 
 func _play_robot() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/Robot/" + robot_fx.pick_random()
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = +3
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Robot")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkRobotEvent", "play")
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#var file = "res://audio/Robot/" + robot_fx.pick_random()
+	#print(str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = +3
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Robot")
+	#stream.add_to_group("SFX")
+	#await stream.finished
+	#remove_child(stream)
 
 func _play_lightbulb_shatter() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/Lightbulb Shatter/glass_break.ogg"
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.bus = "Jumpscares"
-	stream.add_to_group("SFX")
-	stream.add_to_group("LightbulbShatter")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkLightbulbShatterEvent", "play")
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# var file = "res://audio/Lightbulb Shatter/glass_break.ogg"
+	# print(str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -5
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.bus = "Jumpscares"
+	# stream.add_to_group("SFX")
+	# stream.add_to_group("LightbulbShatter")
+	# await stream.finished
+	# remove_child(stream)
 	
 func _play_sigh_fx() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://audio/Sighs/" + sigh_fx.pick_random()
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = +3
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Sigh")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkSighEvent", "play")
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#var file = "res://audio/Sighs/" + sigh_fx.pick_random()
+	#print(str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = +3
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Sigh")
+	#await stream.finished
+	#remove_child(stream)
 
 func _play_growls() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = ar._choose_growl()
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Growls")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkGrowlsEvent", "play")
+	#var random_id = randi_range(1,1000000)
+	#var stream = AudioStreamPlayer.new()
+	#add_child(stream)
+	#var file = ar._choose_growl()
+	#print(str(Time.get_ticks_msec()) + ": " + file)
+	#stream.stream = load(file)
+	#stream.volume_db = -5
+	#stream.play()
+	#stream.name += str(random_id)
+	#stream.add_to_group("Growls")
+	#stream.add_to_group("SFX")
+	#await stream.finished
+	#remove_child(stream)
 
 func _play_car_alarm() -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "uid://cfw8vc145wr5b"
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("CarAlarm")
-	stream.add_to_group("SFX")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group("AkCarAlarmEvent", "play")
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# var file = "uid://cfw8vc145wr5b"
+	# print(str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -5
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.add_to_group("CarAlarm")
+	# stream.add_to_group("SFX")
+	# await stream.finished
+	# remove_child(stream)
 
 func _play_cut_music_snippets(string) -> void:
-	var random_id = randi_range(1,1000000)
-	var stream = AudioStreamPlayer.new()
-	add_child(stream)
-	var file = "res://music/Snippets/" + string
-	print(str(Time.get_ticks_msec()) + ": " + file)
-	stream.stream = load(file)
-	stream.volume_db = -5
-	stream.play()
-	stream.name += str(random_id)
-	stream.add_to_group("Music")
-	await stream.finished
-	remove_child(stream)
+	get_tree().call_group(string, "play")
+	# var random_id = randi_range(1,1000000)
+	# var stream = AudioStreamPlayer.new()
+	# add_child(stream)
+	# var file = "res://music/Snippets/" + string
+	# print(str(Time.get_ticks_msec()) + ": " + file)
+	# stream.stream = load(file)
+	# stream.volume_db = -5
+	# stream.play()
+	# stream.name += str(random_id)
+	# stream.add_to_group("Music")
+	# await stream.finished
+	# remove_child(stream)
 
 func _boss_fight_music() -> void:
-	var hour_5_track: AnimationPlayer = preload("uid://d3v85gdrfqqcq").instantiate()
+	var hour_5_track: Node = preload("uid://d3v85gdrfqqcq").instantiate()
 	hour_5_track.add_to_group("BossFight")
 	add_child(hour_5_track)
-	hour_5_track.play_section("hour_5")
+	# hour_5_track.play_section("hour_5",)
 	
 	
 
 func _pause_audio_streams() -> void:
-	for child in get_children():
-		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
-			child.set_stream_paused(true)
-		if child.is_in_group("BossFight"):
-			child.speed_scale = 0 
-		if child.is_in_group("Credits"):
-			child.animator.speed_Scale = 0
+	get_tree().call_group("AkAudioPauserEvent", "play")
+	#for child in get_children():
+		#if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
+			#child.set_stream_paused(true)
+		#if child.is_in_group("BossFight"):
+			#child.speed_scale = 0 
+		#if child.is_in_group("Credits"):
+			#child.animator.speed_scale = 0
 
 func _unpause_audio_streams() -> void:
-	for child in get_children():
-		if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
-			child.set_stream_paused(false)
-		if child.is_in_group("BossFight"):
-			child.speed_scale = 1 
-		if child.is_in_group("Credits"):
-			child.animator.speed_Scale = 1
+	get_tree().call_group("AkAudioResumerEvent", "play")
+	#for child in get_children():
+		#if not child.is_in_group("Randomizer") and not child.is_in_group("BossFight") and not child.is_in_group("Credits"):
+			#child.set_stream_paused(false)
+		#if child.is_in_group("BossFight"):
+			#child.speed_scale = 1 
+		#if child.is_in_group("Credits"):
+			#child.animator.speed_scale = 1
 
-func _kill_streams_by_group(group) -> void:
-	get_tree().call_group(group, "queue_free")
+func _end_streams_by_group(group) -> void:
+	get_tree().call_group(group, "end")
 
 func _fail(string) -> void:
 	if gb.current_hour == gb.tutorial:
@@ -598,12 +626,14 @@ func _fail(string) -> void:
 		for child in get_children():
 			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer") and not child.is_in_group("Credits"):
 				child.queue_free()
-		amb1.volume_db = -80
-		amb2.volume_db = -80
-		amb3.volume_db = -80
+		# amb1.volume_db = -80
+		# amb2.volume_db = -80
+		# amb3.volume_db = -80
+		_end_streams_by_group("AkEvent")
 		_play_jumpscare("js2.ogg")
 		_play_stingers("stinger4.ogg")
 		_play_bassy("bass2.ogg")
+		raining = false
 		monster_active = false
 	
 func _time_fail() -> void:

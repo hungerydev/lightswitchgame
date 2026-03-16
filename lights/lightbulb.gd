@@ -66,7 +66,6 @@ func _hour_changed(hour) -> void:
 			control = true
 
 func _event_start(event) -> void:
-	_enable_controls()
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
@@ -124,6 +123,7 @@ func _event_start(event) -> void:
 					flicker = true
 					await get_tree().create_timer(1.5, false).timeout
 					_lights_off()
+	_enable_controls()
 
 func _lights_on() -> void:
 	if not am.monster_active:

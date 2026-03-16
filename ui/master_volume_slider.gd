@@ -3,8 +3,8 @@ extends HSlider
 @onready var index = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
-	self.value = AudioServer.get_bus_volume_db(index)
+	self.value = Wwise.get_rtpc_value("MasterBusSetting", null)
 	self.value_changed.connect(_volume_change)
 
 func _volume_change(new_value) -> void:
-	AudioServer.set_bus_volume_db(index, new_value)
+	Wwise.set_rtpc_value("MasterBusSetting", new_value, null)

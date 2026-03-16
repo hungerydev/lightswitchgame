@@ -33,7 +33,7 @@ var current_hour = tutorial:
 		current_hour = new_hour
 		if current_hour == post_game:
 			post_game_active = true
-		if demo_mode == true:
+		if OS.has_feature("demo_mode"):
 			match new_hour:
 				gb.tutorial, gb.hour1, gb.hour2cut, gb.hour2, gb.hour3cut, gb.demo_sizzle:
 					pass
@@ -187,8 +187,8 @@ func _save() -> Dictionary:
 
 func _save_data() -> Dictionary:
 	var save_dict = {
-		"master_volume": AudioServer.get_bus_volume_db(0),
-		"jumpscare_volume": AudioServer.get_bus_volume_db(1),
+		"master_volume": Wwise.get_rtpc_value("MasterBusSetting", null),
+		"jumpscare_volume":  Wwise.get_rtpc_value("JumpscareBusSetting", null),
 		"brightness_setting": brightness_setting,
 		"rng": gf.chance_setting,
 		"use_particles": use_particles,
@@ -241,8 +241,8 @@ func _load(data: Dictionary) -> void:
 
 func _load_data(data: Dictionary) -> void:
 	loading = true
-	AudioServer.set_bus_volume_db(0, data["master_volume"])
-	AudioServer.set_bus_volume_db(1, data["jumpscare_volume"])
+	Wwise.set_rtpc_value("MasterBusSetting", data["master_volume"], null)
+	Wwise.set_rtpc_value("JumpscareBusSetting", data["jumpscare_volume"], null)
 	gf.chance_setting = data["rng"]
 	if data.has("use_particles"):
 		use_particles = data["use_particles"]

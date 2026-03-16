@@ -1,0 +1,70 @@
+[gd_resource type="Theme" format=3 uid="uid://d4lmtj6b4co4c"]
+
+[ext_resource type="Texture2D" uid="uid://b316235rnphyt" path="res://ui/theme_resources/animated_border.tres" id="1_or1il"]
+[ext_resource type="Texture2D" uid="uid://clmsbma8vrxx3" path="res://ui/theme_resources/checkbox/radio_checked-0009.png" id="2_4jcpi"]
+[ext_resource type="Texture2D" uid="uid://b02oxwuaj4cqv" path="res://ui/theme_resources/checkbox/radio_checked-0010.png" id="3_llq0q"]
+[ext_resource type="Texture2D" uid="uid://c5wmgejyx3u2b" path="res://ui/theme_resources/checkbox/radio_checked-0011.png" id="4_dlsym"]
+[ext_resource type="Texture2D" uid="uid://di25fbihh7obo" path="res://ui/theme_resources/checkbox/radio_checked-0012.png" id="5_4a2ps"]
+[ext_resource type="Texture2D" uid="uid://bgmoybe8fna5" path="res://ui/theme_resources/checkbox/radio_unchecked-0005.png" id="6_hcfyj"]
+[ext_resource type="Texture2D" uid="uid://sgj184v0fhuj" path="res://ui/theme_resources/checkbox/radio_unchecked-0006.png" id="7_8q6yy"]
+[ext_resource type="Texture2D" uid="uid://dajo3s6txpcsm" path="res://ui/theme_resources/checkbox/radio_unchecked-0007.png" id="8_1c1c5"]
+[ext_resource type="Texture2D" uid="uid://dueo16dl767i8" path="res://ui/theme_resources/checkbox/radio_unchecked-0008.png" id="9_qcqo6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clts5"]
+texture = ExtResource("1_or1il")
+texture_margin_left = 5.0
+texture_margin_top = 11.0
+texture_margin_right = 5.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l42p0"]
+texture = ExtResource("1_or1il")
+texture_margin_left = 4.0
+texture_margin_top = 10.0
+texture_margin_right = 4.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(1, 1, 1, 0.454902)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1yjvl"]
+frames = 4
+frame_0/texture = ExtResource("2_4jcpi")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("3_llq0q")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("4_dlsym")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("5_4a2ps")
+frame_3/duration = 0.16
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vp14c"]
+frames = 4
+frame_0/texture = ExtResource("6_hcfyj")
+frame_0/duration = 0.16
+frame_1/texture = ExtResource("7_8q6yy")
+frame_1/duration = 0.16
+frame_2/texture = ExtResource("8_1c1c5")
+frame_2/duration = 0.16
+frame_3/texture = ExtResource("9_qcqo6")
+frame_3/duration = 0.16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqt4v"]
+texture = ExtResource("1_or1il")
+texture_margin_left = 4.0
+texture_margin_top = 10.0
+texture_margin_right = 4.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+OptionButton/styles/hover = SubResource("StyleBoxTexture_clts5")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_l42p0")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_clts5")
+PopupMenu/fonts/font = null
+PopupMenu/icons/radio_checked = SubResource("AnimatedTexture_1yjvl")
+PopupMenu/icons/radio_unchecked = SubResource("AnimatedTexture_vp14c")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_oqt4v")
