@@ -25,3 +25,9 @@ func _reset() -> void:
 	pcom._set_position(Vector3(0.355602, 0.69315, 4.76788),Vector3(0, -2.42655, 0),Vector3(3.45666, 3.45666, 3.45666))
 	vcom._set_visibility_on()
 	light.visible = false
+
+func _fail(string) -> void:
+	scom._set_draw_on()
+	pcom._set_position(Vector3(0.355602, 0.69315, 4.76788),Vector3(0, -2.42655, 0),Vector3(3.45666, 3.45666, 3.45666))
+	vcom._set_visibility_on()
+	light.visible = false

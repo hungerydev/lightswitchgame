@@ -9,6 +9,9 @@ var chance_active = false
 
 var fov_reset = false
 
+var tween1: Tween
+var tween2: Tween
+
 func _ready() -> void:
 	add_to_group("Entity")
 	jumpscare_animator.play("RESET")
@@ -40,8 +43,8 @@ func _event_start(event) -> void:
 
 func _random_chance() -> void:
 	await sb._light_on
-	var tween1 = get_tree().create_tween()
-	var tween2 = get_tree().create_tween()
+	tween1 = get_tree().create_tween()
+	tween2 = get_tree().create_tween()
 	tween2.tween_property(self, "fov", 60, 5)
 	tween1.set_trans(Tween.TRANS_LINEAR)
 	tween1.tween_property(self, "rotation_degrees", Vector3(0, -180, 180), 10)
@@ -53,6 +56,10 @@ func _fail(_string) -> void:
 	if gb.current_hour != gb.tutorial:
 		if not fail:
 			fail = true
+			if tween1 != null:
+				tween1.stop()
+				tween2.stop()
+				fov = 37.8
 			print("Setting camera to fail")
 			jumpscare_animator.play("jumpscare/jumpscare")
 			await sb._jumpscare_finished

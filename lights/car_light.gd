@@ -6,6 +6,7 @@ var chance_active: bool = false
 func _ready() -> void:
 	add_to_group("Entity")
 	sb._event_start.connect(_chance)
+	sb._fail.connect(_fail)
 
 func _chance(_event) -> void:
 	match gb.current_hour:
@@ -20,8 +21,13 @@ func _random_chance() -> void:
 	await sb._event_finished
 	_disable()
 
-
 func _disable() -> void:
 	am._end_streams_by_group("AkCarAlarmEvent")
 	car_light_player.play("RESET")
 	chance_active = false
+
+func _fail(string) -> void:
+	am._end_streams_by_group("AkCarAlarmEvent")
+	car_light_player.play("RESET")
+	chance_active = false
+

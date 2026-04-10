@@ -209,6 +209,14 @@ func _event_start(event) -> void:
 					tutorial_finished_moving.emit()
 					monster_active = false
 					sb._monster_inactive.emit()
+				gb.tutorial.EVENT_0_8:
+					progress_speed = 0.0
+					await sb._light_off
+					monster_active = true
+					await _play_footsteps("none")
+					tutorial_finished_moving.emit()
+					monster_active = false
+					sb._monster_inactive.emit()
 		gb.hour1, gb.hour2:
 			match event:
 				_:
@@ -621,7 +629,8 @@ func _fail(string) -> void:
 		for child in get_children():
 			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer"):
 				child.queue_free()
-		
+		_event_end()
+
 	elif gb.death:
 		for child in get_children():
 			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer") and not child.is_in_group("Credits"):

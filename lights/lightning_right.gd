@@ -10,6 +10,7 @@ func _ready() -> void:
 	on = visible
 	sb._event_start.connect(_event_start)
 	sb._event_finished.connect(_reset)
+	sb._jumpscare_finished.connect(_lights_off_death)
 
 	#sb._hour_changed.connect(_hour_changed)
 
@@ -82,6 +83,10 @@ func _reset() -> void:
 	visible = false
 	on = false
 	fail = false
+
+func _lights_off_death(string) -> void:
+	visible = false
+	on = false
 
 func _too_slow() -> void:
 	if not fail:

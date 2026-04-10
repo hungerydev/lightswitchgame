@@ -3,7 +3,7 @@ extends Node
 signal finished
 
 var tutoriali: int = 0
-var tutorialmax: int = 5
+var tutorialmax: int = 9
 
 var hour1i: int = 0
 var hour1max: int = 15

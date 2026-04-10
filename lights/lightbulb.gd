@@ -77,6 +77,12 @@ func _event_start(event) -> void:
 				gb.tutorial.EVENT_0_4:
 					_lights_off()
 					control = true
+				gb.tutorial.EVENT_0_5:
+					control = false
+					_lights_off()
+				gb.tutorial.EVENT_0_8:
+					_lights_off()
+					control = true
 				_:
 					control = false
 		gb.hour1:

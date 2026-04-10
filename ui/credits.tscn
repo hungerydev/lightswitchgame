@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://cux5p13g4uhf7"]
+[gd_scene format=3 uid="uid://cux5p13g4uhf7"]
 
 [ext_resource type="Texture2D" uid="uid://d4fmbw2rwvjus" path="res://text_sequences/a_game_by/0261.png" id="1_1bagf"]
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_icdkc"]
@@ -155,6 +155,7 @@
 [ext_resource type="AudioStream" uid="uid://d3q1sa7bx3j4d" path="res://music/Credits/Lightswitch_Cutscene_Music.ogg" id="152_mwmum"]
 [ext_resource type="Texture2D" uid="uid://cnhss2vrqhd7u" path="res://icon.svg" id="153_40ta0"]
 [ext_resource type="Texture2D" uid="uid://ldgqi82u0cf2" path="res://AK_POWERED BY LOGO_WHITE.png" id="154_eebu1"]
+[ext_resource type="Texture2D" uid="uid://dogkhdjr30bm5" path="res://made_with.png" id="155_40ta0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdl2l"]
 animations = [{
@@ -684,7 +685,7 @@ _data = {
 &"credits": SubResource("Animation_2mm4x")
 }
 
-[node name="credits" type="Control"]
+[node name="credits" type="Control" unique_id=1897060348]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -694,14 +695,14 @@ grow_vertical = 2
 theme = ExtResource("1_icdkc")
 script = ExtResource("2_qvx54")
 
-[node name="title" type="AnimatedSprite2D" parent="."]
+[node name="title" type="AnimatedSprite2D" parent="." unique_id=68828904]
 visible = false
 position = Vector2(563, 257)
 scale = Vector2(0.305556, 0.305556)
 sprite_frames = SubResource("SpriteFrames_xdl2l")
 script = ExtResource("151_2mm4x")
 
-[node name="assets" type="BoxContainer" parent="."]
+[node name="assets" type="BoxContainer" parent="." unique_id=1481708850]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -714,7 +715,7 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="assets"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="assets" unique_id=417910440]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 56
@@ -729,7 +730,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="audio" type="BoxContainer" parent="."]
+[node name="audio" type="BoxContainer" parent="." unique_id=320402466]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -740,12 +741,12 @@ grow_vertical = 2
 alignment = 1
 vertical = true
 
-[node name="HSeparator" type="HSeparator" parent="audio"]
+[node name="HSeparator" type="HSeparator" parent="audio" unique_id=1348624378]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="audio"]
+[node name="RichTextLabel" type="RichTextLabel" parent="audio" unique_id=1892588987]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 20
@@ -753,16 +754,16 @@ text = "Some sounds sourced from freesound.org"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="audio"]
+[node name="HBoxContainer" type="HBoxContainer" parent="audio" unique_id=333146]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="audio/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="audio/HBoxContainer" unique_id=1364785286]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="audio/HBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="audio/HBoxContainer/VBoxContainer" unique_id=1024724326]
 clip_contents = false
 layout_mode = 2
 theme_override_constants/line_separation = 35
@@ -780,11 +781,11 @@ Glass Break"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="audio/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="audio/HBoxContainer" unique_id=1179315626]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="audio/HBoxContainer/VBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="audio/HBoxContainer/VBoxContainer2" unique_id=1211635641]
 clip_contents = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -802,12 +803,12 @@ by deleted_user_1887925 -- https://freesound.org/s/132929/ -- License: Creative 
 by Natty23 -- https://freesound.org/s/322603/ -- License: Attribution 4.0"
 fit_content = true
 
-[node name="HSeparator2" type="HSeparator" parent="audio"]
+[node name="HSeparator2" type="HSeparator" parent="audio" unique_id=532787931]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="programs" type="BoxContainer" parent="."]
+[node name="programs" type="BoxContainer" parent="." unique_id=979651404]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -815,51 +816,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_icdkc")
+alignment = 1
 vertical = true
 
-[node name="HSeparator" type="HSeparator" parent="programs"]
+[node name="HSeparator" type="HSeparator" parent="programs" unique_id=863441994]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="programs"]
+[node name="RichTextLabel" type="RichTextLabel" parent="programs" unique_id=691564312]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 50
 text = "Made with:"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="programs"]
+[node name="HSeparator2" type="HSeparator" parent="programs" unique_id=1309498531]
+visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="programs"]
+[node name="HBoxContainer" type="HBoxContainer" parent="programs" unique_id=661344678]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="programs/HBoxContainer" unique_id=1151789283]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="programs/HBoxContainer" unique_id=848182301]
 layout_mode = 2
 alignment = 1
 
-[node name="VSeparator3" type="VSeparator" parent="programs/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="programs/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="programs/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="programs/HBoxContainer/VBoxContainer" unique_id=1846021112]
 layout_mode = 2
 texture = ExtResource("153_40ta0")
-stretch_mode = 4
 
-[node name="VSeparator" type="VSeparator" parent="programs/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="VSeparator" type="VSeparator" parent="programs/HBoxContainer" unique_id=2079318850]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="programs/HBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="VBoxContainer2" type="VBoxContainer" parent="programs/HBoxContainer" unique_id=170403750]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="programs/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="programs/HBoxContainer/VBoxContainer2" unique_id=687803029]
 custom_minimum_size = Vector2(116.41, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -868,21 +875,32 @@ texture = ExtResource("154_eebu1")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="programs/HBoxContainer/VBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="programs/HBoxContainer/VBoxContainer2" unique_id=38305375]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/normal_font_size = 8
 text = "Powered by Wwise © 2006 – 2024* Audiokinetic Inc. All rights reserved."
 fit_content = true
 
-[node name="VSeparator2" type="VSeparator" parent="programs/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="programs/HBoxContainer" unique_id=1270013268]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="CreditsAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_mwmum")
-}
+[node name="HSeparator3" type="HSeparator" parent="programs" unique_id=1496979682]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CreditsAnimator"]
+[node name="TextureRect" type="TextureRect" parent="programs" unique_id=659213737]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("155_40ta0")
+expand_mode = 3
+
+[node name="CreditsAnimator" type="AnimationPlayer" parent="." unique_id=1975920489]
+libraries/ = SubResource("AnimationLibrary_mwmum")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CreditsAnimator" unique_id=1015443387]
 volume_db = -2.811
 bus = &"Music"

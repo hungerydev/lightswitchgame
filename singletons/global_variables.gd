@@ -63,7 +63,8 @@ var fail: bool = false:
 		if new_value == true:
 			sb._fail.emit()
 
-enum tutorial {EVENT_0_0 = 0, EVENT_0_1, EVENT_0_2, EVENT_0_3, EVENT_0_4, EVENT_0_5} 
+enum tutorial {EVENT_0_0 = 0, EVENT_0_1, EVENT_0_2, EVENT_0_3, EVENT_0_4, EVENT_0_5, EVENT_0_6,
+EVENT_0_7, EVENT_0_8, EVENT_0_9} 
 
 var tutorial_reset : bool = false
 

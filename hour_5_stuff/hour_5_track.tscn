@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3v85gdrfqqcq"]
+[gd_scene format=3 uid="uid://d3v85gdrfqqcq"]
 
 [ext_resource type="Script" uid="uid://xmrhx7dc4qk" path="res://hour_5_stuff/hour5helper.gd" id="2_quv7f"]
 
-[node name="Hour5Track" type="Node"]
+[node name="Hour5Track" type="Node" unique_id=258330432]
 
-[node name="HelperScript" type="Node" parent="."]
+[node name="HelperScript" type="Node" parent="." unique_id=1401625265]
 script = ExtResource("2_quv7f")
 
-[node name="AkBossMusic" type="Node3D" parent="."]
+[node name="AkBossMusic" type="Node3D" parent="." unique_id=1666749639]

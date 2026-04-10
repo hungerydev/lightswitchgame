@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://q28ueobsmonp"]
+[gd_scene format=3 uid="uid://q28ueobsmonp"]
 
 [ext_resource type="Script" uid="uid://cpon8mvn3rsnv" path="res://ui/master_volume_slider.gd" id="1_lbr8e"]
 [ext_resource type="Script" uid="uid://x0uuemlxuek5" path="res://ui/options_menu.gd" id="1_ogda5"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cjs2e7hhu6pqx" path="res://ui/reset_settings.gd" id="7_q8ppv"]
 [ext_resource type="Script" uid="uid://cbypl1en4yofb" path="res://ui/brightness_example.gd" id="7_sov54"]
 
-[node name="options_menu" type="Control"]
+[node name="options_menu" type="Control" unique_id=404699241]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ogda5")
 
-[node name="flow_container" type="BoxContainer" parent="."]
+[node name="flow_container" type="BoxContainer" parent="." unique_id=1024276640]
 texture_filter = 1
 layout_mode = 1
 offset_left = 38.0
@@ -30,22 +30,22 @@ theme = ExtResource("1_t1lix")
 theme_override_constants/separation = 35
 vertical = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="flow_container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="flow_container" unique_id=90098729]
 layout_mode = 2
 
-[node name="master_volume_text" type="RichTextLabel" parent="flow_container/VBoxContainer"]
+[node name="master_volume_text" type="RichTextLabel" parent="flow_container/VBoxContainer" unique_id=1480790079]
 layout_mode = 2
 tooltip_text = "Change the overvall volume of all sounds"
 theme_override_font_sizes/normal_font_size = 16
 text = "Master Volume"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer" unique_id=863840510]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer" unique_id=66889039]
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -54,23 +54,23 @@ fit_content = true
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="master_volume" type="HSlider" parent="flow_container/VBoxContainer/HBoxContainer"]
+[node name="master_volume" type="HSlider" parent="flow_container/VBoxContainer/HBoxContainer" unique_id=465914398]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("1_lbr8e")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer/HBoxContainer" unique_id=1351862495]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+10"
 fit_content = true
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="flow_container"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="flow_container" unique_id=253180525]
 layout_mode = 2
 
-[node name="jumpscare_volume_text" type="RichTextLabel" parent="flow_container/VBoxContainer2"]
+[node name="jumpscare_volume_text" type="RichTextLabel" parent="flow_container/VBoxContainer2" unique_id=750416897]
 texture_filter = 1
 layout_mode = 2
 tooltip_text = "Change the volume of just the jumpscare audio"
@@ -78,12 +78,12 @@ theme_override_font_sizes/normal_font_size = 16
 text = "Jumpscare Volume"
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="flow_container/VBoxContainer2" unique_id=2139422072]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer" unique_id=782296433]
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -92,20 +92,20 @@ fit_content = true
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="jumpscare_volume" type="HSlider" parent="flow_container/VBoxContainer2/HBoxContainer"]
+[node name="jumpscare_volume" type="HSlider" parent="flow_container/VBoxContainer2/HBoxContainer" unique_id=723831228]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_4gmlt")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="flow_container/VBoxContainer2/HBoxContainer" unique_id=1370096692]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+10"
 fit_content = true
 vertical_alignment = 1
 
-[node name="settings" type="BoxContainer" parent="."]
+[node name="settings" type="BoxContainer" parent="." unique_id=131093642]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -125,17 +125,17 @@ alignment = 2
 vertical = true
 script = ExtResource("5_kyuhg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=910564681]
 layout_mode = 2
 
-[node name="brightness_text" type="RichTextLabel" parent="settings/VBoxContainer"]
+[node name="brightness_text" type="RichTextLabel" parent="settings/VBoxContainer" unique_id=183244643]
 layout_mode = 2
 tooltip_text = "Change the overvall volume of all sounds"
 theme_override_font_sizes/normal_font_size = 16
 text = "Brightness"
 fit_content = true
 
-[node name="brightness_silder" type="HSlider" parent="settings/VBoxContainer"]
+[node name="brightness_silder" type="HSlider" parent="settings/VBoxContainer" unique_id=1996760782]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -145,7 +145,7 @@ step = 0.01
 value = 1.0
 script = ExtResource("5_4ja32")
 
-[node name="BoxContainer" type="BoxContainer" parent="settings"]
+[node name="BoxContainer" type="BoxContainer" parent="settings" unique_id=879523954]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -153,14 +153,14 @@ theme = ExtResource("1_t1lix")
 alignment = 1
 vertical = true
 
-[node name="resolutionOption" type="OptionButton" parent="settings/BoxContainer"]
+[node name="resolutionOption" type="OptionButton" parent="settings/BoxContainer" unique_id=1238126205]
 layout_mode = 2
 tooltip_text = "Changes the resolution of the window while in Windowed Mode"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="settings/BoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="settings/BoxContainer" unique_id=255019828]
 layout_mode = 2
 
-[node name="scaleSlider" type="HSlider" parent="settings/BoxContainer/HBoxContainer"]
+[node name="scaleSlider" type="HSlider" parent="settings/BoxContainer/HBoxContainer" unique_id=49351245]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 tooltip_text = "While in fullscreen, turn this up or down to increase or reduce visual quality"
@@ -169,11 +169,11 @@ max_value = 200.0
 step = 5.0
 value = 100.0
 
-[node name="scaleLabel" type="Label" parent="settings/BoxContainer/HBoxContainer"]
+[node name="scaleLabel" type="Label" parent="settings/BoxContainer/HBoxContainer" unique_id=1472265181]
 layout_mode = 2
 text = "100% - 1920x1080"
 
-[node name="scaler" type="OptionButton" parent="settings/BoxContainer"]
+[node name="scaler" type="OptionButton" parent="settings/BoxContainer" unique_id=28899831]
 layout_mode = 2
 tooltip_text = "Bilinear - Standard option, uses the scaling slider to determine quality
 AMD FSR - Alternative for slow computers, uses the FSR Option dropdown below (WARNING: In low light environments, this can cause artifacting, only use if necessary)"
@@ -188,7 +188,7 @@ popup/item_1/id = 1
 popup/item_2/text = "AMD FSR 2.2"
 popup/item_2/id = 2
 
-[node name="FSROptions" type="OptionButton" parent="settings/BoxContainer"]
+[node name="FSROptions" type="OptionButton" parent="settings/BoxContainer" unique_id=1682329678]
 visible = false
 layout_mode = 2
 selected = 0
@@ -206,43 +206,43 @@ popup/item_3/id = 3
 popup/item_4/text = "Ultra Quality"
 popup/item_4/id = 4
 
-[node name="Fullscreen_Checkbox" type="CheckBox" parent="settings/BoxContainer"]
+[node name="Fullscreen_Checkbox" type="CheckBox" parent="settings/BoxContainer" unique_id=892384142]
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "Sets the game to fullscreen and to the full extents of your monitor. If you don't want the game to completely fill the monitor, turn this off and use the Resolution Options above"
 text = "Fullscreen"
 flat = true
 
-[node name="vsync" type="CheckBox" parent="settings/BoxContainer"]
+[node name="vsync" type="CheckBox" parent="settings/BoxContainer" unique_id=1879407416]
 layout_mode = 2
 tooltip_text = "Attempts to sync framerate to the refresh rate of your device"
 text = "VSYNC Enabled"
 flat = true
 
-[node name="emitters" type="CheckBox" parent="settings/BoxContainer"]
+[node name="emitters" type="CheckBox" parent="settings/BoxContainer" unique_id=1658877682]
 layout_mode = 2
 tooltip_text = "Particles are emitted at different times during the game. Turning this off can help with performance"
 text = "Particles"
 flat = true
 
-[node name="screenSelector" type="OptionButton" parent="settings/BoxContainer"]
+[node name="screenSelector" type="OptionButton" parent="settings/BoxContainer" unique_id=1719723237]
 layout_mode = 2
 tooltip_text = "Changes which screen the game is on"
 
-[node name="go_back" type="Button" parent="settings"]
+[node name="go_back" type="Button" parent="settings" unique_id=491608908]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Go Back"
 
-[node name="version_info" type="Button" parent="settings"]
+[node name="version_info" type="Button" parent="settings" unique_id=730471850]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 text = "v0.21"
 
-[node name="BoxContainer2" type="BoxContainer" parent="."]
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=62834724]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -256,24 +256,24 @@ theme = ExtResource("1_t1lix")
 alignment = 2
 vertical = true
 
-[node name="credits" type="Button" parent="BoxContainer2"]
+[node name="credits" type="Button" parent="BoxContainer2" unique_id=622144105]
 layout_mode = 2
 text = "Credits"
 
-[node name="delete_save" type="Button" parent="BoxContainer2"]
+[node name="delete_save" type="Button" parent="BoxContainer2" unique_id=1309585660]
 custom_minimum_size = Vector2(150, 25)
 layout_mode = 2
 size_flags_vertical = 4
 text = "Delete Save Data
 "
 
-[node name="reset_settings" type="Button" parent="BoxContainer2"]
+[node name="reset_settings" type="Button" parent="BoxContainer2" unique_id=864640468]
 custom_minimum_size = Vector2(150, 25)
 layout_mode = 2
 text = "Reset Settings to Default"
 script = ExtResource("7_q8ppv")
 
-[node name="BoxContainer3" type="BoxContainer" parent="."]
+[node name="BoxContainer3" type="BoxContainer" parent="." unique_id=1887616009]
 visible = false
 layout_mode = 1
 offset_left = 92.0
@@ -284,62 +284,62 @@ theme = ExtResource("1_t1lix")
 alignment = 1
 vertical = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3" unique_id=1178078673]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_vertical = 0
 text = "Difficulty Setting"
 horizontal_alignment = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="BoxContainer3"]
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer3" unique_id=209176739]
 layout_mode = 2
 theme = ExtResource("1_t1lix")
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer3/BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer3/BoxContainer" unique_id=72387330]
 layout_mode = 2
 
-[node name="easy_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer"]
+[node name="easy_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer" unique_id=1173096227]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Easy"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer" unique_id=1477350673]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "More time to find the monster, misclicks are punished less"
 fit_content = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer3/BoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer3/BoxContainer" unique_id=1022853559]
 layout_mode = 2
 
-[node name="medium_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer2"]
+[node name="medium_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer2" unique_id=64921644]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Medium"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer2" unique_id=879693438]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "The intended experience"
 fit_content = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="BoxContainer3/BoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="BoxContainer3/BoxContainer" unique_id=389387173]
 layout_mode = 2
 
-[node name="hard_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer3"]
+[node name="hard_button" type="Button" parent="BoxContainer3/BoxContainer/VBoxContainer3" unique_id=753034919]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Hard"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer3/BoxContainer/VBoxContainer3" unique_id=2027278847]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Less time to find the monster, misclicks are punished more"
 fit_content = true
 
-[node name="BoxContainer4" type="BoxContainer" parent="."]
+[node name="BoxContainer4" type="BoxContainer" parent="." unique_id=1809480292]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -353,7 +353,7 @@ theme = ExtResource("1_t1lix")
 alignment = 1
 vertical = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer4"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer4" unique_id=2083601137]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 0
@@ -362,7 +362,7 @@ text = "Difficulty Setting"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="BoxContainer4"]
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer4" unique_id=1758323034]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme = ExtResource("1_t1lix")
@@ -370,18 +370,18 @@ theme_override_constants/separation = 30
 alignment = 1
 script = ExtResource("5_stwrb")
 
-[node name="left" type="Button" parent="BoxContainer4/BoxContainer"]
+[node name="left" type="Button" parent="BoxContainer4/BoxContainer" unique_id=972571789]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
 text = "<"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer4/BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer4/BoxContainer" unique_id=1557109306]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="difficultySetting" type="RichTextLabel" parent="BoxContainer4/BoxContainer/VBoxContainer"]
+[node name="difficultySetting" type="RichTextLabel" parent="BoxContainer4/BoxContainer/VBoxContainer" unique_id=1990957628]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -392,7 +392,7 @@ text = "[shake]Hard[/shake]
 fit_content = true
 horizontal_alignment = 1
 
-[node name="difficultyDescription" type="RichTextLabel" parent="BoxContainer4/BoxContainer/VBoxContainer"]
+[node name="difficultyDescription" type="RichTextLabel" parent="BoxContainer4/BoxContainer/VBoxContainer" unique_id=363290040]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 16
 text = "More forgiving time limits
@@ -400,13 +400,13 @@ Less punishing misclicks"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="right" type="Button" parent="BoxContainer4/BoxContainer"]
+[node name="right" type="Button" parent="BoxContainer4/BoxContainer" unique_id=1062264219]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
-[node name="brightnessExample" type="BoxContainer" parent="."]
+[node name="brightnessExample" type="BoxContainer" parent="." unique_id=1403086550]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -421,7 +421,7 @@ theme = ExtResource("1_t1lix")
 vertical = true
 script = ExtResource("7_sov54")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="brightnessExample"]
+[node name="RichTextLabel" type="RichTextLabel" parent="brightnessExample" unique_id=1783424833]
 layout_mode = 2
 text = "Adjust the slider until the right logo roughly matches the left logo"
 fit_content = true

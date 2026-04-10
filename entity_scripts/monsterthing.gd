@@ -26,6 +26,12 @@ func _event_start(event) -> void:
 					pcom._set_position(Vector3(-1.25024, 0.431627, 4.18886),Vector3(-0.108582, 0.000953448, 0.137062),Vector3(1, 1, 1))
 					anim_player.play("jawagape")
 					hitbox_pcom._set_position(Vector3(-1.18833, 2.45734, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
+				gb.tutorial.EVENT_0_8:
+					hitbox.monster_active = true
+					vcom._set_visibility_on()
+					pcom._set_position(Vector3(1.96137, -0.782574, 5.39719),Vector3(0.0543694, -2.8717, 0.054893),Vector3(1, 1, 1))
+					anim_player.play("jawagape")
+					hitbox_pcom._set_position(Vector3(1.7496, 1.3409, 2.95474),Vector3(0, 0, 0),Vector3(1.67187, 1.47157, 1.98996))
 		gb.hour1:
 			await sb._light_off
 			hitbox.monster_active = true
@@ -272,6 +278,7 @@ func _fail(string) -> void:
 	elif gb.death:
 		if not fail:
 			get_tree().call_group("Controls", "_disable_controls")
+			hitbox.monster_active = false
 			fail = true
 			am._fail(string)
 			pcom._set_position(Vector3(0, -0.197323, -4.18796),Vector3(0, 0, 0),Vector3(1.20673, 1.34781, 1.0643))

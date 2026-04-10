@@ -9,8 +9,10 @@ func _ready() -> void:
 	sb._event_finished.connect(_disable)
 
 func _chance(_event) -> void:
-	if gf._rc_very_hard():
-		chance_active = true
+	match gb.current_hour:
+		gb.hour1, gb.hour2, gb.hour3, gb.hour4:
+			if gf._rc_very_hard():
+				chance_active = true
 
 func _random_chance() -> void:
 	await sb._light_on
