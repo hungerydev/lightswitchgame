@@ -1,9 +1,13 @@
 extends Control
 
 func _ready() -> void:
+	$CenterContainer/VBoxContainer/github.pressed.connect(_github)
 	$CenterContainer/VBoxContainer/kofi.pressed.connect(_kofi)
 	$CenterContainer/VBoxContainer/youtube.pressed.connect(_youtube)
 	$CenterContainer/VBoxContainer/no.pressed.connect(_no)
+
+func _github() -> void:
+	OS.shell_open("https://github.com/hungerydev/lightswitchgame")
 
 func _kofi() -> void:
 	OS.shell_open("https://ko-fi.com/tetramorre")
