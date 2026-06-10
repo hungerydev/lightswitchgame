@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="TextDeliver" load_steps=2 format=3 uid="uid://citq8y8hqk2q1"]
+[gd_resource type="Resource" script_class="TextDeliver" format=3 uid="uid://citq8y8hqk2q1"]
 
 [ext_resource type="Script" uid="uid://dcuepukutdxbq" path="res://resources/text_deliver_base_class.gd" id="1_6cgi2"]
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v0.3.6
+text = "v1.0
+Thanks so much for playing and checking out these patch notes. I hope you enjoyed. As of now, all three endings and all achievements should be unlockable. If you have feedback (bugs or other), use the Submit Feedback button on the main menu. If you want to support, use the Ways to Support button on the main menu. Feel free to peruse these patch notes to get an idea of how development went. As someone who enjoys reading and laughing at patch notes, there's some pretty funny stuff in here. -tetramorre
+
+v0.3.6
 - Small changes to hour 5
 - Small changes to particle emission
 

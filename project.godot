@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="lightswitch"
-config/version="0.3.6"
+config/version="1.0"
 run/main_scene="uid://b6fa2np4sh5pu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)

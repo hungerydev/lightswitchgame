@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ie47b70a2gu"]
+[gd_scene format=3 uid="uid://c5ie47b70a2gu"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_7dx1k"]
 [ext_resource type="Script" uid="uid://dvikmi4fr1v18" path="res://ui/patch_notes.gd" id="1_7e0dc"]
 [ext_resource type="Resource" uid="uid://citq8y8hqk2q1" path="res://resources/patch_notes.tres" id="3_y0r2n"]
 
-[node name="PatchNotes" type="Control"]
+[node name="PatchNotes" type="Control" unique_id=1513721739]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ theme = ExtResource("1_7dx1k")
 script = ExtResource("1_7e0dc")
 patch_notes = ExtResource("3_y0r2n")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1129408376]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,13 +30,13 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1259930099]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=2046067189]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1603079427]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -45,16 +45,16 @@ text = "Patch Notes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="back" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="back" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=704479736]
 layout_mode = 2
 text = "x"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=23790840]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Notes" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+[node name="Notes" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=597194815]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_vertical = 1
