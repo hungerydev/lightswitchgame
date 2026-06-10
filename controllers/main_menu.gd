@@ -104,6 +104,21 @@ func _instantiate_feedback_response_menu() -> void:
 	sb._menu_light_on.emit()
 	feedback_confirm.visible = true
 
+func instantiate_support_menu() -> void:
+	get_tree().set_group("gc", "menu_active", false)
+	sb._menu_light_off.emit()
+	for child in get_children():
+		if child.name == "main_page":
+			child.queue_free()
+		if child.name == "post_game":
+			child.queue_free()
+	var support_menu = preload("uid://clfcgp46romsp").instantiate()
+	add_child(support_menu)
+	support_menu.visible = false
+	await get_tree().create_timer(0.5, false).timeout
+	sb._menu_light_on.emit()
+	support_menu.visible = true
+
 func _quit_game():
 	get_tree().call_group("Controls", "_disable_controls")
 	get_tree().call_group("gc", "_disable_controls")

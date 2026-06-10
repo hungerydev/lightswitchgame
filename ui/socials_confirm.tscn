@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://clfcgp46romsp"]
+
+[ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_bg67t"]
+[ext_resource type="Script" uid="uid://b5ynr85nubm2y" path="res://ui/socials_confirm.gd" id="2_bg67t"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fhdwj"]
+
+[node name="SocialsConfirm" type="Control" unique_id=809855063]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bg67t")
+script = ExtResource("2_bg67t")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1977824978]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bg67t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=957989456]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="are_u_sure_text" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1399406088]
+custom_minimum_size = Vector2(600, 25)
+layout_mode = 2
+bbcode_enabled = true
+text = "The Light Switch is an open source project, presented for free.
+
+If you want to support, you can use the Ko-fi button below.
+
+You can also check out and support Tetramorre on Youtube as well by clicking the button below.
+
+Both buttons will open a link with your default browser.
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_fhdwj"), null, null, null, null]
+
+[node name="kofi" type="Button" parent="CenterContainer/VBoxContainer" unique_id=717831846]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Ko-fi"
+
+[node name="youtube" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1536884112]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Youtube"
+
+[node name="no" type="Button" parent="CenterContainer/VBoxContainer" unique_id=622137323]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"

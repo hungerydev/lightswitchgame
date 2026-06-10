@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://gg5suj2tw5qv"]
+[gd_scene format=3 uid="uid://gg5suj2tw5qv"]
 
 [ext_resource type="Theme" uid="uid://eds042pwsot7" path="res://ui/ui_theme.tres" id="1_y2fak"]
 [ext_resource type="Script" uid="uid://m7h54jd7ef6w" path="res://ui/main_page.gd" id="2_772va"]
@@ -595,7 +595,7 @@ animations = [{
 "speed": 60.0
 }]
 
-[node name="main_page" type="Control"]
+[node name="main_page" type="Control" unique_id=1189735590]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -605,7 +605,7 @@ grow_vertical = 2
 theme = ExtResource("1_y2fak")
 script = ExtResource("2_772va")
 
-[node name="title" type="AnimatedSprite2D" parent="."]
+[node name="title" type="AnimatedSprite2D" parent="." unique_id=928920849]
 position = Vector2(563, 257)
 scale = Vector2(0.305556, 0.305556)
 sprite_frames = SubResource("SpriteFrames_wvrey")
@@ -614,7 +614,7 @@ frame = 144
 frame_progress = 1.0
 script = ExtResource("123_dqh5x")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=271595032]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -626,37 +626,37 @@ offset_bottom = -63.0
 grow_vertical = 0
 vertical = true
 
-[node name="ChapterSelect" parent="BoxContainer" instance=ExtResource("149_gni4x")]
+[node name="ChapterSelect" parent="BoxContainer" unique_id=743900331 instance=ExtResource("149_gni4x")]
 visible = false
 layout_mode = 2
 
-[node name="CurrentHour" type="RichTextLabel" parent="BoxContainer"]
+[node name="CurrentHour" type="RichTextLabel" parent="BoxContainer" unique_id=2055880914]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Current Chapter: Hour 1"
 fit_content = true
 
-[node name="info" type="RichTextLabel" parent="BoxContainer"]
+[node name="info" type="RichTextLabel" parent="BoxContainer" unique_id=813889]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 26
 text = "Right-Click to turn on the light"
 fit_content = true
 
-[node name="settings" type="Button" parent="BoxContainer"]
+[node name="settings" type="Button" parent="BoxContainer" unique_id=58759554]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Settings"
 alignment = 0
 
-[node name="quit" type="Button" parent="BoxContainer"]
+[node name="quit" type="Button" parent="BoxContainer" unique_id=899266391]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Quit"
 alignment = 0
 
-[node name="demo_text" type="RichTextLabel" parent="."]
+[node name="demo_text" type="RichTextLabel" parent="." unique_id=370565593]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -675,20 +675,27 @@ text = "[wave]DEMO"
 fit_content = true
 script = ExtResource("124_dqh5x")
 
-[node name="BoxContainer2" type="BoxContainer" parent="."]
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=414877836]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 28.0
 offset_right = 174.0
 offset_bottom = 70.0
+vertical = true
 
-[node name="SubmitFeedback" type="Button" parent="BoxContainer2"]
+[node name="SubmitFeedback" type="Button" parent="BoxContainer2" unique_id=270457535]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit Feedback"
 
-[node name="post_game" parent="." instance=ExtResource("151_7sn0k")]
+[node name="Support" type="Button" parent="BoxContainer2" unique_id=785759848]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ways to Support"
+
+[node name="post_game" parent="." unique_id=1888880825 instance=ExtResource("151_7sn0k")]
 layout_mode = 1
 
 [connection signal="item_selected" from="BoxContainer/ChapterSelect" to="." method="_on_chapter_select_item_selected"]
 [connection signal="pressed" from="BoxContainer2/SubmitFeedback" to="." method="_on_submit_feedback_pressed"]
+[connection signal="pressed" from="BoxContainer2/Support" to="." method="_on_support_pressed"]

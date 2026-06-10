@@ -83,3 +83,6 @@ func _on_chapter_select_item_selected(index: int) -> void:
 
 func _on_submit_feedback_pressed() -> void:
 	get_parent()._instantiate_feedback_response_menu()
+
+func _on_support_pressed() -> void:
+	get_parent().instantiate_support_menu()
