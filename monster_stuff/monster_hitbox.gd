@@ -44,7 +44,9 @@ func _on_mouse_exited() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if monster_active:
+	if not control:
+		pass
+	elif monster_active:
 		if event.is_action_pressed("left_click"):
 			if mouse_active:
 				print(str(Time.get_ticks_msec()) + ": " + "you clicked on the monster")

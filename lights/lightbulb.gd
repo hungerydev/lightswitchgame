@@ -74,17 +74,20 @@ func _event_start(event) -> void:
 					_lights_on()
 					await sb._event_finished
 					_lights_off()
+
 				gb.tutorial.EVENT_0_4:
 					_lights_off()
 					control = true
 				gb.tutorial.EVENT_0_5:
 					control = false
 					_lights_off()
+					await sb._event_finished
 				gb.tutorial.EVENT_0_8:
 					_lights_off()
 					control = true
 				_:
 					control = false
+					await sb._event_finished
 		gb.hour1:
 			match event:
 				gb.hour1.EVENT_1_4:
@@ -129,6 +132,7 @@ func _event_start(event) -> void:
 					flicker = true
 					await get_tree().create_timer(1.5, false).timeout
 					_lights_off()
+	print("enabling lightbulb controls")
 	_enable_controls()
 
 func _lights_on() -> void:

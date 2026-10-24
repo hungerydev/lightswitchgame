@@ -1,9 +1,10 @@
 {
-    "godotTools.editorPath.godot4": "C:\\Users\\micha\\Documents\\GodotEngines\\.editor_config\\lightswitch\\Godot_v4.6.1-stable_win64.exe",
+    "godotTools.editorPath.godot4": "/home/tetramorre/Godot/Editors/.editor_config/lightswitch/Godot_v4.6.3-stable_linux.x86_64",
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
     "files.eol": "\n",
     "files.exclude": {
-        "**/*.gd.uid": true
+        "**/*.gd.uid": true,
+        "**/*.cs.uid": true
     }
 }

@@ -12,6 +12,7 @@ var fail: bool = false
 
 	
 func _event_start(event) -> void:
+	hitbox._enable_controls()
 	match gb.current_hour:
 		gb.tutorial:
 			match event:
