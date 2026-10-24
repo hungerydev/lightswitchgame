@@ -4,7 +4,11 @@
 
 [resource]
 script = ExtResource("1_6cgi2")
-text = "v1.0
+text = "v1.1
+- Input handling in tutorial
+- Removed loading screen (it was causing weird issues with linux)
+
+v1.0
 Thanks so much for playing and checking out these patch notes. I hope you enjoyed. As of now, all three endings and all achievements should be unlockable. If you have feedback (bugs or other), use the Submit Feedback button on the main menu. If you want to support, use the Ways to Support button on the main menu. Feel free to peruse these patch notes to get an idea of how development went. As someone who enjoys reading and laughing at patch notes, there's some pretty funny stuff in here. -tetramorre
 
 v0.3.6

@@ -21,17 +21,17 @@ func load(path_to_load: String):
 	ResourceLoader.load_threaded_request(path)
 
 func _process(delta: float) -> void:
-	if not path: return
+	# if not path: return
 
-	var progress = []
-	var status = ResourceLoader.load_threaded_get_status(path, progress)
+	# var progress = []
+	# var status = ResourceLoader.load_threaded_get_status(path, progress)
 
-	if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
-		progress_value = progress[0] * 100
-		progress_bar.value = move_toward(progress_bar.value, progress_value, delta * 60)
+	# if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
+	# 	progress_value = progress[0] * 100
+	# 	progress_bar.value = move_toward(progress_bar.value, progress_value, delta * 60)
 
-	if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
-		progress_bar.value = move_toward(progress_bar.value, 100.0, delta * 150)
+	# if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
+	# 	progress_bar.value = move_toward(progress_bar.value, 100.0, delta * 150)
 	
-		if progress_bar.value >= 99:
-			scene_loaded.emit(path)
+	# 	if progress_bar.value >= 99:
+	scene_loaded.emit(path)

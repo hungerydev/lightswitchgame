@@ -22,12 +22,16 @@ func _ready() -> void:
 	match endings:
 		0:
 			endings_text.text = "Endings: 0/3"
+			endings_text.visible = false
 		1:
 			endings_text.text = "Endings: 1/3"
+			endings_text.visible = true
 		2:
 			endings_text.text = "Endings: 2/3"
+			endings_text.visible = true
 		3:
 			endings_text.text = "Endings: 3/3"
+			endings_text.visible = true
 	if gb.post_game_active:
 		custom_mode.visible = true
 		endless_mode.visible = true

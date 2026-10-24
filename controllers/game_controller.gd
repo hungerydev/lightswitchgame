@@ -89,6 +89,7 @@ func _instantiate_persistent_audio() -> void:
 
 
 func _instantiate_pointer() -> void:
+	print("Creating pointer")
 	var pointer = preload("uid://dciu331xf3kvc").instantiate()
 	pointer.add_to_group("Pointer")
 	add_child(pointer)
@@ -102,17 +103,22 @@ func _instantiate_main_scene() -> Signal:
 	return finished
 	
 func _instantiate_main_menu() -> Signal:
+	print("Instantiating main menu")
 	var menu = preload("uid://dx7ifjjpdwquv").instantiate()
 	add_child(menu)
 	await menu.finished
 	menu_active = true
+	print("Main menu instantiated")
 	return finished
 
 func _initial_main_scene_load() -> void:
+	print("Initializing main scene")
 	var loading: LoadingScreen = preload("uid://dwd7yehtak1ha").instantiate()
 	add_child(loading)
+	print("Loading loading screen scene")
 	loading.load("uid://c2os4xibt88g5")
 	await loading.scene_loaded
+	print("Loading main scene")
 	main_scene = ResourceLoader.load_threaded_get("uid://c2os4xibt88g5")
 	var scene_inst = main_scene.instantiate()
 	scene_inst.add_to_group("Main Scene")
