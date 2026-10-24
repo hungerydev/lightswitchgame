@@ -30,7 +30,7 @@ func _ready() -> void:
 	sb._death_seq_finished.connect(_fail)
 	get_tree().call_group("Loading", "queue_free")
 	control = true
-
+	get_viewport().size_changed.connect(_on_screen_size_change)
 
 func _input(event: InputEvent) -> void:
 	if control:
@@ -168,4 +168,12 @@ func _disable_controls() -> void:
 func _quit_game() -> void:
 	get_tree().call_group("Controls", "_disable_controls")
 	_disable_controls()
+	Wwise.shutdown()
 	get_tree().quit()
+
+func _on_screen_size_change() -> void:
+	var size = get_window().get_size()
+	if size.x > 3840:
+		get_window().set_size(Vector2(3840, size.y))
+	if size.y > 2160:
+		get_window().set_size(Vector2(get_window().get_size().x, 2160))

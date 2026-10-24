@@ -4,7 +4,7 @@ extends Button
 
 
 var defaults: Dictionary =  {
-		"fullscreen": Window.MODE_FULLSCREEN,
+		"fullscreen": Window.MODE_WINDOWED,
 		"resolution": Vector2(1920, 1080),
 		"vsync": DisplayServer.VSYNC_DISABLED,
 		"scaler": Viewport.SCALING_3D_MODE_BILINEAR,

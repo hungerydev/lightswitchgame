@@ -93,7 +93,9 @@ func _add_resolutions() -> void:
 
 func _on_resolution_option_item_selected(index: int) -> void:
 	var id = res_opt_but.get_item_text(index)
+	print(id)
 	get_window().set_size(resolutions[id])
+	print(resolutions[id])
 	_set_resolution_text()
 	_centre_window()
 
