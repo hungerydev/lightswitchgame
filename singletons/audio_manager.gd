@@ -632,9 +632,9 @@ func _fail(string) -> void:
 		_event_end()
 
 	elif gb.death:
-		for child in get_children():
-			if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer") and not child.is_in_group("Credits"):
-				child.queue_free()
+		# for child in get_children():
+		# 	if not child.is_in_group("Ambience") and not child.is_in_group("Randomizer") and not child.is_in_group("Credits"):
+		# 		child.queue_free()
 		# amb1.volume_db = -80
 		# amb2.volume_db = -80
 		# amb3.volume_db = -80
