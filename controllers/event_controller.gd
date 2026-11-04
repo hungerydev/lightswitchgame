@@ -136,6 +136,7 @@ func _start_event() -> void:
 				get_tree().call_group("gc", "_fail")
 			gb.end2:
 				get_tree().call_group("Controls", "_disable_controls")
+				gb.end_2_achieved = true
 				sb._remote_light_off.emit()
 				sb._remote_flashlight_off.emit()
 				var end2track: AnimationPlayer = preload("uid://b3efrih6br3qh").instantiate()

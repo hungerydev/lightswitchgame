@@ -90,6 +90,7 @@ func _event_start(event) -> Signal:
 			gb.current_hour = gb.post_game
 			if gb.max_custom_mode_active:
 				sw._achievement_unlock(sw.achievements.CUSTOM_MODE_COMPLETE)
+				gb.end_2_achieved = true
 				gb.current_hour = gb.end2
 				gb.custom_mode_active = false
 			else:

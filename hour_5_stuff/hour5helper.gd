@@ -79,5 +79,5 @@ func step_nine() -> void:
 func step_ten() -> void:
 	var credits: Control = preload("uid://cux5p13g4uhf7").instantiate()
 	get_parent().add_sibling(credits)
-	ak_boss_music_event.stop_event()
-	get_parent().queue_free()
+	# ak_boss_music_event.stop_event()
+	# get_parent().queue_free()

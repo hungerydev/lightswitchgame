@@ -86,3 +86,9 @@ func _on_submit_feedback_pressed() -> void:
 
 func _on_support_pressed() -> void:
 	get_parent().instantiate_support_menu()
+
+func _instantiate_custom_mode_menu() -> void:
+	get_parent()._instantiate_custom_mode_menu()
+	
+func _instantiate_endless_mode_menu() -> void:
+	get_parent()._instantiate_endless_mode_menu()
