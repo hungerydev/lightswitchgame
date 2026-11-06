@@ -99,6 +99,7 @@ func _on_resolution_option_item_selected(index: int) -> void:
 	_set_resolution_text()
 	_centre_window()
 
+
 func _centre_window() -> void:
 	var centre_screen = DisplayServer.screen_get_position()+DisplayServer.screen_get_size()/2
 	var Window_Size = get_window().get_size_with_decorations()
@@ -121,6 +122,8 @@ func _on_scale_slider_value_changed(value: float) -> void:
 	var res_scale = value/100.0
 	var res_text = str(snapped(get_window().get_size().x*res_scale,1))+" x "+str(snapped(get_window().get_size().y*res_scale,1))
 	scale_label.set_text(str(value)+"% - " + res_text)
+	print(res_text)
+	print(res_scale)
 	get_viewport().set_scaling_3d_scale(res_scale)
 
 

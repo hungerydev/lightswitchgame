@@ -37,7 +37,6 @@ func _ready() -> void:
 		endless_mode.visible = true
 
 	
-# TODO fix these
 func _custom() -> void:
 	get_parent()._instantiate_custom_mode_menu()
 
